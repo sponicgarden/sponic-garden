@@ -1,12 +1,12 @@
 {
-  "version": "v260328.05 4:25p",
-  "release": 28,
-  "sha": "713445c",
-  "fullSha": "713445c4d63c71afec55f72a1578399f78731d45",
+  "version": "v260328.06 10:34p",
+  "release": 29,
+  "sha": "9b4bd23",
+  "fullSha": "9b4bd23f1f3ba428747aaf5813ecbc8a657e6980",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervmrg6be",
-  "pushedAt": "2026-03-28 21:25:08+00",
-  "commits": [{"sha":"88ebd7b","message":"fix: replace broken Marysin warehouse and KPT images with working URLs","author":"Rahul"},{"sha":"713445c","message":"Merge branch 'festive-ramanujan'","author":"Rahul"}]
+  "pushedAt": "2026-03-29 03:34:51+00",
+  "commits": [{"sha":"9b4bd23","message":"fix: replace broken Wawer panoramio image with Miedzylesie photo","author":"Rahul"}]
 }
