@@ -1,12 +1,12 @@
 {
-  "version": "v260328.06 10:34p",
-  "release": 29,
-  "sha": "9b4bd23",
-  "fullSha": "9b4bd23f1f3ba428747aaf5813ecbc8a657e6980",
+  "version": "v260328.07 10:49p",
+  "release": 30,
+  "sha": "9bbbc07",
+  "fullSha": "9bbbc0792a5d06426825bdb392294aab153167ee",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervmrg6be",
-  "pushedAt": "2026-03-29 03:34:51+00",
-  "commits": [{"sha":"9b4bd23","message":"fix: replace broken Wawer panoramio image with Miedzylesie photo","author":"Rahul"}]
+  "pushedAt": "2026-03-29 03:49:36+00",
+  "commits": [{"sha":"9bbbc07","message":"fix: replace all Wikimedia image URLs with direct sources","author":"Rahul"}]
 }
