@@ -333,34 +333,64 @@
     </div>
   </div>
 
-  <!-- 3D Model Renders v5 (Cycles) -->
+  <!-- 3D Model Renders v6 (Clean Rebuild) -->
   <section>
-    <h2>3D Model — Blender v5 (Cycles + AgX)</h2>
-    <p class="section-desc">Cycles path-traced renders with PBR materials, Hosek-Wilkie sky, procedural grass terrain, beveled geometry, and OIDN denoising. Rendered on Alpuca (Mac mini M4) in ~5 min total.</p>
+    <h2>3D Model — Blender v6 (Clean Rebuild)</h2>
+    <p class="section-desc">Complete scene rebuild with proper architectural geometry: walls meet at corners, roofs sit flush, foliage trees, tinted glass with steel frames. Cycles 2048 samples + AgX + OIDN. Rendered on Alpuca (Mac mini M4) in ~2 min.</p>
 
     <div class="grid grid-3">
       <div class="card">
-        <img src="venue/blender-aerial-v5.png" alt="Aerial view — Cycles render" onclick="openLightbox(this)">
+        <img src="renders/v6/v6_CAM_aerial_overview.png" alt="Aerial view — v6 clean rebuild" onclick="openLightbox(this)">
         <div class="info">
           <h3>Aerial View</h3>
-          <p>Top-down orthographic. 7 buildings, central courtyard, 30 raised beds, orchard, 313m running circuit. Real shadows from sun.</p>
-          <span class="tag">Cycles / AgX / 1024 spp</span>
+          <p>Top-down orthographic. 7 buildings around central courtyard, radial covered walkways, garden beds, orchard, spa deck, fire pit, running circuit.</p>
+          <span class="tag">Cycles / AgX / 2048 spp</span>
         </div>
       </div>
       <div class="card">
-        <img src="venue/blender-perspective-v5.png" alt="Perspective view — Cycles render" onclick="openLightbox(this)">
+        <img src="renders/v6/v6_CAM_perspective_hero.png" alt="Perspective hero — v6 clean rebuild" onclick="openLightbox(this)">
         <div class="info">
           <h3>Perspective Hero</h3>
-          <p>35mm lens, full-frame. PBR materials with steel, cedar, concrete, glass. Grass ground extends to horizon.</p>
-          <span class="tag">Cycles / AgX / 1024 spp</span>
+          <p>35mm lens. Steel-frame greenhouse + tinted glass panels, cedar-clad buildings, concrete walkways with post-supported canopies.</p>
+          <span class="tag">Cycles / AgX / 2048 spp</span>
         </div>
       </div>
       <div class="card">
-        <img src="venue/blender-entrance-v5.png" alt="Entrance approach — Cycles render" onclick="openLightbox(this)">
+        <img src="renders/v6/v6_CAM_entrance_approach.png" alt="Entrance approach — v6 clean rebuild" onclick="openLightbox(this)">
         <div class="info">
           <h3>Entrance Approach</h3>
-          <p>South entrance with sky horizon. Welcome Center foreground, Greenhouse visible beyond. Real light bouncing off surfaces.</p>
-          <span class="tag">Cycles / AgX / 1024 spp</span>
+          <p>Visitor's first view from south entrance. Welcome Center foreground, covered walkways radiating to campus beyond. Hosek-Wilkie sky.</p>
+          <span class="tag">Cycles / AgX / 2048 spp</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Previous v5 renders (Cycles upgrade) -->
+  <section>
+    <h2>Previous — Blender v5 (Cycles Upgrade)</h2>
+    <p class="section-desc">First Cycles upgrade of v4 geometry. PBR materials + sky added but geometry issues remained (floating roofs, wall gaps).</p>
+
+    <div class="grid grid-3">
+      <div class="card">
+        <img src="venue/blender-aerial-v5.png" alt="v5 aerial — Cycles" onclick="openLightbox(this)">
+        <div class="info">
+          <h3>v5 Aerial</h3>
+          <span class="tag">Superseded by v6</span>
+        </div>
+      </div>
+      <div class="card">
+        <img src="venue/blender-perspective-v5.png" alt="v5 perspective — Cycles" onclick="openLightbox(this)">
+        <div class="info">
+          <h3>v5 Perspective</h3>
+          <span class="tag">Superseded by v6</span>
+        </div>
+      </div>
+      <div class="card">
+        <img src="venue/blender-entrance-v5.png" alt="v5 entrance — Cycles" onclick="openLightbox(this)">
+        <div class="info">
+          <h3>v5 Entrance</h3>
+          <span class="tag">Superseded by v6</span>
         </div>
       </div>
     </div>
