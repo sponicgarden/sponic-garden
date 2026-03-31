@@ -1,12 +1,12 @@
 {
-  "version": "v260330.01 9:20p",
-  "release": 31,
-  "sha": "87e8d3b",
-  "fullSha": "87e8d3b3db3be7b1fe0721c62b79948caed06c34",
+  "version": "v260330.02 10:49p",
+  "release": 32,
+  "sha": "99830b1",
+  "fullSha": "99830b1bfbfd63a8c95ab32de4f6dfa28b7e18ca",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervmrg6be",
-  "pushedAt": "2026-03-31 02:20:59+00",
-  "commits": [{"sha":"87e8d3b","message":"style: make concept section more visual with icon grid, images, and callout cards","author":"Rahul"}]
+  "pushedAt": "2026-03-31 03:49:57+00",
+  "commits": [{"sha":"99830b1","message":"feat: add 5 aerial botanical building plan variations to branding page","author":"Rahul"}]
 }
