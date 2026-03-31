@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Venue Design — Sponic Gardens</title>
+  <meta name="description" content="Sponic Gardens venue design: 2-acre garden campus with 7 purpose-built buildings, 3D models, and AI-generated concept art.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" type="image/svg+xml">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500&display=swap');
+
+    :root {
+      --bg: #f4f7f1;
+      --surface: #ffffff;
+      --surface2: #eef3ea;
+      --surface3: #e2eadc;
+      --border: #c4d4ba;
+      --border-light: #d8e3cf;
+      --text: #1a2412;
+      --text-soft: #2d3b22;
+      --text-dim: #4a6040;
+      --text-muted: #7a9168;
+      --green: #2d6a1e;
+      --green-soft: rgba(45, 106, 30, 0.07);
+      --green-border: rgba(45, 106, 30, 0.20);
+      --emerald: #047857;
+      --earth: #92400e;
+      --sky: #0369a1;
+      --radius: 10px;
+      --radius-lg: 14px;
+      --shadow: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-md: 0 2px 8px rgba(0,0,0,0.06);
+      --shadow-lg: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ─── Nav ─── */
+    nav {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border-light);
+      padding: 0.75rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    nav a:hover { color: var(--green); }
+    nav .brand {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      color: var(--text);
+      letter-spacing: 0.5px;
+    }
+    nav .sep { color: var(--border); }
+
+    /* ─── Layout ─── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+
+    header {
+      text-align: center;
+      padding: 3rem 0 2rem;
+    }
+    header h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.4rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+    }
+    header .subtitle {
+      color: var(--text-dim);
+      font-size: 1.05rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* ─── Stats bar ─── */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      padding: 1.5rem 0;
+      margin: 1rem 0 2rem;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .stat {
+      text-align: center;
+    }
+    .stat .num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: var(--green);
+    }
+    .stat .label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* ─── Section ─── */
+    section {
+      margin-bottom: 3rem;
+    }
+    section h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      margin-bottom: 0.4rem;
+    }
+    section .section-desc {
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ─── Image grid ─── */
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+    .grid-2 { grid-template-columns: 1fr 1fr; }
+    .grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+    @media (max-width: 768px) {
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: box-shadow 0.2s;
+    }
+    .card:hover { box-shadow: var(--shadow-lg); }
+
+    .card img {
+      width: 100%;
+      display: block;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .card img:hover { opacity: 0.92; }
+
+    .card .info {
+      padding: 1rem 1.2rem;
+    }
+    .card .info h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    .card .info p {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
+    .card .info .tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-family: 'JetBrains Mono', monospace;
+      background: var(--green-soft);
+      color: var(--green);
+      border: 1px solid var(--green-border);
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      margin-top: 0.5rem;
+    }
+
+    /* ─── Building table ─── */
+    .building-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow);
+    }
+    .building-table th {
+      background: var(--surface2);
+      text-align: left;
+      padding: 0.7rem 1rem;
+      font-weight: 600;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-dim);
+      border-bottom: 1px solid var(--border);
+    }
+    .building-table td {
+      padding: 0.6rem 1rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .building-table tr:last-child td { border-bottom: none; }
+    .building-table tr:hover { background: var(--green-soft); }
+    .building-table .sqm {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--green);
+    }
+    .building-table .color-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+
+    /* ─── Tech table ─── */
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .tech-card {
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      padding: 1rem 1.2rem;
+      box-shadow: var(--shadow);
+    }
+    .tech-card h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    .tech-card .count {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.4rem;
+      color: var(--emerald);
+    }
+    .tech-card p {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+    }
+
+    /* ─── Lightbox ─── */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.88);
+      z-index: 200;
+      justify-content: center;
+      align-items: center;
+      cursor: zoom-out;
+    }
+    .lightbox.active { display: flex; }
+    .lightbox img {
+      max-width: 92vw;
+      max-height: 92vh;
+      border-radius: 6px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+    }
+
+    /* ─── Footer ─── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      border-top: 1px solid var(--border-light);
+      margin-top: 2rem;
+    }
+    footer a { color: var(--green); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="brand">Sponic Gardens</a>
+  <span class="sep">/</span>
+  <a href="/branding.html">Branding</a>
+  <span class="sep">/</span>
+  <a href="/design/venue.html" style="color: var(--green);">Venue Design</a>
+</nav>
+
+<div class="container">
+
+  <header>
+    <h1>Venue Design</h1>
+    <p class="subtitle">2-acre garden campus with 7 purpose-built buildings connected by covered walkways. Sound, screens, and AI sensors permeate every space.</p>
+  </header>
+
+  <!-- Stats -->
+  <div class="stats">
+    <div class="stat">
+      <div class="num">2 ac</div>
+      <div class="label">Total Site</div>
+    </div>
+    <div class="stat">
+      <div class="num">8,100</div>
+      <div class="label">sqm Site</div>
+    </div>
+    <div class="stat">
+      <div class="num">950</div>
+      <div class="label">sqm Indoor (12%)</div>
+    </div>
+    <div class="stat">
+      <div class="num">7,150</div>
+      <div class="label">sqm Outdoor (88%)</div>
+    </div>
+    <div class="stat">
+      <div class="num">7</div>
+      <div class="label">Buildings</div>
+    </div>
+    <div class="stat">
+      <div class="num">313m</div>
+      <div class="label">Running Circuit</div>
+    </div>
+  </div>
+
+  <!-- 3D Model Renders v5 (Cycles) -->
+  <section>
+    <h2>3D Model — Blender v5 (Cycles + AgX)</h2>
+    <p class="section-desc">Cycles path-traced renders with PBR materials, Hosek-Wilkie sky, procedural grass terrain, beveled geometry, and OIDN denoising. Rendered on Alpuca (Mac mini M4) in ~5 min total.</p>
+
+    <div class="grid grid-3">
+      <div class="card">
+        <img src="venue/blender-aerial-v5.png" alt="Aerial view — Cycles render" onclick="openLightbox(this)">
+        <div class="info">
+          <h3>Aerial View</h3>
+          <p>Top-down orthographic. 7 buildings, central courtyard, 30 raised beds, orchard, 313m running circuit. Real shadows from sun.</p>
+          <span class="tag">Cycles / AgX / 1024 spp</span>
+        </div>
+      </div>
+      <div class="card">
+        <img src="venue/blender-perspective-v5.png" alt="Perspective view — Cycles render" onclick="openLightbox(this)">
+        <div class="info">
+          <h3>Perspective Hero</h3>
+          <p>35mm lens, full-frame. PBR materials with steel, cedar, concrete, glass. Grass ground extends to horizon.</p>
+          <span class="tag">Cycles / AgX / 1024 spp</span>
+        </div>
+      </div>
+      <div class="card">
+        <img src="venue/blender-entrance-v5.png" alt="Entrance approach — Cycles render" onclick="openLightbox(this)">
+        <div class="info">
+          <h3>Entrance Approach</h3>
+          <p>South entrance with sky horizon. Welcome Center foreground, Greenhouse visible beyond. Real light bouncing off surfaces.</p>
+          <span class="tag">Cycles / AgX / 1024 spp</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Previous v4 renders (EEVEE baseline) -->
+  <section>
+    <h2>Previous — Blender v4 (EEVEE baseline)</h2>
+    <p class="section-desc">Initial blockout renders for comparison. Flat colors, no sky, no ground plane, no PBR materials.</p>
+
+    <div class="grid grid-3">
+      <div class="card">
+        <img src="venue/blender-aerial-v4.png" alt="v4 aerial — EEVEE" onclick="openLightbox(this)">
+        <div class="info">
+          <h3>v4 Aerial</h3>
+          <span class="tag">EEVEE (superseded)</span>
+        </div>
+      </div>
+      <div class="card">
+        <img src="venue/blender-perspective-v4.png" alt="v4 perspective — EEVEE" onclick="openLightbox(this)">
+        <div class="info">
+          <h3>v4 Perspective</h3>
+          <span class="tag">EEVEE (superseded)</span>
+        </div>
+      </div>
+      <div class="card">
+        <img src="venue/blender-entrance-v4.png" alt="v4 entrance — EEVEE" onclick="openLightbox(this)">
+        <div class="info">
+          <h3>v4 Entrance</h3>
+          <span class="tag">EEVEE (superseded)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Concept Floor Plans -->
+  <section>
+    <h2>AI Concept Floor Plans</h2>
+    <p class="section-desc">Gemini-generated infographic floor plans exploring layout, data flows, and room organization. These informed the 3D model above.</p>
+
+    <div class="grid grid-3">
+      <div class="card">
+        <img src="venue/floor-plan-flat.jpg" alt="Flat floor plan with tech overlays" onclick="openLightbox(this)">
+        <div class="info">
+          <h3>Flat Floor Plan</h3>
+          <p>Realistic rectangular layout with color-coded rooms. Sound, screen, and sensor overlays shown as transparent layers throughout all rooms.</p>
+          <span class="tag">gemini-3-pro-image-preview</span>
+        </div>
+      </div>
+      <div class="card">
+        <img src="venue/floor-plan-isometric.jpg" alt="Isometric floor plan" onclick="openLightbox(this)">
+        <div class="info">
+          <h3>Isometric Floor Plan</h3>
+          <p>L-shaped warehouse with numbered rooms, detailed interiors, and legend for three overlay systems (sound, screens, sensors).</p>
+          <span class="tag">gemini-3-pro-image-preview</span>
+        </div>
+      </div>
+      <div class="card">
+        <img src="venue/floor-plan-exploded.jpg" alt="Exploded layered view" onclick="openLightbox(this)">
+        <div class="info">
+          <h3>Exploded Layer View</h3>
+          <p>Three stacked layers: Physical Spaces, Sound &amp; Screens, AI &amp; Sensors. Shows how digital systems blanket the entire facility.</p>
+          <span class="tag">gemini-3-pro-image-preview</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Building Program -->
+  <section>
+    <h2>Building Program</h2>
+    <p class="section-desc">Each service gets its own building. Sound, screens, and sensors are throughout every building and outdoor space — not confined to any single area.</p>
+
+    <table class="building-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Building</th>
+          <th>Function</th>
+          <th>Size</th>
+          <th>Key Features</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><span class="color-dot" style="background: #8aad7a;"></span>Welcome Center</td>
+          <td>Lobby, AI Hub, Admin</td>
+          <td class="sqm">80 sqm</td>
+          <td>Main entrance, central AI server room, reception</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><span class="color-dot" style="background: #2d8517;"></span>Greenhouse</td>
+          <td>Growing Room</td>
+          <td class="sqm">300 sqm</td>
+          <td>Glass walls + roof, hydroponic racks, soil sensors, LED grow lights</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><span class="color-dot" style="background: #b89430;"></span>Dining Hall</td>
+          <td>Eating Area</td>
+          <td class="sqm">150 sqm</td>
+          <td>Farm-to-table from Greenhouse, communal tables, open kitchen</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><span class="color-dot" style="background: #4066a6;"></span>Education Pavilion</td>
+          <td>Conferences, Workshops</td>
+          <td class="sqm">100 sqm</td>
+          <td>4 screens (most of any building), tiered seating, projection</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><span class="color-dot" style="background: #8a7250;"></span>Maker Studio</td>
+          <td>Builder / Coworking</td>
+          <td class="sqm">100 sqm</td>
+          <td>3D printers, CNC router, workbenches, material storage</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td><span class="color-dot" style="background: #af5c2e;"></span>Movement Studio</td>
+          <td>Workout, Yoga</td>
+          <td class="sqm">120 sqm</td>
+          <td>Glass walls (open-air capable), free weights, yoga mats, mirrors</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td><span class="color-dot" style="background: #3a95b8;"></span>Spa House</td>
+          <td>Thermal Wellness</td>
+          <td class="sqm">100 sqm</td>
+          <td>Sauna (3x4m), cold plunge (2x3m), 2 hot tubs (2.2m dia), wood deck</td>
+        </tr>
+        <tr>
+          <td>+</td>
+          <td><span class="color-dot" style="background: #664020;"></span>Coffee Bar</td>
+          <td>Cafe Kiosk</td>
+          <td class="sqm">30 sqm</td>
+          <td>Open-air pavilion near Maker Studio, 4 outdoor tables</td>
+        </tr>
+        <tr style="font-weight: 600; background: var(--surface2);">
+          <td></td>
+          <td>Total Indoor</td>
+          <td></td>
+          <td class="sqm">~980 sqm</td>
+          <td>12% of 2-acre site</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Tech Overlay -->
+  <section>
+    <h2>Tech Overlay — Pervasive, Not Siloed</h2>
+    <p class="section-desc">Sound, video, and AI sensing are infrastructure layers that run through every building and outdoor space. Education Pavilion has the densest screen deployment.</p>
+
+    <div class="tech-grid">
+      <div class="tech-card">
+        <div class="count">20</div>
+        <h4>Speakers</h4>
+        <p>Distributed throughout all 7 buildings + 5 outdoor zones. Zoned audio control via Sonos.</p>
+      </div>
+      <div class="tech-card">
+        <div class="count">12</div>
+        <h4>Screens</h4>
+        <p>4 in Education Pavilion, 1 per other building, 2 outdoor. Content managed by AI Hub.</p>
+      </div>
+      <div class="tech-card">
+        <div class="count">1</div>
+        <h4>AI Hub</h4>
+        <p>Central server room in Welcome Center. Sensor mesh, environmental control, member flow optimization.</p>
+      </div>
+      <div class="tech-card">
+        <div class="count">313m</div>
+        <h4>Running Circuit</h4>
+        <p>Perimeter loop with distance markers every 50m. 2.5m wide, all-weather surface.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Outdoor Features -->
+  <section>
+    <h2>Outdoor Program (88% of site)</h2>
+    <p class="section-desc">The garden is the venue. Buildings are islands in a landscape of growing, gathering, and movement.</p>
+
+    <div class="tech-grid">
+      <div class="tech-card">
+        <div class="count">30</div>
+        <h4>Raised Garden Beds</h4>
+        <p>Community growing plots (3.2m x 1.4m each). NW quadrant, 5 rows x 6 beds.</p>
+      </div>
+      <div class="tech-card">
+        <div class="count">15</div>
+        <h4>Fruit Trees</h4>
+        <p>Orchard in NE quadrant. 3 rows x 5 trees, 4m spacing.</p>
+      </div>
+      <div class="tech-card">
+        <div class="count">1</div>
+        <h4>Fire Pit + Seating Ring</h4>
+        <p>1.2m fire pit with 4.5m seating circle. Central outdoor gathering.</p>
+      </div>
+      <div class="tech-card">
+        <div class="count">1</div>
+        <h4>Herb Spiral</h4>
+        <p>3m diameter herb garden near Dining Hall. Permaculture design.</p>
+      </div>
+      <div class="tech-card">
+        <div class="count">1</div>
+        <h4>Yoga Lawn</h4>
+        <p>12m x 12m manicured lawn. East side, outdoor classes.</p>
+      </div>
+      <div class="tech-card">
+        <div class="count">1</div>
+        <h4>Reflecting Pool</h4>
+        <p>12m x 4m water feature. North approach, near Greenhouse.</p>
+      </div>
+      <div class="tech-card">
+        <div class="count">1</div>
+        <h4>Outdoor Dining Pergola</h4>
+        <p>10m x 8m covered pergola with 4 posts. Near fire pit.</p>
+      </div>
+      <div class="tech-card">
+        <div class="count">1</div>
+        <h4>Central Fountain</h4>
+        <p>2m diameter fountain at courtyard center. Hub of 6 radial paths.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  Sponic Gardens Venue Design &mdash; Generated 2026-03-31 &mdash;
+  3D models: <a href="#">Blender 5.1</a> on Alpuca (Mac mini M4) &mdash;
+  Concepts: gemini-3-pro-image-preview &mdash;
+  <a href="/">Home</a> &middot; <a href="/branding.html">Branding</a>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+function openLightbox(el) {
+  document.getElementById('lightbox-img').src = el.src;
+  document.getElementById('lightbox').classList.add('active');
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeLightbox();
+});
+</script>
+
+</body>
+</html>
