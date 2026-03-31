@@ -103,6 +103,10 @@ CAMERA_DESCRIPTIONS = {
     "CAM_firepit_evening": "Fire pit area with circular seating and string lights",
     "CAM_coffee_bar": "Outdoor coffee bar with cedar posts and counter stools",
     "CAM_spa_detail": "Spa detail — square cedar saunas with windows, hot tubs, cold plunge",
+    "CAM_greenhouse_interior": "Interior of main greenhouse — growing beds, steel trusses, glass walls",
+    "CAM_garden_ground": "Ground-level garden view with depth of field — planting beds, pathways",
+    "CAM_walkway": "Walkway corridor perspective — covered pathway between buildings",
+    "CAM_sauna_eyelevel": "Eye-level view of square cedar saunas with windows and hot tubs",
 }
 
 
@@ -117,35 +121,48 @@ def main():
     uploaded = 0
     errors = 0
 
-    # Upload structural renders
-    structural_renders = sorted(V11_DIR.glob("v11_CAM_*.png"))
-    print(f"  Structural renders: {len(structural_renders)}")
-    for f in structural_renders:
-        camera = f.stem.replace("v11_", "")
-        storage_path = f"renders/v11/{f.name}"
-        print(f"\n  Uploading {f.name}...")
-        public_url = upload_file(f, storage_path)
-        if public_url:
-            record = {
-                "filename": f.name,
-                "bucket": BUCKET,
-                "storage_path": storage_path,
-                "public_url": public_url,
-                "description": f"v11 structural render — {CAMERA_DESCRIPTIONS.get(camera, camera)}",
-                "category": "render",
-                "ai_model": "blender-cycles",
-                "prompt": "Blender Cycles 2048spp, 2K, clean daylight, square saunas, industrial-garden aesthetic",
-                "keywords": "{" + ",".join(["v11", "structural", "blender", "cycles", camera.lower(), "sponic-garden"]) + "}",
-                "mime_type": "image/png",
-                "file_size_bytes": f.stat().st_size,
-                "is_active": True,
-            }
-            if insert_asset(record):
-                uploaded += 1
+    # Upload all structural render sets
+    STRUCTURAL_SETS = [
+        ("v11", "v11_CAM_*.png", "v11_", "daylight", "Blender Cycles 2048spp, 2K, clean daylight, square saunas, industrial-garden aesthetic"),
+        ("v11-golden", "v11_golden_CAM_*.png", "v11_golden_", "golden hour", "Blender Cycles 2048spp, 2K, golden hour sunset (12° elevation, warm orange), industrial-garden aesthetic"),
+        ("v11-newcams", "v11_CAM_*.png", "v11_", "new angle", "Blender Cycles 2048spp, 2K, clean daylight, new camera angles with DOF"),
+        ("v11-bluehour", "v11_blue_CAM_*.png", "v11_blue_", "blue hour", "Blender Cycles 2048spp, 2K, blue hour (-3° sun, deep blue sky)"),
+    ]
+
+    for dirname, pattern, prefix, variant, prompt_text in STRUCTURAL_SETS:
+        struct_dir = PROJECT_ROOT / "design" / "renders" / dirname
+        if not struct_dir.exists():
+            continue
+        structural_renders = sorted(struct_dir.glob(pattern))
+        if not structural_renders:
+            continue
+        print(f"\n  {variant.title()} structural renders: {len(structural_renders)}")
+        for f in structural_renders:
+            camera = f.stem.replace(prefix, "")
+            storage_path = f"renders/{dirname}/{f.name}"
+            print(f"\n  Uploading {f.name}...")
+            public_url = upload_file(f, storage_path)
+            if public_url:
+                record = {
+                    "filename": f.name,
+                    "bucket": BUCKET,
+                    "storage_path": storage_path,
+                    "public_url": public_url,
+                    "description": f"v11 {variant} structural render — {CAMERA_DESCRIPTIONS.get(camera, camera)}",
+                    "category": "render",
+                    "ai_model": "blender-cycles",
+                    "prompt": prompt_text,
+                    "keywords": "{" + ",".join(["v11", "structural", "blender", "cycles", variant.replace(" ", "-"), camera.lower(), "sponic-garden"]) + "}",
+                    "mime_type": "image/png",
+                    "file_size_bytes": f.stat().st_size,
+                    "is_active": True,
+                }
+                if insert_asset(record):
+                    uploaded += 1
+                else:
+                    errors += 1
             else:
                 errors += 1
-        else:
-            errors += 1
 
     # Upload all photorealistic render sets
     PHOTO_SETS = [
