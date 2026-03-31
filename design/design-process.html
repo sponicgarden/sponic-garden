@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Render Pipeline — Sponic Gardens</title>
+  <meta name="description" content="How Sponic Gardens v11 photorealistic renders were created: Blender 3D structural models enhanced by Gemini AI image generation.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" type="image/svg+xml">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500&display=swap');
+
+    :root {
+      --bg: #f4f7f1;
+      --surface: #ffffff;
+      --surface2: #eef3ea;
+      --surface3: #e2eadc;
+      --border: #c4d4ba;
+      --border-light: #d8e3cf;
+      --text: #1a2412;
+      --text-soft: #2d3b22;
+      --text-dim: #4a6040;
+      --text-muted: #7a9168;
+      --green: #2d6a1e;
+      --green-soft: rgba(45, 106, 30, 0.07);
+      --green-border: rgba(45, 106, 30, 0.20);
+      --emerald: #047857;
+      --earth: #92400e;
+      --sky: #0369a1;
+      --radius: 10px;
+      --radius-lg: 14px;
+      --shadow: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-md: 0 2px 8px rgba(0,0,0,0.06);
+      --shadow-lg: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    nav {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border-light);
+      padding: 0.75rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a { color: var(--text-dim); text-decoration: none; font-size: 0.85rem; font-weight: 500; }
+    nav a:hover { color: var(--green); }
+    nav .brand { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--text); letter-spacing: 0.5px; }
+    nav .sep { color: var(--border); }
+
+    .container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+
+    header { text-align: center; padding: 3rem 0 2rem; }
+    header h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.2rem;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+    header p { color: var(--text-dim); font-size: 1rem; max-width: 600px; margin: 0 auto; }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      color: var(--text);
+      margin: 2.5rem 0 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-soft);
+      margin: 1.25rem 0 0.5rem;
+    }
+
+    p, li { color: var(--text-soft); font-size: 0.92rem; }
+    p + p { margin-top: 0.75rem; }
+
+    ul, ol { padding-left: 1.5rem; margin: 0.5rem 0; }
+    li { margin-bottom: 0.35rem; }
+
+    /* Pipeline steps */
+    .pipeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 1.5rem 0;
+    }
+    .step {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 0;
+      position: relative;
+    }
+    .step-marker {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .step-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--green);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+    .step-line {
+      width: 2px;
+      flex: 1;
+      background: var(--border);
+      min-height: 20px;
+    }
+    .step:last-child .step-line { display: none; }
+    .step-content {
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      margin-bottom: 1rem;
+      box-shadow: var(--shadow);
+    }
+    .step-content h3 { margin-top: 0; }
+
+    /* Tool/decision cards */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .tool-card {
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      box-shadow: var(--shadow);
+    }
+    .tool-card h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+    }
+    .tool-card p { font-size: 0.82rem; color: var(--text-dim); }
+
+    .tag {
+      display: inline-block;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      background: var(--green-soft);
+      color: var(--green);
+      border: 1px solid var(--green-border);
+    }
+    .tag.earth { background: rgba(146,64,14,0.07); color: var(--earth); border-color: rgba(146,64,14,0.20); }
+    .tag.sky { background: rgba(3,105,161,0.07); color: var(--sky); border-color: rgba(3,105,161,0.20); }
+
+    code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      background: var(--surface2);
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      border: 1px solid var(--border-light);
+    }
+
+    pre {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      background: #1a2412;
+      color: #c4d4ba;
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius);
+      overflow-x: auto;
+      margin: 0.75rem 0;
+      line-height: 1.5;
+    }
+    pre .comment { color: #7a9168; }
+    pre .string { color: #a8d08d; }
+    pre .keyword { color: #7eb8da; }
+
+    /* Decision table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.75rem 0;
+      font-size: 0.85rem;
+    }
+    th {
+      text-align: left;
+      padding: 0.5rem 0.75rem;
+      background: var(--surface2);
+      border: 1px solid var(--border-light);
+      font-weight: 600;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    td {
+      padding: 0.5rem 0.75rem;
+      border: 1px solid var(--border-light);
+      color: var(--text-soft);
+    }
+    tr:nth-child(even) td { background: var(--surface2); }
+
+    /* Comparison */
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .compare img {
+      width: 100%;
+      border-radius: var(--radius);
+      border: 1px solid var(--border-light);
+    }
+    .compare .label {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 0.35rem;
+    }
+
+    .callout {
+      background: var(--green-soft);
+      border: 1px solid var(--green-border);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+    }
+    .callout p { color: var(--text-soft); }
+    .callout strong { color: var(--green); }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      margin-top: 3rem;
+      border-top: 1px solid var(--border-light);
+      color: var(--text-muted);
+      font-size: 0.82rem;
+    }
+    footer a { color: var(--green); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .container { padding: 1rem; }
+      header h1 { font-size: 1.6rem; }
+      .compare { grid-template-columns: 1fr; }
+      .card-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="../index.html" class="brand">Sponic Gardens</a>
+    <span class="sep">|</span>
+    <a href="venue.html">Venue Design</a>
+    <a href="design-process.html" style="color: var(--green); font-weight: 600;">Process</a>
+  </nav>
+
+  <div class="container">
+    <header>
+      <h1>v11 Render Pipeline</h1>
+      <p>How we created photorealistic venue renders from a structural 3D model using Blender + Gemini AI. Every step, tool, and design decision documented.</p>
+    </header>
+
+    <!-- Overview -->
+    <h2>Pipeline Overview</h2>
+    <p>The v11 pipeline combines precise 3D structural modeling with AI image generation to produce photorealistic renders that accurately represent the venue layout while looking like real photographs.</p>
+
+    <div class="pipeline">
+      <div class="step">
+        <div class="step-marker"><div class="step-num">1</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <h3>3D Structural Model <span class="tag">Blender + Python</span></h3>
+          <p>Build the entire Sponic Garden campus programmatically in Blender using Python. Every building, walkway, plant, light, and fixture is placed via script with exact coordinates in meters.</p>
+          <p>Script: <code>scripts/blender/build_v11_rapid.py</code> (~900 lines)</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-marker"><div class="step-num">2</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <h3>Cycles Render <span class="tag earth">Mac mini M4 GPU</span></h3>
+          <p>Render 8 camera views using Blender Cycles path tracing on a Mac mini M4 (Alpuca). 2K resolution, 2048 samples per pixel, clean daylight lighting, OIDN denoising. ~4-6 hours total render time.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-marker"><div class="step-num">3</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <h3>AI Photorealistic Enhancement <span class="tag sky">Gemini</span></h3>
+          <p>Each structural render is sent to Gemini image generation as a layout/depth guide with a camera-specific prompt describing the desired photorealistic result. The AI adds real-world textures, vegetation detail, atmospheric lighting, and material realism while preserving the exact structural layout.</p>
+          <p>Model: <code>gemini-2.0-flash-preview-image-generation</code></p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-marker"><div class="step-num">4</div><div class="step-line"></div></div>
+        <div class="step-content">
+          <h3>Storage &amp; Display <span class="tag">Supabase + GitHub Pages</span></h3>
+          <p>All images uploaded to Supabase storage with full metadata (prompt, model, camera, keywords). Displayed side-by-side (structural vs. photorealistic) on the venue design page.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tools -->
+    <h2>Tools &amp; Infrastructure</h2>
+    <div class="card-grid">
+      <div class="tool-card">
+        <h4>Blender 4.x</h4>
+        <p>Open-source 3D modeling. Used headlessly via Python API (<code>bpy</code>) to build scene geometry, materials, cameras, and lights programmatically. No manual modeling.</p>
+      </div>
+      <div class="tool-card">
+        <h4>Blender Cycles</h4>
+        <p>Physically-based path tracer. Produces accurate lighting, reflections, glass refraction, caustics, and shadows. Metal GPU acceleration on Apple Silicon.</p>
+      </div>
+      <div class="tool-card">
+        <h4>Mac mini M4 (Alpuca)</h4>
+        <p>Dedicated render machine. GPU rendering via Metal. SSH-accessible at 192.168.1.200. Runs renders unattended in background via <code>nohup</code>.</p>
+      </div>
+      <div class="tool-card">
+        <h4>Gemini Image Generation</h4>
+        <p>Google's multimodal AI model. Accepts an input image + text prompt, generates a new image preserving the structural layout while adding photorealism. Used via <code>google-genai</code> Python SDK.</p>
+      </div>
+      <div class="tool-card">
+        <h4>Supabase Storage</h4>
+        <p>Cloud object storage for all generated images. Each upload includes metadata row in <code>image_assets</code> table with prompt, model, keywords, and file details.</p>
+      </div>
+      <div class="tool-card">
+        <h4>Claude Code</h4>
+        <p>AI coding assistant that wrote all scripts, managed the pipeline, coordinated between local machine and render server, and built this documentation page.</p>
+      </div>
+    </div>
+
+    <!-- Design Decisions -->
+    <h2>Design Decisions</h2>
+
+    <h3>Why structural renders first, not pure AI generation?</h3>
+    <p>Pure text-to-image AI generation cannot reliably produce a specific venue layout with exact building positions, sizes, and spatial relationships. By rendering the structural model first, we get pixel-perfect layout accuracy. The AI step then adds visual realism without rearranging anything.</p>
+
+    <h3>Why square saunas?</h3>
+    <p>v9 and v10 used barrel (cylindrical) saunas. v11 switches to square/rectangular cedar cabins with glass windows. This matches the industrial-garden aesthetic better &mdash; the geometric forms echo the corrugated metal buildings, and the windows allow warm interior light to glow outward, enhancing the evening atmosphere.</p>
+
+    <h3>Why Cycles instead of EEVEE?</h3>
+    <p>EEVEE renders in seconds but produces flat, game-engine-quality output. Cycles path tracing produces physically accurate lighting, glass refraction, water caustics, and depth of field &mdash; giving the AI enhancement step much better depth and material cues to work with. With 8 hours available on the M4 GPU, the quality trade-off is worthwhile.</p>
+
+    <h3>Why clean daylight instead of sunset?</h3>
+    <p>v9 used dramatic sunset lighting for mood. v11 uses neutral daylight (sun elevation 50&deg;, near-white color) for structural clarity. When AI-enhancing, the model can more accurately interpret building materials, vegetation, and spatial relationships from an evenly-lit scene. The AI can add atmospheric mood on top.</p>
+
+    <table>
+      <thead>
+        <tr><th>Decision</th><th>Choice</th><th>Rationale</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Render engine</td>
+          <td>Cycles (GPU)</td>
+          <td>Physically accurate lighting gives AI better depth/material cues</td>
+        </tr>
+        <tr>
+          <td>Resolution</td>
+          <td>2560 &times; 1440 (2K)</td>
+          <td>Sharp enough for AI input, half the render time of 4K</td>
+        </tr>
+        <tr>
+          <td>Samples</td>
+          <td>2048 spp</td>
+          <td>Clean enough with OIDN denoising; 4&times; faster than v10's 8192</td>
+        </tr>
+        <tr>
+          <td>Sauna shape</td>
+          <td>Square with windows</td>
+          <td>Matches industrial-garden aesthetic, allows warm interior glow</td>
+        </tr>
+        <tr>
+          <td>Lighting</td>
+          <td>Clean daylight</td>
+          <td>Structural clarity for AI interpretation; AI adds mood</td>
+        </tr>
+        <tr>
+          <td>AI model</td>
+          <td>Gemini 2.0 Flash Preview</td>
+          <td>Supports image-to-image, preserves structural layout</td>
+        </tr>
+        <tr>
+          <td>Camera count</td>
+          <td>8 views</td>
+          <td>Aerial + hero + 4 key areas + 2 details covers all features</td>
+        </tr>
+        <tr>
+          <td>Color management</td>
+          <td>AgX Punchy</td>
+          <td>Film-like tonemap, handles bright skies and dark interiors well</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Camera Details -->
+    <h2>Camera Setup (8 Views)</h2>
+    <table>
+      <thead>
+        <tr><th>Camera</th><th>Lens</th><th>Purpose</th><th>Special</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>CAM_aerial</td><td>Orthographic</td><td>Full campus overhead</td><td>ortho_scale: 100</td></tr>
+        <tr><td>CAM_hero</td><td>24mm</td><td>Main marketing perspective</td><td>Elevated angle, wide view</td></tr>
+        <tr><td>CAM_pool_spa</td><td>32mm</td><td>Pool and spa area</td><td>DOF f/3.5</td></tr>
+        <tr><td>CAM_entrance</td><td>24mm</td><td>Eye-level arrival experience</td><td>Ground level, looking forward</td></tr>
+        <tr><td>CAM_greenhouse_detail</td><td>85mm</td><td>Greenhouse close-up</td><td>DOF f/2.0, telephoto compression</td></tr>
+        <tr><td>CAM_firepit_evening</td><td>35mm</td><td>Fire pit social area</td><td>String lights in frame</td></tr>
+        <tr><td>CAM_coffee_bar</td><td>50mm</td><td>Coffee bar atmosphere</td><td>DOF f/2.8</td></tr>
+        <tr><td>CAM_spa_detail</td><td>50mm</td><td>Square saunas + hot tubs</td><td>DOF f/2.8</td></tr>
+      </tbody>
+    </table>
+
+    <!-- Scene Composition -->
+    <h2>Scene Composition</h2>
+    <p>The 3D model contains ~1000+ objects organized into 12 collections:</p>
+
+    <table>
+      <thead>
+        <tr><th>Collection</th><th>Contents</th><th>Object Count</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Buildings</td><td>7 buildings + coffee bar: walls, floors, roofs, doors, windows</td><td>~120</td></tr>
+        <tr><td>Trusses</td><td>Exposed A-frame steel roof trusses on all buildings</td><td>~80</td></tr>
+        <tr><td>Pool</td><td>Swimming pool, deck, coping, steps, loungers, umbrellas</td><td>~30</td></tr>
+        <tr><td>Spa</td><td>2 square saunas, 2 hot tubs, cold plunge, deck</td><td>~25</td></tr>
+        <tr><td>Landscape</td><td>Ground plane, garden beds, trees, hedges, shrubs, flowers, fire pit, fountain, reflecting pool</td><td>~250</td></tr>
+        <tr><td>Plants</td><td>Potted plants at entrances, climbing wall vines</td><td>~150</td></tr>
+        <tr><td>Furniture</td><td>Benches, dining tables, stools, yoga deck</td><td>~30</td></tr>
+        <tr><td>StringLights</td><td>22 string light runs with emissive bulbs + point lights</td><td>~180</td></tr>
+        <tr><td>Paths</td><td>Covered walkways, stone radial paths, running circuit</td><td>~40</td></tr>
+        <tr><td>Interiors</td><td>Greenhouse tables/shelves/plants, movement studio furniture</td><td>~30</td></tr>
+        <tr><td>Site</td><td>250m ground plane with procedural grass texture</td><td>1</td></tr>
+      </tbody>
+    </table>
+
+    <!-- Material System -->
+    <h2>Material System</h2>
+    <p>All materials are procedural PBR (physically based rendering) &mdash; no image textures. This keeps the script self-contained and the .blend file small.</p>
+
+    <h3>Material types used:</h3>
+    <ul>
+      <li><strong>pbr_tex</strong> &mdash; Noise-based color variation + bump mapping. Used for wood, concrete, bark, gravel, soil.</li>
+      <li><strong>pbr_corrugated</strong> &mdash; Wave texture bump for corrugated metal ridges. Signature industrial look.</li>
+      <li><strong>pbr_brick</strong> &mdash; Procedural brick pattern with mortar. Used on Welcome Center and Dining Hall.</li>
+      <li><strong>pbr (simple)</strong> &mdash; Flat color with roughness/metallic. Used for glass, water, cushions, flowers.</li>
+    </ul>
+
+    <h3>Key material palette:</h3>
+    <table>
+      <thead><tr><th>Material</th><th>Roughness</th><th>Metallic</th><th>Use</th></tr></thead>
+      <tbody>
+        <tr><td>Steel Frame</td><td>0.30</td><td>0.90</td><td>Trusses, posts, legs</td></tr>
+        <tr><td>Corrugated Metal</td><td>0.45</td><td>0.70</td><td>Building walls, roofing</td></tr>
+        <tr><td>Brick</td><td>0.88</td><td>0.00</td><td>Welcome Center, Dining Hall</td></tr>
+        <tr><td>Cedar Wood</td><td>0.70</td><td>0.00</td><td>Walkway posts, roof, saunas</td></tr>
+        <tr><td>Glass (tinted)</td><td>0.05</td><td>0.00</td><td>Greenhouse walls (alpha 0.30)</td></tr>
+        <tr><td>Glass (warm)</td><td>0.03</td><td>0.00</td><td>Windows with interior glow</td></tr>
+        <tr><td>Pool Water</td><td>0.01</td><td>0.00</td><td>Pool surface (alpha 0.60)</td></tr>
+        <tr><td>Sauna Wood</td><td>0.55</td><td>0.00</td><td>Square sauna walls</td></tr>
+      </tbody>
+    </table>
+
+    <!-- AI Enhancement -->
+    <h2>AI Enhancement Process</h2>
+    <p>Each structural render is sent to Gemini as an image-to-image input with a camera-specific prompt. The prompt describes:</p>
+    <ul>
+      <li>The transformation goal (3D diagram &rarr; photorealistic photograph)</li>
+      <li>Camera-specific scene details (what buildings/features are visible)</li>
+      <li>Material descriptions (corrugated metal, brick, cedar, glass)</li>
+      <li>The industrial-garden aesthetic (exposed trusses, string lights, dense greenery)</li>
+      <li>Strict layout preservation instruction</li>
+      <li>Photography style (Canon EOS R5, architectural magazine quality)</li>
+    </ul>
+
+    <div class="callout">
+      <p><strong>Critical constraint:</strong> Every prompt includes "Keep the EXACT same layout, building positions, sizes, and shapes" and "do NOT rearrange, add, or remove any buildings or features." The AI adds visual realism to existing geometry &mdash; it does not redesign the venue.</p>
+    </div>
+
+    <h3>Example prompt (CAM_spa_detail):</h3>
+    <pre><span class="string">"Transform this close-up 3D render into a photorealistic
+photograph of the spa area at Sponic Garden. TWO SQUARE
+wooden sauna cabins with glass windows (NOT barrel saunas),
+cedar hot tubs, and a concrete cold plunge pool. Wooden deck
+underneath. Hedges provide privacy. Industrial Spa House
+building visible behind. Keep the EXACT same layout, sauna
+shapes (rectangular/square with flat roof and windows), hot
+tub positions, and camera angle. Add realistic cedar wood
+grain, steam rising from hot tubs, warm window glow from
+inside saunas, wet deck surfaces, and lush surrounding
+plantings."</span></pre>
+
+    <!-- Render Settings -->
+    <h2>Render Configuration</h2>
+    <pre><span class="comment"># Engine</span>
+<span class="keyword">engine</span>:         Cycles (GPU / Metal)
+<span class="keyword">device</span>:         Mac mini M4 — Apple Silicon GPU
+<span class="keyword">tile_size</span>:      256 <span class="comment">(optimized for Metal)</span>
+
+<span class="comment"># Quality</span>
+<span class="keyword">resolution</span>:     2560 x 1440 (2K)
+<span class="keyword">samples</span>:        2048 spp
+<span class="keyword">adaptive</span>:       threshold 0.005
+<span class="keyword">denoiser</span>:       OpenImageDenoise (Accurate)
+
+<span class="comment"># Bounces</span>
+<span class="keyword">max_bounces</span>:    24
+<span class="keyword">diffuse</span>:        6
+<span class="keyword">glossy</span>:         8
+<span class="keyword">transmission</span>:   12  <span class="comment">(glass/water)</span>
+<span class="keyword">caustics</span>:       reflective + refractive
+
+<span class="comment"># Lighting</span>
+<span class="keyword">sky</span>:            Hosek-Wilkie (sun 50deg, clear)
+<span class="keyword">sun_energy</span>:     4.0  <span class="comment">(near-white daylight)</span>
+<span class="keyword">fill_energy</span>:    1.5  <span class="comment">(cool blue fill)</span>
+<span class="keyword">exposure</span>:       0.3
+<span class="keyword">view_transform</span>: AgX Punchy
+
+<span class="comment"># Color</span>
+<span class="keyword">color_space</span>:    AgX
+<span class="keyword">look</span>:           Punchy</pre>
+
+    <!-- Version History -->
+    <h2>Version History</h2>
+    <table>
+      <thead><tr><th>Version</th><th>Engine</th><th>Key Changes</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>v4</td><td>EEVEE</td><td>Initial blockout, flat colors, no sky</td><td>Superseded</td></tr>
+        <tr><td>v6</td><td>Cycles</td><td>Clean geometry, first proper materials</td><td>Superseded</td></tr>
+        <tr><td>v7</td><td>Cycles</td><td>Added amenities, pool, paths</td><td>Superseded</td></tr>
+        <tr><td>v8</td><td>Cycles</td><td>Organic trees, golden hour lighting</td><td>Superseded</td></tr>
+        <tr><td>v9</td><td>Cycles</td><td>Industrial-garden aesthetic, trusses, string lights, barrel saunas</td><td>Previous</td></tr>
+        <tr><td>v10</td><td>Cycles 4K</td><td>8192 spp, interiors, doubled vegetation, maximum quality</td><td>Previous</td></tr>
+        <tr><td><strong>v11</strong></td><td>Cycles + Gemini AI</td><td>Square saunas with windows, clean daylight, AI photorealistic enhancement</td><td><strong>Current</strong></td></tr>
+      </tbody>
+    </table>
+
+    <!-- File Map -->
+    <h2>File Map</h2>
+    <pre><span class="comment"># Scripts</span>
+scripts/blender/build_v11_rapid.py    <span class="comment"># Blender scene builder</span>
+scripts/gemini_enhance_renders.py     <span class="comment"># Gemini AI enhancement</span>
+scripts/upload_renders_supabase.py    <span class="comment"># Supabase storage upload</span>
+
+<span class="comment"># Outputs</span>
+design/renders/v11/                   <span class="comment"># Structural Blender renders</span>
+design/renders/v11-photo/             <span class="comment"># AI-enhanced photorealistic</span>
+design/renders/v11-photo/enhancement_metadata.json
+
+<span class="comment"># Display</span>
+design/venue.html                     <span class="comment"># Side-by-side gallery</span>
+design/design-process.html            <span class="comment"># This page</span>
+
+<span class="comment"># Remote</span>
+paca@192.168.1.200:~/Projects/sponic-garden-3d/
+  scripts/build_v11_rapid.py          <span class="comment"># Deployed to render machine</span>
+  renders/v11/                        <span class="comment"># Raw render output</span>
+  sponic-garden-v11.blend             <span class="comment"># Saved .blend file</span></pre>
+
+    <footer>
+      <p>Sponic Gardens &mdash; <a href="venue.html">Back to Venue Design</a></p>
+    </footer>
+  </div>
+</body>
+</html>
