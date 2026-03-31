@@ -224,6 +224,7 @@
       'scene-23': '2026-03-22', 'scene-24': '2026-03-22', 'scene-25': '2026-03-22',
       'scene-26': '2026-03-22', 'scene-27': '2026-03-22', 'scene-28': '2026-03-22', 'scene-29': '2026-03-22',
       'scene-30': '2026-03-22', 'scene-31': '2026-03-22', 'scene-32': '2026-03-22',
+      'aerial-01': '2026-03-30', 'aerial-02': '2026-03-30', 'aerial-03': '2026-03-30', 'aerial-04': '2026-03-30', 'aerial-05': '2026-03-30',
       'hp-01': '2026-03-22', 'hp-02': '2026-03-22', 'hp-03': '2026-03-22', 'hp-04': '2026-03-22',
       'hp-05': '2026-03-22', 'hp-06': '2026-03-22', 'hp-07': '2026-03-22', 'hp-08': '2026-03-22',
       'hp-09': '2026-03-22', 'hp-10': '2026-03-22', 'hp-11': '2026-03-22', 'hp-12': '2026-03-22', 'hp-13': '2026-03-22', 'hp-14': '2026-03-22', 'hp-15': '2026-03-22',
@@ -240,6 +241,13 @@
 
     // All assets with metadata
     const ASSETS = [
+      // Aerial Botanical — symmetrical building plan showing data flows
+      { id: 'aerial-01-leaf-mandala', cat: 'aerial-botanical', title: 'Leaf Mandala', desc: 'Radial symmetry, ornamental leaf/flower shape. Glowing teal data veins connect six zone petals to central AI hub. Deep green palette.', model: 'gemini-3-pro-image-preview', ext: 'jpg' },
+      { id: 'aerial-02-blueprint', cat: 'aerial-botanical', title: 'Blueprint', desc: 'Dark navy technical drawing. Six petal wings from central atrium. White architectural lines, teal data flows, compass rose, scale bar.', model: 'gemini-3-pro-image-preview', ext: 'jpg' },
+      { id: 'aerial-03-botanical-plate', cat: 'aerial-botanical', title: 'Botanical Plate', desc: '18th-century scientific illustration style. Watercolor washes, ink data-flow lines as plant vasculature. Sage, cream, copper palette.', model: 'gemini-3-pro-image-preview', ext: 'jpg' },
+      { id: 'aerial-04-infographic', cat: 'aerial-botanical', title: 'Infographic', desc: 'Clean modern flat design. Hexagonal symmetry, color-coded zones (green/blue/orange/amber/purple/grey). Data metrics, iconic illustrations.', model: 'gemini-3-pro-image-preview', ext: 'jpg' },
+      { id: 'aerial-05-drone-shot', cat: 'aerial-botanical', title: 'Drone Shot', desc: 'Photorealistic golden-hour drone photo. Six greenhouse wings from central courtyard. Glass rooftops, holographic data overlays, formal gardens.', model: 'gemini-3-pro-image-preview', ext: 'jpg' },
+
       // SPONIC GARDENS faithful biotech icons — no brains, no AI text (135-139)
       { id: '139-wm-gardens-v7-bio-digital', cat: 'wordmark', batch: 'gardens-faithful-v7', title: 'Faithful — Bio-Digital Harmony', desc: 'Closest to original proportions. Microchip, DNA, mycelium, IoT mesh, molecular structures inside letters. Elegant.', model: 'gemini-3-pro-image-preview', ext: 'jpg', logo: true },
       { id: '138-wm-gardens-v7-data-garden', cat: 'wordmark', batch: 'gardens-faithful-v7', title: 'Faithful — Data Garden', desc: 'Servers, cameras, sensors on SPONIC; orchids, DNA, molecules, seed pods on GARDENS. Clean digital-to-botanical split.', model: 'gemini-3-pro-image-preview', ext: 'jpg', logo: true },
@@ -573,6 +581,7 @@
       'warehouse-ai-pro': 'AI Warehouse V2 — Gemini Pro (Kiosks, Screens, Sensors, Speakers)',
       'warehouse-ai-flash': 'AI Warehouse V2 — Gemini Flash (Same Scenes, Compare Quality)',
       'homepage-sections': 'Homepage Section Illustrations — Full Business Plan Narrative',
+      'aerial-botanical': 'Aerial Botanical — Symmetrical Building Plan with Data Flows',
     };
 
     // Group key: batch if present, otherwise cat. This lets generation batches
