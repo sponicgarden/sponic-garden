@@ -1,12 +1,12 @@
 {
-  "version": "v260331.03 1:29a",
-  "release": 35,
-  "sha": "6a26d10",
-  "fullSha": "6a26d104590669b89f8c98d6b9c86dd88da41f6b",
+  "version": "v260331.04 1:59a",
+  "release": 36,
+  "sha": "f7dbc36",
+  "fullSha": "f7dbc36248d5df8fbcfc7e3120f2819c66abd568",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervmrg6be",
-  "pushedAt": "2026-03-31 06:29:35+00",
-  "commits": [{"sha":"1cec395","message":"feat: v7+v8 venue renders — pool, spa, organic trees, golden hour","author":"Rahul"},{"sha":"6a26d10","message":"Merge branch 'nervous-poincare'","author":"Rahul"}]
+  "pushedAt": "2026-03-31 06:59:00+00",
+  "commits": [{"sha":"7e758ea","message":"feat: v9 industrial-garden renders — trusses, corrugated metal, string lights","author":"Rahul"},{"sha":"f7dbc36","message":"Merge branch 'nervous-poincare'","author":"Rahul"}]
 }
