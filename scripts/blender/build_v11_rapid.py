@@ -21,6 +21,13 @@ from mathutils import Vector
 
 random.seed(42)
 
+# Unbuffered stdout so logs appear in real-time
+import sys
+try:
+    sys.stdout.reconfigure(line_buffering=True)
+except:
+    pass
+
 print("=" * 60)
 print("  SPONIC GARDEN v11 — AI-ASSIST STRUCTURAL RENDERS")
 print("=" * 60)
@@ -1106,8 +1113,8 @@ subdiv_count = 0
 for obj in bpy.data.objects:
     if obj.type == 'MESH':
         mod = obj.modifiers.new('Subdiv', 'SUBSURF')
-        mod.levels = 2
-        mod.render_levels = 2
+        mod.levels = 1
+        mod.render_levels = 1
         subdiv_count += 1
 print(f"  Added Subdivision Surface (level 2) to {subdiv_count} mesh objects")
 
@@ -1288,6 +1295,12 @@ scene.render.image_settings.file_format = 'PNG'
 build_time = time.time() - build_start
 print(f"\nScene built in {build_time:.1f}s")
 print(f"Total objects: {len(bpy.data.objects)}")
+
+# Save .blend file FIRST so extended pipeline can use it even if render crashes
+save_path = os.path.expanduser("~/Projects/sponic-garden-3d/sponic-garden-v11.blend")
+bpy.ops.wm.save_as_mainfile(filepath=save_path)
+print(f"Blend file saved: {save_path}")
+
 print("")
 print("=" * 60)
 print("  STARTING RENDERS — 8 cameras at 2K / 2048spp")
@@ -1299,22 +1312,26 @@ cam_names = [
     'CAM_greenhouse_detail', 'CAM_firepit_evening', 'CAM_coffee_bar', 'CAM_spa_detail',
 ]
 
+# Skip cameras that already have output (resume support)
 for ci, cam_name in enumerate(cam_names):
+    out_path = os.path.join(RENDER_DIR, f"v11_{cam_name}.png")
+    if os.path.exists(out_path):
+        print(f"\n  [{ci+1}/{len(cam_names)}] {cam_name} — already exists, skipping")
+        continue
+
     cam_obj = bpy.data.objects.get(cam_name)
     if not cam_obj:
         print(f"  WARNING: {cam_name} not found, skipping")
         continue
     scene.camera = cam_obj
-    out_path = os.path.join(RENDER_DIR, f"v11_{cam_name}.png")
     scene.render.filepath = out_path
     render_start = time.time()
     print(f"\n  [{ci+1}/{len(cam_names)}] Rendering {cam_name}...")
+    sys.stdout.flush()
     bpy.ops.render.render(write_still=True)
     render_time = time.time() - render_start
     print(f"  Saved: {out_path} ({render_time:.0f}s)")
-
-save_path = os.path.expanduser("~/Projects/sponic-garden-3d/sponic-garden-v11.blend")
-bpy.ops.wm.save_as_mainfile(filepath=save_path)
+    sys.stdout.flush()
 
 total_time = time.time() - build_start
 print(f"\n{'=' * 60}")

@@ -135,7 +135,7 @@ def main():
                 "category": "render",
                 "ai_model": "blender-cycles",
                 "prompt": "Blender Cycles 2048spp, 2K, clean daylight, square saunas, industrial-garden aesthetic",
-                "keywords": json.dumps(["v11", "structural", "blender", "cycles", camera.lower(), "sponic-garden"]),
+                "keywords": "{" + ",".join(["v11", "structural", "blender", "cycles", camera.lower(), "sponic-garden"]) + "}",
                 "mime_type": "image/png",
                 "file_size_bytes": f.stat().st_size,
                 "is_active": True,
@@ -147,36 +147,49 @@ def main():
         else:
             errors += 1
 
-    # Upload photorealistic renders
-    photo_renders = sorted(V11_PHOTO_DIR.glob("v11_photo_*.png"))
-    print(f"\n  Photorealistic renders: {len(photo_renders)}")
-    for f in photo_renders:
-        camera = f.stem.replace("v11_photo_", "")
-        storage_path = f"renders/v11-photo/{f.name}"
-        prompt = get_prompt_for_camera(camera)
-        print(f"\n  Uploading {f.name}...")
-        public_url = upload_file(f, storage_path)
-        if public_url:
-            record = {
-                "filename": f.name,
-                "bucket": BUCKET,
-                "storage_path": storage_path,
-                "public_url": public_url,
-                "description": f"v11 photorealistic render — {CAMERA_DESCRIPTIONS.get(camera, camera)}",
-                "category": "render",
-                "ai_model": "gemini-2.0-flash-preview-image-generation",
-                "prompt": prompt or "Gemini image-to-image photorealistic enhancement from Blender structural render",
-                "keywords": json.dumps(["v11", "photorealistic", "gemini", "ai-enhanced", camera.lower(), "sponic-garden"]),
-                "mime_type": "image/png",
-                "file_size_bytes": f.stat().st_size,
-                "is_active": True,
-            }
-            if insert_asset(record):
-                uploaded += 1
+    # Upload all photorealistic render sets
+    PHOTO_SETS = [
+        ("v11-photo", "v11_photo_*.png", "v11_photo_", "daylight"),
+        ("v11-golden-photo", "v11_golden_photo_*.png", "v11_golden_photo_", "golden hour"),
+        ("v11-bluehour-photo", "v11_blue_photo_*.png", "v11_blue_photo_", "blue hour"),
+        ("v11-newcams-photo", "v11_newcam_photo_*.png", "v11_newcam_photo_", "new angle"),
+    ]
+
+    for dirname, pattern, prefix, variant in PHOTO_SETS:
+        photo_dir = PROJECT_ROOT / "design" / "renders" / dirname
+        if not photo_dir.exists():
+            continue
+        photo_renders = sorted(photo_dir.glob(pattern))
+        if not photo_renders:
+            continue
+        print(f"\n  {variant.title()} photorealistic renders: {len(photo_renders)}")
+        for f in photo_renders:
+            camera = f.stem.replace(prefix, "")
+            storage_path = f"renders/{dirname}/{f.name}"
+            prompt = get_prompt_for_camera(camera)
+            print(f"\n  Uploading {f.name}...")
+            public_url = upload_file(f, storage_path)
+            if public_url:
+                record = {
+                    "filename": f.name,
+                    "bucket": BUCKET,
+                    "storage_path": storage_path,
+                    "public_url": public_url,
+                    "description": f"v11 {variant} photorealistic — {CAMERA_DESCRIPTIONS.get(camera, camera)}",
+                    "category": "render",
+                    "ai_model": "gemini-2.5-flash-image",
+                    "prompt": prompt or f"Gemini image-to-image {variant} photorealistic enhancement",
+                    "keywords": "{" + ",".join(["v11", "photorealistic", "gemini", variant.replace(" ", "-"), camera.lower(), "sponic-garden"]) + "}",
+                    "mime_type": "image/png",
+                    "file_size_bytes": f.stat().st_size,
+                    "is_active": True,
+                }
+                if insert_asset(record):
+                    uploaded += 1
+                else:
+                    errors += 1
             else:
                 errors += 1
-        else:
-            errors += 1
 
     print(f"\n{'=' * 60}")
     print(f"  UPLOAD COMPLETE")

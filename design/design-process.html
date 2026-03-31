@@ -556,29 +556,48 @@ plantings."</span></pre>
         <tr><td>v9</td><td>Cycles</td><td>Industrial-garden aesthetic, trusses, string lights, barrel saunas</td><td>Previous</td></tr>
         <tr><td>v10</td><td>Cycles 4K</td><td>8192 spp, interiors, doubled vegetation, maximum quality</td><td>Previous</td></tr>
         <tr><td><strong>v11</strong></td><td>Cycles + Gemini AI</td><td>Square saunas with windows, clean daylight, AI photorealistic enhancement</td><td><strong>Current</strong></td></tr>
+        <tr><td>v11 ext</td><td>Cycles + Gemini AI</td><td>Golden hour (5 cameras), blue hour (2 cameras), 4 new angles, geometry passes (depth/normal/AO/mist)</td><td><strong>Current</strong></td></tr>
       </tbody>
     </table>
 
     <!-- File Map -->
     <h2>File Map</h2>
     <pre><span class="comment"># Scripts</span>
-scripts/blender/build_v11_rapid.py    <span class="comment"># Blender scene builder</span>
-scripts/gemini_enhance_renders.py     <span class="comment"># Gemini AI enhancement</span>
+scripts/blender/build_v11_rapid.py    <span class="comment"># Blender scene builder (1275 objects)</span>
+scripts/blender/render_v11_passes.py  <span class="comment"># Geometry passes (depth/normal/AO/mist)</span>
+scripts/blender/render_v11_golden.py  <span class="comment"># Golden hour re-lighting (5 cameras)</span>
+scripts/blender/render_v11_newcams.py <span class="comment"># 4 new camera angles</span>
+scripts/blender/render_v11_bluehour.py<span class="comment"># Blue hour twilight (2 cameras)</span>
+scripts/render_v11_all.sh             <span class="comment"># Alpuca orchestrator (chains all phases)</span>
+scripts/gemini_enhance_renders.py     <span class="comment"># Gemini AI enhancement (all variants)</span>
 scripts/upload_renders_supabase.py    <span class="comment"># Supabase storage upload</span>
+scripts/poll_and_enhance.sh           <span class="comment"># Auto-pull from Alpuca + enhance</span>
 
-<span class="comment"># Outputs</span>
+<span class="comment"># Outputs — Daylight (8 cameras)</span>
 design/renders/v11/                   <span class="comment"># Structural Blender renders</span>
 design/renders/v11-photo/             <span class="comment"># AI-enhanced photorealistic</span>
-design/renders/v11-photo/enhancement_metadata.json
+
+<span class="comment"># Outputs — Extended Pipeline</span>
+design/renders/v11-golden/            <span class="comment"># Golden hour structural</span>
+design/renders/v11-golden-photo/      <span class="comment"># Golden hour AI-enhanced</span>
+design/renders/v11-bluehour/          <span class="comment"># Blue hour structural</span>
+design/renders/v11-bluehour-photo/    <span class="comment"># Blue hour AI-enhanced</span>
+design/renders/v11-newcams/           <span class="comment"># New angles structural</span>
+design/renders/v11-newcams-photo/     <span class="comment"># New angles AI-enhanced</span>
+design/renders/v11-passes/            <span class="comment"># Geometry passes (depth/normal/AO/mist)</span>
 
 <span class="comment"># Display</span>
-design/venue.html                     <span class="comment"># Side-by-side gallery</span>
+design/venue.html                     <span class="comment"># Side-by-side gallery (all variants)</span>
 design/design-process.html            <span class="comment"># This page</span>
 
-<span class="comment"># Remote</span>
+<span class="comment"># Remote (Alpuca Mac mini M4)</span>
 paca@192.168.1.200:~/Projects/sponic-garden-3d/
   scripts/build_v11_rapid.py          <span class="comment"># Deployed to render machine</span>
   renders/v11/                        <span class="comment"># Raw render output</span>
+  renders/v11-golden/                 <span class="comment"># Golden hour output</span>
+  renders/v11-bluehour/               <span class="comment"># Blue hour output</span>
+  renders/v11-newcams/                <span class="comment"># New angles output</span>
+  renders/v11-passes/                 <span class="comment"># Geometry passes output</span>
   sponic-garden-v11.blend             <span class="comment"># Saved .blend file</span></pre>
 
     <footer>

@@ -1,0 +1,149 @@
+{
+  "version": "v11",
+  "model": "gemini-2.5-flash-image",
+  "timestamp": "2026-03-31T05:31:51Z",
+  "sets_processed": [
+    "daylight",
+    "golden",
+    "bluehour",
+    "newcams"
+  ],
+  "results": [
+    {
+      "camera": "CAM_aerial",
+      "lighting": "daylight",
+      "success": false,
+      "error": "404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-2.0-flash-preview-image-generation is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}"
+    },
+    {
+      "camera": "CAM_aerial",
+      "lighting": "daylight",
+      "model": "gemini-2.5-flash-image",
+      "prompt": "Transform this overhead architectural 3D diagram into a photorealistic aerial photograph taken by a drone on a sunny day. This is Sponic Garden, a 2-acre garden campus with 7 buildings, a swimming pool, spa area, greenhouse, fire pit, walkways, and dense gardens. Industrial-garden aesthetic: exposed steel trusses, corrugated metal roofing, brick and cedar buildings, dense green vegetation, stone walkways, string lights. Keep the EXACT same layout, building positions, sizes, and shapes. Add reali",
+      "input_file": "/Users/rahulio/Documents/CodingProjects/sponic-garden/.claude/worktrees/focused-zhukovsky/design/renders/v11/v11_CAM_aerial.png",
+      "output_file": "/Users/rahulio/Documents/CodingProjects/sponic-garden/.claude/worktrees/focused-zhukovsky/design/renders/v11-photo/v11_photo_CAM_aerial.png",
+      "passes_used": [],
+      "text_response": "",
+      "success": true,
+      "file_size_bytes": 2103783,
+      "mime_type": "image/png"
+    },
+    {
+      "camera": "CAM_hero",
+      "lighting": "daylight",
+      "model": "gemini-2.5-flash-image",
+      "prompt": "Transform this 3D architectural perspective into a photorealistic photograph of a garden campus venue called Sponic Garden. Shot from an elevated angle showing the full campus. Industrial-garden aesthetic: exposed steel trusses visible on buildings, corrugated metal walls and roofing, red brick facades, natural cedar wood, dense climbing vines on walls, lush green gardens, string lights between buildings. Keep the EXACT same layout, building positions, camera angle, and proportions. Add rich mat",
+      "input_file": "/Users/rahulio/Documents/CodingProjects/sponic-garden/.claude/worktrees/focused-zhukovsky/design/renders/v11/v11_CAM_hero.png",
+      "output_file": "/Users/rahulio/Documents/CodingProjects/sponic-garden/.claude/worktrees/focused-zhukovsky/design/renders/v11-photo/v11_photo_CAM_hero.png",
+      "passes_used": [],
+      "text_response": "",
+      "success": true,
+      "file_size_bytes": 1960246,
+      "mime_type": "image/png"
+    },
+    {
+      "camera": "CAM_pool_spa",
+      "lighting": "daylight",
+      "model": "gemini-2.5-flash-image",
+      "prompt": "Transform this 3D render into a photorealistic photograph of a pool and spa area at Sponic Garden. Shows a rectangular swimming pool with turquoise water, sun loungers with canvas umbrellas, and nearby spa area with square cedar saunas (with glass windows), hot tubs, and cold plunge pool. Industrial-garden setting with corrugated metal and brick buildings visible in background. Dense hedges provide privacy. String lights overhead. Keep the EXACT same layout and camera angle. Add realistic water ",
+      "input_file": "/Users/rahulio/Documents/CodingProjects/sponic-garden/.claude/worktrees/focused-zhukovsky/design/renders/v11/v11_CAM_pool_spa.png",
+      "output_file": "/Users/rahulio/Documents/CodingProjects/sponic-garden/.claude/worktrees/focused-zhukovsky/design/renders/v11-photo/v11_photo_CAM_pool_spa.png",
+      "passes_used": [],
+      "text_response": "",
+      "success": true,
+      "file_size_bytes": 2521617,
+      "mime_type": "image/png"
+    },
+    {
+      "camera": "CAM_entrance",
+      "lighting": "daylight",
+      "model": "gemini-2.5-flash-image",
+      "prompt": "Transform this ground-level 3D render into a photorealistic eye-level photograph of the entrance approach to Sponic Garden. Looking straight ahead down a stone walkway toward the venue. Welcome center building visible with brick walls. Hedges line the entrance path, potted plants and shrubs at building entrances. String lights and lanterns along the path. Industrial-garden aesthetic with exposed steel, brick, cedar wood. Keep the EXACT same perspective, building positions, and walkway layout. Ad",
+      "input_file": "/Users/rahulio/Documents/CodingProjects/sponic-garden/.claude/worktrees/focused-zhukovsky/design/renders/v11/v11_CAM_entrance.png",
+      "output_file": "/Users/rahulio/Documents/CodingProjects/sponic-garden/.claude/worktrees/focused-zhukovsky/design/renders/v11-photo/v11_photo_CAM_entrance.png",
+      "passes_used": [],
+      "text_response": "",
+      "success": true,
+      "file_size_bytes": 2007012,
+      "mime_type": "image/png"
+    },
+    {
+      "camera": "CAM_greenhouse_detail",
+      "lighting": "daylight",
+      "model": "gemini-2.5-flash-image",
+      "prompt": "Transform this close-up 3D render into a photorealistic photograph of the main greenhouse at Sponic Garden. Steel frame structure with glass walls and exposed A-frame steel trusses visible through the glass. Interior tables with potted plants visible. Climbing vines on the exterior. 'SPONIC GARDEN' signage on the south wall. Keep the EXACT same framing, structure, and details. Add realistic steel patina, glass reflections and refractions, condensation, lush interior plants, and warm interior lig",
+      "input_file": "/Users/rahulio/Documents/CodingProjects/sponic-garden/.claude/worktrees/focused-zhukovsky/design/renders/v11/v11_CAM_greenhouse_detail.png",
+      "output_file": "/Users/rahulio/Documents/CodingProjects/sponic-garden/.claude/worktrees/focused-zhukovsky/design/renders/v11-photo/v11_photo_CAM_greenhouse_detail.png",
+      "passes_used": [],
+      "text_response": "",
+      "success": true,
+      "file_size_bytes": 2510623,
+      "mime_type": "image/png"
+    },
+    {
+      "camera": "CAM_firepit_evening",
+      "lighting": "daylight",
+      "model": "gemini-2.5-flash-image",
+      "prompt": "Transform this 3D render into a photorealistic photograph of a fire pit area at Sponic Garden. Circular concrete fire pit with wooden seating ring, string lights visible overhead between buildings. Warm fire glow illuminating the scene. Industrial buildings visible in background with corrugated metal walls. Potted plants and hedges nearby. Keep the EXACT same layout and camera angle. Add realistic fire flames and embers, warm light on surrounding surfaces, twinkling string light bokeh, evening a",
+      "input_file": "/Users/rahulio/Documents/CodingProjects/sponic-garden/.claude/worktrees/focused-zhukovsky/design/renders/v11/v11_CAM_firepit_evening.png",
+      "output_file": "/Users/rahulio/Documents/CodingProjects/sponic-garden/.claude/worktrees/focused-zhukovsky/design/renders/v11-photo/v11_photo_CAM_firepit_evening.png",
+      "passes_used": [],
+      "text_response": "",
+      "success": true,
+      "file_size_bytes": 1910492,
+      "mime_type": "image/png"
+    },
+    {
+      "camera": "CAM_coffee_bar",
+      "lighting": "daylight",
+      "model": "gemini-2.5-flash-image",
+      "prompt": "Transform this close-up 3D render into a photorealistic photograph of an outdoor coffee bar at Sponic Garden. Semi-open structure with cedar posts supporting a wooden roof canopy. Counter bar with stools. String lights above. Nearby industrial buildings with brick and corrugated metal. Potted plants scattered around. Keep the EXACT same framing, structure positions, and details. Add realistic cedar grain, worn counter surfaces, artisanal coffee bar atmosphere, shallow depth of field. Style: high",
+      "input_file": "/Users/rahulio/Documents/CodingProjects/sponic-garden/.claude/worktrees/focused-zhukovsky/design/renders/v11/v11_CAM_coffee_bar.png",
+      "output_file": "/Users/rahulio/Documents/CodingProjects/sponic-garden/.claude/worktrees/focused-zhukovsky/design/renders/v11-photo/v11_photo_CAM_coffee_bar.png",
+      "passes_used": [],
+      "text_response": "",
+      "success": true,
+      "file_size_bytes": 2190402,
+      "mime_type": "image/png"
+    },
+    {
+      "camera": "CAM_spa_detail",
+      "lighting": "daylight",
+      "model": "gemini-2.5-flash-image",
+      "prompt": "Transform this close-up 3D render into a photorealistic photograph of the spa area at Sponic Garden. TWO SQUARE wooden sauna cabins with glass windows (NOT barrel saunas), cedar hot tubs, and a concrete cold plunge pool. Wooden deck underneath. Hedges provide privacy. Industrial Spa House building visible behind. Keep the EXACT same layout, sauna shapes (rectangular/square with flat roof and windows), hot tub positions, and camera angle. Add realistic cedar wood grain, steam rising from hot tubs",
+      "input_file": "/Users/rahulio/Documents/CodingProjects/sponic-garden/.claude/worktrees/focused-zhukovsky/design/renders/v11/v11_CAM_spa_detail.png",
+      "output_file": "/Users/rahulio/Documents/CodingProjects/sponic-garden/.claude/worktrees/focused-zhukovsky/design/renders/v11-photo/v11_photo_CAM_spa_detail.png",
+      "passes_used": [],
+      "text_response": "",
+      "success": true,
+      "file_size_bytes": 2528613,
+      "mime_type": "image/png"
+    },
+    {
+      "camera": "CAM_hero",
+      "lighting": "golden",
+      "model": "gemini-2.5-flash-image",
+      "prompt": "Transform this 3D architectural perspective into a photorealistic photograph of a garden campus venue called Sponic Garden. Shot from an elevated angle showing the full campus. Industrial-garden aesthetic: exposed steel trusses visible on buildings, corrugated metal walls and roofing, red brick facades, natural cedar wood, dense climbing vines on walls, lush green gardens, string lights between buildings. Keep the EXACT same layout, building positions, camera angle, and proportions. Add rich mat",
+      "input_file": "/Users/rahulio/Documents/CodingProjects/sponic-garden/.claude/worktrees/focused-zhukovsky/design/renders/v11-golden/v11_golden_CAM_hero.png",
+      "output_file": "/Users/rahulio/Documents/CodingProjects/sponic-garden/.claude/worktrees/focused-zhukovsky/design/renders/v11-golden-photo/v11_golden_photo_CAM_hero.png",
+      "passes_used": [],
+      "text_response": "",
+      "success": true,
+      "file_size_bytes": 2366114,
+      "mime_type": "image/png"
+    },
+    {
+      "camera": "CAM_entrance",
+      "lighting": "golden",
+      "model": "gemini-2.5-flash-image",
+      "prompt": "Transform this ground-level 3D render into a photorealistic eye-level photograph of the entrance approach to Sponic Garden. Looking straight ahead down a stone walkway toward the venue. Welcome center building visible with brick walls. Hedges line the entrance path, potted plants and shrubs at building entrances. String lights and lanterns along the path. Industrial-garden aesthetic with exposed steel, brick, cedar wood. Keep the EXACT same perspective, building positions, and walkway layout. Ad",
+      "input_file": "/Users/rahulio/Documents/CodingProjects/sponic-garden/.claude/worktrees/focused-zhukovsky/design/renders/v11-golden/v11_golden_CAM_entrance.png",
+      "output_file": "/Users/rahulio/Documents/CodingProjects/sponic-garden/.claude/worktrees/focused-zhukovsky/design/renders/v11-golden-photo/v11_golden_photo_CAM_entrance.png",
+      "passes_used": [],
+      "text_response": "",
+      "success": true,
+      "file_size_bytes": 1982726,
+      "mime_type": "image/png"
+    }
+  ]
+}
