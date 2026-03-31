@@ -1,12 +1,12 @@
 {
-  "version": "v260331.02 12:50a",
-  "release": 34,
-  "sha": "125d7fc",
-  "fullSha": "125d7fc20ee65602ffa95c98a757d7b2758f896d",
+  "version": "v260331.03 1:29a",
+  "release": 35,
+  "sha": "6a26d10",
+  "fullSha": "6a26d104590669b89f8c98d6b9c86dd88da41f6b",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervmrg6be",
-  "pushedAt": "2026-03-31 05:50:04+00",
-  "commits": [{"sha":"09f728b","message":"feat: add 5 aerial botanical building plan variations to branding page","author":"Rahul"},{"sha":"87968f9","message":"feat: add venue design page, Blender standards, component DB, and Cycles renders","author":"Rahul"},{"sha":"e54ee97","message":"feat: v6 clean rebuild — fix floating roofs, wall gaps, cylinder trees","author":"Rahul"},{"sha":"add4204","message":"feat: update venue page with v6 renders as primary, demote v5","author":"Rahul"},{"sha":"125d7fc","message":"Merge branch 'nervous-poincare'","author":"Rahul"}]
+  "pushedAt": "2026-03-31 06:29:35+00",
+  "commits": [{"sha":"1cec395","message":"feat: v7+v8 venue renders — pool, spa, organic trees, golden hour","author":"Rahul"},{"sha":"6a26d10","message":"Merge branch 'nervous-poincare'","author":"Rahul"}]
 }
