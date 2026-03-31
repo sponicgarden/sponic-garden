@@ -1,12 +1,12 @@
 {
-  "version": "v260331.07 5:37a",
-  "release": 39,
-  "sha": "03c7f96",
-  "fullSha": "03c7f96af8105d65c164124cf9c38cc69ba6cde4",
+  "version": "v260331.08 11:21a",
+  "release": 40,
+  "sha": "6cb49bf",
+  "fullSha": "6cb49bfd54ca6bfc523290eb271ed732f2fefa63",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervmrg6be",
-  "pushedAt": "2026-03-31 10:37:34+00",
-  "commits": [{"sha":"6d58ef5","message":"feat: v11 AI-assisted photorealistic render pipeline","author":"Rahul"},{"sha":"5ae8ad4","message":"feat: v11 complete daylight renders + extended pipeline + Gemini AI enhancement","author":"Rahul"},{"sha":"03c7f96","message":"Merge branch 'main' of https://github.com/sponicgarden/sponic-garden","author":"Rahul"}]
+  "pushedAt": "2026-03-31 16:21:36+00",
+  "commits": [{"sha":"6cb49bf","message":"feat: v11 complete render pipeline — golden hour, new cameras, blue hour + Gemini AI enhancement","author":"Rahul"}]
 }
