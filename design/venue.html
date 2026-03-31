@@ -333,65 +333,80 @@
     </div>
   </div>
 
-  <!-- 3D Model Renders v6 (Clean Rebuild) -->
+  <!-- 3D Model Renders v8 (Polished) -->
   <section>
-    <h2>3D Model — Blender v6 (Clean Rebuild)</h2>
-    <p class="section-desc">Complete scene rebuild with proper architectural geometry: walls meet at corners, roofs sit flush, foliage trees, tinted glass with steel frames. Cycles 2048 samples + AgX + OIDN. Rendered on Alpuca (Mac mini M4) in ~2 min.</p>
+    <h2>3D Model — Blender v8 (Polished)</h2>
+    <p class="section-desc">Organic icosphere trees, golden hour lighting, swimming pool with lounges &amp; umbrellas, barrel sauna, cold plunge, hot tubs, garden lanterns, flower clusters, dining patio, bench seating throughout. Cycles 2048 samples + AgX + OIDN. Rendered on Alpuca (Mac mini M4).</p>
 
     <div class="grid grid-3">
       <div class="card">
-        <img src="renders/v6/v6_CAM_aerial_overview.png" alt="Aerial view — v6 clean rebuild" onclick="openLightbox(this)">
+        <img src="renders/v8/v8_CAM_aerial.png" alt="Aerial overview — v8" onclick="openLightbox(this)">
         <div class="info">
-          <h3>Aerial View</h3>
-          <p>Top-down orthographic. 7 buildings around central courtyard, radial covered walkways, garden beds, orchard, spa deck, fire pit, running circuit.</p>
+          <h3>Aerial Overview</h3>
+          <p>Full campus from above. Pool + spa area (south), greenhouse (north), 7 buildings with covered walkways, 29 organic trees, garden beds, fire pit, running circuit.</p>
           <span class="tag">Cycles / AgX / 2048 spp</span>
         </div>
       </div>
       <div class="card">
-        <img src="renders/v6/v6_CAM_perspective_hero.png" alt="Perspective hero — v6 clean rebuild" onclick="openLightbox(this)">
+        <img src="renders/v8/v8_CAM_hero.png" alt="Perspective hero — v8" onclick="openLightbox(this)">
         <div class="info">
           <h3>Perspective Hero</h3>
-          <p>35mm lens. Steel-frame greenhouse + tinted glass panels, cedar-clad buildings, concrete walkways with post-supported canopies.</p>
+          <p>28mm wide angle. Cedar &amp; concrete buildings, steel-frame greenhouse, barrel sauna, pool with cone umbrellas. Golden hour sun casting long shadows.</p>
           <span class="tag">Cycles / AgX / 2048 spp</span>
         </div>
       </div>
       <div class="card">
-        <img src="renders/v6/v6_CAM_entrance_approach.png" alt="Entrance approach — v6 clean rebuild" onclick="openLightbox(this)">
+        <img src="renders/v8/v8_CAM_pool_spa.png" alt="Pool & Spa — v8" onclick="openLightbox(this)">
+        <div class="info">
+          <h3>Pool &amp; Spa</h3>
+          <p>Spa house with barrel sauna and hot tubs in foreground, glass greenhouse and orchard beyond. Cedar deck, stone coping, organic tree canopies.</p>
+          <span class="tag">Cycles / AgX / DOF f/4</span>
+        </div>
+      </div>
+    </div>
+    <div class="grid grid-3" style="margin-top: 1rem;">
+      <div class="card">
+        <img src="renders/v8/v8_CAM_entrance.png" alt="Entrance approach — v8" onclick="openLightbox(this)">
         <div class="info">
           <h3>Entrance Approach</h3>
-          <p>Visitor's first view from south entrance. Welcome Center foreground, covered walkways radiating to campus beyond. Hosek-Wilkie sky.</p>
-          <span class="tag">Cycles / AgX / 2048 spp</span>
+          <p>Eye-level view from south. Pool &amp; lounges left, Welcome Center center, covered walkways leading into campus. Hedges, lanterns, cone umbrellas.</p>
+          <span class="tag">Cycles / AgX / 24mm</span>
+        </div>
+      </div>
+      <div class="card">
+        <img src="renders/v8/v8_CAM_garden.png" alt="Garden detail — v8" onclick="openLightbox(this)">
+        <div class="info">
+          <h3>Garden &amp; Courtyard</h3>
+          <p>Intimate view: cedar bench, stone paths intersecting, glowing lanterns, flower clusters, greenhouse glass visible beyond. Shallow DOF (f/2.8).</p>
+          <span class="tag">Cycles / AgX / DOF f/2.8</span>
+        </div>
+      </div>
+      <div class="card" style="opacity: 0.6;">
+        <div class="info" style="padding: 2rem; text-align: center;">
+          <h3>v6 &rarr; v7 &rarr; v8</h3>
+          <p>3 iterations: geometry fix, amenities, organic polish. Each render ~2 min on M4 GPU.</p>
+          <span class="tag">Iteration history below</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Previous v5 renders (Cycles upgrade) -->
+  <!-- Previous v6 renders -->
   <section>
-    <h2>Previous — Blender v5 (Cycles Upgrade)</h2>
-    <p class="section-desc">First Cycles upgrade of v4 geometry. PBR materials + sky added but geometry issues remained (floating roofs, wall gaps).</p>
-
+    <h2>Previous — Blender v6 (Geometry Fix)</h2>
+    <p class="section-desc">Clean rebuild fixing floating roofs, wall gaps, cylinder trees. First correct geometry pass.</p>
     <div class="grid grid-3">
       <div class="card">
-        <img src="venue/blender-aerial-v5.png" alt="v5 aerial — Cycles" onclick="openLightbox(this)">
-        <div class="info">
-          <h3>v5 Aerial</h3>
-          <span class="tag">Superseded by v6</span>
-        </div>
+        <img src="renders/v6/v6_CAM_aerial_overview.png" alt="v6 aerial" onclick="openLightbox(this)">
+        <div class="info"><h3>v6 Aerial</h3><span class="tag">Superseded by v8</span></div>
       </div>
       <div class="card">
-        <img src="venue/blender-perspective-v5.png" alt="v5 perspective — Cycles" onclick="openLightbox(this)">
-        <div class="info">
-          <h3>v5 Perspective</h3>
-          <span class="tag">Superseded by v6</span>
-        </div>
+        <img src="renders/v6/v6_CAM_perspective_hero.png" alt="v6 hero" onclick="openLightbox(this)">
+        <div class="info"><h3>v6 Hero</h3><span class="tag">Superseded by v8</span></div>
       </div>
       <div class="card">
-        <img src="venue/blender-entrance-v5.png" alt="v5 entrance — Cycles" onclick="openLightbox(this)">
-        <div class="info">
-          <h3>v5 Entrance</h3>
-          <span class="tag">Superseded by v6</span>
-        </div>
+        <img src="renders/v6/v6_CAM_entrance_approach.png" alt="v6 entrance" onclick="openLightbox(this)">
+        <div class="info"><h3>v6 Entrance</h3><span class="tag">Superseded by v8</span></div>
       </div>
     </div>
   </section>
