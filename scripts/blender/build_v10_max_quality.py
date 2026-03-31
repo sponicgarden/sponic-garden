@@ -1190,10 +1190,10 @@ except:
             print("  Color: AgX Medium Contrast")
         except:
             pass
-scene.view_settings.exposure = 0.7
+scene.view_settings.exposure = 0.3  # neutral, structural clarity
 
 # ═══════════════════════════════════════════
-# SUNSET SKY — dramatic warm atmosphere (lower angle, warmer, hazier)
+# CLEAN DAYLIGHT — structural clarity over mood
 # ═══════════════════════════════════════════
 world = bpy.data.worlds.new("Sky")
 scene.world = world
@@ -1204,41 +1204,36 @@ for n in wn: wn.remove(n)
 
 sky = wn.new('ShaderNodeTexSky')
 sky.sky_type = 'HOSEK_WILKIE'
-sky.sun_elevation = math.radians(8)   # v10: lower sun angle for dramatic sunset
-sky.sun_rotation = math.radians(-40)
-try: sky.turbidity = 5.0  # v10: higher turbidity for hazy sunset
+sky.sun_elevation = math.radians(50)   # high sun = even light, clear shadows
+sky.sun_rotation = math.radians(-30)
+try: sky.turbidity = 2.0  # clear sky, no haze
 except: pass
 
 bg = wn.new('ShaderNodeBackground')
-bg.inputs['Strength'].default_value = 1.5
+bg.inputs['Strength'].default_value = 1.2
 out = wn.new('ShaderNodeOutputWorld')
 wl.new(sky.outputs['Color'], bg.inputs['Color'])
 wl.new(bg.outputs['Background'], out.inputs['Surface'])
 
-# v10: Volume scatter for atmospheric haze
-vol_scatter = wn.new('ShaderNodeVolumeScatter')
-vol_scatter.inputs['Density'].default_value = 0.002
-vol_scatter.inputs['Anisotropy'].default_value = 0.3
-vol_scatter.inputs['Color'].default_value = (1.0, 0.95, 0.85, 1.0)  # warm tint
-wl.new(vol_scatter.outputs['Volume'], out.inputs['Volume'])
+# NO volume scatter — keep air clear for structural visibility
 
-# Key sun — v10: warmer, lower angle sunset
-bpy.ops.object.light_add(type='SUN', location=(30, -30, 20))
+# Key sun — neutral daylight
+bpy.ops.object.light_add(type='SUN', location=(30, -30, 50))
 sun = bpy.context.active_object; sun.name = "Sun"
-sun.data.energy = 6.0
-sun.data.color = (1.0, 0.75, 0.45)  # v10: warmer sunset
-sun.data.angle = math.radians(0.8)
-sun.rotation_euler = (math.radians(8), math.radians(15), math.radians(-40))  # v10: 8 degrees
+sun.data.energy = 4.0
+sun.data.color = (1.0, 0.97, 0.92)  # near-white daylight
+sun.data.angle = math.radians(0.5)
+sun.rotation_euler = (math.radians(50), math.radians(10), math.radians(-30))
 
-# Cool fill from sky
+# Fill from opposite — balanced
 bpy.ops.object.light_add(type='SUN', location=(-20, 20, 40))
 fill = bpy.context.active_object; fill.name = "Fill"
-fill.data.energy = 1.2
-fill.data.color = (0.75, 0.82, 1.0)
-fill.data.angle = math.radians(4.0)
+fill.data.energy = 1.5
+fill.data.color = (0.90, 0.92, 1.0)
+fill.data.angle = math.radians(3.0)
 fill.rotation_euler = (math.radians(55), math.radians(-10), math.radians(150))
 
-print("  Done: Cycles 8192spp, 4K, caustics, volume scatter, dramatic sunset")
+print("  Done: Cycles 8192spp, 4K, caustics, clean daylight for structural clarity")
 
 # ═══════════════════════════════════════════
 print("[14/14] Cameras (8 total)...")
