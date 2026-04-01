@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design Review — Sponic Gardens</title>
+  <meta name="description" content="Sponic Gardens design review: vote on v11 venue variants across 19 cameras and 5 AI-enhanced styles.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" type="image/svg+xml">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500&display=swap');
+
+    :root {
+      --bg: #f4f7f1;
+      --surface: #ffffff;
+      --surface2: #eef3ea;
+      --surface3: #e2eadc;
+      --border: #c4d4ba;
+      --border-light: #d8e3cf;
+      --text: #1a2412;
+      --text-soft: #2d3b22;
+      --text-dim: #4a6040;
+      --text-muted: #7a9168;
+      --green: #2d6a1e;
+      --green-soft: rgba(45, 106, 30, 0.07);
+      --green-border: rgba(45, 106, 30, 0.20);
+      --radius: 10px;
+      --radius-lg: 14px;
+      --shadow: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-md: 0 2px 8px rgba(0,0,0,0.06);
+      --shadow-lg: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ─── Nav ─── */
+    nav {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border-light);
+      padding: 0.75rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    nav a:hover { color: var(--green); }
+    nav .brand {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      color: var(--text);
+      letter-spacing: 0.5px;
+    }
+    nav .sep { color: var(--border); font-size: 0.85rem; }
+    nav .current { color: var(--green); }
+
+    /* ─── Layout ─── */
+    .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+
+    header {
+      text-align: center;
+      padding: 3rem 0 2rem;
+    }
+    header h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.4rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+    }
+    header .subtitle {
+      color: var(--text-dim);
+      font-size: 1.05rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* ─── Stats bar ─── */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      padding: 1rem 0;
+      margin: 1rem 0 2rem;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .stat {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+    .stat strong {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--green);
+      font-weight: 500;
+    }
+
+    /* ─── Section ─── */
+    .lighting-section {
+      margin-bottom: 3rem;
+    }
+    .lighting-section h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      margin-bottom: 0.4rem;
+    }
+    .lighting-section .section-desc {
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ─── Camera group ─── */
+    .camera-group {
+      margin-bottom: 2rem;
+    }
+    .camera-group h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .camera-group h3 .cam-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 400;
+      background: var(--surface2);
+      color: var(--text-muted);
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    /* ─── Horizontal scroll row ─── */
+    .variant-row {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 0.75rem;
+      -webkit-overflow-scrolling: touch;
+    }
+    .variant-row::-webkit-scrollbar {
+      height: 6px;
+    }
+    .variant-row::-webkit-scrollbar-track {
+      background: var(--surface2);
+      border-radius: 3px;
+    }
+    .variant-row::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 3px;
+    }
+
+    /* ─── Variant card ─── */
+    .variant-card {
+      flex: 0 0 280px;
+      scroll-snap-align: start;
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: box-shadow 0.2s;
+    }
+    .variant-card:hover { box-shadow: var(--shadow-lg); }
+
+    .variant-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .variant-card img:hover { opacity: 0.92; }
+
+    .variant-card .card-body {
+      padding: 0.75rem 1rem;
+    }
+
+    .variant-label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .variant-label .v-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      background: var(--green-soft);
+      color: var(--green);
+      border: 1px solid var(--green-border);
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+    }
+
+    .variant-card .notes-input {
+      width: 100%;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      padding: 0.4rem 0.5rem;
+      border: 1px solid var(--border-light);
+      border-radius: 6px;
+      background: var(--bg);
+      color: var(--text);
+      outline: none;
+      resize: vertical;
+      min-height: 36px;
+      transition: border-color 0.2s;
+    }
+    .variant-card .notes-input:focus {
+      border-color: var(--green);
+    }
+    .variant-card .notes-input::placeholder {
+      color: var(--text-muted);
+    }
+
+    /* ─── Vote button ─── */
+    .pick-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-top: 0.5rem;
+      padding: 0.3rem 0.7rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--surface2);
+      border: 1px solid var(--border-light);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+      user-select: none;
+    }
+    .pick-btn:hover {
+      border-color: var(--green);
+      color: var(--green);
+    }
+    .pick-btn.picked {
+      background: var(--green);
+      color: #fff;
+      border-color: var(--green);
+    }
+
+    /* ─── Activity section ─── */
+    .activity-section {
+      margin-bottom: 3rem;
+    }
+    .activity-section h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      margin-bottom: 0.4rem;
+    }
+    .activity-section .section-desc {
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .community-ref {
+      margin-bottom: 2rem;
+    }
+    .community-ref img {
+      width: 100%;
+      max-width: 900px;
+      display: block;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-md);
+      cursor: pointer;
+    }
+    .community-ref .caption {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    .activity-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem;
+    }
+
+    .activity-card {
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: box-shadow 0.2s;
+    }
+    .activity-card:hover { box-shadow: var(--shadow-lg); }
+
+    .activity-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .activity-card img:hover { opacity: 0.92; }
+
+    .activity-card .card-body {
+      padding: 0.75rem 1rem;
+    }
+    .activity-card .card-body h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+    }
+    .activity-card .card-body .scene-meta {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* ─── Feedback section ─── */
+    .feedback-section {
+      max-width: 720px;
+      margin: 2rem auto 0;
+    }
+    .feedback-section h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      margin-bottom: 0.25rem;
+    }
+    .feedback-section .section-desc {
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+    .feedback-box {
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+    .feedback-box label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      color: var(--text-soft);
+    }
+    .feedback-box input,
+    .feedback-box textarea {
+      display: block;
+      width: 100%;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      padding: 0.6rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--bg);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .feedback-box input:focus,
+    .feedback-box textarea:focus {
+      border-color: var(--green);
+    }
+    .feedback-box textarea {
+      min-height: 100px;
+      resize: vertical;
+      margin-top: 0.5rem;
+    }
+    .feedback-box .form-row {
+      margin-bottom: 0.75rem;
+    }
+    .feedback-box .btn-row {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      padding: 0.55rem 1.25rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #fff;
+      background: var(--green);
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+    .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .btn-secondary {
+      padding: 0.55rem 1.25rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--green);
+      background: var(--surface);
+      border: 1px solid var(--green-border);
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover { background: var(--green-soft); }
+
+    .feedback-status {
+      margin-top: 0.5rem;
+      font-size: 0.82rem;
+      min-height: 1.2em;
+      color: var(--green);
+    }
+
+    /* ─── Lightbox ─── */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.88);
+      z-index: 200;
+      justify-content: center;
+      align-items: center;
+      cursor: zoom-out;
+    }
+    .lightbox.active { display: flex; }
+    .lightbox img {
+      max-width: 92vw;
+      max-height: 92vh;
+      border-radius: 6px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+    }
+
+    /* ─── Footer ─── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      border-top: 1px solid var(--border-light);
+      margin-top: 2rem;
+    }
+    footer a { color: var(--green); text-decoration: none; }
+
+    /* ─── Mobile ─── */
+    @media (max-width: 768px) {
+      .container { padding: 1rem; }
+      header h1 { font-size: 1.8rem; }
+      .variant-card { flex: 0 0 240px; }
+      .variant-card img { height: 150px; }
+      .activity-grid { grid-template-columns: 1fr; }
+      nav { padding: 0.75rem 1rem; gap: 0.4rem; }
+      nav .brand { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="brand">Sponic Gardens</a>
+  <span class="sep">/</span>
+  <a href="/design/venue.html">Design</a>
+  <span class="sep">/</span>
+  <a href="/design/review.html" class="current">Review</a>
+</nav>
+
+<div class="container">
+
+  <header>
+    <h1>Design Review &mdash; v11 Variants</h1>
+    <p class="subtitle">19 cameras &times; 5 AI-enhanced variants each. Vote for your favorites.</p>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><strong>95</strong> variants</div>
+    <div class="stat"><strong>16</strong> activity scenes</div>
+    <div class="stat">Model: <strong>gemini-3-pro-image-preview</strong></div>
+  </div>
+
+  <!-- ═══════════════════════════════ VARIANT SECTIONS ═══════════════════════════════ -->
+
+  <div id="variant-sections"></div>
+
+  <!-- ═══════════════════════════════ ACTIVITY SCENES ═══════════════════════════════ -->
+
+  <section class="activity-section">
+    <h2>The Venue In Use</h2>
+    <p class="section-desc">Activity scenes showing the community using the space across different moments.</p>
+
+    <div class="community-ref">
+      <img src="https://aphrrfprbixmhissnjfn.supabase.co/storage/v1/object/public/sponic-renders/community_reference.png"
+           alt="Community reference" loading="lazy" onclick="openLightbox(this)">
+      <p class="caption">Community reference &mdash; overall atmosphere target</p>
+    </div>
+
+    <div id="activity-grid" class="activity-grid"></div>
+  </section>
+
+  <!-- ═══════════════════════════════ FEEDBACK ═══════════════════════════════ -->
+
+  <section class="feedback-section">
+    <h2>Leave Feedback</h2>
+    <p class="section-desc">Share your thoughts on the design variants. Your picks and notes are saved locally and can be exported.</p>
+
+    <div class="feedback-box">
+      <div class="form-row">
+        <label for="fb-email">Email (optional)</label>
+        <input type="email" id="fb-email" placeholder="your@email.com">
+      </div>
+      <div class="form-row">
+        <label for="fb-message">Feedback</label>
+        <textarea id="fb-message" placeholder="Which variants do you prefer? Any overall thoughts on direction?"></textarea>
+      </div>
+      <div class="btn-row">
+        <button class="btn-primary" id="fb-submit" onclick="submitFeedback()">Submit Feedback</button>
+        <button class="btn-secondary" onclick="exportVotes()">Export Votes (JSON)</button>
+      </div>
+      <p class="feedback-status" id="fb-status"></p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  Sponic Gardens Design Review &mdash; v11 Variants &mdash;
+  Concepts: gemini-3-pro-image-preview &mdash;
+  <a href="/">Home</a> &middot; <a href="/design/venue.html">Venue Design</a>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+// ─── Data ───
+
+const STORAGE_BASE = 'https://aphrrfprbixmhissnjfn.supabase.co/storage/v1/object/public/sponic-renders';
+const SUPABASE_URL = 'https://aphrrfprbixmhissnjfn.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFwaHJyZnByYml4bWhpc3NuamZuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk5MzA0MjUsImV4cCI6MjA4NTUwNjQyNX0.yYkdQIq97GQgxK7yT2OQEPi5Tt-a7gM45aF8xjSD6wk';
+
+const CAMERA_LABELS = {
+  CAM_aerial: 'Aerial Overview',
+  CAM_hero: 'Hero Overview',
+  CAM_pool_spa: 'Pool & Spa',
+  CAM_entrance: 'Entrance Approach',
+  CAM_greenhouse_detail: 'Greenhouse Exterior',
+  CAM_firepit_evening: 'Fire Pit',
+  CAM_coffee_bar: 'Coffee Bar',
+  CAM_spa_detail: 'Spa Detail',
+  CAM_greenhouse_interior: 'Greenhouse Interior',
+  CAM_garden_ground: 'Garden Ground Level',
+  CAM_walkway: 'Walkway Corridor',
+  CAM_sauna_eyelevel: 'Sauna Eye Level'
+};
+
+const VARIANT_STYLES = ['Base', 'Lush Vegetation', 'Atmospheric', 'Material Detail', 'Lived-In'];
+
+const LIGHTING_SECTIONS = [
+  {
+    id: 'daylight',
+    title: 'Daylight',
+    desc: '8 cameras captured under bright, even daylight conditions.',
+    set: 'daylight',
+    cameras: ['CAM_aerial', 'CAM_coffee_bar', 'CAM_entrance', 'CAM_firepit_evening', 'CAM_greenhouse_detail', 'CAM_hero', 'CAM_pool_spa', 'CAM_spa_detail']
+  },
+  {
+    id: 'golden',
+    title: 'Golden Hour',
+    desc: '5 cameras bathed in warm, low-angle golden light.',
+    set: 'golden',
+    cameras: ['CAM_coffee_bar', 'CAM_entrance', 'CAM_firepit_evening', 'CAM_hero', 'CAM_pool_spa']
+  },
+  {
+    id: 'bluehour',
+    title: 'Blue Hour',
+    desc: '2 cameras in the cool, moody blue twilight.',
+    set: 'bluehour',
+    cameras: ['CAM_firepit_evening', 'CAM_pool_spa']
+  },
+  {
+    id: 'newcams',
+    title: 'New Cameras',
+    desc: '4 fresh angles showing interior and ground-level perspectives.',
+    set: 'newcams',
+    cameras: ['CAM_garden_ground', 'CAM_greenhouse_interior', 'CAM_sauna_eyelevel', 'CAM_walkway']
+  }
+];
+
+const SCENE_LABELS = {
+  saturday_morning: 'Saturday Morning',
+  evening_gathering: 'Evening Gathering',
+  workshop_day: 'Workshop Day',
+  afternoon_swim: 'Afternoon Swim',
+  morning_cold_plunge: 'Morning Cold Plunge',
+  social_spa: 'Social Spa Evening',
+  arrival: 'First Arrival',
+  farmers_market: 'Sunday Farmers Market',
+  quiet_morning: 'Quiet Morning',
+  workshop: 'Plant Workshop',
+  acoustic_session: 'Acoustic Session',
+  campfire_stories: 'Campfire Stories',
+  growing_session: 'Growing Session',
+  harvesting: 'Garden Harvesting',
+  between_sessions: 'Between Sessions',
+  post_sauna: 'Post-Sauna'
+};
+
+const ACTIVITY_CAMERAS = [
+  { camera: 'CAM_hero', scenes: ['saturday_morning', 'evening_gathering', 'workshop_day'] },
+  { camera: 'CAM_pool_spa', scenes: ['afternoon_swim', 'morning_cold_plunge', 'social_spa'] },
+  { camera: 'CAM_entrance', scenes: ['arrival', 'farmers_market'] },
+  { camera: 'CAM_greenhouse_detail', scenes: ['quiet_morning', 'workshop'] },
+  { camera: 'CAM_firepit_evening', scenes: ['acoustic_session', 'campfire_stories'] },
+  { camera: 'CAM_greenhouse_interior', scenes: ['growing_session'] },
+  { camera: 'CAM_garden_ground', scenes: ['harvesting'] },
+  { camera: 'CAM_walkway', scenes: ['between_sessions'] },
+  { camera: 'CAM_sauna_eyelevel', scenes: ['post_sauna'] }
+];
+
+// ─── State ───
+
+let votes = JSON.parse(localStorage.getItem('sponic-review-votes') || '{}');
+let notes = JSON.parse(localStorage.getItem('sponic-review-notes') || '{}');
+
+function saveState() {
+  localStorage.setItem('sponic-review-votes', JSON.stringify(votes));
+  localStorage.setItem('sponic-review-notes', JSON.stringify(notes));
+}
+
+// ─── Render variant sections ───
+
+function renderVariantSections() {
+  const container = document.getElementById('variant-sections');
+  let html = '';
+
+  for (const section of LIGHTING_SECTIONS) {
+    html += `<section class="lighting-section">
+      <h2>${section.title}</h2>
+      <p class="section-desc">${section.desc}</p>`;
+
+    for (const cam of section.cameras) {
+      const label = CAMERA_LABELS[cam] || cam;
+      html += `<div class="camera-group">
+        <h3>${label} <span class="cam-tag">${cam}</span></h3>
+        <div class="variant-row">`;
+
+      for (let n = 0; n < 5; n++) {
+        const key = `${section.set}/${cam}/v${n}`;
+        const imgUrl = `${STORAGE_BASE}/${section.set}/${cam}/variant_${n}.png`;
+        const picked = votes[key] ? 'picked' : '';
+        const noteVal = notes[key] || '';
+
+        html += `<div class="variant-card">
+          <img src="${imgUrl}" alt="${label} variant ${n}" loading="lazy" onclick="openLightbox(this)">
+          <div class="card-body">
+            <div class="variant-label">
+              <span class="v-num">v${n}</span>
+              ${VARIANT_STYLES[n]}
+            </div>
+            <textarea class="notes-input" placeholder="Notes..."
+              data-key="${key}"
+              oninput="updateNote(this)">${noteVal}</textarea>
+            <button class="pick-btn ${picked}" data-key="${key}" onclick="togglePick(this)">
+              ${picked ? '&#10003; Picked' : '&#9734; Pick'}
+            </button>
+          </div>
+        </div>`;
+      }
+
+      html += `</div></div>`;
+    }
+
+    html += `</section>`;
+  }
+
+  container.innerHTML = html;
+}
+
+// ─── Render activity scenes ───
+
+function renderActivityScenes() {
+  const grid = document.getElementById('activity-grid');
+  let html = '';
+
+  for (const group of ACTIVITY_CAMERAS) {
+    const camLabel = CAMERA_LABELS[group.camera] || group.camera;
+    for (const scene of group.scenes) {
+      const sceneLabel = SCENE_LABELS[scene] || scene;
+      const imgUrl = `${STORAGE_BASE}/activity/${group.camera}/${scene}.png`;
+
+      html += `<div class="activity-card">
+        <img src="${imgUrl}" alt="${sceneLabel}" loading="lazy" onclick="openLightbox(this)">
+        <div class="card-body">
+          <h4>${sceneLabel}</h4>
+          <p class="scene-meta">${camLabel}</p>
+        </div>
+      </div>`;
+    }
+  }
+
+  grid.innerHTML = html;
+}
+
+// ─── Interactions ───
+
+function togglePick(btn) {
+  const key = btn.dataset.key;
+  if (votes[key]) {
+    delete votes[key];
+    btn.classList.remove('picked');
+    btn.innerHTML = '&#9734; Pick';
+  } else {
+    votes[key] = true;
+    btn.classList.add('picked');
+    btn.innerHTML = '&#10003; Picked';
+  }
+  saveState();
+}
+
+function updateNote(el) {
+  const key = el.dataset.key;
+  if (el.value.trim()) {
+    notes[key] = el.value;
+  } else {
+    delete notes[key];
+  }
+  saveState();
+}
+
+// ─── Lightbox ───
+
+function openLightbox(el) {
+  document.getElementById('lightbox-img').src = el.src;
+  document.getElementById('lightbox').classList.add('active');
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeLightbox();
+});
+
+// ─── Feedback submission ───
+
+async function submitFeedback() {
+  const btn = document.getElementById('fb-submit');
+  const status = document.getElementById('fb-status');
+  const email = document.getElementById('fb-email').value.trim();
+  const message = document.getElementById('fb-message').value.trim();
+
+  if (!message) {
+    status.textContent = 'Please write some feedback first.';
+    status.style.color = 'var(--text-dim)';
+    return;
+  }
+
+  btn.disabled = true;
+  status.textContent = 'Submitting...';
+  status.style.color = 'var(--text-dim)';
+
+  try {
+    const payload = {
+      page: 'design-review',
+      email: email || null,
+      message: message,
+      meta: {
+        votes: votes,
+        notes: notes,
+        pickedCount: Object.keys(votes).length,
+        timestamp: new Date().toISOString()
+      }
+    };
+
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/feedback`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPABASE_ANON_KEY,
+        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify(payload)
+    });
+
+    if (res.ok) {
+      status.textContent = 'Thank you! Feedback submitted.';
+      status.style.color = 'var(--green)';
+      document.getElementById('fb-message').value = '';
+    } else {
+      throw new Error(`HTTP ${res.status}`);
+    }
+  } catch (err) {
+    status.textContent = 'Error submitting. Try again.';
+    status.style.color = '#b91c1c';
+    console.error('Feedback error:', err);
+  }
+
+  btn.disabled = false;
+}
+
+// ─── Export ───
+
+function exportVotes() {
+  const data = {
+    exported: new Date().toISOString(),
+    picks: votes,
+    notes: notes,
+    summary: {
+      totalPicked: Object.keys(votes).length,
+      totalNotes: Object.keys(notes).length,
+      pickedVariants: Object.keys(votes)
+    }
+  };
+
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `sponic-review-votes-${new Date().toISOString().slice(0, 10)}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// ─── Init ───
+
+renderVariantSections();
+renderActivityScenes();
+</script>
+
+</body>
+</html>
