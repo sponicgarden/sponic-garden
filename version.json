@@ -1,12 +1,12 @@
 {
-  "version": "v260402.01 4:07p",
-  "release": 46,
-  "sha": "47effcb",
-  "fullSha": "47effcb4b6f7b51aa07fa0755541bea01859b225",
+  "version": "v260402.02 5:02p",
+  "release": 47,
+  "sha": "f6a54a6",
+  "fullSha": "f6a54a62edde47fe6f3b496cd505951276b955d2",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervmrg6be",
-  "pushedAt": "2026-04-02 21:07:47+00",
-  "commits": [{"sha":"47effcb","message":"feat: add design navigation links and previous render versions (#7)","author":"Rahul"}]
+  "pushedAt": "2026-04-02 22:02:32+00",
+  "commits": [{"sha":"f6a54a6","message":"feat: add physical design principles page with adjustable weights (#8)","author":"Rahul"}]
 }
