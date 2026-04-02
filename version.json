@@ -1,12 +1,12 @@
 {
-  "version": "v260402.02 5:02p",
-  "release": 47,
-  "sha": "f6a54a6",
-  "fullSha": "f6a54a62edde47fe6f3b496cd505951276b955d2",
+  "version": "v260402.03 5:06p",
+  "release": 48,
+  "sha": "208ed78",
+  "fullSha": "208ed78e7be5af68959e7d80f10a9fc5b5f94621",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
-  "machine": "runnervmrg6be",
-  "pushedAt": "2026-04-02 22:02:32+00",
-  "commits": [{"sha":"f6a54a6","message":"feat: add physical design principles page with adjustable weights (#8)","author":"Rahul"}]
+  "machine": "runnervm727z3",
+  "pushedAt": "2026-04-02 22:06:04+00",
+  "commits": [{"sha":"208ed78","message":"feat: add v4/v5/floor plans to review page + climate adaptive principle (#9)","author":"Rahul"}]
 }
