@@ -1,12 +1,12 @@
 {
-  "version": "v260401.04 8:40p",
-  "release": 45,
-  "sha": "4267a21",
-  "fullSha": "4267a21f3e9de533d7c517e91f28e8638efdb958",
+  "version": "v260402.01 4:07p",
+  "release": 46,
+  "sha": "47effcb",
+  "fullSha": "47effcb4b6f7b51aa07fa0755541bea01859b225",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
-  "machine": "runnervm727z3",
-  "pushedAt": "2026-04-02 01:40:03+00",
-  "commits": [{"sha":"4267a21","message":"feat: add apothecary & herbal medicine section to homepage","author":"Rahul"}]
+  "machine": "runnervmrg6be",
+  "pushedAt": "2026-04-02 21:07:47+00",
+  "commits": [{"sha":"47effcb","message":"feat: add design navigation links and previous render versions (#7)","author":"Rahul"}]
 }
