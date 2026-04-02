@@ -452,6 +452,74 @@
       box-shadow: 0 8px 40px rgba(0,0,0,0.3);
     }
 
+    /* ─── Previous versions ─── */
+    .prev-versions {
+      max-width: 1400px;
+      margin: 3rem auto 0;
+      padding: 0 2rem;
+    }
+    .prev-versions h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      margin-bottom: 0.4rem;
+    }
+    .prev-versions .section-desc {
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+    .version-block {
+      margin-bottom: 2rem;
+    }
+    .version-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--text);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem 0;
+    }
+    .version-toggle .arrow {
+      font-size: 0.7rem;
+      transition: transform 0.2s;
+      color: var(--text-muted);
+    }
+    .version-toggle.open .arrow {
+      transform: rotate(90deg);
+    }
+    .version-grid {
+      display: none;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+      padding-top: 0.75rem;
+    }
+    .version-grid.open {
+      display: grid;
+    }
+    .version-grid img {
+      width: 100%;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: box-shadow 0.2s;
+    }
+    .version-grid img:hover {
+      box-shadow: var(--shadow-lg);
+    }
+    .version-grid .img-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+      text-align: center;
+    }
+
     /* ─── Footer ─── */
     footer {
       text-align: center;
@@ -541,6 +609,63 @@
   </section>
 
 </div>
+
+<!-- ═══════════════════════════════ PREVIOUS VERSIONS ═══════════════════════════════ -->
+
+<section class="prev-versions">
+  <h2>Previous Versions</h2>
+  <p class="section-desc">Earlier Blender iterations showing how the design evolved from v6 through v9.</p>
+
+  <div class="version-block">
+    <button class="version-toggle" onclick="toggleVersion(this)">
+      <span class="arrow">&#9654;</span> Version 9
+    </button>
+    <div class="version-grid">
+      <div><img src="/design/renders/v9/v9_CAM_aerial.png" alt="v9 Aerial" loading="lazy" onclick="openLightbox(this)"><p class="img-label">Aerial</p></div>
+      <div><img src="/design/renders/v9/v9_CAM_hero.png" alt="v9 Hero" loading="lazy" onclick="openLightbox(this)"><p class="img-label">Hero</p></div>
+      <div><img src="/design/renders/v9/v9_CAM_entrance.png" alt="v9 Entrance" loading="lazy" onclick="openLightbox(this)"><p class="img-label">Entrance</p></div>
+      <div><img src="/design/renders/v9/v9_CAM_pool_spa.png" alt="v9 Pool & Spa" loading="lazy" onclick="openLightbox(this)"><p class="img-label">Pool &amp; Spa</p></div>
+      <div><img src="/design/renders/v9/v9_CAM_garden.png" alt="v9 Garden" loading="lazy" onclick="openLightbox(this)"><p class="img-label">Garden</p></div>
+    </div>
+  </div>
+
+  <div class="version-block">
+    <button class="version-toggle" onclick="toggleVersion(this)">
+      <span class="arrow">&#9654;</span> Version 8
+    </button>
+    <div class="version-grid">
+      <div><img src="/design/renders/v8/v8_CAM_aerial.png" alt="v8 Aerial" loading="lazy" onclick="openLightbox(this)"><p class="img-label">Aerial</p></div>
+      <div><img src="/design/renders/v8/v8_CAM_hero.png" alt="v8 Hero" loading="lazy" onclick="openLightbox(this)"><p class="img-label">Hero</p></div>
+      <div><img src="/design/renders/v8/v8_CAM_entrance.png" alt="v8 Entrance" loading="lazy" onclick="openLightbox(this)"><p class="img-label">Entrance</p></div>
+      <div><img src="/design/renders/v8/v8_CAM_pool_spa.png" alt="v8 Pool & Spa" loading="lazy" onclick="openLightbox(this)"><p class="img-label">Pool &amp; Spa</p></div>
+      <div><img src="/design/renders/v8/v8_CAM_garden.png" alt="v8 Garden" loading="lazy" onclick="openLightbox(this)"><p class="img-label">Garden</p></div>
+    </div>
+  </div>
+
+  <div class="version-block">
+    <button class="version-toggle" onclick="toggleVersion(this)">
+      <span class="arrow">&#9654;</span> Version 7
+    </button>
+    <div class="version-grid">
+      <div><img src="/design/renders/v7/v7_CAM_aerial_overview.png" alt="v7 Aerial" loading="lazy" onclick="openLightbox(this)"><p class="img-label">Aerial</p></div>
+      <div><img src="/design/renders/v7/v7_CAM_perspective_hero.png" alt="v7 Hero" loading="lazy" onclick="openLightbox(this)"><p class="img-label">Hero</p></div>
+      <div><img src="/design/renders/v7/v7_CAM_entrance.png" alt="v7 Entrance" loading="lazy" onclick="openLightbox(this)"><p class="img-label">Entrance</p></div>
+      <div><img src="/design/renders/v7/v7_CAM_pool_spa.png" alt="v7 Pool & Spa" loading="lazy" onclick="openLightbox(this)"><p class="img-label">Pool &amp; Spa</p></div>
+      <div><img src="/design/renders/v7/v7_CAM_garden_detail.png" alt="v7 Garden Detail" loading="lazy" onclick="openLightbox(this)"><p class="img-label">Garden Detail</p></div>
+    </div>
+  </div>
+
+  <div class="version-block">
+    <button class="version-toggle" onclick="toggleVersion(this)">
+      <span class="arrow">&#9654;</span> Version 6
+    </button>
+    <div class="version-grid">
+      <div><img src="/design/renders/v6/v6_CAM_aerial_overview.png" alt="v6 Aerial" loading="lazy" onclick="openLightbox(this)"><p class="img-label">Aerial</p></div>
+      <div><img src="/design/renders/v6/v6_CAM_perspective_hero.png" alt="v6 Hero" loading="lazy" onclick="openLightbox(this)"><p class="img-label">Hero</p></div>
+      <div><img src="/design/renders/v6/v6_CAM_entrance_approach.png" alt="v6 Entrance" loading="lazy" onclick="openLightbox(this)"><p class="img-label">Entrance</p></div>
+    </div>
+  </div>
+</section>
 
 <footer>
   Sponic Gardens Design Review &mdash; v11 Variants &mdash;
@@ -843,6 +968,13 @@ function exportVotes() {
   a.download = `sponic-review-votes-${new Date().toISOString().slice(0, 10)}.json`;
   a.click();
   URL.revokeObjectURL(url);
+}
+
+// ─── Previous versions toggle ───
+
+function toggleVersion(btn) {
+  btn.classList.toggle('open');
+  btn.nextElementSibling.classList.toggle('open');
 }
 
 // ─── Init ───
