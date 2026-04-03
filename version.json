@@ -1,12 +1,12 @@
 {
-  "version": "v260402.06 11:31p",
-  "release": 51,
-  "sha": "9f6d85d",
-  "fullSha": "9f6d85d15b4d910901709b3aed012c226002922e",
+  "version": "v260402.07 11:33p",
+  "release": 52,
+  "sha": "8b48092",
+  "fullSha": "8b48092d146277a17beff41bbc549b762295440c",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
-  "machine": "runnervmrg6be",
-  "pushedAt": "2026-04-03 04:31:06+00",
-  "commits": [{"sha":"20d6132","message":"fix: correct Resend email domain + add generated images","author":"Rahul"},{"sha":"ff1f056","message":"Merge remote-tracking branch 'origin/condescending-brahmagupta-c379'","author":"Rahul"},{"sha":"9f6d85d","message":"Merge branch 'main' of https://github.com/sponicgarden/sponic-garden","author":"Rahul"}]
+  "machine": "runnervm727z3",
+  "pushedAt": "2026-04-03 04:33:37+00",
+  "commits": [{"sha":"0dfec99","message":"fix: hide system prompt from chat UI on apply page","author":"Rahul"},{"sha":"4fb93cd","message":"Merge remote-tracking branch 'origin/condescending-brahmagupta-c379'","author":"Rahul"},{"sha":"8b48092","message":"Merge branch 'main' of https://github.com/sponicgarden/sponic-garden","author":"Rahul"}]
 }
