@@ -1,12 +1,12 @@
 {
-  "version": "v260403.21 2:30p",
-  "release": 73,
-  "sha": "adb7d57",
-  "fullSha": "adb7d5745cc0dd036a8c716787f0c68d0fb3d624",
+  "version": "v260403.22 5:24p",
+  "release": 74,
+  "sha": "6379c8f",
+  "fullSha": "6379c8f0d73ba57fe519ef790a9efb24a32efba0",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervm727z3",
-  "pushedAt": "2026-04-03 19:30:11+00",
-  "commits": [{"sha":"adb7d57","message":"fix: align hero image width with content container for consistent layout","author":"Rahul"}]
+  "pushedAt": "2026-04-03 22:24:29+00",
+  "commits": [{"sha":"6379c8f","message":"fix: restore Polski label in nav language button","author":"Rahul"}]
 }
