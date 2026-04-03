@@ -1,12 +1,12 @@
 {
-  "version": "v260403.10 12:29a",
-  "release": 62,
-  "sha": "ba0e96a",
-  "fullSha": "ba0e96ae706fa33753d25e7ca71894e1ab724fb2",
+  "version": "v260403.11 12:38a",
+  "release": 63,
+  "sha": "09e20ed",
+  "fullSha": "09e20eda1960717397fbe7644f3bdbb9ce3ce63c",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
-  "machine": "runnervmrg6be",
-  "pushedAt": "2026-04-03 05:29:54+00",
-  "commits": [{"sha":"ba0e96a","message":"fix: restore CNAME — site is down without it","author":"Rahul"}]
+  "machine": "runnervm727z3",
+  "pushedAt": "2026-04-03 05:38:26+00",
+  "commits": [{"sha":"09e20ed","message":"fix: update Why Gardening tiles on home page","author":"Rahul"}]
 }
