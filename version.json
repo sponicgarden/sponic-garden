@@ -1,12 +1,12 @@
 {
-  "version": "v260403.04 12:17a",
-  "release": 56,
-  "sha": "a763c98",
-  "fullSha": "a763c981b24d5cadedddcc839a2c3c0cedf5e3b8",
+  "version": "v260403.05 12:19a",
+  "release": 57,
+  "sha": "a13c2fc",
+  "fullSha": "a13c2fcf2a7bb1080822b405391b5baa83079fdd",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervmrg6be",
-  "pushedAt": "2026-04-03 05:17:42+00",
-  "commits": [{"sha":"a763c98","message":"docs: add Cloudflare Pages migration prompt to devdocs (#11)","author":"Rahul"}]
+  "pushedAt": "2026-04-03 05:19:43+00",
+  "commits": [{"sha":"3fda584","message":"fix: add Polish + conversational English to all three positions","author":"Rahul"},{"sha":"d17e9f6","message":"Merge remote-tracking branch 'origin/condescending-brahmagupta-c379'","author":"Rahul"},{"sha":"a13c2fc","message":"Merge branch 'main' of https://github.com/sponicgarden/sponic-garden","author":"Rahul"}]
 }
