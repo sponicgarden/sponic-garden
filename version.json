@@ -1,12 +1,12 @@
 {
-  "version": "v260403.05 12:19a",
-  "release": 57,
-  "sha": "a13c2fc",
-  "fullSha": "a13c2fcf2a7bb1080822b405391b5baa83079fdd",
+  "version": "v260403.06 12:23a",
+  "release": 58,
+  "sha": "809d232",
+  "fullSha": "809d232cf85ce5368daf5a774d5fd28ad15c3a75",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
-  "machine": "runnervmrg6be",
-  "pushedAt": "2026-04-03 05:19:43+00",
-  "commits": [{"sha":"3fda584","message":"fix: add Polish + conversational English to all three positions","author":"Rahul"},{"sha":"d17e9f6","message":"Merge remote-tracking branch 'origin/condescending-brahmagupta-c379'","author":"Rahul"},{"sha":"a13c2fc","message":"Merge branch 'main' of https://github.com/sponicgarden/sponic-garden","author":"Rahul"}]
+  "machine": "runnervm727z3",
+  "pushedAt": "2026-04-03 05:23:30+00",
+  "commits": [{"sha":"b26b04b","message":"feat: regenerate WKU images — 2:1 wide ratio, male+female pairs","author":"Rahul"},{"sha":"ba92f20","message":"Merge remote-tracking branch 'origin/condescending-brahmagupta-c379'","author":"Rahul"},{"sha":"809d232","message":"Merge branch 'main' of https://github.com/sponicgarden/sponic-garden","author":"Rahul"}]
 }
