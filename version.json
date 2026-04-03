@@ -1,12 +1,12 @@
 {
-  "version": "v260403.16 1:28p",
-  "release": 68,
-  "sha": "2786e73",
-  "fullSha": "2786e7397cfa28a1eeafa19161cd8cbede559228",
+  "version": "v260403.17 1:31p",
+  "release": 69,
+  "sha": "b781f13",
+  "fullSha": "b781f139c6d78bab836ffc037f04f755be13b7a1",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervm727z3",
-  "pushedAt": "2026-04-03 18:28:36+00",
-  "commits": [{"sha":"2786e73","message":"feat: EN/PL translation system — Worker, i18n, switcher, full markup (#14)","author":"Rahul"}]
+  "pushedAt": "2026-04-03 18:31:54+00",
+  "commits": [{"sha":"b781f13","message":"fix: paginate translation fetch — all 1120 keys now load in Polish","author":"Rahul"}]
 }
