@@ -67,6 +67,7 @@ function injectStyles() {
     .sg-nav__left {
       display: flex;
       align-items: center;
+      gap: 0.5rem;
       flex-shrink: 0;
     }
     .sg-nav__wordmark {
@@ -284,6 +285,13 @@ function buildNav() {
   wmImg.className = 'sg-nav__wordmark';
   wmLink.appendChild(wmImg);
   left.appendChild(wmLink);
+
+  // Version badge — right of wordmark
+  const ver = document.createElement('span');
+  ver.className = 'sg-nav__version site-nav__version';
+  ver.textContent = '—';
+  left.appendChild(ver);
+
   nav.appendChild(left);
 
   // Center — tabs
@@ -335,12 +343,6 @@ function buildNav() {
   }
 
   right.appendChild(lang);
-
-  // Version badge (version-info.js will find this via class)
-  const ver = document.createElement('span');
-  ver.className = 'sg-nav__version site-nav__version';
-  ver.textContent = '—';
-  right.appendChild(ver);
 
   const signin = document.createElement('a');
   signin.href = '#';
