@@ -1,0 +1,13 @@
+name = "sponic-translate-cron"
+main = "index.js"
+compatibility_date = "2024-09-23"
+account_id = "394b5de665bbfdea54cdd57be9094762"
+
+[triggers]
+crons = ["*/5 * * * *"]
+
+# Secrets set via: wrangler secret put SUPABASE_SERVICE_KEY
+# Secrets set via: wrangler secret put ANTHROPIC_API_KEY
+# These vars are non-secret config — override with wrangler secret for sensitive values
+[vars]
+SUPABASE_URL = "https://aphrrfprbixmhissnjfn.supabase.co"

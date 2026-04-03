@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Filing Guide — Sonic Vision Provisional Patent | Sponic Garden</title>
+  <title data-i18n="filing.page.title">Filing Guide — Sonic Vision Provisional Patent | Sponic Garden</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" type="image/svg+xml">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500&display=swap');
@@ -159,9 +159,9 @@
 
   <div class="hero">
     <div class="hero-content">
-      <div class="breadcrumb"><a href="/">Sponic Garden</a> &rarr; <a href="/patents/">Patents</a> &rarr; Filing Guide</div>
-      <h1>Provisional Patent Filing Guide</h1>
-      <p class="subtitle">Complete step-by-step instructions for self-filing Sonic Vision as a micro entity ($65)</p>
+      <div class="breadcrumb"><a href="/" data-i18n="nav.home_short">Sponic Garden</a> &rarr; <a href="/patents/" data-i18n="patents.breadcrumb">Patents</a> &rarr; <span data-i18n="filing.breadcrumb">Filing Guide</span></div>
+      <h1 data-i18n="filing.hero.title">Provisional Patent Filing Guide</h1>
+      <p class="subtitle" data-i18n="filing.hero.subtitle">Complete step-by-step instructions for self-filing Sonic Vision as a micro entity ($65)</p>
     </div>
   </div>
 
@@ -169,9 +169,9 @@
 
     <!-- ═══ BEFORE YOU START ═══ -->
     <div class="section-card">
-      <h2>Before You Start</h2>
+      <h2 data-i18n="filing.s1.title">Before You Start</h2>
 
-      <h3>Confirm Micro Entity Eligibility</h3>
+      <h3 data-i18n="filing.s1.eligibility_title">Confirm Micro Entity Eligibility</h3>
       <p>You must meet <strong>all three</strong> criteria under <a href="https://www.law.cornell.edu/cfr/text/37/1.29">37 CFR 1.29</a>:</p>
       <ul class="checklist">
         <li>You have not been named as inventor on more than 4 previously filed US patent applications (excluding provisionals that did not result in non-provisionals)</li>
@@ -186,13 +186,13 @@
 
     <!-- ═══ DOCUMENTS NEEDED ═══ -->
     <div class="section-card">
-      <h2>Documents You Need to Prepare</h2>
-      <p>Prepare these <strong>before</strong> going to Patent Center. All must be in PDF format for electronic filing.</p>
+      <h2 data-i18n="filing.s2.title">Documents You Need to Prepare</h2>
+      <p data-i18n="filing.s2.intro">Prepare these <strong>before</strong> going to Patent Center. All must be in PDF format for electronic filing.</p>
 
       <div class="doc-card">
         <div class="doc-header">
           <span class="doc-badge badge-required">Required</span>
-          <span class="doc-title">1. Specification (Written Description)</span>
+          <span class="doc-title" data-i18n="filing.doc1.title">1. Specification (Written Description)</span>
         </div>
         <p class="doc-desc">This is your main document. The <a href="specification.html"><strong>full specification is ready</strong></a> &mdash; open it and use "Print / Save as PDF" to generate the filing document. It includes all 46 numbered paragraphs, 6 embedded figures, and the abstract. It must describe the invention in enough detail that someone skilled in the art could make and use it (35 U.S.C. &sect;112(a)).</p>
         <ul>
@@ -220,7 +220,7 @@
       <div class="doc-card">
         <div class="doc-header">
           <span class="doc-badge badge-recommended">Recommended</span>
-          <span class="doc-title">2. Drawings / Figures</span>
+          <span class="doc-title" data-i18n="filing.doc2.title">2. Drawings / Figures</span>
         </div>
         <p class="doc-desc"><strong>All 6 figures are ready</strong> and embedded in the <a href="specification.html">specification</a>. They are also available individually as SVGs below. Drawings are not strictly required for a provisional but are <strong>strongly recommended</strong> by the USPTO.</p>
         <ul>
@@ -248,7 +248,7 @@
       <div class="doc-card">
         <div class="doc-header">
           <span class="doc-badge badge-required">Required</span>
-          <span class="doc-title">3. Cover Sheet &mdash; Form PTO/SB/16</span>
+          <span class="doc-title" data-i18n="filing.doc3.title">3. Cover Sheet &mdash; Form PTO/SB/16</span>
         </div>
         <p class="doc-desc">Download: <a href="https://www.uspto.gov/sites/default/files/documents/sb0016.pdf">PTO/SB/16 (PDF)</a></p>
         <p class="doc-desc">Fill in the following fields:</p>
@@ -266,7 +266,7 @@
       <div class="doc-card">
         <div class="doc-header">
           <span class="doc-badge badge-required">Required</span>
-          <span class="doc-title">4. Micro Entity Certification &mdash; Form PTO/SB/15A</span>
+          <span class="doc-title" data-i18n="filing.doc4.title">4. Micro Entity Certification &mdash; Form PTO/SB/15A</span>
         </div>
         <p class="doc-desc">Download: <a href="https://www.uspto.gov/sites/default/files/documents/sb0015a.pdf">PTO/SB/15A (PDF)</a></p>
         <p class="doc-desc">This certifies your micro entity status. Fill in:</p>
@@ -285,7 +285,7 @@
       <div class="doc-card">
         <div class="doc-header">
           <span class="doc-badge badge-recommended">Recommended</span>
-          <span class="doc-title">5. Application Data Sheet (ADS)</span>
+          <span class="doc-title" data-i18n="filing.doc5.title">5. Application Data Sheet (ADS)</span>
         </div>
         <p class="doc-desc">The ADS can be filled out online during the Patent Center submission. It captures:</p>
         <ul>
@@ -301,8 +301,8 @@
 
     <!-- ═══ SPECIFICATION TEMPLATE ═══ -->
     <div class="section-card">
-      <h2>Specification Document Template</h2>
-      <p>Use this structure when expanding the .md file into a formal specification PDF:</p>
+      <h2 data-i18n="filing.s3.title">Specification Document Template</h2>
+      <p data-i18n="filing.s3.intro">Use this structure when expanding the .md file into a formal specification PDF:</p>
 
       <div class="format-spec">
 <pre>
@@ -381,78 +381,78 @@ ABSTRACT
 
     <!-- ═══ STEP BY STEP FILING ═══ -->
     <div class="section-card">
-      <h2>Step-by-Step Filing on Patent Center</h2>
+      <h2 data-i18n="filing.s4.title">Step-by-Step Filing on Patent Center</h2>
 
       <div class="step-grid">
         <div class="step">
           <div class="step-num">1</div>
-          <h4>Create a USPTO.gov Account</h4>
+          <h4 data-i18n="filing.step1.title">Create a USPTO.gov Account</h4>
           <p>Go to <a href="https://patentcenter.uspto.gov">patentcenter.uspto.gov</a>. Click "Create Account" or sign in with an existing USPTO account. You'll need to verify your email. This is a one-time setup.</p>
         </div>
 
         <div class="step">
           <div class="step-num">2</div>
-          <h4>Start a New Submission</h4>
+          <h4 data-i18n="filing.step2.title">Start a New Submission</h4>
           <p>Once logged in, click <strong>"New Submissions"</strong> in the left sidebar, then select <strong>"Utility &mdash; Provisional"</strong>. This opens the provisional application submission wizard.</p>
         </div>
 
         <div class="step">
           <div class="step-num">3</div>
-          <h4>Upload Your Specification</h4>
+          <h4 data-i18n="filing.step3.title">Upload Your Specification</h4>
           <p>Under "Application Documents", click <strong>"Upload"</strong>. Select your specification PDF. Set the document type to <strong>"Specification"</strong>. The system accepts PDF, DOCX, and TIFF formats, but PDF is recommended.</p>
         </div>
 
         <div class="step">
           <div class="step-num">4</div>
-          <h4>Upload Your Drawings</h4>
+          <h4 data-i18n="filing.step4.title">Upload Your Drawings</h4>
           <p>Click "Upload" again. Select your drawings PDF. Set the document type to <strong>"Drawings"</strong>. All figures should be in a single PDF file, numbered "1/6", "2/6", etc.</p>
         </div>
 
         <div class="step">
           <div class="step-num">5</div>
-          <h4>Upload the Cover Sheet (SB/16)</h4>
+          <h4 data-i18n="filing.step5.title">Upload the Cover Sheet (SB/16)</h4>
           <p>Upload your completed <a href="https://www.uspto.gov/sites/default/files/documents/sb0016.pdf">Form PTO/SB/16</a>. Set the document type to <strong>"Provisional Cover Sheet"</strong>.</p>
         </div>
 
         <div class="step">
           <div class="step-num">6</div>
-          <h4>Upload Micro Entity Certification (SB/15A)</h4>
+          <h4 data-i18n="filing.step6.title">Upload Micro Entity Certification (SB/15A)</h4>
           <p>Upload your completed <a href="https://www.uspto.gov/sites/default/files/documents/sb0015a.pdf">Form PTO/SB/15A</a>. Set the document type to <strong>"Certification of Micro Entity Status"</strong>.</p>
         </div>
 
         <div class="step">
           <div class="step-num">7</div>
-          <h4>Fill Out the Application Data Sheet</h4>
+          <h4 data-i18n="filing.step7.title">Fill Out the Application Data Sheet</h4>
           <p>Patent Center has an integrated ADS form. Fill in: inventor name(s), address(es), citizenship, title of invention, correspondence address. For a single-inventor self-filing, this takes about 5 minutes.</p>
         </div>
 
         <div class="step">
           <div class="step-num">8</div>
-          <h4>Select Entity Status &amp; Calculate Fee</h4>
+          <h4 data-i18n="filing.step8.title">Select Entity Status &amp; Calculate Fee</h4>
           <p>Select <strong>"Micro Entity"</strong> as your entity status. The system will calculate your fee: <strong>$65</strong>. Verify this matches before proceeding.</p>
         </div>
 
         <div class="step">
           <div class="step-num">9</div>
-          <h4>Review &amp; Submit</h4>
+          <h4 data-i18n="filing.step9.title">Review &amp; Submit</h4>
           <p>Review all uploaded documents and form data. Check that inventor names, title, and documents are correct. <strong>You cannot amend a provisional after filing</strong> (except for regulatory compliance), so double-check everything.</p>
         </div>
 
         <div class="step">
           <div class="step-num">10</div>
-          <h4>Pay the $65 Fee</h4>
+          <h4 data-i18n="filing.step10.title">Pay the $65 Fee</h4>
           <p>Pay via credit card, debit card, EFT, or USPTO deposit account. Payment is processed immediately.</p>
         </div>
 
         <div class="step">
           <div class="step-num">11</div>
-          <h4>Save Your Filing Receipt</h4>
+          <h4 data-i18n="filing.step11.title">Save Your Filing Receipt</h4>
           <p>After payment, you'll receive an <strong>electronic filing receipt</strong> with your <strong>application number</strong> and <strong>filing date</strong> (your priority date). Save this PDF securely. You'll also receive an email confirmation.</p>
         </div>
 
         <div class="step">
           <div class="step-num">12</div>
-          <h4>You're Patent Pending!</h4>
+          <h4 data-i18n="filing.step12.title">You're Patent Pending!</h4>
           <p>You can now legally mark your invention as <strong>"Patent Pending"</strong>. Set a calendar reminder for <strong>10 months from your filing date</strong> to decide whether to convert to a non-provisional application.</p>
         </div>
       </div>
@@ -460,9 +460,9 @@ ABSTRACT
 
     <!-- ═══ AFTER FILING ═══ -->
     <div class="section-card">
-      <h2>After Filing</h2>
+      <h2 data-i18n="filing.s5.title">After Filing</h2>
 
-      <h3>What Happens Next</h3>
+      <h3 data-i18n="filing.s5.what_next">What Happens Next</h3>
       <ul>
         <li>The provisional is <strong>not examined</strong> &mdash; no patent examiner will review it</li>
         <li>It will <strong>not be published</strong> &mdash; it stays confidential</li>
@@ -470,7 +470,7 @@ ABSTRACT
         <li>It <strong>expires in exactly 12 months</strong> if you don't file a non-provisional claiming its benefit</li>
       </ul>
 
-      <h3>Critical Deadlines</h3>
+      <h3 data-i18n="filing.s5.deadlines">Critical Deadlines</h3>
       <div class="table-wrap">
         <table>
           <thead><tr><th>When</th><th>What</th><th>Action</th></tr></thead>
@@ -483,7 +483,7 @@ ABSTRACT
         </table>
       </div>
 
-      <h3>Your Three Options at Month 10&ndash;12</h3>
+      <h3 data-i18n="filing.s5.options">Your Three Options at Month 10&ndash;12</h3>
       <ol>
         <li><strong>Convert to non-provisional</strong> ($6K&ndash;$16K with attorney) &mdash; proceed toward an examined, enforceable patent</li>
         <li><strong>File a new provisional</strong> ($65) &mdash; if the invention has changed significantly, file a fresh provisional with updated specification. You get a new priority date but lose the old one.</li>
@@ -493,7 +493,7 @@ ABSTRACT
 
     <!-- ═══ IMPORTANT RULES ═══ -->
     <div class="section-card">
-      <h2>Important Rules &amp; Pitfalls</h2>
+      <h2 data-i18n="filing.s6.title">Important Rules &amp; Pitfalls</h2>
 
       <div class="callout callout-rose">
         <strong>Do NOT publicly disclose the invention before filing.</strong> Under US law, you have a 1-year grace period after public disclosure, but international patent rights are lost immediately upon public disclosure. File first, then disclose.
@@ -514,7 +514,7 @@ ABSTRACT
 
     <!-- ═══ FORM LINKS ═══ -->
     <div class="section-card">
-      <h2>Direct Links to USPTO Forms &amp; Resources</h2>
+      <h2 data-i18n="filing.s7.title">Direct Links to USPTO Forms &amp; Resources</h2>
       <div class="table-wrap">
         <table>
           <thead><tr><th>Resource</th><th>Link</th></tr></thead>
@@ -544,8 +544,8 @@ ABSTRACT
 
     <!-- ═══ PREFILING CHECKLIST ═══ -->
     <div class="section-card">
-      <h2>Pre-Filing Checklist</h2>
-      <p>Complete every item before going to Patent Center:</p>
+      <h2 data-i18n="filing.s8.title">Pre-Filing Checklist</h2>
+      <p data-i18n="filing.s8.intro">Complete every item before going to Patent Center:</p>
       <ul class="checklist">
         <li><a href="specification.html">Specification</a> reviewed, printed to PDF (use browser Print &rarr; Save as PDF)</li>
         <li>6 figures (<a href="figures/fig1-system-architecture.svg">1</a>, <a href="figures/fig2-feedback-loop.svg">2</a>, <a href="figures/fig3-gesture-vocabulary.svg">3</a>, <a href="figures/fig4-qr-interface.svg">4</a>, <a href="figures/fig5-processing-topology.svg">5</a>, <a href="figures/fig6-voice-onboarding.svg">6</a>) saved as single PDF (figures are embedded in specification)</li>
@@ -563,11 +563,13 @@ ABSTRACT
   </div>
 
   <footer>
-    <p>Sonic Vision Filing Guide &mdash; Sponic Garden IP Portfolio &middot; March 2026</p>
-    <p style="margin-top: 0.4rem;"><a href="/patents/">Back to Patent Overview</a> &middot; <a href="/">Sponic Garden</a> &middot; <a href="SONIC-VISION-PATENT.md">Download .md</a></p>
+    <p data-i18n="footer.filing">Sonic Vision Filing Guide &mdash; Sponic Garden IP Portfolio &middot; March 2026</p>
+    <p style="margin-top: 0.4rem;"><a href="/patents/" data-i18n="filing.footer.back_patents">Back to Patent Overview</a> &middot; <a href="/" data-i18n="nav.home_short">Sponic Garden</a> &middot; <a href="SONIC-VISION-PATENT.md" data-i18n="patents.footer.download">Download .md</a></p>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script src="/patents/auth-guard.js"></script>
+  <script type="module" src="/shared/i18n.js"></script>
+  <script type="module" src="/shared/language-switcher.js"></script>
 </body>
 </html>

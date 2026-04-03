@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sonic Vision — Patent Framework | Sponic Garden</title>
+  <title data-i18n="patents.page.title">Sonic Vision — Patent Framework | Sponic Garden</title>
   <meta property="og:title" content="Sonic Vision — Provisional Patent Framework">
   <meta property="og:description" content="Adaptive Ambient Audio System Using Computer Vision for Real-Time Audience Detection, Behavioral Feedback Analysis, and Gesture-Based Control">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" type="image/svg+xml">
@@ -430,14 +430,14 @@
   <!-- ═══ HERO ═══ -->
   <div class="hero">
     <div class="hero-content">
-      <div class="breadcrumb"><a href="/">Sponic Garden</a> &rarr; Patents</div>
-      <h1>Sonic Vision</h1>
-      <p class="subtitle">Adaptive Ambient Audio System Using Computer Vision for Real-Time Audience Detection, Behavioral Feedback Analysis, and Gesture-Based Control</p>
+      <div class="breadcrumb"><a href="/" data-i18n="nav.home_short">Sponic Garden</a> &rarr; <span data-i18n="patents.breadcrumb">Patents</span></div>
+      <h1 data-i18n="patents.hero.title">Sonic Vision</h1>
+      <p class="subtitle" data-i18n="patents.hero.subtitle">Adaptive Ambient Audio System Using Computer Vision for Real-Time Audience Detection, Behavioral Feedback Analysis, and Gesture-Based Control</p>
       <div class="badge-row">
-        <span class="badge badge-green">Provisional Patent</span>
-        <span class="badge badge-sky">Computer Vision</span>
-        <span class="badge badge-earth">Reinforcement Learning</span>
-        <span class="badge badge-plum">Gesture Control</span>
+        <span class="badge badge-green" data-i18n="patents.badge.provisional">Provisional Patent</span>
+        <span class="badge badge-sky" data-i18n="patents.badge.cv">Computer Vision</span>
+        <span class="badge badge-earth" data-i18n="patents.badge.rl">Reinforcement Learning</span>
+        <span class="badge badge-plum" data-i18n="patents.badge.gesture">Gesture Control</span>
       </div>
     </div>
   </div>
@@ -446,19 +446,19 @@
 
     <!-- Download bar -->
     <div class="download-bar">
-      <span class="label">Full specification: <code>SONIC-VISION-PATENT.md</code></span>
+      <span class="label" data-i18n="patents.download.label">Full specification: <code>SONIC-VISION-PATENT.md</code></span>
       <span style="display:flex; gap:0.5rem; flex-wrap:wrap;">
-        <a href="specification.html" class="btn-md" style="background:var(--plum-soft); color:var(--plum); border-color:var(--plum-border);">Full Specification</a>
-        <a href="filing-guide.html" class="btn-md" style="background:var(--emerald-soft); color:var(--emerald); border-color:var(--emerald-border);">Filing Guide</a>
-        <a href="SONIC-VISION-PATENT.md" class="btn-md" download>Download .md</a>
+        <a href="specification.html" class="btn-md" style="background:var(--plum-soft); color:var(--plum); border-color:var(--plum-border);" data-i18n="patents.btn.spec">Full Specification</a>
+        <a href="filing-guide.html" class="btn-md" style="background:var(--emerald-soft); color:var(--emerald); border-color:var(--emerald-border);" data-i18n="patents.btn.filing">Filing Guide</a>
+        <a href="SONIC-VISION-PATENT.md" class="btn-md" download data-i18n="patents.btn.download">Download .md</a>
       </span>
     </div>
 
     <!-- ═══ PRIOR ART ═══ -->
     <div class="section-card">
-      <h2>1. Prior Art Analysis</h2>
+      <h2 data-i18n="patents.s1.title">1. Prior Art Analysis</h2>
 
-      <h3>Closest Prior Art</h3>
+      <h3 data-i18n="patents.s1.closest_prior_art">Closest Prior Art</h3>
       <div class="table-wrap">
         <table>
           <thead>
@@ -499,9 +499,9 @@
         </table>
       </div>
 
-      <h3>Assessment</h3>
+      <h3 data-i18n="patents.s1.assessment_title">Assessment</h3>
       <div class="verdict">
-        <strong>OPPORTUNITY EXISTS.</strong> No single patent or combination covers the full system. The key novel elements are:
+        <strong data-i18n="patents.s1.verdict">OPPORTUNITY EXISTS.</strong> <span data-i18n="patents.s1.verdict_body">No single patent or combination covers the full system. The key novel elements are:</span>
       </div>
       <ol>
         <li><strong>Closed-loop feedback</strong> &mdash; The system observes audience reaction to its own selections and adapts in real-time (dancing = positive, covering ears = negative). Prior art is one-shot, not ongoing feedback.</li>
@@ -518,13 +518,13 @@
 
     <!-- ═══ INVENTION SUMMARY ═══ -->
     <div class="section-card">
-      <h2>2. Invention Summary</h2>
+      <h2 data-i18n="patents.s2.title">2. Invention Summary</h2>
 
-      <h3>Problem</h3>
-      <p>Current ambient music systems in commercial, hospitality, and public spaces use static playlists, manual DJ control, or simple time-based scheduling. They cannot adapt to who is present, what they're doing, or whether they're enjoying the current selection.</p>
+      <h3 data-i18n="patents.s2.problem_title">Problem</h3>
+      <p data-i18n="patents.s2.problem_body">Current ambient music systems in commercial, hospitality, and public spaces use static playlists, manual DJ control, or simple time-based scheduling. They cannot adapt to who is present, what they're doing, or whether they're enjoying the current selection.</p>
 
-      <h3>Solution</h3>
-      <p>An integrated system comprising six modules:</p>
+      <h3 data-i18n="patents.s2.solution_title">Solution</h3>
+      <p data-i18n="patents.s2.solution_intro">An integrated system comprising six modules:</p>
       <ol>
         <li><strong>Vision Module</strong> &mdash; Camera(s) with AI for person detection, demographic estimation, activity recognition, behavioral feedback detection, and gesture recognition</li>
         <li><strong>Audio Intelligence Engine</strong> &mdash; Software that selects audio from a tagged library based on weighted vision inputs, with reinforcement learning from audience reactions</li>
@@ -534,7 +534,7 @@
         <li><strong>Flexible Processing Architecture</strong> &mdash; AI inference runs on-device (edge), on remote servers (cloud), or in hybrid mode. Edge maximizes privacy (no video leaves the camera); cloud enables more powerful models; hybrid balances both</li>
       </ol>
 
-      <h3>Key Innovation: The Behavioral Feedback Loop</h3>
+      <h3 data-i18n="patents.s2.innovation_title">Key Innovation: The Behavioral Feedback Loop</h3>
       <div class="diagram">
 <pre>
   CAMERA ──────▶ VISION MODULE ──────▶ AUDIO ENGINE
@@ -559,12 +559,12 @@
 
     <!-- ═══ CLAIMS ═══ -->
     <div class="section-card">
-      <h2>3. Claims Framework</h2>
+      <h2 data-i18n="patents.s3.title">3. Claims Framework</h2>
 
-      <h3>Independent Claims</h3>
+      <h3 data-i18n="patents.s3.independent_claims">Independent Claims</h3>
 
       <div class="claim">
-        <div class="claim-label">Claim 1 &mdash; System</div>
+        <div class="claim-label" data-i18n="patents.claim1.label">Claim 1 &mdash; System</div>
         A system for adaptive ambient audio selection comprising:
         <ul>
           <li>(a) at least one image capture device monitoring a physical space;</li>
@@ -576,7 +576,7 @@
       </div>
 
       <div class="claim">
-        <div class="claim-label">Claim 2 &mdash; Method</div>
+        <div class="claim-label" data-i18n="patents.claim2.label">Claim 2 &mdash; Method</div>
         A method for dynamically selecting ambient audio for a physical space, comprising:
         <ul>
           <li>(a) capturing video of the physical space;</li>
@@ -590,26 +590,26 @@
       </div>
 
       <div class="claim">
-        <div class="claim-label">Claim 3 &mdash; Gesture Control</div>
+        <div class="claim-label" data-i18n="patents.claim3.label">Claim 3 &mdash; Gesture Control</div>
         The system of Claim 1, further comprising gesture recognition wherein detected persons can control audio playback attributes including volume and track selection through hand gestures recognized by the computer vision module.
       </div>
 
       <div class="claim">
-        <div class="claim-label">Claim 4 &mdash; QR-Based Interface</div>
+        <div class="claim-label" data-i18n="patents.claim4.label">Claim 4 &mdash; QR-Based Interface</div>
         The system of Claim 1, further comprising a location-gated web interface accessible via a QR code displayed in the physical space, wherein a user's mobile device accesses the interface only when the device's geolocation matches the monitored space, and the interface provides audio feedback controls and playback information.
       </div>
 
       <div class="claim">
-        <div class="claim-label">Claim 5 &mdash; AI Voice Onboarding</div>
+        <div class="claim-label" data-i18n="patents.claim5.label">Claim 5 &mdash; AI Voice Onboarding</div>
         The system of Claim 1, further comprising an AI-synthesized voice module that generates and plays spoken announcements informing persons of available interaction methods, wherein announcement frequency adapts based on detected crowd turnover.
       </div>
 
       <div class="claim">
-        <div class="claim-label">Claim 6 &mdash; Flexible Processing Architecture</div>
+        <div class="claim-label" data-i18n="patents.claim6.label">Claim 6 &mdash; Flexible Processing Architecture</div>
         The system of Claim 1, wherein the computer vision module operates in at least one of: (a) edge processing mode on the image capture device; (b) cloud processing mode via remote server; or (c) hybrid mode combining time-critical on-device inference with deeper remote analysis.
       </div>
 
-      <h3>Dependent Claims (7&ndash;18)</h3>
+      <h3 data-i18n="patents.s3.dependent_claims">Dependent Claims (7&ndash;18)</h3>
       <ul>
         <li><strong>Claim 7:</strong> Positive feedback includes dancing, rhythmic movement, head-nodding, remaining in area, smiling, clapping</li>
         <li><strong>Claim 8:</strong> Negative feedback includes covering ears, leaving area, grimacing, gesturing disapproval</li>
@@ -628,8 +628,8 @@
 
     <!-- ═══ DESCRIPTION OUTLINE ═══ -->
     <div class="section-card">
-      <h2>4. Detailed Description Outline</h2>
-      <p>The provisional application should include these sections (each 2&ndash;5 pages):</p>
+      <h2 data-i18n="patents.s4.title">4. Detailed Description Outline</h2>
+      <p data-i18n="patents.s4.intro">The provisional application should include these sections (each 2&ndash;5 pages):</p>
       <ol>
         <li><strong>Field of the Invention</strong> &mdash; Ambient audio systems; computer vision; machine learning; edge computing</li>
         <li><strong>Background</strong> &mdash; Limitations of current systems (static playlists, manual DJ, Muzak-style)</li>
@@ -649,35 +649,35 @@
 
     <!-- ═══ FILING PLAN ═══ -->
     <div class="section-card">
-      <h2>5. Filing Plan &mdash; Self-File as Micro Entity</h2>
+      <h2 data-i18n="patents.s5.title">5. Filing Plan &mdash; Self-File as Micro Entity</h2>
 
-      <h3>Total Cost</h3>
+      <h3 data-i18n="patents.s5.total_cost">Total Cost</h3>
       <div class="cost-row">
         <div class="cost-card">
-          <div class="cost-label">USPTO Filing Fee</div>
-          <div class="cost-amount">$65</div>
-          <div class="cost-desc">Micro entity provisional</div>
+          <div class="cost-label" data-i18n="patents.cost.filing_fee_label">USPTO Filing Fee</div>
+          <div class="cost-amount" data-i18n="patents.cost.filing_fee_amount">$65</div>
+          <div class="cost-desc" data-i18n="patents.cost.filing_fee_desc">Micro entity provisional</div>
         </div>
         <div class="cost-card">
-          <div class="cost-label">Figures / Diagrams</div>
-          <div class="cost-amount">$0</div>
-          <div class="cost-desc">Self-created</div>
+          <div class="cost-label" data-i18n="patents.cost.figures_label">Figures / Diagrams</div>
+          <div class="cost-amount" data-i18n="patents.cost.figures_amount">$0</div>
+          <div class="cost-desc" data-i18n="patents.cost.figures_desc">Self-created</div>
         </div>
         <div class="cost-card">
-          <div class="cost-label">Total</div>
-          <div class="cost-amount">$65</div>
-          <div class="cost-desc">Establishes priority date</div>
+          <div class="cost-label" data-i18n="patents.cost.total_label">Total</div>
+          <div class="cost-amount" data-i18n="patents.cost.total_amount">$65</div>
+          <div class="cost-desc" data-i18n="patents.cost.total_desc">Establishes priority date</div>
         </div>
       </div>
 
-      <h3>Micro Entity Qualification</h3>
+      <h3 data-i18n="patents.s5.micro_entity">Micro Entity Qualification</h3>
       <ul class="checklist">
         <li>Named as inventor on fewer than 4 previously filed US patent applications</li>
         <li>Gross income in prior year did not exceed ~$228,954 (3x median household income)</li>
         <li>Not assigned rights to an entity exceeding that income threshold</li>
       </ul>
 
-      <h3>What You Need to Prepare</h3>
+      <h3 data-i18n="patents.s5.prepare">What You Need to Prepare</h3>
       <ol>
         <li><strong>Specification document</strong> &mdash; This document expanded to 15&ndash;30 pages of prose</li>
         <li><strong>Formal figures</strong> (minimum 6):
@@ -695,7 +695,7 @@
         <li><strong>Application Data Sheet</strong> (USPTO Form ADS)</li>
       </ol>
 
-      <h3>Filing Steps</h3>
+      <h3 data-i18n="patents.s5.filing_steps">Filing Steps</h3>
       <div class="table-wrap">
         <table>
           <thead>
@@ -714,7 +714,7 @@
         </table>
       </div>
 
-      <h3>Timeline</h3>
+      <h3 data-i18n="patents.s5.timeline">Timeline</h3>
       <div class="table-wrap">
         <table>
           <thead>
@@ -730,7 +730,7 @@
         </table>
       </div>
 
-      <h3>Future Costs (If Converting to Non-Provisional)</h3>
+      <h3 data-i18n="patents.s5.future_costs">Future Costs (If Converting to Non-Provisional)</h3>
       <div class="table-wrap">
         <table>
           <thead>
@@ -751,7 +751,7 @@
 
     <!-- ═══ NEXT STEPS ═══ -->
     <div class="section-card">
-      <h2>6. Self-File Roadmap</h2>
+      <h2 data-i18n="patents.s6.title">6. Self-File Roadmap</h2>
       <ul class="checklist">
         <li>Verify micro entity qualification (checklist above)</li>
         <li>Create USPTO Patent Center account</li>
@@ -769,7 +769,7 @@
 
     <!-- ═══ NOTES ═══ -->
     <div class="section-card">
-      <h2>7. Important Notes</h2>
+      <h2 data-i18n="patents.s7.title">7. Important Notes</h2>
       <ul>
         <li>A provisional patent application does <strong>not</strong> get examined &mdash; it only establishes a priority date</li>
         <li>You can mark products/services as <strong>"Patent Pending"</strong> once filed</li>
@@ -782,12 +782,14 @@
   </div>
 
   <footer>
-    <p>Sonic Vision &mdash; Sponic Garden IP Portfolio &middot; Draft prepared March 2026</p>
-    <p style="margin-top: 0.4rem;"><a href="/">Back to Sponic Garden</a> &middot; <a href="SONIC-VISION-PATENT.md">Download .md source</a></p>
+    <p data-i18n="footer.patents">Sonic Vision &mdash; Sponic Garden IP Portfolio &middot; Draft prepared March 2026</p>
+    <p style="margin-top: 0.4rem;"><a href="/" data-i18n="nav.back_home_short">Back to Sponic Garden</a> &middot; <a href="SONIC-VISION-PATENT.md" data-i18n="patents.footer.download">Download .md source</a></p>
   </footer>
 
   <script type="module" src="/shared/feedback-widget.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script src="/patents/auth-guard.js"></script>
+  <script type="module" src="/shared/i18n.js"></script>
+  <script type="module" src="/shared/language-switcher.js"></script>
 </body>
 </html>

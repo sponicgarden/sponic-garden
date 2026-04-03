@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Render Pipeline — Sponic Gardens</title>
-  <meta name="description" content="How Sponic Gardens v11 photorealistic renders were created: Blender 3D structural models enhanced by Gemini AI image generation.">
+  <title data-i18n="page.title">Render Pipeline — Sponic Gardens</title>
+  <meta name="description" data-i18n-content="meta.description" content="How Sponic Gardens v11 photorealistic renders were created: Blender 3D structural models enhanced by Gemini AI image generation.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" type="image/svg+xml">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500&display=swap');
@@ -275,232 +275,252 @@
 </head>
 <body>
   <nav>
-    <a href="../index.html" class="brand">Sponic Gardens</a>
+    <a href="../index.html" class="brand" data-i18n="nav.brand">Sponic Gardens</a>
     <span class="sep">|</span>
-    <a href="venue.html">Venue Design</a>
-    <a href="design-process.html" style="color: var(--green); font-weight: 600;">Process</a>
+    <a href="venue.html" data-i18n="nav.venueDesign">Venue Design</a>
+    <a href="design-process.html" style="color: var(--green); font-weight: 600;" data-i18n="nav.process">Process</a>
   </nav>
 
   <div class="container">
     <header>
-      <h1>v11 Render Pipeline</h1>
-      <p>How we created photorealistic venue renders from a structural 3D model using Blender + Gemini AI. Every step, tool, and design decision documented.</p>
+      <h1 data-i18n="process.hero.title">v11 Render Pipeline</h1>
+      <p data-i18n="process.hero.subtitle">How we created photorealistic venue renders from a structural 3D model using Blender + Gemini AI. Every step, tool, and design decision documented.</p>
     </header>
 
     <!-- Overview -->
-    <h2>Pipeline Overview</h2>
-    <p>The v11 pipeline combines precise 3D structural modeling with AI image generation to produce photorealistic renders that accurately represent the venue layout while looking like real photographs.</p>
+    <h2 data-i18n="process.overview.title">Pipeline Overview</h2>
+    <p data-i18n="process.overview.desc">The v11 pipeline combines precise 3D structural modeling with AI image generation to produce photorealistic renders that accurately represent the venue layout while looking like real photographs.</p>
 
     <div class="pipeline">
       <div class="step">
         <div class="step-marker"><div class="step-num">1</div><div class="step-line"></div></div>
         <div class="step-content">
-          <h3>3D Structural Model <span class="tag">Blender + Python</span></h3>
-          <p>Build the entire Sponic Garden campus programmatically in Blender using Python. Every building, walkway, plant, light, and fixture is placed via script with exact coordinates in meters.</p>
-          <p>Script: <code>scripts/blender/build_v11_rapid.py</code> (~900 lines)</p>
+          <h3><span data-i18n="process.step1.title">3D Structural Model</span> <span class="tag" data-i18n="process.step1.tag">Blender + Python</span></h3>
+          <p data-i18n="process.step1.desc">Build the entire Sponic Garden campus programmatically in Blender using Python. Every building, walkway, plant, light, and fixture is placed via script with exact coordinates in meters.</p>
+          <p><span data-i18n="process.step1.scriptLabel">Script:</span> <code>scripts/blender/build_v11_rapid.py</code> <span data-i18n="process.step1.scriptNote">(~900 lines)</span></p>
         </div>
       </div>
       <div class="step">
         <div class="step-marker"><div class="step-num">2</div><div class="step-line"></div></div>
         <div class="step-content">
-          <h3>Cycles Render <span class="tag earth">Mac mini M4 GPU</span></h3>
-          <p>Render 8 camera views using Blender Cycles path tracing on a Mac mini M4 (Alpuca). 2K resolution, 2048 samples per pixel, clean daylight lighting, OIDN denoising. ~4-6 hours total render time.</p>
+          <h3><span data-i18n="process.step2.title">Cycles Render</span> <span class="tag earth" data-i18n="process.step2.tag">Mac mini M4 GPU</span></h3>
+          <p data-i18n="process.step2.desc">Render 8 camera views using Blender Cycles path tracing on a Mac mini M4 (Alpuca). 2K resolution, 2048 samples per pixel, clean daylight lighting, OIDN denoising. ~4-6 hours total render time.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-marker"><div class="step-num">3</div><div class="step-line"></div></div>
         <div class="step-content">
-          <h3>AI Photorealistic Enhancement <span class="tag sky">Gemini</span></h3>
-          <p>Each structural render is sent to Gemini image generation as a layout/depth guide with a camera-specific prompt describing the desired photorealistic result. The AI adds real-world textures, vegetation detail, atmospheric lighting, and material realism while preserving the exact structural layout.</p>
-          <p>Model: <code>gemini-2.0-flash-preview-image-generation</code></p>
+          <h3><span data-i18n="process.step3.title">AI Photorealistic Enhancement</span> <span class="tag sky" data-i18n="process.step3.tag">Gemini</span></h3>
+          <p data-i18n="process.step3.desc">Each structural render is sent to Gemini image generation as a layout/depth guide with a camera-specific prompt describing the desired photorealistic result. The AI adds real-world textures, vegetation detail, atmospheric lighting, and material realism while preserving the exact structural layout.</p>
+          <p><span data-i18n="process.step3.modelLabel">Model:</span> <code>gemini-2.0-flash-preview-image-generation</code></p>
         </div>
       </div>
       <div class="step">
         <div class="step-marker"><div class="step-num">4</div><div class="step-line"></div></div>
         <div class="step-content">
-          <h3>Storage &amp; Display <span class="tag">Supabase + GitHub Pages</span></h3>
-          <p>All images uploaded to Supabase storage with full metadata (prompt, model, camera, keywords). Displayed side-by-side (structural vs. photorealistic) on the venue design page.</p>
+          <h3><span data-i18n="process.step4.title">Storage &amp; Display</span> <span class="tag" data-i18n="process.step4.tag">Supabase + GitHub Pages</span></h3>
+          <p data-i18n="process.step4.desc">All images uploaded to Supabase storage with full metadata (prompt, model, camera, keywords). Displayed side-by-side (structural vs. photorealistic) on the venue design page.</p>
         </div>
       </div>
     </div>
 
     <!-- Tools -->
-    <h2>Tools &amp; Infrastructure</h2>
+    <h2 data-i18n="process.tools.title">Tools &amp; Infrastructure</h2>
     <div class="card-grid">
       <div class="tool-card">
-        <h4>Blender 4.x</h4>
-        <p>Open-source 3D modeling. Used headlessly via Python API (<code>bpy</code>) to build scene geometry, materials, cameras, and lights programmatically. No manual modeling.</p>
+        <h4 data-i18n="process.tools.blender.title">Blender 4.x</h4>
+        <p data-i18n="process.tools.blender.desc">Open-source 3D modeling. Used headlessly via Python API (<code>bpy</code>) to build scene geometry, materials, cameras, and lights programmatically. No manual modeling.</p>
       </div>
       <div class="tool-card">
-        <h4>Blender Cycles</h4>
-        <p>Physically-based path tracer. Produces accurate lighting, reflections, glass refraction, caustics, and shadows. Metal GPU acceleration on Apple Silicon.</p>
+        <h4 data-i18n="process.tools.cycles.title">Blender Cycles</h4>
+        <p data-i18n="process.tools.cycles.desc">Physically-based path tracer. Produces accurate lighting, reflections, glass refraction, caustics, and shadows. Metal GPU acceleration on Apple Silicon.</p>
       </div>
       <div class="tool-card">
-        <h4>Mac mini M4 (Alpuca)</h4>
-        <p>Dedicated render machine. GPU rendering via Metal. SSH-accessible at 192.168.1.200. Runs renders unattended in background via <code>nohup</code>.</p>
+        <h4 data-i18n="process.tools.macmini.title">Mac mini M4 (Alpuca)</h4>
+        <p data-i18n="process.tools.macmini.desc">Dedicated render machine. GPU rendering via Metal. SSH-accessible at 192.168.1.200. Runs renders unattended in background via <code>nohup</code>.</p>
       </div>
       <div class="tool-card">
-        <h4>Gemini Image Generation</h4>
-        <p>Google's multimodal AI model. Accepts an input image + text prompt, generates a new image preserving the structural layout while adding photorealism. Used via <code>google-genai</code> Python SDK.</p>
+        <h4 data-i18n="process.tools.gemini.title">Gemini Image Generation</h4>
+        <p data-i18n="process.tools.gemini.desc">Google's multimodal AI model. Accepts an input image + text prompt, generates a new image preserving the structural layout while adding photorealism. Used via <code>google-genai</code> Python SDK.</p>
       </div>
       <div class="tool-card">
-        <h4>Supabase Storage</h4>
-        <p>Cloud object storage for all generated images. Each upload includes metadata row in <code>image_assets</code> table with prompt, model, keywords, and file details.</p>
+        <h4 data-i18n="process.tools.supabase.title">Supabase Storage</h4>
+        <p data-i18n="process.tools.supabase.desc">Cloud object storage for all generated images. Each upload includes metadata row in <code>image_assets</code> table with prompt, model, keywords, and file details.</p>
       </div>
       <div class="tool-card">
-        <h4>Claude Code</h4>
-        <p>AI coding assistant that wrote all scripts, managed the pipeline, coordinated between local machine and render server, and built this documentation page.</p>
+        <h4 data-i18n="process.tools.claude.title">Claude Code</h4>
+        <p data-i18n="process.tools.claude.desc">AI coding assistant that wrote all scripts, managed the pipeline, coordinated between local machine and render server, and built this documentation page.</p>
       </div>
     </div>
 
     <!-- Design Decisions -->
-    <h2>Design Decisions</h2>
+    <h2 data-i18n="process.decisions.title">Design Decisions</h2>
 
-    <h3>Why structural renders first, not pure AI generation?</h3>
-    <p>Pure text-to-image AI generation cannot reliably produce a specific venue layout with exact building positions, sizes, and spatial relationships. By rendering the structural model first, we get pixel-perfect layout accuracy. The AI step then adds visual realism without rearranging anything.</p>
+    <h3 data-i18n="process.decisions.structural.question">Why structural renders first, not pure AI generation?</h3>
+    <p data-i18n="process.decisions.structural.answer">Pure text-to-image AI generation cannot reliably produce a specific venue layout with exact building positions, sizes, and spatial relationships. By rendering the structural model first, we get pixel-perfect layout accuracy. The AI step then adds visual realism without rearranging anything.</p>
 
-    <h3>Why square saunas?</h3>
-    <p>v9 and v10 used barrel (cylindrical) saunas. v11 switches to square/rectangular cedar cabins with glass windows. This matches the industrial-garden aesthetic better &mdash; the geometric forms echo the corrugated metal buildings, and the windows allow warm interior light to glow outward, enhancing the evening atmosphere.</p>
+    <h3 data-i18n="process.decisions.saunas.question">Why square saunas?</h3>
+    <p data-i18n="process.decisions.saunas.answer">v9 and v10 used barrel (cylindrical) saunas. v11 switches to square/rectangular cedar cabins with glass windows. This matches the industrial-garden aesthetic better &mdash; the geometric forms echo the corrugated metal buildings, and the windows allow warm interior light to glow outward, enhancing the evening atmosphere.</p>
 
-    <h3>Why Cycles instead of EEVEE?</h3>
-    <p>EEVEE renders in seconds but produces flat, game-engine-quality output. Cycles path tracing produces physically accurate lighting, glass refraction, water caustics, and depth of field &mdash; giving the AI enhancement step much better depth and material cues to work with. With 8 hours available on the M4 GPU, the quality trade-off is worthwhile.</p>
+    <h3 data-i18n="process.decisions.cycles.question">Why Cycles instead of EEVEE?</h3>
+    <p data-i18n="process.decisions.cycles.answer">EEVEE renders in seconds but produces flat, game-engine-quality output. Cycles path tracing produces physically accurate lighting, glass refraction, water caustics, and depth of field &mdash; giving the AI enhancement step much better depth and material cues to work with. With 8 hours available on the M4 GPU, the quality trade-off is worthwhile.</p>
 
-    <h3>Why clean daylight instead of sunset?</h3>
-    <p>v9 used dramatic sunset lighting for mood. v11 uses neutral daylight (sun elevation 50&deg;, near-white color) for structural clarity. When AI-enhancing, the model can more accurately interpret building materials, vegetation, and spatial relationships from an evenly-lit scene. The AI can add atmospheric mood on top.</p>
+    <h3 data-i18n="process.decisions.daylight.question">Why clean daylight instead of sunset?</h3>
+    <p data-i18n="process.decisions.daylight.answer">v9 used dramatic sunset lighting for mood. v11 uses neutral daylight (sun elevation 50&deg;, near-white color) for structural clarity. When AI-enhancing, the model can more accurately interpret building materials, vegetation, and spatial relationships from an evenly-lit scene. The AI can add atmospheric mood on top.</p>
 
     <table>
       <thead>
-        <tr><th>Decision</th><th>Choice</th><th>Rationale</th></tr>
+        <tr>
+          <th data-i18n="process.decisionsTable.col.decision">Decision</th>
+          <th data-i18n="process.decisionsTable.col.choice">Choice</th>
+          <th data-i18n="process.decisionsTable.col.rationale">Rationale</th>
+        </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Render engine</td>
-          <td>Cycles (GPU)</td>
-          <td>Physically accurate lighting gives AI better depth/material cues</td>
+          <td data-i18n="process.decisionsTable.row1.decision">Render engine</td>
+          <td data-i18n="process.decisionsTable.row1.choice">Cycles (GPU)</td>
+          <td data-i18n="process.decisionsTable.row1.rationale">Physically accurate lighting gives AI better depth/material cues</td>
         </tr>
         <tr>
-          <td>Resolution</td>
-          <td>2560 &times; 1440 (2K)</td>
-          <td>Sharp enough for AI input, half the render time of 4K</td>
+          <td data-i18n="process.decisionsTable.row2.decision">Resolution</td>
+          <td data-i18n="process.decisionsTable.row2.choice">2560 &times; 1440 (2K)</td>
+          <td data-i18n="process.decisionsTable.row2.rationale">Sharp enough for AI input, half the render time of 4K</td>
         </tr>
         <tr>
-          <td>Samples</td>
-          <td>2048 spp</td>
-          <td>Clean enough with OIDN denoising; 4&times; faster than v10's 8192</td>
+          <td data-i18n="process.decisionsTable.row3.decision">Samples</td>
+          <td data-i18n="process.decisionsTable.row3.choice">2048 spp</td>
+          <td data-i18n="process.decisionsTable.row3.rationale">Clean enough with OIDN denoising; 4&times; faster than v10's 8192</td>
         </tr>
         <tr>
-          <td>Sauna shape</td>
-          <td>Square with windows</td>
-          <td>Matches industrial-garden aesthetic, allows warm interior glow</td>
+          <td data-i18n="process.decisionsTable.row4.decision">Sauna shape</td>
+          <td data-i18n="process.decisionsTable.row4.choice">Square with windows</td>
+          <td data-i18n="process.decisionsTable.row4.rationale">Matches industrial-garden aesthetic, allows warm interior glow</td>
         </tr>
         <tr>
-          <td>Lighting</td>
-          <td>Clean daylight</td>
-          <td>Structural clarity for AI interpretation; AI adds mood</td>
+          <td data-i18n="process.decisionsTable.row5.decision">Lighting</td>
+          <td data-i18n="process.decisionsTable.row5.choice">Clean daylight</td>
+          <td data-i18n="process.decisionsTable.row5.rationale">Structural clarity for AI interpretation; AI adds mood</td>
         </tr>
         <tr>
-          <td>AI model</td>
-          <td>Gemini 2.0 Flash Preview</td>
-          <td>Supports image-to-image, preserves structural layout</td>
+          <td data-i18n="process.decisionsTable.row6.decision">AI model</td>
+          <td data-i18n="process.decisionsTable.row6.choice">Gemini 2.0 Flash Preview</td>
+          <td data-i18n="process.decisionsTable.row6.rationale">Supports image-to-image, preserves structural layout</td>
         </tr>
         <tr>
-          <td>Camera count</td>
-          <td>8 views</td>
-          <td>Aerial + hero + 4 key areas + 2 details covers all features</td>
+          <td data-i18n="process.decisionsTable.row7.decision">Camera count</td>
+          <td data-i18n="process.decisionsTable.row7.choice">8 views</td>
+          <td data-i18n="process.decisionsTable.row7.rationale">Aerial + hero + 4 key areas + 2 details covers all features</td>
         </tr>
         <tr>
-          <td>Color management</td>
-          <td>AgX Punchy</td>
-          <td>Film-like tonemap, handles bright skies and dark interiors well</td>
+          <td data-i18n="process.decisionsTable.row8.decision">Color management</td>
+          <td data-i18n="process.decisionsTable.row8.choice">AgX Punchy</td>
+          <td data-i18n="process.decisionsTable.row8.rationale">Film-like tonemap, handles bright skies and dark interiors well</td>
         </tr>
       </tbody>
     </table>
 
     <!-- Camera Details -->
-    <h2>Camera Setup (8 Views)</h2>
+    <h2 data-i18n="process.cameras.title">Camera Setup (8 Views)</h2>
     <table>
       <thead>
-        <tr><th>Camera</th><th>Lens</th><th>Purpose</th><th>Special</th></tr>
+        <tr>
+          <th data-i18n="process.camerasTable.col.camera">Camera</th>
+          <th data-i18n="process.camerasTable.col.lens">Lens</th>
+          <th data-i18n="process.camerasTable.col.purpose">Purpose</th>
+          <th data-i18n="process.camerasTable.col.special">Special</th>
+        </tr>
       </thead>
       <tbody>
-        <tr><td>CAM_aerial</td><td>Orthographic</td><td>Full campus overhead</td><td>ortho_scale: 100</td></tr>
-        <tr><td>CAM_hero</td><td>24mm</td><td>Main marketing perspective</td><td>Elevated angle, wide view</td></tr>
-        <tr><td>CAM_pool_spa</td><td>32mm</td><td>Pool and spa area</td><td>DOF f/3.5</td></tr>
-        <tr><td>CAM_entrance</td><td>24mm</td><td>Eye-level arrival experience</td><td>Ground level, looking forward</td></tr>
-        <tr><td>CAM_greenhouse_detail</td><td>85mm</td><td>Greenhouse close-up</td><td>DOF f/2.0, telephoto compression</td></tr>
-        <tr><td>CAM_firepit_evening</td><td>35mm</td><td>Fire pit social area</td><td>String lights in frame</td></tr>
-        <tr><td>CAM_coffee_bar</td><td>50mm</td><td>Coffee bar atmosphere</td><td>DOF f/2.8</td></tr>
-        <tr><td>CAM_spa_detail</td><td>50mm</td><td>Square saunas + hot tubs</td><td>DOF f/2.8</td></tr>
+        <tr><td>CAM_aerial</td><td data-i18n="process.camerasTable.aerial.lens">Orthographic</td><td data-i18n="process.camerasTable.aerial.purpose">Full campus overhead</td><td data-i18n="process.camerasTable.aerial.special">ortho_scale: 100</td></tr>
+        <tr><td>CAM_hero</td><td data-i18n="process.camerasTable.hero.lens">24mm</td><td data-i18n="process.camerasTable.hero.purpose">Main marketing perspective</td><td data-i18n="process.camerasTable.hero.special">Elevated angle, wide view</td></tr>
+        <tr><td>CAM_pool_spa</td><td data-i18n="process.camerasTable.poolSpa.lens">32mm</td><td data-i18n="process.camerasTable.poolSpa.purpose">Pool and spa area</td><td data-i18n="process.camerasTable.poolSpa.special">DOF f/3.5</td></tr>
+        <tr><td>CAM_entrance</td><td data-i18n="process.camerasTable.entrance.lens">24mm</td><td data-i18n="process.camerasTable.entrance.purpose">Eye-level arrival experience</td><td data-i18n="process.camerasTable.entrance.special">Ground level, looking forward</td></tr>
+        <tr><td>CAM_greenhouse_detail</td><td data-i18n="process.camerasTable.greenhouse.lens">85mm</td><td data-i18n="process.camerasTable.greenhouse.purpose">Greenhouse close-up</td><td data-i18n="process.camerasTable.greenhouse.special">DOF f/2.0, telephoto compression</td></tr>
+        <tr><td>CAM_firepit_evening</td><td data-i18n="process.camerasTable.firepit.lens">35mm</td><td data-i18n="process.camerasTable.firepit.purpose">Fire pit social area</td><td data-i18n="process.camerasTable.firepit.special">String lights in frame</td></tr>
+        <tr><td>CAM_coffee_bar</td><td data-i18n="process.camerasTable.coffeeBar.lens">50mm</td><td data-i18n="process.camerasTable.coffeeBar.purpose">Coffee bar atmosphere</td><td data-i18n="process.camerasTable.coffeeBar.special">DOF f/2.8</td></tr>
+        <tr><td>CAM_spa_detail</td><td data-i18n="process.camerasTable.spaDetail.lens">50mm</td><td data-i18n="process.camerasTable.spaDetail.purpose">Square saunas + hot tubs</td><td data-i18n="process.camerasTable.spaDetail.special">DOF f/2.8</td></tr>
       </tbody>
     </table>
 
     <!-- Scene Composition -->
-    <h2>Scene Composition</h2>
-    <p>The 3D model contains ~1000+ objects organized into 12 collections:</p>
+    <h2 data-i18n="process.scene.title">Scene Composition</h2>
+    <p data-i18n="process.scene.desc">The 3D model contains ~1000+ objects organized into 12 collections:</p>
 
     <table>
       <thead>
-        <tr><th>Collection</th><th>Contents</th><th>Object Count</th></tr>
+        <tr>
+          <th data-i18n="process.sceneTable.col.collection">Collection</th>
+          <th data-i18n="process.sceneTable.col.contents">Contents</th>
+          <th data-i18n="process.sceneTable.col.count">Object Count</th>
+        </tr>
       </thead>
       <tbody>
-        <tr><td>Buildings</td><td>7 buildings + coffee bar: walls, floors, roofs, doors, windows</td><td>~120</td></tr>
-        <tr><td>Trusses</td><td>Exposed A-frame steel roof trusses on all buildings</td><td>~80</td></tr>
-        <tr><td>Pool</td><td>Swimming pool, deck, coping, steps, loungers, umbrellas</td><td>~30</td></tr>
-        <tr><td>Spa</td><td>2 square saunas, 2 hot tubs, cold plunge, deck</td><td>~25</td></tr>
-        <tr><td>Landscape</td><td>Ground plane, garden beds, trees, hedges, shrubs, flowers, fire pit, fountain, reflecting pool</td><td>~250</td></tr>
-        <tr><td>Plants</td><td>Potted plants at entrances, climbing wall vines</td><td>~150</td></tr>
-        <tr><td>Furniture</td><td>Benches, dining tables, stools, yoga deck</td><td>~30</td></tr>
-        <tr><td>StringLights</td><td>22 string light runs with emissive bulbs + point lights</td><td>~180</td></tr>
-        <tr><td>Paths</td><td>Covered walkways, stone radial paths, running circuit</td><td>~40</td></tr>
-        <tr><td>Interiors</td><td>Greenhouse tables/shelves/plants, movement studio furniture</td><td>~30</td></tr>
-        <tr><td>Site</td><td>250m ground plane with procedural grass texture</td><td>1</td></tr>
+        <tr><td data-i18n="process.sceneTable.buildings.name">Buildings</td><td data-i18n="process.sceneTable.buildings.contents">7 buildings + coffee bar: walls, floors, roofs, doors, windows</td><td>~120</td></tr>
+        <tr><td data-i18n="process.sceneTable.trusses.name">Trusses</td><td data-i18n="process.sceneTable.trusses.contents">Exposed A-frame steel roof trusses on all buildings</td><td>~80</td></tr>
+        <tr><td data-i18n="process.sceneTable.pool.name">Pool</td><td data-i18n="process.sceneTable.pool.contents">Swimming pool, deck, coping, steps, loungers, umbrellas</td><td>~30</td></tr>
+        <tr><td data-i18n="process.sceneTable.spa.name">Spa</td><td data-i18n="process.sceneTable.spa.contents">2 square saunas, 2 hot tubs, cold plunge, deck</td><td>~25</td></tr>
+        <tr><td data-i18n="process.sceneTable.landscape.name">Landscape</td><td data-i18n="process.sceneTable.landscape.contents">Ground plane, garden beds, trees, hedges, shrubs, flowers, fire pit, fountain, reflecting pool</td><td>~250</td></tr>
+        <tr><td data-i18n="process.sceneTable.plants.name">Plants</td><td data-i18n="process.sceneTable.plants.contents">Potted plants at entrances, climbing wall vines</td><td>~150</td></tr>
+        <tr><td data-i18n="process.sceneTable.furniture.name">Furniture</td><td data-i18n="process.sceneTable.furniture.contents">Benches, dining tables, stools, yoga deck</td><td>~30</td></tr>
+        <tr><td data-i18n="process.sceneTable.stringLights.name">StringLights</td><td data-i18n="process.sceneTable.stringLights.contents">22 string light runs with emissive bulbs + point lights</td><td>~180</td></tr>
+        <tr><td data-i18n="process.sceneTable.paths.name">Paths</td><td data-i18n="process.sceneTable.paths.contents">Covered walkways, stone radial paths, running circuit</td><td>~40</td></tr>
+        <tr><td data-i18n="process.sceneTable.interiors.name">Interiors</td><td data-i18n="process.sceneTable.interiors.contents">Greenhouse tables/shelves/plants, movement studio furniture</td><td>~30</td></tr>
+        <tr><td data-i18n="process.sceneTable.site.name">Site</td><td data-i18n="process.sceneTable.site.contents">250m ground plane with procedural grass texture</td><td>1</td></tr>
       </tbody>
     </table>
 
     <!-- Material System -->
-    <h2>Material System</h2>
-    <p>All materials are procedural PBR (physically based rendering) &mdash; no image textures. This keeps the script self-contained and the .blend file small.</p>
+    <h2 data-i18n="process.materials.title">Material System</h2>
+    <p data-i18n="process.materials.desc">All materials are procedural PBR (physically based rendering) &mdash; no image textures. This keeps the script self-contained and the .blend file small.</p>
 
-    <h3>Material types used:</h3>
+    <h3 data-i18n="process.materials.typesTitle">Material types used:</h3>
     <ul>
-      <li><strong>pbr_tex</strong> &mdash; Noise-based color variation + bump mapping. Used for wood, concrete, bark, gravel, soil.</li>
-      <li><strong>pbr_corrugated</strong> &mdash; Wave texture bump for corrugated metal ridges. Signature industrial look.</li>
-      <li><strong>pbr_brick</strong> &mdash; Procedural brick pattern with mortar. Used on Welcome Center and Dining Hall.</li>
-      <li><strong>pbr (simple)</strong> &mdash; Flat color with roughness/metallic. Used for glass, water, cushions, flowers.</li>
+      <li data-i18n="process.materials.pbrTex"><strong>pbr_tex</strong> &mdash; Noise-based color variation + bump mapping. Used for wood, concrete, bark, gravel, soil.</li>
+      <li data-i18n="process.materials.pbrCorrugated"><strong>pbr_corrugated</strong> &mdash; Wave texture bump for corrugated metal ridges. Signature industrial look.</li>
+      <li data-i18n="process.materials.pbrBrick"><strong>pbr_brick</strong> &mdash; Procedural brick pattern with mortar. Used on Welcome Center and Dining Hall.</li>
+      <li data-i18n="process.materials.pbrSimple"><strong>pbr (simple)</strong> &mdash; Flat color with roughness/metallic. Used for glass, water, cushions, flowers.</li>
     </ul>
 
-    <h3>Key material palette:</h3>
+    <h3 data-i18n="process.materials.paletteTitle">Key material palette:</h3>
     <table>
-      <thead><tr><th>Material</th><th>Roughness</th><th>Metallic</th><th>Use</th></tr></thead>
+      <thead>
+        <tr>
+          <th data-i18n="process.materialsTable.col.material">Material</th>
+          <th data-i18n="process.materialsTable.col.roughness">Roughness</th>
+          <th data-i18n="process.materialsTable.col.metallic">Metallic</th>
+          <th data-i18n="process.materialsTable.col.use">Use</th>
+        </tr>
+      </thead>
       <tbody>
-        <tr><td>Steel Frame</td><td>0.30</td><td>0.90</td><td>Trusses, posts, legs</td></tr>
-        <tr><td>Corrugated Metal</td><td>0.45</td><td>0.70</td><td>Building walls, roofing</td></tr>
-        <tr><td>Brick</td><td>0.88</td><td>0.00</td><td>Welcome Center, Dining Hall</td></tr>
-        <tr><td>Cedar Wood</td><td>0.70</td><td>0.00</td><td>Walkway posts, roof, saunas</td></tr>
-        <tr><td>Glass (tinted)</td><td>0.05</td><td>0.00</td><td>Greenhouse walls (alpha 0.30)</td></tr>
-        <tr><td>Glass (warm)</td><td>0.03</td><td>0.00</td><td>Windows with interior glow</td></tr>
-        <tr><td>Pool Water</td><td>0.01</td><td>0.00</td><td>Pool surface (alpha 0.60)</td></tr>
-        <tr><td>Sauna Wood</td><td>0.55</td><td>0.00</td><td>Square sauna walls</td></tr>
+        <tr><td data-i18n="process.materialsTable.steelFrame.name">Steel Frame</td><td>0.30</td><td>0.90</td><td data-i18n="process.materialsTable.steelFrame.use">Trusses, posts, legs</td></tr>
+        <tr><td data-i18n="process.materialsTable.corrugatedMetal.name">Corrugated Metal</td><td>0.45</td><td>0.70</td><td data-i18n="process.materialsTable.corrugatedMetal.use">Building walls, roofing</td></tr>
+        <tr><td data-i18n="process.materialsTable.brick.name">Brick</td><td>0.88</td><td>0.00</td><td data-i18n="process.materialsTable.brick.use">Welcome Center, Dining Hall</td></tr>
+        <tr><td data-i18n="process.materialsTable.cedarWood.name">Cedar Wood</td><td>0.70</td><td>0.00</td><td data-i18n="process.materialsTable.cedarWood.use">Walkway posts, roof, saunas</td></tr>
+        <tr><td data-i18n="process.materialsTable.glassTinted.name">Glass (tinted)</td><td>0.05</td><td>0.00</td><td data-i18n="process.materialsTable.glassTinted.use">Greenhouse walls (alpha 0.30)</td></tr>
+        <tr><td data-i18n="process.materialsTable.glassWarm.name">Glass (warm)</td><td>0.03</td><td>0.00</td><td data-i18n="process.materialsTable.glassWarm.use">Windows with interior glow</td></tr>
+        <tr><td data-i18n="process.materialsTable.poolWater.name">Pool Water</td><td>0.01</td><td>0.00</td><td data-i18n="process.materialsTable.poolWater.use">Pool surface (alpha 0.60)</td></tr>
+        <tr><td data-i18n="process.materialsTable.saunaWood.name">Sauna Wood</td><td>0.55</td><td>0.00</td><td data-i18n="process.materialsTable.saunaWood.use">Square sauna walls</td></tr>
       </tbody>
     </table>
 
     <!-- AI Enhancement -->
-    <h2>AI Enhancement Process</h2>
-    <p>Each structural render is sent to Gemini as an image-to-image input with a camera-specific prompt. The prompt describes:</p>
+    <h2 data-i18n="process.aiEnhancement.title">AI Enhancement Process</h2>
+    <p data-i18n="process.aiEnhancement.desc">Each structural render is sent to Gemini as an image-to-image input with a camera-specific prompt. The prompt describes:</p>
     <ul>
-      <li>The transformation goal (3D diagram &rarr; photorealistic photograph)</li>
-      <li>Camera-specific scene details (what buildings/features are visible)</li>
-      <li>Material descriptions (corrugated metal, brick, cedar, glass)</li>
-      <li>The industrial-garden aesthetic (exposed trusses, string lights, dense greenery)</li>
-      <li>Strict layout preservation instruction</li>
-      <li>Photography style (Canon EOS R5, architectural magazine quality)</li>
+      <li data-i18n="process.aiEnhancement.item1">The transformation goal (3D diagram &rarr; photorealistic photograph)</li>
+      <li data-i18n="process.aiEnhancement.item2">Camera-specific scene details (what buildings/features are visible)</li>
+      <li data-i18n="process.aiEnhancement.item3">Material descriptions (corrugated metal, brick, cedar, glass)</li>
+      <li data-i18n="process.aiEnhancement.item4">The industrial-garden aesthetic (exposed trusses, string lights, dense greenery)</li>
+      <li data-i18n="process.aiEnhancement.item5">Strict layout preservation instruction</li>
+      <li data-i18n="process.aiEnhancement.item6">Photography style (Canon EOS R5, architectural magazine quality)</li>
     </ul>
 
     <div class="callout">
-      <p><strong>Critical constraint:</strong> Every prompt includes "Keep the EXACT same layout, building positions, sizes, and shapes" and "do NOT rearrange, add, or remove any buildings or features." The AI adds visual realism to existing geometry &mdash; it does not redesign the venue.</p>
+      <p data-i18n="process.aiEnhancement.callout"><strong>Critical constraint:</strong> Every prompt includes "Keep the EXACT same layout, building positions, sizes, and shapes" and "do NOT rearrange, add, or remove any buildings or features." The AI adds visual realism to existing geometry &mdash; it does not redesign the venue.</p>
     </div>
 
-    <h3>Example prompt (CAM_spa_detail):</h3>
+    <h3 data-i18n="process.aiEnhancement.exampleTitle">Example prompt (CAM_spa_detail):</h3>
     <pre><span class="string">"Transform this close-up 3D render into a photorealistic
 photograph of the spa area at Sponic Garden. TWO SQUARE
 wooden sauna cabins with glass windows (NOT barrel saunas),
@@ -514,7 +534,7 @@ inside saunas, wet deck surfaces, and lush surrounding
 plantings."</span></pre>
 
     <!-- Render Settings -->
-    <h2>Render Configuration</h2>
+    <h2 data-i18n="process.renderConfig.title">Render Configuration</h2>
     <pre><span class="comment"># Engine</span>
 <span class="keyword">engine</span>:         Cycles (GPU / Metal)
 <span class="keyword">device</span>:         Mac mini M4 — Apple Silicon GPU
@@ -545,23 +565,30 @@ plantings."</span></pre>
 <span class="keyword">look</span>:           Punchy</pre>
 
     <!-- Version History -->
-    <h2>Version History</h2>
+    <h2 data-i18n="process.versionHistory.title">Version History</h2>
     <table>
-      <thead><tr><th>Version</th><th>Engine</th><th>Key Changes</th><th>Status</th></tr></thead>
+      <thead>
+        <tr>
+          <th data-i18n="process.versionTable.col.version">Version</th>
+          <th data-i18n="process.versionTable.col.engine">Engine</th>
+          <th data-i18n="process.versionTable.col.changes">Key Changes</th>
+          <th data-i18n="process.versionTable.col.status">Status</th>
+        </tr>
+      </thead>
       <tbody>
-        <tr><td>v4</td><td>EEVEE</td><td>Initial blockout, flat colors, no sky</td><td>Superseded</td></tr>
-        <tr><td>v6</td><td>Cycles</td><td>Clean geometry, first proper materials</td><td>Superseded</td></tr>
-        <tr><td>v7</td><td>Cycles</td><td>Added amenities, pool, paths</td><td>Superseded</td></tr>
-        <tr><td>v8</td><td>Cycles</td><td>Organic trees, golden hour lighting</td><td>Superseded</td></tr>
-        <tr><td>v9</td><td>Cycles</td><td>Industrial-garden aesthetic, trusses, string lights, barrel saunas</td><td>Previous</td></tr>
-        <tr><td>v10</td><td>Cycles 4K</td><td>8192 spp, interiors, doubled vegetation, maximum quality</td><td>Previous</td></tr>
-        <tr><td><strong>v11</strong></td><td>Cycles + Gemini AI</td><td>Square saunas with windows, clean daylight, AI photorealistic enhancement</td><td><strong>Current</strong></td></tr>
-        <tr><td>v11 ext</td><td>Cycles + Gemini AI</td><td>Golden hour (5 cameras), blue hour (2 cameras), 4 new angles, geometry passes (depth/normal/AO/mist)</td><td><strong>Current</strong></td></tr>
+        <tr><td>v4</td><td>EEVEE</td><td data-i18n="process.versionTable.v4.changes">Initial blockout, flat colors, no sky</td><td data-i18n="process.versionTable.v4.status">Superseded</td></tr>
+        <tr><td>v6</td><td>Cycles</td><td data-i18n="process.versionTable.v6.changes">Clean geometry, first proper materials</td><td data-i18n="process.versionTable.v6.status">Superseded</td></tr>
+        <tr><td>v7</td><td>Cycles</td><td data-i18n="process.versionTable.v7.changes">Added amenities, pool, paths</td><td data-i18n="process.versionTable.v7.status">Superseded</td></tr>
+        <tr><td>v8</td><td>Cycles</td><td data-i18n="process.versionTable.v8.changes">Organic trees, golden hour lighting</td><td data-i18n="process.versionTable.v8.status">Superseded</td></tr>
+        <tr><td>v9</td><td>Cycles</td><td data-i18n="process.versionTable.v9.changes">Industrial-garden aesthetic, trusses, string lights, barrel saunas</td><td data-i18n="process.versionTable.v9.status">Previous</td></tr>
+        <tr><td>v10</td><td>Cycles 4K</td><td data-i18n="process.versionTable.v10.changes">8192 spp, interiors, doubled vegetation, maximum quality</td><td data-i18n="process.versionTable.v10.status">Previous</td></tr>
+        <tr><td><strong>v11</strong></td><td data-i18n="process.versionTable.v11.engine">Cycles + Gemini AI</td><td data-i18n="process.versionTable.v11.changes">Square saunas with windows, clean daylight, AI photorealistic enhancement</td><td><strong data-i18n="process.versionTable.v11.status">Current</strong></td></tr>
+        <tr><td data-i18n="process.versionTable.v11ext.version">v11 ext</td><td data-i18n="process.versionTable.v11ext.engine">Cycles + Gemini AI</td><td data-i18n="process.versionTable.v11ext.changes">Golden hour (5 cameras), blue hour (2 cameras), 4 new angles, geometry passes (depth/normal/AO/mist)</td><td><strong data-i18n="process.versionTable.v11ext.status">Current</strong></td></tr>
       </tbody>
     </table>
 
     <!-- File Map -->
-    <h2>File Map</h2>
+    <h2 data-i18n="process.fileMap.title">File Map</h2>
     <pre><span class="comment"># Scripts</span>
 scripts/blender/build_v11_rapid.py    <span class="comment"># Blender scene builder (1275 objects)</span>
 scripts/blender/render_v11_passes.py  <span class="comment"># Geometry passes (depth/normal/AO/mist)</span>
@@ -601,9 +628,11 @@ paca@192.168.1.200:~/Projects/sponic-garden-3d/
   sponic-garden-v11.blend             <span class="comment"># Saved .blend file</span></pre>
 
     <footer>
-      <p>Sponic Gardens &mdash; <a href="venue.html">Back to Venue Design</a></p>
+      <p><span data-i18n="process.footer.text">Sponic Gardens &mdash;</span> <a href="venue.html" data-i18n="process.footer.backLink">Back to Venue Design</a></p>
     </footer>
   </div>
   <script type="module" src="/shared/feedback-widget.js"></script>
+  <script type="module" src="/shared/i18n.js"></script>
+  <script type="module" src="/shared/language-switcher.js"></script>
 </body>
 </html>
