@@ -1,12 +1,12 @@
 {
-  "version": "v260403.02 12:13a",
-  "release": 54,
-  "sha": "4ad8ff0",
-  "fullSha": "4ad8ff0a301ebe257f63dd2511880b661d60f8dc",
+  "version": "v260403.03 12:14a",
+  "release": 55,
+  "sha": "6be17a3",
+  "fullSha": "6be17a3010eae6c98843592d86da18bd267ccbb4",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
-  "machine": "runnervm727z3",
-  "pushedAt": "2026-04-03 05:13:43+00",
-  "commits": [{"sha":"b8e5615","message":"fix: add conversational English requirement to all positions","author":"Rahul"},{"sha":"6aee2fe","message":"Merge remote-tracking branch 'origin/condescending-brahmagupta-c379'","author":"Rahul"},{"sha":"4ad8ff0","message":"Merge branch 'main' of https://github.com/sponicgarden/sponic-garden","author":"Rahul"}]
+  "machine": "runnervmrg6be",
+  "pushedAt": "2026-04-03 05:14:04+00",
+  "commits": [{"sha":"6be17a3","message":"feat: translation infrastructure + admin editor (#10)","author":"Rahul"}]
 }
