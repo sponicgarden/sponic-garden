@@ -1,12 +1,12 @@
 {
-  "version": "v260403.09 12:29a",
-  "release": 61,
-  "sha": "ea7dc46",
-  "fullSha": "ea7dc4654f0ea99b2c1975088567c30adcac131c",
+  "version": "v260403.10 12:29a",
+  "release": 62,
+  "sha": "ba0e96a",
+  "fullSha": "ba0e96ae706fa33753d25e7ca71894e1ab724fb2",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
-  "machine": "runnervm727z3",
-  "pushedAt": "2026-04-03 05:29:13+00",
-  "commits": [{"sha":"73f27a5","message":"fix: reduce whitespace around role images","author":"Rahul"},{"sha":"a420891","message":"Merge remote-tracking branch 'origin/condescending-brahmagupta-c379'","author":"Rahul"},{"sha":"ea7dc46","message":"Merge branch 'main' of https://github.com/sponicgarden/sponic-garden","author":"Rahul"}]
+  "machine": "runnervmrg6be",
+  "pushedAt": "2026-04-03 05:29:54+00",
+  "commits": [{"sha":"ba0e96a","message":"fix: restore CNAME — site is down without it","author":"Rahul"}]
 }
