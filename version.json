@@ -1,12 +1,12 @@
 {
-  "version": "v260402.04 11:23p",
-  "release": 49,
-  "sha": "f4270e3",
-  "fullSha": "f4270e3394266ae61635f6cbe0a2cee94aa992bc",
+  "version": "v260402.05 11:27p",
+  "release": 50,
+  "sha": "8ebc992",
+  "fullSha": "8ebc992104526a72101a9a6c976ff6aff204c191",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
-  "machine": "runnervm727z3",
-  "pushedAt": "2026-04-03 04:23:20+00",
-  "commits": [{"sha":"f4270e3","message":"feat: add Work With Us page with AI interview application system","author":"Rahul"}]
+  "machine": "runnervmrg6be",
+  "pushedAt": "2026-04-03 04:27:32+00",
+  "commits": [{"sha":"5becde0","message":"feat: add Work With Us page with AI interview application system","author":"Rahul"},{"sha":"1a7f306","message":"feat: add Work With Us thumbnail images (Gemini 2.5 Flash)","author":"Rahul"},{"sha":"8ebc992","message":"merge: add Work With Us page + images to main","author":"Rahul"}]
 }
