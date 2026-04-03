@@ -1,12 +1,12 @@
 {
-  "version": "v260403.23 5:27p",
-  "release": 75,
-  "sha": "8bb6648",
-  "fullSha": "8bb66489c5e9300ecf4127509288c1fa9503a9fe",
+  "version": "v260403.24 6:54p",
+  "release": 76,
+  "sha": "7bdbfd9",
+  "fullSha": "7bdbfd901720e2cd5a5154843f4d6361d85357c9",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervm727z3",
-  "pushedAt": "2026-04-03 22:27:15+00",
-  "commits": [{"sha":"8bb6648","message":"fix: align hero image with content container, move version badge to nav wordmark","author":"Rahul"}]
+  "pushedAt": "2026-04-03 23:54:37+00",
+  "commits": [{"sha":"7bdbfd9","message":"fix: lang button shows target language (switch-to), not current","author":"Rahul"}]
 }
