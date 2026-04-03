@@ -63,6 +63,17 @@ function extractKeysFromHtml(html) {
     }
   }
 
+  // data-i18n-html="key">innerHTML<  (elements with inner HTML tags)
+  const htmlTagPattern = /data-i18n-html="([^"]+)"[^>]*>([\s\S]{1,3000}?)<\/(?:p|div|span|strong|em|h[1-6]|td|li|section|blockquote)>/g;
+  let hm;
+  while ((hm = htmlTagPattern.exec(html)) !== null) {
+    const key = hm[1];
+    const innerHTML = hm[2].trim().replace(/\s+/g, ' ');
+    if (key && innerHTML && !innerHTML.startsWith('{') && innerHTML.length > 0) {
+      keys[key] = innerHTML;
+    }
+  }
+
   // data-i18n-content="key" content="value"  (meta tags)
   const metaPattern = /data-i18n-content="([^"]+)"[^>]*content="([^"]+)"/g;
   while ((m = metaPattern.exec(html)) !== null) {

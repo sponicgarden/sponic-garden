@@ -504,11 +504,11 @@
         <strong data-i18n="patents.s1.verdict">OPPORTUNITY EXISTS.</strong> <span data-i18n="patents.s1.verdict_body">No single patent or combination covers the full system. The key novel elements are:</span>
       </div>
       <ol>
-        <li><strong>Closed-loop feedback</strong> &mdash; The system observes audience reaction to its own selections and adapts in real-time (dancing = positive, covering ears = negative). Prior art is one-shot, not ongoing feedback.</li>
-        <li><strong>Multi-signal crowd analysis</strong> &mdash; Demographics + activity type + crowd density + time of day + behavioral response combined into a single selection engine.</li>
-        <li><strong>Spatial/environmental context</strong> &mdash; Camera monitors a location (not a personal device), selecting ambient audio for a shared physical space.</li>
-        <li><strong>Gesture control layer</strong> &mdash; Audience uses hand gestures detected by the same camera to control volume and track selection.</li>
-        <li><strong>Push notification feedback loop</strong> &mdash; App-based micro-feedback integrated with vision for hybrid explicit/implicit preference learning.</li>
+        <li data-i18n-html="patents.s1.novel1"><strong>Closed-loop feedback</strong> &mdash; The system observes audience reaction to its own selections and adapts in real-time (dancing = positive, covering ears = negative). Prior art is one-shot, not ongoing feedback.</li>
+        <li data-i18n-html="patents.s1.novel2"><strong>Multi-signal crowd analysis</strong> &mdash; Demographics + activity type + crowd density + time of day + behavioral response combined into a single selection engine.</li>
+        <li data-i18n-html="patents.s1.novel3"><strong>Spatial/environmental context</strong> &mdash; Camera monitors a location (not a personal device), selecting ambient audio for a shared physical space.</li>
+        <li data-i18n-html="patents.s1.novel4"><strong>Gesture control layer</strong> &mdash; Audience uses hand gestures detected by the same camera to control volume and track selection.</li>
+        <li data-i18n-html="patents.s1.novel5"><strong>Push notification feedback loop</strong> &mdash; App-based micro-feedback integrated with vision for hybrid explicit/implicit preference learning.</li>
       </ol>
 
       <div class="note">
@@ -526,12 +526,12 @@
       <h3 data-i18n="patents.s2.solution_title">Solution</h3>
       <p data-i18n="patents.s2.solution_intro">An integrated system comprising six modules:</p>
       <ol>
-        <li><strong>Vision Module</strong> &mdash; Camera(s) with AI for person detection, demographic estimation, activity recognition, behavioral feedback detection, and gesture recognition</li>
-        <li><strong>Audio Intelligence Engine</strong> &mdash; Software that selects audio from a tagged library based on weighted vision inputs, with reinforcement learning from audience reactions</li>
-        <li><strong>Audio Output System</strong> &mdash; Zone-aware speakers with smooth transitions and noise-adaptive volume</li>
-        <li><strong>QR-Based Companion Interface</strong> &mdash; No-install web interface accessed via QR code; location-gated so it only works when your phone is physically in the monitored space. Provides feedback buttons, song requests, and virtual gesture controls</li>
-        <li><strong>AI Voice Onboarding</strong> &mdash; Synthesized audio announcements that explain how to interact with the system ("Wave your hand to skip, scan the QR code to control from your phone"). Frequency adapts to crowd turnover; tone matches venue type</li>
-        <li><strong>Flexible Processing Architecture</strong> &mdash; AI inference runs on-device (edge), on remote servers (cloud), or in hybrid mode. Edge maximizes privacy (no video leaves the camera); cloud enables more powerful models; hybrid balances both</li>
+        <li data-i18n-html="patents.s2.module1"><strong>Vision Module</strong> &mdash; Camera(s) with AI for person detection, demographic estimation, activity recognition, behavioral feedback detection, and gesture recognition</li>
+        <li data-i18n-html="patents.s2.module2"><strong>Audio Intelligence Engine</strong> &mdash; Software that selects audio from a tagged library based on weighted vision inputs, with reinforcement learning from audience reactions</li>
+        <li data-i18n-html="patents.s2.module3"><strong>Audio Output System</strong> &mdash; Zone-aware speakers with smooth transitions and noise-adaptive volume</li>
+        <li data-i18n-html="patents.s2.module4"><strong>QR-Based Companion Interface</strong> &mdash; No-install web interface accessed via QR code; location-gated so it only works when your phone is physically in the monitored space. Provides feedback buttons, song requests, and virtual gesture controls</li>
+        <li data-i18n-html="patents.s2.module5"><strong>AI Voice Onboarding</strong> &mdash; Synthesized audio announcements that explain how to interact with the system ("Wave your hand to skip, scan the QR code to control from your phone"). Frequency adapts to crowd turnover; tone matches venue type</li>
+        <li data-i18n-html="patents.s2.module6"><strong>Flexible Processing Architecture</strong> &mdash; AI inference runs on-device (edge), on remote servers (cloud), or in hybrid mode. Edge maximizes privacy (no video leaves the camera); cloud enables more powerful models; hybrid balances both</li>
       </ol>
 
       <h3 data-i18n="patents.s2.innovation_title">Key Innovation: The Behavioral Feedback Loop</h3>
@@ -567,11 +567,11 @@
         <div class="claim-label" data-i18n="patents.claim1.label">Claim 1 &mdash; System</div>
         A system for adaptive ambient audio selection comprising:
         <ul>
-          <li>(a) at least one image capture device monitoring a physical space;</li>
-          <li>(b) a computer vision module configured to detect presence of persons, estimate demographic characteristics, classify activities, and detect behavioral responses to currently playing audio;</li>
-          <li>(c) an audio selection engine that receives inputs from the vision module and selects audio based on a weighted combination of detected persons, demographics, activities, and behavioral feedback;</li>
-          <li>(d) at least one audio output device; and</li>
-          <li>(e) a feedback loop wherein the vision module continuously monitors behavioral responses to currently playing audio and the engine adjusts subsequent selections accordingly.</li>
+          <li data-i18n="patents.claim1.a">(a) at least one image capture device monitoring a physical space;</li>
+          <li data-i18n="patents.claim1.b">(b) a computer vision module configured to detect presence of persons, estimate demographic characteristics, classify activities, and detect behavioral responses to currently playing audio;</li>
+          <li data-i18n="patents.claim1.c">(c) an audio selection engine that receives inputs from the vision module and selects audio based on a weighted combination of detected persons, demographics, activities, and behavioral feedback;</li>
+          <li data-i18n="patents.claim1.d">(d) at least one audio output device; and</li>
+          <li data-i18n="patents.claim1.e">(e) a feedback loop wherein the vision module continuously monitors behavioral responses to currently playing audio and the engine adjusts subsequent selections accordingly.</li>
         </ul>
       </div>
 
@@ -579,13 +579,13 @@
         <div class="claim-label" data-i18n="patents.claim2.label">Claim 2 &mdash; Method</div>
         A method for dynamically selecting ambient audio for a physical space, comprising:
         <ul>
-          <li>(a) capturing video of the physical space;</li>
-          <li>(b) processing video to detect persons, estimate demographics, and classify activities;</li>
-          <li>(c) selecting audio content based on detected characteristics;</li>
-          <li>(d) playing selected audio through speakers serving the space;</li>
-          <li>(e) monitoring behavioral responses using the same camera system;</li>
-          <li>(f) classifying responses as positive or negative feedback; and</li>
-          <li>(g) adjusting audio selection based on classified feedback.</li>
+          <li data-i18n="patents.claim2.a">(a) capturing video of the physical space;</li>
+          <li data-i18n="patents.claim2.b">(b) processing video to detect persons, estimate demographics, and classify activities;</li>
+          <li data-i18n="patents.claim2.c">(c) selecting audio content based on detected characteristics;</li>
+          <li data-i18n="patents.claim2.d">(d) playing selected audio through speakers serving the space;</li>
+          <li data-i18n="patents.claim2.e">(e) monitoring behavioral responses using the same camera system;</li>
+          <li data-i18n="patents.claim2.f">(f) classifying responses as positive or negative feedback; and</li>
+          <li data-i18n="patents.claim2.g">(g) adjusting audio selection based on classified feedback.</li>
         </ul>
       </div>
 
@@ -611,18 +611,18 @@
 
       <h3 data-i18n="patents.s3.dependent_claims">Dependent Claims (7&ndash;18)</h3>
       <ul>
-        <li><strong>Claim 7:</strong> Positive feedback includes dancing, rhythmic movement, head-nodding, remaining in area, smiling, clapping</li>
-        <li><strong>Claim 8:</strong> Negative feedback includes covering ears, leaving area, grimacing, gesturing disapproval</li>
-        <li><strong>Claim 9:</strong> QR web interface enables song requests, genre preferences, and virtual gesture controls without native app install</li>
-        <li><strong>Claim 10:</strong> Reinforcement learning using behavioral feedback as reward signals</li>
-        <li><strong>Claim 11:</strong> Per-location preference profiles that improve over time</li>
-        <li><strong>Claim 12:</strong> Multiple independent camera-speaker zones within a single venue</li>
-        <li><strong>Claim 13:</strong> Volume adjustment based on ambient noise and crowd density</li>
-        <li><strong>Claim 14:</strong> Demographic estimation (age range, group size) weighting genre/energy preferences</li>
-        <li><strong>Claim 15:</strong> Temporal context (time of day, day of week, calendar events)</li>
-        <li><strong>Claim 16:</strong> AI voice onboarding adapts tone/vocabulary to match venue type (casual, professional, energetic)</li>
-        <li><strong>Claim 17:</strong> Edge processing mode preserves privacy by ensuring no video data leaves the capture device</li>
-        <li><strong>Claim 18:</strong> System transitions between processing modes based on bandwidth, latency, and privacy policy</li>
+        <li data-i18n-html="patents.claim7"><strong>Claim 7:</strong> Positive feedback includes dancing, rhythmic movement, head-nodding, remaining in area, smiling, clapping</li>
+        <li data-i18n-html="patents.claim8"><strong>Claim 8:</strong> Negative feedback includes covering ears, leaving area, grimacing, gesturing disapproval</li>
+        <li data-i18n-html="patents.claim9"><strong>Claim 9:</strong> QR web interface enables song requests, genre preferences, and virtual gesture controls without native app install</li>
+        <li data-i18n-html="patents.claim10"><strong>Claim 10:</strong> Reinforcement learning using behavioral feedback as reward signals</li>
+        <li data-i18n-html="patents.claim11"><strong>Claim 11:</strong> Per-location preference profiles that improve over time</li>
+        <li data-i18n-html="patents.claim12"><strong>Claim 12:</strong> Multiple independent camera-speaker zones within a single venue</li>
+        <li data-i18n-html="patents.claim13"><strong>Claim 13:</strong> Volume adjustment based on ambient noise and crowd density</li>
+        <li data-i18n-html="patents.claim14"><strong>Claim 14:</strong> Demographic estimation (age range, group size) weighting genre/energy preferences</li>
+        <li data-i18n-html="patents.claim15"><strong>Claim 15:</strong> Temporal context (time of day, day of week, calendar events)</li>
+        <li data-i18n-html="patents.claim16"><strong>Claim 16:</strong> AI voice onboarding adapts tone/vocabulary to match venue type (casual, professional, energetic)</li>
+        <li data-i18n-html="patents.claim17"><strong>Claim 17:</strong> Edge processing mode preserves privacy by ensuring no video data leaves the capture device</li>
+        <li data-i18n-html="patents.claim18"><strong>Claim 18:</strong> System transitions between processing modes based on bandwidth, latency, and privacy policy</li>
       </ul>
     </div>
 
@@ -631,19 +631,19 @@
       <h2 data-i18n="patents.s4.title">4. Detailed Description Outline</h2>
       <p data-i18n="patents.s4.intro">The provisional application should include these sections (each 2&ndash;5 pages):</p>
       <ol>
-        <li><strong>Field of the Invention</strong> &mdash; Ambient audio systems; computer vision; machine learning; edge computing</li>
-        <li><strong>Background</strong> &mdash; Limitations of current systems (static playlists, manual DJ, Muzak-style)</li>
-        <li><strong>Summary of Invention</strong></li>
-        <li><strong>System Architecture</strong> &mdash; Block diagrams, edge/cloud/hybrid processing topology</li>
-        <li><strong>Vision Module Detail</strong> &mdash; Pose estimation, face analysis, gesture recognition, edge/cloud deployment</li>
-        <li><strong>Audio Engine Detail</strong> &mdash; Music tagging schema, selection algorithm, RL approach</li>
-        <li><strong>Feedback Loop Detail</strong> &mdash; Signal classification, weighting, feedback integration</li>
-        <li><strong>Gesture Control Detail</strong> &mdash; Supported gestures, recognition pipeline, conflict resolution</li>
-        <li><strong>QR-Based Companion Interface</strong> &mdash; QR generation, location-gating via geolocation API, no-install web UX</li>
-        <li><strong>AI Voice Onboarding System</strong> &mdash; Voice synthesis, announcement templates, crowd-turnover-adaptive frequency</li>
-        <li><strong>Processing Architecture Detail</strong> &mdash; Edge (Jetson/Coral), cloud, hybrid modes; privacy-preserving inference</li>
-        <li><strong>Use Cases</strong> &mdash; Restaurant, retail, gym, hotel lobby, co-working, outdoor venue</li>
-        <li><strong>Figures</strong> &mdash; System block diagram, feedback loop flowchart, gesture vocabulary, QR interface mockup, edge/cloud topology, voice onboarding sequence</li>
+        <li data-i18n-html="patents.s4.section1"><strong>Field of the Invention</strong> &mdash; Ambient audio systems; computer vision; machine learning; edge computing</li>
+        <li data-i18n-html="patents.s4.section2"><strong>Background</strong> &mdash; Limitations of current systems (static playlists, manual DJ, Muzak-style)</li>
+        <li data-i18n-html="patents.s4.section3"><strong>Summary of Invention</strong></li>
+        <li data-i18n-html="patents.s4.section4"><strong>System Architecture</strong> &mdash; Block diagrams, edge/cloud/hybrid processing topology</li>
+        <li data-i18n-html="patents.s4.section5"><strong>Vision Module Detail</strong> &mdash; Pose estimation, face analysis, gesture recognition, edge/cloud deployment</li>
+        <li data-i18n-html="patents.s4.section6"><strong>Audio Engine Detail</strong> &mdash; Music tagging schema, selection algorithm, RL approach</li>
+        <li data-i18n-html="patents.s4.section7"><strong>Feedback Loop Detail</strong> &mdash; Signal classification, weighting, feedback integration</li>
+        <li data-i18n-html="patents.s4.section8"><strong>Gesture Control Detail</strong> &mdash; Supported gestures, recognition pipeline, conflict resolution</li>
+        <li data-i18n-html="patents.s4.section9"><strong>QR-Based Companion Interface</strong> &mdash; QR generation, location-gating via geolocation API, no-install web UX</li>
+        <li data-i18n-html="patents.s4.section10"><strong>AI Voice Onboarding System</strong> &mdash; Voice synthesis, announcement templates, crowd-turnover-adaptive frequency</li>
+        <li data-i18n-html="patents.s4.section11"><strong>Processing Architecture Detail</strong> &mdash; Edge (Jetson/Coral), cloud, hybrid modes; privacy-preserving inference</li>
+        <li data-i18n-html="patents.s4.section12"><strong>Use Cases</strong> &mdash; Restaurant, retail, gym, hotel lobby, co-working, outdoor venue</li>
+        <li data-i18n-html="patents.s4.section13"><strong>Figures</strong> &mdash; System block diagram, feedback loop flowchart, gesture vocabulary, QR interface mockup, edge/cloud topology, voice onboarding sequence</li>
       </ol>
     </div>
 
@@ -672,27 +672,27 @@
 
       <h3 data-i18n="patents.s5.micro_entity">Micro Entity Qualification</h3>
       <ul class="checklist">
-        <li>Named as inventor on fewer than 4 previously filed US patent applications</li>
-        <li>Gross income in prior year did not exceed ~$228,954 (3x median household income)</li>
-        <li>Not assigned rights to an entity exceeding that income threshold</li>
+        <li data-i18n="patents.micro.criterion1">Named as inventor on fewer than 4 previously filed US patent applications</li>
+        <li data-i18n="patents.micro.criterion2">Gross income in prior year did not exceed ~$228,954 (3x median household income)</li>
+        <li data-i18n="patents.micro.criterion3">Not assigned rights to an entity exceeding that income threshold</li>
       </ul>
 
       <h3 data-i18n="patents.s5.prepare">What You Need to Prepare</h3>
       <ol>
-        <li><strong>Specification document</strong> &mdash; This document expanded to 15&ndash;30 pages of prose</li>
-        <li><strong>Formal figures</strong> (minimum 6):
+        <li data-i18n-html="patents.prepare.spec"><strong>Specification document</strong> &mdash; This document expanded to 15&ndash;30 pages of prose</li>
+        <li data-i18n-html="patents.prepare.figures_label"><strong>Formal figures</strong> (minimum 6):
           <ul>
-            <li>Fig. 1: System architecture block diagram</li>
-            <li>Fig. 2: Behavioral feedback loop flowchart</li>
-            <li>Fig. 3: Gesture vocabulary reference</li>
-            <li>Fig. 4: QR interface and location-gating sequence</li>
-            <li>Fig. 5: Edge/cloud/hybrid processing topology</li>
-            <li>Fig. 6: AI voice onboarding sequence diagram</li>
+            <li data-i18n="patents.figures.fig1">Fig. 1: System architecture block diagram</li>
+            <li data-i18n="patents.figures.fig2">Fig. 2: Behavioral feedback loop flowchart</li>
+            <li data-i18n="patents.figures.fig3">Fig. 3: Gesture vocabulary reference</li>
+            <li data-i18n="patents.figures.fig4">Fig. 4: QR interface and location-gating sequence</li>
+            <li data-i18n="patents.figures.fig5">Fig. 5: Edge/cloud/hybrid processing topology</li>
+            <li data-i18n="patents.figures.fig6">Fig. 6: AI voice onboarding sequence diagram</li>
           </ul>
         </li>
-        <li><strong>Cover sheet</strong> (USPTO Form SB/16)</li>
-        <li><strong>Micro entity certification</strong> (USPTO Form SB/15A)</li>
-        <li><strong>Application Data Sheet</strong> (USPTO Form ADS)</li>
+        <li data-i18n-html="patents.prepare.cover"><strong>Cover sheet</strong> (USPTO Form SB/16)</li>
+        <li data-i18n-html="patents.prepare.micro_cert"><strong>Micro entity certification</strong> (USPTO Form SB/15A)</li>
+        <li data-i18n-html="patents.prepare.ads"><strong>Application Data Sheet</strong> (USPTO Form ADS)</li>
       </ol>
 
       <h3 data-i18n="patents.s5.filing_steps">Filing Steps</h3>
@@ -746,24 +746,24 @@
           </tbody>
         </table>
       </div>
-      <p style="font-size:0.85rem; color:var(--text-muted);">These costs are only relevant if you decide to convert within the 12-month window.</p>
+      <p style="font-size:0.85rem; color:var(--text-muted);" data-i18n="patents.future_costs.note">These costs are only relevant if you decide to convert within the 12-month window.</p>
     </div>
 
     <!-- ═══ NEXT STEPS ═══ -->
     <div class="section-card">
       <h2 data-i18n="patents.s6.title">6. Self-File Roadmap</h2>
       <ul class="checklist">
-        <li>Verify micro entity qualification (checklist above)</li>
-        <li>Create USPTO Patent Center account</li>
-        <li>Expand Detailed Description into full specification prose (15&ndash;30 pages)</li>
-        <li>Create formal figures (minimum 6 &mdash; see list above)</li>
-        <li>Conduct deeper prior art search on Google Patents / USPTO PAIR</li>
-        <li>Convert specification + figures to PDF</li>
-        <li>Complete Form SB/16 (cover), SB/15A (micro entity cert), and ADS</li>
-        <li>File provisional via Patent Center &mdash; pay $65</li>
-        <li>Save filing receipt and application number securely</li>
-        <li>Set calendar reminder: 10 months from filing &rarr; non-provisional decision</li>
-        <li>Begin building prototype (strengthens patent, demonstrates reduction to practice)</li>
+        <li data-i18n="patents.roadmap.step1">Verify micro entity qualification (checklist above)</li>
+        <li data-i18n="patents.roadmap.step2">Create USPTO Patent Center account</li>
+        <li data-i18n="patents.roadmap.step3">Expand Detailed Description into full specification prose (15&ndash;30 pages)</li>
+        <li data-i18n="patents.roadmap.step4">Create formal figures (minimum 6 &mdash; see list above)</li>
+        <li data-i18n="patents.roadmap.step5">Conduct deeper prior art search on Google Patents / USPTO PAIR</li>
+        <li data-i18n="patents.roadmap.step6">Convert specification + figures to PDF</li>
+        <li data-i18n="patents.roadmap.step7">Complete Form SB/16 (cover), SB/15A (micro entity cert), and ADS</li>
+        <li data-i18n="patents.roadmap.step8">File provisional via Patent Center &mdash; pay $65</li>
+        <li data-i18n="patents.roadmap.step9">Save filing receipt and application number securely</li>
+        <li data-i18n="patents.roadmap.step10">Set calendar reminder: 10 months from filing &rarr; non-provisional decision</li>
+        <li data-i18n="patents.roadmap.step11">Begin building prototype (strengthens patent, demonstrates reduction to practice)</li>
       </ul>
     </div>
 
@@ -771,11 +771,11 @@
     <div class="section-card">
       <h2 data-i18n="patents.s7.title">7. Important Notes</h2>
       <ul>
-        <li>A provisional patent application does <strong>not</strong> get examined &mdash; it only establishes a priority date</li>
-        <li>You can mark products/services as <strong>"Patent Pending"</strong> once filed</li>
-        <li>The provisional expires after 12 months if not converted to a non-provisional</li>
-        <li>Consider <strong>trade secret protection</strong> for the specific ML models/algorithms as a complement to patent protection</li>
-        <li><strong>Privacy:</strong> The system should process video on-device without storing facial data &mdash; this strengthens both the patent (privacy-preserving design) and commercial viability (GDPR/CCPA compliance)</li>
+        <li data-i18n-html="patents.notes.provisional">A provisional patent application does <strong>not</strong> get examined &mdash; it only establishes a priority date</li>
+        <li data-i18n-html="patents.notes.pending">You can mark products/services as <strong>"Patent Pending"</strong> once filed</li>
+        <li data-i18n="patents.notes.expiry">The provisional expires after 12 months if not converted to a non-provisional</li>
+        <li data-i18n-html="patents.notes.trade_secret">Consider <strong>trade secret protection</strong> for the specific ML models/algorithms as a complement to patent protection</li>
+        <li data-i18n-html="patents.notes.privacy"><strong>Privacy:</strong> The system should process video on-device without storing facial data &mdash; this strengthens both the patent (privacy-preserving design) and commercial viability (GDPR/CCPA compliance)</li>
       </ul>
     </div>
 
