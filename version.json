@@ -1,12 +1,12 @@
 {
-  "version": "v260402.07 11:33p",
-  "release": 52,
-  "sha": "8b48092",
-  "fullSha": "8b48092d146277a17beff41bbc549b762295440c",
+  "version": "v260403.01 12:07a",
+  "release": 53,
+  "sha": "722a324",
+  "fullSha": "722a32494ead15441c2168d4299532a6f82e7b1a",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
-  "machine": "runnervm727z3",
-  "pushedAt": "2026-04-03 04:33:37+00",
-  "commits": [{"sha":"0dfec99","message":"fix: hide system prompt from chat UI on apply page","author":"Rahul"},{"sha":"4fb93cd","message":"Merge remote-tracking branch 'origin/condescending-brahmagupta-c379'","author":"Rahul"},{"sha":"8b48092","message":"Merge branch 'main' of https://github.com/sponicgarden/sponic-garden","author":"Rahul"}]
+  "machine": "runnervmrg6be",
+  "pushedAt": "2026-04-03 05:07:57+00",
+  "commits": [{"sha":"a7c9879","message":"fix: rename apply buttons to \"Chat about this role\"","author":"Rahul"},{"sha":"6e33bd3","message":"Merge remote-tracking branch 'origin/condescending-brahmagupta-c379'","author":"Rahul"},{"sha":"722a324","message":"Merge branch 'main' of https://github.com/sponicgarden/sponic-garden","author":"Rahul"}]
 }
