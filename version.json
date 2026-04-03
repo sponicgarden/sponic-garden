@@ -1,12 +1,12 @@
 {
-  "version": "v260403.14 12:34p",
-  "release": 66,
-  "sha": "8b5c34c",
-  "fullSha": "8b5c34cbbffc2b70c11e73325ff93c6be3eb2321",
+  "version": "v260403.15 12:37p",
+  "release": 67,
+  "sha": "988ea2e",
+  "fullSha": "988ea2ea43d02fdce346a6e7a1937d559ac89b06",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
-  "machine": "runnervmrg6be",
-  "pushedAt": "2026-04-03 17:34:37+00",
-  "commits": [{"sha":"8b5c34c","message":"feat: Phase 2+3 — translation Worker, i18n runtime, language switcher, full markup pass (#12)","author":"Rahul"}]
+  "machine": "runnervm727z3",
+  "pushedAt": "2026-04-03 17:37:40+00",
+  "commits": [{"sha":"988ea2e","message":"fix: restore data-i18n markup on index.html and design/venue.html (#13)","author":"Rahul"}]
 }
