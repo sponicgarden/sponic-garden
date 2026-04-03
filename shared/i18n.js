@@ -78,6 +78,24 @@ async function resolveLanguage() {
   return 'en';
 }
 
+// Paginate through PostgREST results (server max-rows cap is typically 1000)
+async function fetchAllRows(baseUrl) {
+  const PAGE = 1000;
+  const all = [];
+  let offset = 0;
+  while (true) {
+    const res = await fetch(`${baseUrl}&limit=${PAGE}&offset=${offset}`, {
+      headers: { 'apikey': SUPABASE_ANON, 'Authorization': `Bearer ${SUPABASE_ANON}` }
+    });
+    if (!res.ok) break;
+    const batch = await res.json();
+    all.push(...batch);
+    if (batch.length < PAGE) break;
+    offset += PAGE;
+  }
+  return all;
+}
+
 async function loadTranslations() {
   // Check cache
   try {
@@ -91,16 +109,14 @@ async function loadTranslations() {
 
   // Fetch from Supabase (public anon read)
   try {
-    const [tRes, lRes] = await Promise.all([
-      fetch(`${SUPABASE_URL}/rest/v1/translations?select=key,lang,value&order=key`, {
-        headers: { 'apikey': SUPABASE_ANON, 'Authorization': `Bearer ${SUPABASE_ANON}`, 'Range': '0-9999' }
-      }),
+    // Fetch languages and all translation rows (paginated — server max-rows = 1000)
+    const [rows, lRes] = await Promise.all([
+      fetchAllRows(`${SUPABASE_URL}/rest/v1/translations?select=key,lang,value&order=key`),
       fetch(`${SUPABASE_URL}/rest/v1/languages?select=code,name,flag,is_base&enabled=eq.true&order=sort_order`, {
         headers: { 'apikey': SUPABASE_ANON, 'Authorization': `Bearer ${SUPABASE_ANON}` }
       }),
     ]);
 
-    const rows  = tRes.ok  ? await tRes.json()  : [];
     languages   = lRes.ok  ? await lRes.json()  : [];
 
     // Reshape: { key: { en: '...', pl: '...' } }
