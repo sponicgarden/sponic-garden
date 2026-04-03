@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sponic Gardens — Apply</title>
+  <meta name="description" content="Chat with our AI to apply for a founding team position at Sponic Gardens.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" type="image/svg+xml">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500&display=swap');
+
+    :root {
+      --bg: #f4f7f1;
+      --surface: #ffffff;
+      --surface2: #eef3ea;
+      --surface3: #e2eadc;
+      --border: #c4d4ba;
+      --border-light: #d8e3cf;
+      --text: #1a2412;
+      --text-soft: #2d3b22;
+      --text-dim: #4a6040;
+      --text-muted: #7a9168;
+      --green: #2d6a1e;
+      --green-soft: rgba(45, 106, 30, 0.07);
+      --green-border: rgba(45, 106, 30, 0.20);
+      --vine: #1a4d2e;
+      --plum: #7e22ce;
+      --earth: #92400e;
+      --emerald: #047857;
+      --radius: 10px;
+      --radius-lg: 14px;
+      --shadow: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-md: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ════════════════════════════════════════════════════
+       HEADER
+       ════════════════════════════════════════════════════ */
+    .chat-header {
+      padding: 1rem 1.5rem;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .chat-header a {
+      font-size: 0.82rem;
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .chat-header a:hover { text-decoration: underline; }
+    .chat-header .role-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      color: var(--vine);
+      flex: 1;
+    }
+    .chat-header .phase-badge {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.6rem;
+      border-radius: 12px;
+      background: var(--green-soft);
+      color: var(--green);
+      border: 1px solid var(--green-border);
+    }
+
+    /* ════════════════════════════════════════════════════
+       CHAT AREA
+       ════════════════════════════════════════════════════ */
+    .chat-area {
+      flex: 1;
+      max-width: 720px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 1.5rem 1rem;
+      overflow-y: auto;
+    }
+
+    .message {
+      margin-bottom: 1rem;
+      display: flex;
+      gap: 0.6rem;
+      align-items: flex-start;
+    }
+    .message.ai { justify-content: flex-start; }
+    .message.user { justify-content: flex-end; }
+
+    .message .avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+    .message.ai .avatar {
+      background: var(--surface2);
+      border: 1px solid var(--border-light);
+    }
+
+    .message .bubble {
+      max-width: 80%;
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-lg);
+      font-size: 0.88rem;
+      line-height: 1.65;
+    }
+    .message.ai .bubble {
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      color: var(--text-soft);
+      border-top-left-radius: 4px;
+    }
+    .message.user .bubble {
+      background: var(--vine);
+      color: #f4f7f1;
+      border-top-right-radius: 4px;
+    }
+
+    .typing-indicator {
+      display: flex;
+      gap: 4px;
+      padding: 0.75rem 1rem;
+      align-items: center;
+    }
+    .typing-indicator span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--text-muted);
+      animation: bounce 1.4s ease-in-out infinite;
+    }
+    .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+    .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes bounce {
+      0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+      30% { transform: translateY(-4px); opacity: 1; }
+    }
+
+    /* ════════════════════════════════════════════════════
+       INPUT AREA
+       ════════════════════════════════════════════════════ */
+    .input-area {
+      padding: 0.75rem 1rem 1rem;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      position: sticky;
+      bottom: 0;
+    }
+    .input-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      gap: 0.5rem;
+      align-items: flex-end;
+    }
+    .input-wrap textarea {
+      flex: 1;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      padding: 0.65rem 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--bg);
+      color: var(--text);
+      resize: none;
+      min-height: 42px;
+      max-height: 140px;
+      line-height: 1.5;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .input-wrap textarea:focus { border-color: var(--green); }
+    .input-wrap textarea::placeholder { color: var(--text-muted); }
+
+    .send-btn {
+      padding: 0.6rem 1rem;
+      background: var(--vine);
+      color: #f4f7f1;
+      border: none;
+      border-radius: var(--radius);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .send-btn:hover { background: #153d22; }
+    .send-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* ════════════════════════════════════════════════════
+       SUMMARY / EMAIL SECTION
+       ════════════════════════════════════════════════════ */
+    .summary-section {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem;
+      display: none;
+    }
+    .summary-section.visible { display: block; }
+
+    .summary-card {
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-left: 3px solid var(--green);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .summary-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      color: var(--vine);
+      margin-bottom: 0.6rem;
+    }
+    .summary-card p {
+      font-size: 0.88rem;
+      color: var(--text-soft);
+      line-height: 1.7;
+      margin-bottom: 0.5rem;
+    }
+
+    .email-form {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      margin-top: 1rem;
+    }
+    .email-form input {
+      flex: 1;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      padding: 0.6rem 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--bg);
+      color: var(--text);
+      outline: none;
+    }
+    .email-form input:focus { border-color: var(--green); }
+
+    .finish-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.6rem 1.2rem;
+      background: var(--green-soft);
+      border: 1px solid var(--green-border);
+      border-radius: var(--radius);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--green);
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-top: 0.75rem;
+    }
+    .finish-btn:hover { background: rgba(45, 106, 30, 0.12); }
+
+    .status-msg {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      font-style: italic;
+    }
+    .status-msg.success { color: var(--green); font-style: normal; }
+    .status-msg.error { color: #b91c1c; }
+
+    /* ════════════════════════════════════════════════════
+       RESPONSIVE
+       ════════════════════════════════════════════════════ */
+    @media (max-width: 600px) {
+      .chat-header { padding: 0.75rem 1rem; gap: 0.5rem; }
+      .chat-header .role-title { font-size: 0.95rem; }
+      .message .bubble { max-width: 88%; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="chat-header">
+    <a href="work-with-us.html">&larr; Back</a>
+    <span class="role-title" id="roleTitle">Applying...</span>
+    <span class="phase-badge" id="phaseBadge">Interview</span>
+  </div>
+
+  <div class="chat-area" id="chatArea"></div>
+
+  <div class="summary-section" id="summarySection">
+    <div class="summary-card">
+      <h3>Your Application Summary</h3>
+      <div id="summaryText"></div>
+    </div>
+    <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:0.75rem;">Enter your email to receive this summary and submit your application:</p>
+    <div class="email-form">
+      <input type="email" id="emailInput" placeholder="your@email.com">
+      <button class="send-btn" id="submitBtn" onclick="submitApplication()">Submit</button>
+    </div>
+    <div id="submitStatus" class="status-msg"></div>
+    <button class="finish-btn" id="refineBtn" onclick="refineSummary()" style="display:none;">Refine summary &rarr;</button>
+  </div>
+
+  <div class="input-area" id="inputArea">
+    <div class="input-wrap">
+      <textarea id="userInput" placeholder="Type your answer..." rows="1" onkeydown="handleKeydown(event)"></textarea>
+      <button class="send-btn" id="sendBtn" onclick="sendMessage()">Send</button>
+    </div>
+    <div style="text-align:center;margin-top:0.4rem;">
+      <button class="finish-btn" id="finishBtn" onclick="finishInterview()" style="display:none;">Finish & get summary</button>
+    </div>
+  </div>
+
+  <script>
+    const SUPABASE_URL = 'https://aphrrfprbixmhissnjfn.supabase.co';
+    const FUNCTION_URL = `${SUPABASE_URL}/functions/v1/interview-chat`;
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFwaHJyZnByYml4bWhpc3NuamZuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk5MzA0MjUsImV4cCI6MjA4NTUwNjQyNX0.yYkdQIq97GQgxK7yT2OQEPi5Tt-a7gM45aF8xjSD6wk';
+
+    const ROLE_TITLES = {
+      'ai-vibe-code-engineer': 'AI Vibe Code Engineer',
+      'construction-builder': 'Construction Builder',
+      'events-marketing-manager': 'Events & Marketing Manager',
+    };
+
+    // State
+    const params = new URLSearchParams(window.location.search);
+    const role = params.get('role') || 'ai-vibe-code-engineer';
+    let phase = 'interview'; // interview → qa → summary
+    let messages = []; // { role: 'user'|'assistant', content: string }
+    let questionCount = 0;
+    let summaryText = '';
+    let isLoading = false;
+
+    // Init
+    document.getElementById('roleTitle').textContent = ROLE_TITLES[role] || role;
+
+    // Start the conversation
+    (async function init() {
+      await callAI("Let's begin. Please greet the applicant warmly and ask the first interview question.");
+    })();
+
+    async function callAI(userMessage, isHidden = false) {
+      if (isLoading) return;
+      isLoading = true;
+
+      const sendBtn = document.getElementById('sendBtn');
+      sendBtn.disabled = true;
+
+      // Add user message to display (unless hidden system message)
+      if (!isHidden) {
+        messages.push({ role: 'user', content: userMessage });
+        addBubble('user', userMessage);
+      }
+
+      // Show typing indicator
+      const typingEl = addTypingIndicator();
+
+      try {
+        const resp = await fetch(FUNCTION_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+          },
+          body: JSON.stringify({
+            role,
+            messages: isHidden
+              ? [{ role: 'user', content: userMessage }]
+              : messages,
+            phase,
+          }),
+        });
+
+        const data = await resp.json();
+        typingEl.remove();
+
+        if (data.reply) {
+          messages.push({ role: 'assistant', content: data.reply });
+          addBubble('ai', data.reply);
+
+          // Track interview progress
+          if (phase === 'interview') {
+            questionCount++;
+            // After ~7 exchanges, check if AI has transitioned to Q&A
+            if (data.reply.toLowerCase().includes("your turn") ||
+                data.reply.toLowerCase().includes("ask me anything") ||
+                data.reply.toLowerCase().includes("any questions")) {
+              phase = 'qa';
+              document.getElementById('phaseBadge').textContent = 'Your Questions';
+              document.getElementById('finishBtn').style.display = '';
+              document.getElementById('userInput').placeholder = 'Ask anything about Sponic Gardens...';
+            }
+          }
+        }
+      } catch (err) {
+        typingEl.remove();
+        addBubble('ai', 'Sorry, I had a connection issue. Please try sending your message again.');
+        console.error(err);
+      }
+
+      isLoading = false;
+      sendBtn.disabled = false;
+      document.getElementById('userInput').focus();
+    }
+
+    function sendMessage() {
+      const input = document.getElementById('userInput');
+      const text = input.value.trim();
+      if (!text || isLoading) return;
+      input.value = '';
+      input.style.height = 'auto';
+      callAI(text);
+    }
+
+    function handleKeydown(e) {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
+      // Auto-resize textarea
+      setTimeout(() => {
+        e.target.style.height = 'auto';
+        e.target.style.height = Math.min(e.target.scrollHeight, 140) + 'px';
+      }, 0);
+    }
+
+    async function finishInterview() {
+      phase = 'summary';
+      document.getElementById('phaseBadge').textContent = 'Summary';
+      document.getElementById('finishBtn').style.display = 'none';
+      document.getElementById('inputArea').style.display = 'none';
+
+      // Show typing indicator
+      const typingEl = addTypingIndicator();
+
+      try {
+        const resp = await fetch(FUNCTION_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+          },
+          body: JSON.stringify({
+            role,
+            messages,
+            phase: 'save',
+          }),
+        });
+
+        const data = await resp.json();
+        typingEl.remove();
+
+        summaryText = data.reply || 'Summary could not be generated.';
+
+        // Show summary section
+        const summaryDiv = document.getElementById('summaryText');
+        summaryDiv.innerHTML = summaryText.split('\n\n').map(p =>
+          `<p>${p.replace(/\n/g, '<br>')}</p>`
+        ).join('');
+        document.getElementById('summarySection').classList.add('visible');
+
+        // Scroll to summary
+        document.getElementById('summarySection').scrollIntoView({ behavior: 'smooth' });
+      } catch (err) {
+        typingEl.remove();
+        addBubble('ai', 'Sorry, I had trouble generating your summary. Please try again.');
+        document.getElementById('inputArea').style.display = '';
+        document.getElementById('finishBtn').style.display = '';
+        phase = 'qa';
+        console.error(err);
+      }
+    }
+
+    async function submitApplication() {
+      const email = document.getElementById('emailInput').value.trim();
+      const statusEl = document.getElementById('submitStatus');
+      const submitBtn = document.getElementById('submitBtn');
+
+      if (!email || !email.includes('@')) {
+        statusEl.textContent = 'Please enter a valid email address.';
+        statusEl.className = 'status-msg error';
+        return;
+      }
+
+      submitBtn.disabled = true;
+      statusEl.textContent = 'Submitting...';
+      statusEl.className = 'status-msg';
+
+      try {
+        const resp = await fetch(FUNCTION_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+          },
+          body: JSON.stringify({
+            role,
+            messages,
+            phase: 'save',
+            email,
+          }),
+        });
+
+        const data = await resp.json();
+
+        if (data.applicationId || data.reply) {
+          statusEl.textContent = 'Application submitted! Check your email for the summary.';
+          statusEl.className = 'status-msg success';
+          submitBtn.textContent = 'Submitted';
+          document.getElementById('refineBtn').style.display = '';
+        } else {
+          statusEl.textContent = 'Submitted, but email sending may have failed. We still have your application.';
+          statusEl.className = 'status-msg';
+        }
+      } catch (err) {
+        statusEl.textContent = 'Connection error. Please try again.';
+        statusEl.className = 'status-msg error';
+        submitBtn.disabled = false;
+        console.error(err);
+      }
+    }
+
+    function refineSummary() {
+      // Re-show input area for refining
+      document.getElementById('inputArea').style.display = '';
+      document.getElementById('userInput').placeholder = 'Tell me what to change in the summary...';
+      phase = 'summary';
+      document.getElementById('phaseBadge').textContent = 'Refining';
+      document.getElementById('refineBtn').style.display = 'none';
+
+      addBubble('ai', "Sure! Tell me what you'd like to change about your summary, and I'll update it for you.");
+    }
+
+    // ── DOM helpers ──
+
+    function addBubble(type, text) {
+      const area = document.getElementById('chatArea');
+      const msg = document.createElement('div');
+      msg.className = `message ${type}`;
+
+      if (type === 'ai') {
+        msg.innerHTML = `
+          <div class="avatar">🌿</div>
+          <div class="bubble">${escapeHtml(text).replace(/\n/g, '<br>')}</div>
+        `;
+      } else {
+        msg.innerHTML = `
+          <div class="bubble">${escapeHtml(text).replace(/\n/g, '<br>')}</div>
+        `;
+      }
+
+      area.appendChild(msg);
+      area.scrollTop = area.scrollHeight;
+      return msg;
+    }
+
+    function addTypingIndicator() {
+      const area = document.getElementById('chatArea');
+      const msg = document.createElement('div');
+      msg.className = 'message ai';
+      msg.innerHTML = `
+        <div class="avatar">🌿</div>
+        <div class="bubble typing-indicator">
+          <span></span><span></span><span></span>
+        </div>
+      `;
+      area.appendChild(msg);
+      area.scrollTop = area.scrollHeight;
+      return msg;
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+  </script>
+</body>
+</html>
