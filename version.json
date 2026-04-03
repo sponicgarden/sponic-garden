@@ -1,12 +1,12 @@
 {
-  "version": "v260403.11 12:38a",
-  "release": 63,
-  "sha": "09e20ed",
-  "fullSha": "09e20eda1960717397fbe7644f3bdbb9ce3ce63c",
+  "version": "v260403.12 12:44a",
+  "release": 64,
+  "sha": "4f590b3",
+  "fullSha": "4f590b35076182c03bbc66c68f6a860c19eab620",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
-  "machine": "runnervm727z3",
-  "pushedAt": "2026-04-03 05:38:26+00",
-  "commits": [{"sha":"09e20ed","message":"fix: update Why Gardening tiles on home page","author":"Rahul"}]
+  "machine": "runnervmrg6be",
+  "pushedAt": "2026-04-03 05:44:24+00",
+  "commits": [{"sha":"4f590b3","message":"fix: regenerate apothecary image with gemini-3-pro-image-preview","author":"Rahul"}]
 }
