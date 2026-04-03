@@ -1,12 +1,12 @@
 {
-  "version": "v260403.17 1:31p",
-  "release": 69,
-  "sha": "b781f13",
-  "fullSha": "b781f139c6d78bab836ffc037f04f755be13b7a1",
+  "version": "v260403.18 1:35p",
+  "release": 70,
+  "sha": "1b3e250",
+  "fullSha": "1b3e250fecc33042ef1b6f4f3e4054963678a36e",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervm727z3",
-  "pushedAt": "2026-04-03 18:31:54+00",
-  "commits": [{"sha":"b781f13","message":"fix: paginate translation fetch — all 1120 keys now load in Polish","author":"Rahul"}]
+  "pushedAt": "2026-04-03 18:35:32+00",
+  "commits": [{"sha":"1b3e250","message":"feat: add DevControl admin dashboard with all tabs","author":"Rahul"}]
 }
