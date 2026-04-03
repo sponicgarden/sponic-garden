@@ -1,12 +1,12 @@
 {
-  "version": "v260403.01 12:07a",
-  "release": 53,
-  "sha": "722a324",
-  "fullSha": "722a32494ead15441c2168d4299532a6f82e7b1a",
+  "version": "v260403.02 12:13a",
+  "release": 54,
+  "sha": "4ad8ff0",
+  "fullSha": "4ad8ff0a301ebe257f63dd2511880b661d60f8dc",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
-  "machine": "runnervmrg6be",
-  "pushedAt": "2026-04-03 05:07:57+00",
-  "commits": [{"sha":"a7c9879","message":"fix: rename apply buttons to \"Chat about this role\"","author":"Rahul"},{"sha":"6e33bd3","message":"Merge remote-tracking branch 'origin/condescending-brahmagupta-c379'","author":"Rahul"},{"sha":"722a324","message":"Merge branch 'main' of https://github.com/sponicgarden/sponic-garden","author":"Rahul"}]
+  "machine": "runnervm727z3",
+  "pushedAt": "2026-04-03 05:13:43+00",
+  "commits": [{"sha":"b8e5615","message":"fix: add conversational English requirement to all positions","author":"Rahul"},{"sha":"6aee2fe","message":"Merge remote-tracking branch 'origin/condescending-brahmagupta-c379'","author":"Rahul"},{"sha":"4ad8ff0","message":"Merge branch 'main' of https://github.com/sponicgarden/sponic-garden","author":"Rahul"}]
 }
