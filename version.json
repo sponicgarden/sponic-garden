@@ -1,12 +1,12 @@
 {
-  "version": "v260403.22 5:24p",
-  "release": 74,
-  "sha": "6379c8f",
-  "fullSha": "6379c8f0d73ba57fe519ef790a9efb24a32efba0",
+  "version": "v260403.23 5:27p",
+  "release": 75,
+  "sha": "8bb6648",
+  "fullSha": "8bb66489c5e9300ecf4127509288c1fa9503a9fe",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervm727z3",
-  "pushedAt": "2026-04-03 22:24:29+00",
-  "commits": [{"sha":"6379c8f","message":"fix: restore Polski label in nav language button","author":"Rahul"}]
+  "pushedAt": "2026-04-03 22:27:15+00",
+  "commits": [{"sha":"8bb6648","message":"fix: align hero image with content container, move version badge to nav wordmark","author":"Rahul"}]
 }
