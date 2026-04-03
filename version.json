@@ -1,12 +1,12 @@
 {
-  "version": "v260403.06 12:23a",
-  "release": 58,
-  "sha": "809d232",
-  "fullSha": "809d232cf85ce5368daf5a774d5fd28ad15c3a75",
+  "version": "v260403.08 12:28a",
+  "release": 60,
+  "sha": "d3d317d",
+  "fullSha": "d3d317d25a38ce4f026a1058aa837644b6230958",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
-  "machine": "runnervm727z3",
-  "pushedAt": "2026-04-03 05:23:30+00",
-  "commits": [{"sha":"b26b04b","message":"feat: regenerate WKU images — 2:1 wide ratio, male+female pairs","author":"Rahul"},{"sha":"ba92f20","message":"Merge remote-tracking branch 'origin/condescending-brahmagupta-c379'","author":"Rahul"},{"sha":"809d232","message":"Merge branch 'main' of https://github.com/sponicgarden/sponic-garden","author":"Rahul"}]
+  "machine": "runnervmrg6be",
+  "pushedAt": "2026-04-03 05:28:22+00",
+  "commits": [{"sha":"d3d317d","message":"chore: remove CNAME and add Cloudflare Pages _headers","author":"Rahul"}]
 }
