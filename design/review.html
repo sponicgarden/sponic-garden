@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Design Review — Sponic Gardens</title>
-  <meta name="description" content="Sponic Gardens design review: vote on v11 venue variants across 19 cameras and 5 AI-enhanced styles.">
+  <title data-i18n="page.title">Design Review — Sponic Gardens</title>
+  <meta name="description" data-i18n-content="meta.description" content="Sponic Gardens design review: vote on v11 venue variants across 19 cameras and 5 AI-enhanced styles.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" type="image/svg+xml">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500&display=swap');
@@ -546,24 +546,24 @@
 <body>
 
 <nav>
-  <a href="/" class="brand">Sponic Gardens</a>
+  <a href="/" class="brand" data-i18n="nav.brand">Sponic Gardens</a>
   <span class="sep">/</span>
-  <a href="/design/venue.html">Design</a>
+  <a href="/design/venue.html" data-i18n="nav.design">Design</a>
   <span class="sep">/</span>
-  <a href="/design/review.html" class="current">Review</a>
+  <a href="/design/review.html" class="current" data-i18n="nav.review">Review</a>
 </nav>
 
 <div class="container">
 
   <header>
-    <h1>Design Review &mdash; v11 Variants</h1>
-    <p class="subtitle">19 cameras &times; 5 AI-enhanced variants each. Vote for your favorites.</p>
+    <h1 data-i18n="review.hero.title">Design Review &mdash; v11 Variants</h1>
+    <p class="subtitle" data-i18n="review.hero.subtitle">19 cameras &times; 5 AI-enhanced variants each. Vote for your favorites.</p>
   </header>
 
   <div class="stats">
-    <div class="stat"><strong>95</strong> variants</div>
-    <div class="stat"><strong>16</strong> activity scenes</div>
-    <div class="stat">Model: <strong>gemini-3-pro-image-preview</strong></div>
+    <div class="stat"><strong>95</strong> <span data-i18n="review.stats.variants">variants</span></div>
+    <div class="stat"><strong>16</strong> <span data-i18n="review.stats.activityScenes">activity scenes</span></div>
+    <div class="stat"><span data-i18n="review.stats.modelLabel">Model:</span> <strong>gemini-3-pro-image-preview</strong></div>
   </div>
 
   <!-- ═══════════════════════════════ VARIANT SECTIONS ═══════════════════════════════ -->
@@ -573,13 +573,13 @@
   <!-- ═══════════════════════════════ ACTIVITY SCENES ═══════════════════════════════ -->
 
   <section class="activity-section">
-    <h2>The Venue In Use</h2>
-    <p class="section-desc">Activity scenes showing the community using the space across different moments.</p>
+    <h2 data-i18n="review.activity.title">The Venue In Use</h2>
+    <p class="section-desc" data-i18n="review.activity.desc">Activity scenes showing the community using the space across different moments.</p>
 
     <div class="community-ref">
       <img src="https://aphrrfprbixmhissnjfn.supabase.co/storage/v1/object/public/sponic-renders/community_reference.png"
            alt="Community reference" loading="lazy" onclick="openLightbox(this)">
-      <p class="caption">Community reference &mdash; overall atmosphere target</p>
+      <p class="caption" data-i18n="review.activity.communityCaption">Community reference &mdash; overall atmosphere target</p>
     </div>
 
     <div id="activity-grid" class="activity-grid"></div>
@@ -588,21 +588,21 @@
   <!-- ═══════════════════════════════ FEEDBACK ═══════════════════════════════ -->
 
   <section class="feedback-section">
-    <h2>Leave Feedback</h2>
-    <p class="section-desc">Share your thoughts on the design variants. Your picks and notes are saved locally and can be exported.</p>
+    <h2 data-i18n="review.feedback.title">Leave Feedback</h2>
+    <p class="section-desc" data-i18n="review.feedback.desc">Share your thoughts on the design variants. Your picks and notes are saved locally and can be exported.</p>
 
     <div class="feedback-box">
       <div class="form-row">
-        <label for="fb-email">Email (optional)</label>
+        <label for="fb-email" data-i18n="review.feedback.emailLabel">Email (optional)</label>
         <input type="email" id="fb-email" placeholder="your@email.com">
       </div>
       <div class="form-row">
-        <label for="fb-message">Feedback</label>
+        <label for="fb-message" data-i18n="review.feedback.messageLabel">Feedback</label>
         <textarea id="fb-message" placeholder="Which variants do you prefer? Any overall thoughts on direction?"></textarea>
       </div>
       <div class="btn-row">
-        <button class="btn-primary" id="fb-submit" onclick="submitFeedback()">Submit Feedback</button>
-        <button class="btn-secondary" onclick="exportVotes()">Export Votes (JSON)</button>
+        <button class="btn-primary" id="fb-submit" onclick="submitFeedback()" data-i18n="review.feedback.submitBtn">Submit Feedback</button>
+        <button class="btn-secondary" onclick="exportVotes()" data-i18n="review.feedback.exportBtn">Export Votes (JSON)</button>
       </div>
       <p class="feedback-status" id="fb-status"></p>
     </div>
@@ -701,9 +701,9 @@
 </section>
 
 <footer>
-  Sponic Gardens Design Review &mdash; v11 Variants &mdash;
-  Concepts: gemini-3-pro-image-preview &mdash;
-  <a href="/">Home</a> &middot; <a href="/design/venue.html">Venue Design</a>
+  <span data-i18n="review.footer.text">Sponic Gardens Design Review &mdash; v11 Variants &mdash;
+  Concepts: gemini-3-pro-image-preview &mdash;</span>
+  <a href="/" data-i18n="review.footer.home">Home</a> &middot; <a href="/design/venue.html" data-i18n="review.footer.venueDesign">Venue Design</a>
 </footer>
 
 <!-- Lightbox -->
@@ -1016,5 +1016,7 @@ renderVariantSections();
 renderActivityScenes();
 </script>
 
+  <script type="module" src="/shared/i18n.js"></script>
+  <script type="module" src="/shared/language-switcher.js"></script>
 </body>
 </html>

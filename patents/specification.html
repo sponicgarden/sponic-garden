@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Provisional Patent Specification — Sonic Vision</title>
+  <title data-i18n="spec.page.title">Provisional Patent Specification — Sonic Vision</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Times+New+Roman&display=swap');
     @page { margin: 1in 0.75in 0.5in 1in; size: letter; }
@@ -81,25 +81,25 @@
 <body>
 
 <div class="print-bar no-print">
-  <span>Sonic Vision — Provisional Patent Specification &nbsp;|&nbsp; <a href="/patents/">Back to overview</a> <a href="/patents/filing-guide.html">Filing guide</a></span>
-  <button onclick="window.print()">Print / Save as PDF</button>
+  <span data-i18n="spec.print_bar.label">Sonic Vision — Provisional Patent Specification &nbsp;|&nbsp; <a href="/patents/" data-i18n="spec.print_bar.back">Back to overview</a> <a href="/patents/filing-guide.html" data-i18n="spec.print_bar.filing">Filing guide</a></span>
+  <button onclick="window.print()" data-i18n="spec.print_bar.btn">Print / Save as PDF</button>
 </div>
 
-<h1>Provisional Application for Patent</h1>
+<h1 data-i18n="spec.h1">Provisional Application for Patent</h1>
 
-<p class="center no-indent" style="margin-bottom:6pt;"><strong>Title of Invention:</strong></p>
-<p class="center no-indent" style="margin-bottom:24pt;">ADAPTIVE AMBIENT AUDIO SYSTEM USING COMPUTER VISION FOR REAL-TIME AUDIENCE DETECTION, BEHAVIORAL FEEDBACK ANALYSIS, AND GESTURE-BASED CONTROL</p>
+<p class="center no-indent" style="margin-bottom:6pt;"><strong data-i18n="spec.title_label">Title of Invention:</strong></p>
+<p class="center no-indent" style="margin-bottom:24pt;" data-i18n="spec.invention_title">ADAPTIVE AMBIENT AUDIO SYSTEM USING COMPUTER VISION FOR REAL-TIME AUDIENCE DETECTION, BEHAVIORAL FEEDBACK ANALYSIS, AND GESTURE-BASED CONTROL</p>
 
 <!-- ═══════════════════════════════════════════════════════ -->
-<h2>Cross-Reference to Related Applications</h2>
+<h2 data-i18n="spec.section.cross_ref">Cross-Reference to Related Applications</h2>
 <p class="no-indent">[0001] None.</p>
 
 <!-- ═══════════════════════════════════════════════════════ -->
-<h2>Field of the Invention</h2>
+<h2 data-i18n="spec.section.field">Field of the Invention</h2>
 <p>[0002] The present invention relates generally to ambient audio systems for shared physical spaces, and more particularly to systems and methods that employ computer vision, machine learning, edge computing, and reinforcement learning to automatically select, play, and adapt music or sonic soundscapes based on real-time detection and analysis of persons present in a monitored space, their activities, their demographic characteristics, their behavioral responses to currently playing audio, and their gestural commands.</p>
 
 <!-- ═══════════════════════════════════════════════════════ -->
-<h2>Background of the Invention</h2>
+<h2 data-i18n="spec.section.background">Background of the Invention</h2>
 <p>[0003] Ambient audio — background music, soundscapes, and environmental audio — plays a significant role in shaping the atmosphere of commercial, hospitality, and public spaces. Restaurants, retail stores, hotel lobbies, fitness centers, co-working spaces, and outdoor venues all rely on background audio to influence mood, encourage desired behaviors (such as lingering or purchasing), and create distinctive brand experiences.</p>
 
 <p>[0004] Current approaches to ambient audio selection suffer from several fundamental limitations. Static playlists, the most common method, involve a pre-curated set of tracks played in sequence without regard for who is actually present or what they are doing. Manual disc jockey (DJ) control requires a dedicated human operator and is cost-prohibitive for most venues during regular operating hours. Time-based scheduling allows venue operators to assign different playlists to different time slots (e.g., "morning jazz," "evening pop"), but this approach cannot adapt to variations in actual crowd composition or energy level within those time windows.</p>
@@ -111,13 +111,13 @@
 <p>[0007] None of the existing approaches implement a closed-loop behavioral feedback system in which the audio selection system observes how persons in the space react to the music that the system itself selected, and then uses those reactions as reinforcement learning signals to continuously improve future selections. This closed-loop capability represents the central innovation of the present invention.</p>
 
 <!-- ═══════════════════════════════════════════════════════ -->
-<h2>Summary of the Invention</h2>
+<h2 data-i18n="spec.section.summary">Summary of the Invention</h2>
 <p>[0008] The present invention provides an integrated system for adaptive ambient audio selection in shared physical spaces. The system comprises six principal modules: (1) an image capture device with a computer vision module that detects persons, estimates demographics, classifies activities, recognizes gestures, and detects behavioral responses to currently playing audio; (2) an audio intelligence engine that selects and manages audio playback using weighted inputs from the vision module and reinforcement learning from behavioral feedback; (3) an audio output system with zone-aware speakers; (4) a QR-based companion interface that enables location-gated web-based feedback and control without requiring a native application install; (5) an AI voice onboarding module that synthesizes spoken announcements explaining available interaction methods, with adaptive frequency based on crowd turnover; and (6) a flexible processing architecture supporting edge, cloud, and hybrid inference modes.</p>
 
 <p>[0009] A key innovation of the present invention is the behavioral feedback loop. Unlike prior art systems that perform one-shot emotion detection to select initial content, the present system continuously observes how detected persons react to the audio that the system itself chose to play. Positive behavioral signals (such as dancing, rhythmic movement, head-nodding, remaining in the monitored area, smiling, and clapping) are treated as positive reinforcement learning rewards, encouraging similar future selections. Negative behavioral signals (such as covering ears, leaving the monitored area, grimacing, and gesturing disapproval) are treated as negative rewards, causing the system to adjust its selection strategy. This creates a continuously self-improving system that adapts to the preferences and responses of the actual people present.</p>
 
 <!-- ═══════════════════════════════════════════════════════ -->
-<h2>Brief Description of the Drawings</h2>
+<h2 data-i18n="spec.section.drawings">Brief Description of the Drawings</h2>
 <p class="no-indent">[0010] FIG. 1 is a block diagram illustrating the overall system architecture of the adaptive ambient audio system, showing the six principal modules and their interconnections.</p>
 <p class="no-indent">[0011] FIG. 2 is a flowchart illustrating the behavioral feedback loop process, from video capture through person detection, behavioral classification, and audio selection adjustment.</p>
 <p class="no-indent">[0012] FIG. 3 is a reference diagram illustrating the gesture vocabulary recognized by the computer vision module, showing each gesture, its detection method, and its corresponding system action.</p>
@@ -126,9 +126,9 @@
 <p class="no-indent">[0015] FIG. 6 is a sequence diagram illustrating the AI voice onboarding process, from new arrival detection through announcement generation and adaptive frequency control.</p>
 
 <!-- ═══════════════════════════════════════════════════════ -->
-<h2>Detailed Description of Preferred Embodiments</h2>
+<h2 data-i18n="spec.section.detailed">Detailed Description of Preferred Embodiments</h2>
 
-<h3>1. System Overview</h3>
+<h3 data-i18n="spec.h3.system_overview">1. System Overview</h3>
 <p>[0016] Referring now to FIG. 1, the adaptive ambient audio system comprises an image capture device <span class="ref">100</span>, a computer vision module <span class="ref">200</span>, an audio selection engine <span class="ref">300</span>, an audio output device <span class="ref">400</span>, a QR-based companion interface <span class="ref">500</span>, an AI voice onboarding module <span class="ref">600</span>, and a flexible processing architecture <span class="ref">700</span>. These modules are interconnected by a behavioral feedback loop <span class="ref">800</span> that continuously monitors audience reaction to the system's own audio selections.</p>
 
 <p>[0017] The image capture device <span class="ref">100</span> comprises one or more cameras with wide-angle lenses positioned to observe a monitored physical space. In preferred embodiments, the camera includes a charge-coupled device (CCD) or complementary metal-oxide-semiconductor (CMOS) image sensor capable of capturing video at a minimum of 15 frames per second at a resolution of at least 720p. The device may optionally include an infrared sensor for low-light operation and a depth sensor (such as a time-of-flight camera or structured light projector) for improved person detection and gesture recognition. The device may further include a microphone array for ambient noise level detection.</p>
@@ -140,7 +140,7 @@
   <div class="figure-caption">FIG. 1</div>
 </div>
 
-<h3>2. Computer Vision Module</h3>
+<h3 data-i18n="spec.h3.cv_module">2. Computer Vision Module</h3>
 <p>[0019] The person detection and tracking sub-module <span class="ref">210</span> employs a real-time object detection model (such as YOLO, SSD, or an equivalent architecture) to identify and localize individual persons within each video frame. A multi-object tracker (such as DeepSORT or ByteTrack) maintains persistent identity for each detected person across frames, enabling the system to track how long each person remains in the space and to correlate behavioral responses with specific individuals over time.</p>
 
 <p>[0020] The demographic estimation sub-module <span class="ref">220</span> performs approximate analysis of detected persons to estimate age range (e.g., child, young adult, middle-aged, senior) and group composition (e.g., number of people, whether they appear to be in groups or alone). This sub-module explicitly does not perform facial recognition or store biometric data; it operates on body proportions, posture, and group spatial relationships rather than facial features, thereby preserving privacy while still enabling demographically-informed audio selection.</p>
@@ -163,7 +163,7 @@
 
 <p>[0024] The crowd turnover detection sub-module <span class="ref">260</span> monitors the rate at which new persons enter the monitored space and existing persons depart. This metric is used by the AI voice onboarding module <span class="ref">600</span> to determine when to play instructional announcements, and by the audio selection engine <span class="ref">300</span> to determine when the audience composition has changed sufficiently to warrant a selection reassessment.</p>
 
-<h3>3. Audio Intelligence Engine</h3>
+<h3 data-i18n="spec.h3.audio_engine">3. Audio Intelligence Engine</h3>
 <p>[0025] The audio selection engine <span class="ref">300</span> comprises a music and soundscape library <span class="ref">310</span>, a selection algorithm <span class="ref">320</span>, a reinforcement learning feedback processor <span class="ref">330</span>, and a crossfade and mixing module <span class="ref">340</span>.</p>
 
 <p>[0026] The music and soundscape library <span class="ref">310</span> stores audio content tagged with metadata including: energy level (1-10 scale), genre, sub-genre, mood (e.g., relaxed, energetic, melancholic, uplifting), tempo (BPM), instrumentation characteristics, and demographic affinity scores derived from historical preference data.</p>
@@ -174,10 +174,10 @@
 
 <p>[0029] The crossfade and mixing module <span class="ref">340</span> manages smooth transitions between audio tracks, implementing beat-matched crossfades when possible and gradual volume transitions to prevent jarring track changes that could disrupt the ambient atmosphere.</p>
 
-<h3>4. Audio Output System</h3>
+<h3 data-i18n="spec.h3.audio_output">4. Audio Output System</h3>
 <p>[0030] The audio output device <span class="ref">400</span> comprises one or more speakers positioned to serve the monitored physical space. In multi-zone deployments, separate camera-speaker pairs may operate independently, allowing different areas of a single venue (e.g., bar area versus dining area) to have different audio selections tailored to the specific audience and activity in each zone. The system adjusts playback volume based on detected ambient noise levels and crowd density, increasing volume in noisy environments and reducing it in quieter settings.</p>
 
-<h3>5. QR-Based Companion Interface</h3>
+<h3 data-i18n="spec.h3.qr_interface">5. QR-Based Companion Interface</h3>
 <p>[0031] Referring to FIG. 4, the QR-based companion interface <span class="ref">500</span> provides a web-based control and feedback mechanism that requires no native application installation on the user's mobile device. The interface comprises a QR code display component <span class="ref">510</span>, a location gate <span class="ref">520</span>, and a web user interface <span class="ref">530</span>.</p>
 
 <div class="figure-container">
@@ -191,7 +191,7 @@
 
 <p>[0034] Once access is granted, the web user interface <span class="ref">530</span> displays the currently playing track information (title, artist, album art), a "like" button providing positive feedback, a "skip/dislike" button providing negative feedback, a volume slider, a song or genre request input, and the upcoming queue. Feedback submitted through the companion interface is routed to the audio selection engine <span class="ref">300</span> where it is treated as explicit feedback alongside the implicit behavioral feedback from the vision module. Users may optionally subscribe to push notifications to provide periodic feedback even when the web interface is not actively open.</p>
 
-<h3>6. AI Voice Onboarding Module</h3>
+<h3 data-i18n="spec.h3.voice_onboarding">6. AI Voice Onboarding Module</h3>
 <p>[0035] Referring to FIG. 6, the AI voice onboarding module <span class="ref">600</span> comprises a text-to-speech synthesis engine <span class="ref">610</span>, a set of announcement templates <span class="ref">620</span>, and a frequency controller <span class="ref">630</span>.</p>
 
 <div class="figure-container">
@@ -205,7 +205,7 @@
 
 <p>[0038] The frequency controller <span class="ref">630</span> adapts its cooldown period based on crowd turnover rate. In high-turnover environments (such as a busy bar), the cooldown may be as short as 5 minutes to ensure new arrivals are informed. In low-turnover environments (such as a hotel lobby), the cooldown may extend to 30 minutes or longer. The system may also employ person re-identification (based on clothing and body characteristics, without biometric storage) to avoid replaying announcements for persons who have already heard them.</p>
 
-<h3>7. Flexible Processing Architecture</h3>
+<h3 data-i18n="spec.h3.processing_arch">7. Flexible Processing Architecture</h3>
 <p>[0039] Referring to FIG. 5, the flexible processing architecture <span class="ref">700</span> enables the computer vision module <span class="ref">200</span> to operate in one of three modes: edge processing mode <span class="ref">710</span>, cloud processing mode <span class="ref">720</span>, or hybrid processing mode <span class="ref">730</span>.</p>
 
 <div class="figure-container">
@@ -219,19 +219,21 @@
 
 <p>[0042] In hybrid processing mode <span class="ref">730</span>, the system partitions the vision pipeline between edge and cloud. Time-critical tasks — specifically gesture recognition <span class="ref">250</span> and person detection <span class="ref">210</span> — execute on the edge device for sub-50ms latency, ensuring gestures are recognized immediately. Less time-sensitive tasks — specifically demographic estimation <span class="ref">220</span> and model updates — are offloaded to the cloud server. A dynamic mode selector monitors available network bandwidth, current latency measurements, and the venue's configured privacy policy to automatically determine the optimal partition between edge and cloud processing.</p>
 
-<h3>8. Behavioral Feedback Loop</h3>
+<h3 data-i18n="spec.h3.feedback_loop">8. Behavioral Feedback Loop</h3>
 <p>[0043] The behavioral feedback loop <span class="ref">800</span> is the central innovation of the present invention and distinguishes it from all known prior art. Referring again to FIG. 2, the loop operates as follows: (a) the image capture device <span class="ref">100</span> captures continuous video of the monitored space; (b) the computer vision module <span class="ref">200</span> detects persons, classifies their activities, and observes their behavioral responses; (c) the audio selection engine <span class="ref">300</span> selects audio content based on the current audience profile; (d) the audio output device <span class="ref">400</span> plays the selected audio; (e) the computer vision module <span class="ref">200</span> then observes how the detected persons respond to the audio that the system just selected; (f) the behavioral response detection sub-module <span class="ref">240</span> classifies these responses as positive or negative; and (g) the RL feedback processor <span class="ref">330</span> uses these classified responses as reward signals to adjust the selection algorithm's parameters for future selections. This loop repeats continuously, creating a system that improves with every iteration.</p>
 
 <p>[0044] Unlike prior art systems such as U.S. Pat. No. 9,489,934, which perform a single emotion detection and selection step, the present invention's feedback loop is continuous and self-referential — the system observes reactions to its own outputs. This closed-loop architecture enables the system to discover and exploit non-obvious preferences that would not be predicted by demographic or activity classification alone.</p>
 
-<h3>9. Use Cases</h3>
+<h3 data-i18n="spec.h3.use_cases">9. Use Cases</h3>
 <p>[0045] The system is applicable to a variety of venue types, including but not limited to: restaurants (adapting from calm background music during dining to higher-energy selections as the atmosphere shifts toward socializing), retail stores (matching audio to the browsing pace and demographic of current shoppers), fitness centers (synchronizing tempo to workout intensity detected through activity classification), hotel lobbies (maintaining a sophisticated ambient atmosphere calibrated to guest demographics), co-working spaces (selecting focus-friendly audio during work hours and social audio during breaks), and outdoor venues such as festivals, parks, and courtyards.</p>
 
 <!-- ═══════════════════════════════════════════════════════ -->
-<h2 class="page-break">Abstract</h2>
+<h2 class="page-break" data-i18n="spec.section.abstract">Abstract</h2>
 <p class="no-indent">[0046] An adaptive ambient audio system for shared physical spaces that employs computer vision to detect persons, estimate demographics, classify activities, recognize hand gestures, and detect behavioral responses to currently playing audio. An audio selection engine uses these vision inputs, combined with a reinforcement learning feedback loop, to automatically select and adapt music or sonic soundscapes in real time. The system continuously observes audience reactions (such as dancing, head-nodding, or covering ears) to audio that the system itself selected, treating these observations as reward signals to improve future selections. A QR-code-based web interface enables location-gated user feedback and control without requiring a native application. An AI voice onboarding module synthesizes spoken announcements explaining interaction methods, with adaptive frequency based on crowd turnover. A flexible processing architecture supports edge, cloud, and hybrid inference modes, enabling privacy-preserving on-device processing or more powerful cloud-based analysis as deployment requirements dictate.</p>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script src="/patents/auth-guard.js"></script>
+  <script type="module" src="/shared/i18n.js"></script>
+  <script type="module" src="/shared/language-switcher.js"></script>
 </body>
 </html>
