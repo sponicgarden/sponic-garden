@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Translations — Sponic Gardens Admin</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" type="image/svg+xml">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+    :root {
+      --bg: #f4f7f1;
+      --surface: #ffffff;
+      --surface2: #eef3ea;
+      --surface3: #e2eadc;
+      --border: #c4d4ba;
+      --border-light: #d8e3cf;
+      --text: #1a2412;
+      --text-soft: #2d3b22;
+      --text-dim: #4a6040;
+      --text-muted: #7a9168;
+      --green: #2d6a1e;
+      --green-soft: rgba(45,106,30,0.07);
+      --green-border: rgba(45,106,30,0.20);
+      --emerald: #047857;
+      --warm: #b45309;
+      --warm-soft: rgba(180,83,9,0.06);
+      --warm-border: rgba(180,83,9,0.20);
+      --rose: #be123c;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ─── Auth overlay ────────────────────────────────────── */
+    #auth-overlay {
+      position: fixed; inset: 0;
+      background: rgba(20,30,14,0.85);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 1000;
+      backdrop-filter: blur(6px);
+    }
+    .auth-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px 48px;
+      text-align: center;
+      max-width: 360px;
+      width: 100%;
+      box-shadow: 0 24px 48px rgba(0,0,0,0.15);
+    }
+    .auth-logo { width: 72px; margin-bottom: 16px; }
+    .auth-card h2 {
+      font-size: 1.4rem; font-weight: 600;
+      color: var(--text); margin-bottom: 6px;
+    }
+    .auth-card .auth-subtitle {
+      color: var(--text-muted); font-size: 0.9rem; margin-bottom: 28px;
+    }
+    .auth-card button {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--green); color: white;
+      border: none; border-radius: 8px;
+      padding: 12px 24px; font-size: 0.95rem; font-weight: 500;
+      cursor: pointer; width: 100%; justify-content: center;
+      transition: background 0.15s;
+    }
+    .auth-card button:hover { background: #235417; }
+    .auth-card button:disabled { opacity: 0.6; cursor: not-allowed; }
+    .auth-error {
+      color: var(--rose); font-size: 0.85rem; margin-top: 12px;
+    }
+    body.auth-locked > *:not(#auth-overlay) { visibility: hidden; }
+
+    /* ─── Header ──────────────────────────────────────────── */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px;
+      display: flex; align-items: center; gap: 12px;
+      height: 56px;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .header-logo { font-size: 1.25rem; }
+    header h1 {
+      font-size: 1rem; font-weight: 600;
+      color: var(--text); flex: 1;
+    }
+    .header-user {
+      font-size: 0.8rem; color: var(--text-muted);
+    }
+    .btn-sign-out {
+      font-size: 0.8rem; color: var(--text-muted);
+      background: none; border: 1px solid var(--border);
+      border-radius: 6px; padding: 4px 10px; cursor: pointer;
+    }
+    .btn-sign-out:hover { background: var(--surface2); }
+
+    /* ─── Tabs ────────────────────────────────────────────── */
+    .tabs {
+      display: flex; gap: 0;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+      padding: 0 32px;
+    }
+    .tab-btn {
+      padding: 12px 20px;
+      font-size: 0.9rem; font-weight: 500;
+      color: var(--text-muted);
+      background: none; border: none;
+      border-bottom: 2px solid transparent;
+      cursor: pointer; margin-bottom: -1px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .tab-btn:hover { color: var(--text); }
+    .tab-btn.active {
+      color: var(--green);
+      border-bottom-color: var(--green);
+    }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ─── Translations tab ───────────────────────────────── */
+    .toolbar {
+      display: flex; align-items: center; gap: 12px;
+      padding: 16px 32px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .filter-tabs {
+      display: flex; gap: 4px;
+    }
+    .filter-btn {
+      padding: 6px 14px; font-size: 0.85rem; font-weight: 500;
+      border: 1px solid var(--border); border-radius: 20px;
+      background: none; color: var(--text-dim); cursor: pointer;
+      transition: all 0.15s;
+    }
+    .filter-btn:hover { background: var(--surface2); }
+    .filter-btn.active {
+      background: var(--green); color: white; border-color: var(--green);
+    }
+    .spacer { flex: 1; }
+    .btn-add {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--green); color: white;
+      border: none; border-radius: 8px;
+      padding: 8px 16px; font-size: 0.875rem; font-weight: 500;
+      cursor: pointer; transition: background 0.15s;
+    }
+    .btn-add:hover { background: #235417; }
+
+    .table-wrap {
+      padding: 24px 32px;
+      overflow-x: auto;
+    }
+    table {
+      width: 100%; border-collapse: collapse;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    thead th {
+      background: var(--surface2);
+      padding: 10px 14px;
+      text-align: left;
+      font-size: 0.78rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.05em;
+      color: var(--text-dim);
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    thead th.col-key { width: 200px; }
+    thead th.col-lang { min-width: 240px; }
+    thead th.col-status { width: 110px; }
+
+    tbody tr { border-bottom: 1px solid var(--border-light); }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: var(--green-soft); }
+
+    td {
+      padding: 10px 14px;
+      vertical-align: top;
+    }
+    td.key-cell {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem; color: var(--text-dim);
+      white-space: nowrap;
+    }
+    td.value-cell {
+      position: relative;
+    }
+    .value-display {
+      font-size: 0.88rem; color: var(--text);
+      line-height: 1.4;
+      cursor: text;
+      padding: 2px 4px; border-radius: 4px;
+      min-height: 24px;
+      transition: background 0.1s;
+    }
+    .value-display:hover { background: var(--surface2); }
+    .value-display.empty { color: var(--text-muted); font-style: italic; }
+    .value-editor {
+      width: 100%;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem; color: var(--text);
+      background: var(--surface);
+      border: 1px solid var(--green);
+      border-radius: 6px;
+      padding: 6px 8px;
+      resize: vertical;
+      min-height: 60px;
+      outline: none;
+      box-shadow: 0 0 0 3px var(--green-soft);
+    }
+    .saving-indicator {
+      position: absolute; top: 8px; right: 8px;
+      font-size: 0.7rem; color: var(--text-muted);
+      opacity: 0; transition: opacity 0.2s;
+    }
+    .saving-indicator.visible { opacity: 1; }
+
+    .badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 3px 10px; border-radius: 20px;
+      font-size: 0.75rem; font-weight: 500;
+      white-space: nowrap;
+    }
+    .badge-synced {
+      background: var(--green-soft);
+      color: var(--green);
+      border: 1px solid var(--green-border);
+    }
+    .badge-pending {
+      background: var(--warm-soft);
+      color: var(--warm);
+      border: 1px solid var(--warm-border);
+    }
+
+    .empty-state {
+      text-align: center; padding: 64px 32px;
+      color: var(--text-muted);
+    }
+    .empty-state .empty-icon { font-size: 2.5rem; margin-bottom: 12px; }
+    .empty-state p { font-size: 0.9rem; }
+
+    /* ─── Add Key modal ──────────────────────────────────── */
+    .modal-backdrop {
+      position: fixed; inset: 0;
+      background: rgba(20,30,14,0.5);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 500;
+      backdrop-filter: blur(4px);
+    }
+    .modal-backdrop.hidden { display: none; }
+    .modal {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 32px;
+      width: 480px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.15);
+    }
+    .modal h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 20px; }
+    .form-row { margin-bottom: 16px; }
+    .form-row label {
+      display: block; font-size: 0.82rem; font-weight: 500;
+      color: var(--text-dim); margin-bottom: 6px;
+    }
+    .form-row input, .form-row select, .form-row textarea {
+      width: 100%;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem; color: var(--text);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px; padding: 9px 12px;
+      outline: none; transition: border-color 0.15s;
+    }
+    .form-row input:focus, .form-row select:focus, .form-row textarea:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px var(--green-soft);
+    }
+    .form-row input.mono { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; }
+    .form-row textarea { resize: vertical; min-height: 80px; }
+    .modal-actions {
+      display: flex; gap: 10px; justify-content: flex-end; margin-top: 24px;
+    }
+    .btn-cancel {
+      padding: 8px 18px; font-size: 0.875rem;
+      background: none; border: 1px solid var(--border);
+      border-radius: 8px; cursor: pointer; color: var(--text-dim);
+    }
+    .btn-cancel:hover { background: var(--surface2); }
+    .btn-save {
+      padding: 8px 18px; font-size: 0.875rem; font-weight: 500;
+      background: var(--green); color: white;
+      border: none; border-radius: 8px; cursor: pointer;
+    }
+    .btn-save:hover { background: #235417; }
+    .btn-save:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    /* ─── Settings tab ───────────────────────────────────── */
+    .settings-wrap {
+      padding: 24px 32px;
+      display: grid; gap: 24px;
+    }
+    .settings-section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .settings-section-header {
+      padding: 12px 16px;
+      background: var(--surface2);
+      border-bottom: 1px solid var(--border);
+      font-size: 0.78rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.05em;
+      color: var(--text-dim);
+    }
+    .config-row {
+      display: grid;
+      grid-template-columns: 220px 1fr 1fr;
+      gap: 0;
+      border-bottom: 1px solid var(--border-light);
+      align-items: center;
+    }
+    .config-row:last-child { border-bottom: none; }
+    .config-key {
+      padding: 12px 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem; color: var(--text-dim);
+      border-right: 1px solid var(--border-light);
+      background: var(--surface2);
+    }
+    .config-value-cell {
+      padding: 8px 12px;
+      border-right: 1px solid var(--border-light);
+    }
+    .config-value-display {
+      font-size: 0.85rem; color: var(--text);
+      cursor: text; padding: 4px 6px; border-radius: 4px;
+      max-width: 300px; overflow: hidden; text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .config-value-display:hover { background: var(--surface2); }
+    .config-editor {
+      width: 100%;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      border: 1px solid var(--green);
+      border-radius: 6px; padding: 5px 8px;
+      outline: none;
+      box-shadow: 0 0 0 3px var(--green-soft);
+    }
+    .config-desc {
+      padding: 12px 16px;
+      font-size: 0.8rem; color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* Languages section */
+    .lang-list {
+      padding: 16px;
+      display: flex; flex-wrap: wrap; gap: 10px;
+    }
+    .lang-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 14px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 20px; font-size: 0.875rem;
+    }
+    .lang-pill.base {
+      background: var(--green-soft);
+      border-color: var(--green-border);
+    }
+    .lang-pill-flag { font-size: 1.1rem; }
+    .lang-pill-name { font-weight: 500; }
+    .lang-pill-badge {
+      font-size: 0.7rem; color: var(--green);
+      background: var(--green-soft);
+      padding: 1px 6px; border-radius: 10px;
+      font-weight: 600;
+    }
+    .btn-add-lang {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 14px; font-size: 0.875rem;
+      border: 1px dashed var(--border); border-radius: 20px;
+      background: none; color: var(--text-muted); cursor: pointer;
+    }
+    .btn-add-lang:hover { background: var(--surface2); border-color: var(--green); color: var(--green); }
+
+    /* ─── Notifications ──────────────────────────────────── */
+    #toast {
+      position: fixed; bottom: 24px; right: 24px;
+      background: var(--text); color: white;
+      padding: 10px 18px; border-radius: 8px;
+      font-size: 0.875rem; font-weight: 500;
+      opacity: 0; transform: translateY(8px);
+      transition: opacity 0.2s, transform 0.2s;
+      pointer-events: none; z-index: 9999;
+    }
+    #toast.show { opacity: 1; transform: translateY(0); }
+    #toast.error { background: var(--rose); }
+
+    /* ─── Add Language modal ─────────────────────────────── */
+    .lang-examples {
+      font-size: 0.78rem; color: var(--text-muted); margin-top: 4px;
+    }
+  </style>
+</head>
+<body class="auth-locked">
+
+<!-- Auth overlay -->
+<div id="auth-overlay">
+  <div class="auth-card">
+    <img src="/branding/94-vines-waveform-orchid-transparent.png" alt="Sponic Gardens" class="auth-logo"
+         onerror="this.style.display='none'">
+    <h2>Sponic Gardens</h2>
+    <p class="auth-subtitle">Admin — Translations</p>
+    <button id="auth-google-btn" type="button">
+      <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59a14.5 14.5 0 0 1 0-9.18l-7.98-6.19a24.08 24.08 0 0 0 0 21.56l7.98-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+      Sign in with Google
+    </button>
+    <p id="auth-error" class="auth-error" style="display:none"></p>
+  </div>
+</div>
+
+<!-- Header -->
+<header>
+  <span class="header-logo">🌿</span>
+  <h1>Translations</h1>
+  <span class="header-user" id="header-user-email"></span>
+  <button class="btn-sign-out" id="btn-sign-out">Sign out</button>
+</header>
+
+<!-- Tabs -->
+<div class="tabs">
+  <button class="tab-btn active" data-tab="translations">Translations</button>
+  <button class="tab-btn" data-tab="settings">Settings</button>
+</div>
+
+<!-- ── Translations Panel ────────────────────────────────── -->
+<div class="tab-panel active" id="panel-translations">
+  <div class="toolbar">
+    <div class="filter-tabs">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="pending" id="filter-pending-btn">Pending</button>
+    </div>
+    <div class="spacer"></div>
+    <button class="btn-add" id="btn-add-key">+ Add Key</button>
+  </div>
+  <div class="table-wrap">
+    <div id="translations-loading" style="text-align:center;padding:48px;color:var(--text-muted)">
+      Loading translations…
+    </div>
+    <table id="translations-table" style="display:none">
+      <thead>
+        <tr id="table-header-row">
+          <th class="col-key">Key</th>
+          <!-- Language columns injected here -->
+          <th class="col-status">Status</th>
+        </tr>
+      </thead>
+      <tbody id="translations-tbody"></tbody>
+    </table>
+    <div id="translations-empty" class="empty-state" style="display:none">
+      <div class="empty-icon">🌱</div>
+      <p>No translation keys yet. Add your first one above.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── Settings Panel ────────────────────────────────────── -->
+<div class="tab-panel" id="panel-settings">
+  <div class="settings-wrap">
+    <!-- Config rows injected here -->
+    <div id="settings-loading" style="text-align:center;padding:48px;color:var(--text-muted)">
+      Loading settings…
+    </div>
+  </div>
+</div>
+
+<!-- Add Key modal -->
+<div class="modal-backdrop hidden" id="modal-add-key">
+  <div class="modal">
+    <h3>Add Translation Key</h3>
+    <div class="form-row">
+      <label>Key (dot notation)</label>
+      <input type="text" id="new-key" class="mono" placeholder="e.g. hero.title or nav.home">
+    </div>
+    <div class="form-row">
+      <label>Source language</label>
+      <select id="new-lang"></select>
+    </div>
+    <div class="form-row">
+      <label>Initial value</label>
+      <textarea id="new-value" placeholder="Enter the text in the selected language…"></textarea>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-cancel" id="modal-cancel">Cancel</button>
+      <button class="btn-save" id="modal-save">Add Key</button>
+    </div>
+  </div>
+</div>
+
+<!-- Add Language modal -->
+<div class="modal-backdrop hidden" id="modal-add-lang">
+  <div class="modal">
+    <h3>Add Language</h3>
+    <div class="form-row">
+      <label>Language code (ISO 639-1)</label>
+      <input type="text" id="new-lang-code" class="mono" maxlength="5" placeholder="e.g. de, ru, fr, es">
+      <p class="lang-examples">Common: de (German), ru (Russian), fr (French), es (Spanish), uk (Ukrainian)</p>
+    </div>
+    <div class="form-row">
+      <label>Display name</label>
+      <input type="text" id="new-lang-name" placeholder="e.g. Deutsch, Русский">
+    </div>
+    <div class="form-row">
+      <label>Flag emoji</label>
+      <input type="text" id="new-lang-flag" placeholder="e.g. 🇩🇪 🇷🇺 🇫🇷">
+    </div>
+    <p style="font-size:0.82rem;color:var(--text-muted);margin-top:4px">
+      Adding a language creates pending rows for all existing translation keys.
+      The cron will auto-translate them within 5 minutes once the Worker is set up.
+    </p>
+    <div class="modal-actions">
+      <button class="btn-cancel" id="lang-modal-cancel">Cancel</button>
+      <button class="btn-save" id="lang-modal-save">Add Language</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div id="toast"></div>
+
+<script type="module">
+  const SUPABASE_URL  = 'https://aphrrfprbixmhissnjfn.supabase.co';
+  const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFwaHJyZnByYml4bWhpc3NuamZuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk5MzA0MjUsImV4cCI6MjA4NTUwNjQyNX0.yYkdQIq97GQgxK7yT2OQEPi5Tt-a7gM45aF8xjSD6wk';
+
+  const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+
+  // ── State ────────────────────────────────────────────────
+  let languages   = [];   // [{code, name, flag, is_base, enabled}]
+  let allRows     = {};   // { 'hero.title': { en: {...}, pl: {...} } }
+  let adminEmails = [];
+  let activeFilter = 'all';
+  let currentUser  = null;
+
+  // ── Utilities ────────────────────────────────────────────
+  function toast(msg, isError = false) {
+    const el = document.getElementById('toast');
+    el.textContent = msg;
+    el.className = 'show' + (isError ? ' error' : '');
+    clearTimeout(el._t);
+    el._t = setTimeout(() => { el.className = ''; }, 2800);
+  }
+
+  // ── Auth ─────────────────────────────────────────────────
+  const overlay   = document.getElementById('auth-overlay');
+  const authBtn   = document.getElementById('auth-google-btn');
+  const authError = document.getElementById('auth-error');
+
+  async function loadAdminEmails() {
+    const { data } = await sb.from('config')
+      .select('value').eq('key', 'site.admin_emails').single();
+    if (data) adminEmails = data.value;
+  }
+
+  function unlockUI(user) {
+    currentUser = user;
+    overlay.style.display = 'none';
+    document.body.classList.remove('auth-locked');
+    document.getElementById('header-user-email').textContent = user.email;
+    initApp();
+  }
+
+  function denyAccess(msg) {
+    authError.textContent = msg || 'Access denied.';
+    authError.style.display = 'block';
+    authBtn.disabled = false;
+    authBtn.innerHTML = `<svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59a14.5 14.5 0 0 1 0-9.18l-7.98-6.19a24.08 24.08 0 0 0 0 21.56l7.98-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg> Sign in with Google`;
+  }
+
+  authBtn.addEventListener('click', async () => {
+    authBtn.disabled = true;
+    authBtn.textContent = 'Redirecting…';
+    const { error } = await sb.auth.signInWithOAuth({
+      provider: 'google',
+      options: { redirectTo: window.location.origin + window.location.pathname }
+    });
+    if (error) denyAccess(error.message);
+  });
+
+  document.getElementById('btn-sign-out').addEventListener('click', async () => {
+    await sb.auth.signOut();
+    window.location.reload();
+  });
+
+  // Auth state handler — works for existing sessions + OAuth callbacks
+  await loadAdminEmails();
+  sb.auth.onAuthStateChange(async (event, session) => {
+    if (['INITIAL_SESSION','SIGNED_IN','TOKEN_REFRESHED'].includes(event)) {
+      if (!session) return;
+      // Allow if admin_emails list is empty (fallback) or email is in list
+      if (adminEmails.length > 0 && !adminEmails.includes(session.user.email)) {
+        await sb.auth.signOut();
+        denyAccess('Access denied. This account is not authorized.');
+        return;
+      }
+      unlockUI(session.user);
+    }
+  });
+
+  // ── Tabs ─────────────────────────────────────────────────
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  // ── Init app ─────────────────────────────────────────────
+  async function initApp() {
+    await Promise.all([loadLanguages(), loadTranslations(), loadSettings()]);
+  }
+
+  // ── Load languages ────────────────────────────────────────
+  async function loadLanguages() {
+    const { data, error } = await sb.from('languages')
+      .select('*').eq('enabled', true).order('sort_order');
+    if (error) { toast('Failed to load languages', true); return; }
+    languages = data;
+    renderTableHeader();
+    populateLangSelect();
+  }
+
+  function renderTableHeader() {
+    const row = document.getElementById('table-header-row');
+    // Clear existing lang columns (keep first key col and last status col)
+    row.innerHTML = '<th class="col-key">Key</th>';
+    languages.forEach(lang => {
+      const th = document.createElement('th');
+      th.className = 'col-lang';
+      th.textContent = `${lang.flag || ''} ${lang.name}`;
+      row.appendChild(th);
+    });
+    row.insertAdjacentHTML('beforeend', '<th class="col-status">Status</th>');
+  }
+
+  function populateLangSelect() {
+    const sel = document.getElementById('new-lang');
+    sel.innerHTML = '';
+    languages.forEach(lang => {
+      const opt = document.createElement('option');
+      opt.value = lang.code;
+      opt.textContent = `${lang.flag || ''} ${lang.name}`;
+      if (lang.is_base) opt.selected = true;
+      sel.appendChild(opt);
+    });
+  }
+
+  // ── Load translations ─────────────────────────────────────
+  async function loadTranslations() {
+    const { data, error } = await sb.from('translations')
+      .select('key,lang,value,pending,is_source,updated_at')
+      .order('key');
+    if (error) { toast('Failed to load translations', true); return; }
+
+    // Group by key: { 'hero.title': { en: row, pl: row } }
+    allRows = {};
+    data.forEach(row => {
+      if (!allRows[row.key]) allRows[row.key] = {};
+      allRows[row.key][row.lang] = row;
+    });
+
+    document.getElementById('translations-loading').style.display = 'none';
+    renderTranslationsTable();
+  }
+
+  function rowIsPending(langMap) {
+    return languages.some(lang =>
+      !langMap[lang.code] || langMap[lang.code].pending || !langMap[lang.code].value
+    );
+  }
+
+  function renderTranslationsTable() {
+    const tbody  = document.getElementById('translations-tbody');
+    const table  = document.getElementById('translations-table');
+    const empty  = document.getElementById('translations-empty');
+    const pendingBtn = document.getElementById('filter-pending-btn');
+
+    const keys = Object.keys(allRows).sort();
+    const pendingKeys = keys.filter(k => rowIsPending(allRows[k]));
+
+    pendingBtn.textContent = `Pending (${pendingKeys.length})`;
+
+    const visibleKeys = activeFilter === 'pending' ? pendingKeys : keys;
+
+    tbody.innerHTML = '';
+    if (visibleKeys.length === 0) {
+      table.style.display = 'none';
+      empty.style.display = 'block';
+      empty.querySelector('p').textContent = activeFilter === 'pending'
+        ? 'No pending translations. Everything is synced.'
+        : 'No translation keys yet. Add your first one above.';
+      return;
+    }
+
+    table.style.display = 'table';
+    empty.style.display = 'none';
+
+    visibleKeys.forEach(key => {
+      const langMap = allRows[key];
+      const pending = rowIsPending(langMap);
+      const tr = document.createElement('tr');
+      tr.dataset.key = key;
+
+      // Key cell
+      tr.innerHTML = `<td class="key-cell">${escapeHtml(key)}</td>`;
+
+      // Language value cells
+      languages.forEach(lang => {
+        const row = langMap[lang.code];
+        const val = row?.value || '';
+        const isPending = !row || row.pending || !val;
+        const td = document.createElement('td');
+        td.className = 'value-cell';
+        td.dataset.lang = lang.code;
+        td.dataset.key = key;
+        td.innerHTML = `
+          <div class="value-display${val ? '' : ' empty'}" data-key="${escapeHtml(key)}" data-lang="${lang.code}">
+            ${val ? escapeHtml(val) : '(empty)'}
+          </div>
+          <span class="saving-indicator" id="saving-${escapeHtml(key)}-${lang.code}">saving…</span>
+        `;
+        tr.appendChild(td);
+      });
+
+      // Status cell
+      const statusTd = document.createElement('td');
+      statusTd.innerHTML = pending
+        ? `<span class="badge badge-pending">⏳ Pending</span>`
+        : `<span class="badge badge-synced">✓ Synced</span>`;
+      tr.appendChild(statusTd);
+
+      tbody.appendChild(tr);
+    });
+
+    // Attach inline-edit listeners
+    tbody.querySelectorAll('.value-display').forEach(el => {
+      el.addEventListener('click', startEdit);
+    });
+  }
+
+  // ── Inline editing ────────────────────────────────────────
+  function startEdit(e) {
+    const display = e.currentTarget;
+    const key  = display.dataset.key;
+    const lang = display.dataset.lang;
+    const currentVal = allRows[key]?.[lang]?.value || '';
+
+    const textarea = document.createElement('textarea');
+    textarea.className = 'value-editor';
+    textarea.value = currentVal;
+    display.replaceWith(textarea);
+    textarea.focus();
+    textarea.setSelectionRange(textarea.value.length, textarea.value.length);
+
+    async function finishEdit() {
+      const newVal = textarea.value.trim();
+      const indicator = document.getElementById(`saving-${key}-${lang}`);
+      if (newVal === currentVal) {
+        restoreDisplay(textarea, key, lang, currentVal);
+        return;
+      }
+      if (indicator) indicator.classList.add('visible');
+      const ok = await saveTranslation(key, lang, newVal);
+      if (indicator) indicator.classList.remove('visible');
+      if (ok) {
+        toast('Saved');
+        await loadTranslations(); // refresh to show updated pending states
+      } else {
+        restoreDisplay(textarea, key, lang, currentVal);
+      }
+    }
+
+    textarea.addEventListener('blur', finishEdit);
+    textarea.addEventListener('keydown', e => {
+      if (e.key === 'Escape') restoreDisplay(textarea, key, lang, currentVal);
+      if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) finishEdit();
+    });
+  }
+
+  function restoreDisplay(textarea, key, lang, val) {
+    const display = document.createElement('div');
+    display.className = 'value-display' + (val ? '' : ' empty');
+    display.dataset.key  = key;
+    display.dataset.lang = lang;
+    display.textContent  = val || '(empty)';
+    display.addEventListener('click', startEdit);
+    textarea.replaceWith(display);
+  }
+
+  async function saveTranslation(key, editedLang, newValue) {
+    // Build upsert: edited lang as source, all other enabled langs set to pending
+    const rows = languages.map(lang => {
+      if (lang.code === editedLang) {
+        return { key, lang: lang.code, value: newValue, is_source: true, pending: false, updated_at: new Date().toISOString() };
+      }
+      // Only create pending row if the other lang already exists OR has a value
+      const existing = allRows[key]?.[lang.code];
+      return {
+        key, lang: lang.code,
+        value: existing?.value || null,
+        is_source: false,
+        pending: true,
+        updated_at: new Date().toISOString()
+      };
+    });
+
+    const { error } = await sb.from('translations')
+      .upsert(rows, { onConflict: 'key,lang' });
+
+    if (error) { toast('Save failed: ' + error.message, true); return false; }
+
+    // Update local state
+    if (!allRows[key]) allRows[key] = {};
+    rows.forEach(r => { allRows[key][r.lang] = r; });
+    return true;
+  }
+
+  // ── Filters ───────────────────────────────────────────────
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeFilter = btn.dataset.filter;
+      renderTranslationsTable();
+    });
+  });
+
+  // ── Add Key modal ─────────────────────────────────────────
+  const modalAddKey = document.getElementById('modal-add-key');
+
+  document.getElementById('btn-add-key').addEventListener('click', () => {
+    document.getElementById('new-key').value   = '';
+    document.getElementById('new-value').value = '';
+    modalAddKey.classList.remove('hidden');
+    document.getElementById('new-key').focus();
+  });
+
+  document.getElementById('modal-cancel').addEventListener('click', () => {
+    modalAddKey.classList.add('hidden');
+  });
+
+  document.getElementById('modal-save').addEventListener('click', async () => {
+    const key  = document.getElementById('new-key').value.trim();
+    const lang = document.getElementById('new-lang').value;
+    const val  = document.getElementById('new-value').value.trim();
+
+    if (!key) { toast('Key is required', true); return; }
+    if (!val)  { toast('Initial value is required', true); return; }
+    if (!/^[a-z0-9_.]+$/i.test(key)) {
+      toast('Key may only contain letters, numbers, dots, underscores', true); return;
+    }
+    if (allRows[key]) { toast('Key already exists', true); return; }
+
+    const saveBtn = document.getElementById('modal-save');
+    saveBtn.disabled = true;
+
+    const ok = await saveTranslation(key, lang, val);
+    saveBtn.disabled = false;
+    if (ok) {
+      modalAddKey.classList.add('hidden');
+      toast('Key added — other languages queued for translation');
+      renderTranslationsTable();
+    }
+  });
+
+  // Close modals on backdrop click
+  modalAddKey.addEventListener('click', e => {
+    if (e.target === modalAddKey) modalAddKey.classList.add('hidden');
+  });
+
+  // ── Settings tab ──────────────────────────────────────────
+  let configData = [];
+
+  async function loadSettings() {
+    const [{ data: cfg }, { data: langs }] = await Promise.all([
+      sb.from('config').select('*').order('key'),
+      sb.from('languages').select('*').order('sort_order')
+    ]);
+    configData = cfg || [];
+    document.getElementById('settings-loading').style.display = 'none';
+    renderSettings(configData, langs || []);
+  }
+
+  function renderSettings(cfg, langs) {
+    const wrap = document.querySelector('.settings-wrap');
+    wrap.innerHTML = '';
+
+    // Group config by prefix (translation.*, site.*)
+    const groups = {};
+    cfg.forEach(row => {
+      const prefix = row.key.split('.')[0];
+      if (!groups[prefix]) groups[prefix] = [];
+      groups[prefix].push(row);
+    });
+
+    Object.entries(groups).forEach(([prefix, rows]) => {
+      const section = document.createElement('div');
+      section.className = 'settings-section';
+      section.innerHTML = `<div class="settings-section-header">${prefix}</div>`;
+
+      rows.forEach(row => {
+        const displayVal = typeof row.value === 'string' ? row.value : JSON.stringify(row.value);
+        const div = document.createElement('div');
+        div.className = 'config-row';
+        div.dataset.key = row.key;
+        div.innerHTML = `
+          <div class="config-key">${escapeHtml(row.key)}</div>
+          <div class="config-value-cell">
+            <div class="config-value-display" title="${escapeHtml(displayVal)}">${escapeHtml(displayVal)}</div>
+          </div>
+          <div class="config-desc">${escapeHtml(row.description || '')}</div>
+        `;
+        div.querySelector('.config-value-display').addEventListener('click', startConfigEdit);
+        section.appendChild(div);
+      });
+
+      wrap.appendChild(section);
+    });
+
+    // Languages section
+    const langSection = document.createElement('div');
+    langSection.className = 'settings-section';
+    langSection.innerHTML = `<div class="settings-section-header">languages</div>`;
+    const langList = document.createElement('div');
+    langList.className = 'lang-list';
+    langs.forEach(lang => {
+      langList.innerHTML += `
+        <div class="lang-pill${lang.is_base ? ' base' : ''}">
+          <span class="lang-pill-flag">${lang.flag || ''}</span>
+          <span class="lang-pill-name">${escapeHtml(lang.name)}</span>
+          <span style="font-size:0.75rem;color:var(--text-muted)">${lang.code}</span>
+          ${lang.is_base ? '<span class="lang-pill-badge">base</span>' : ''}
+        </div>
+      `;
+    });
+    langList.innerHTML += `<button class="btn-add-lang" id="btn-add-lang">+ Add Language</button>`;
+    langSection.appendChild(langList);
+    wrap.appendChild(langSection);
+
+    document.getElementById('btn-add-lang')?.addEventListener('click', () => {
+      document.getElementById('new-lang-code').value  = '';
+      document.getElementById('new-lang-name').value  = '';
+      document.getElementById('new-lang-flag').value  = '';
+      document.getElementById('modal-add-lang').classList.remove('hidden');
+      document.getElementById('new-lang-code').focus();
+    });
+  }
+
+  function startConfigEdit(e) {
+    const display = e.currentTarget;
+    const row = display.closest('.config-row');
+    const key = row.dataset.key;
+    const currentVal = display.textContent;
+
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.className = 'config-editor';
+    input.value = currentVal;
+    display.replaceWith(input);
+    input.focus();
+    input.select();
+
+    async function saveConfig() {
+      const newVal = input.value.trim();
+      if (newVal === currentVal) { restoreConfigDisplay(input, currentVal); return; }
+
+      let parsedVal;
+      try { parsedVal = JSON.parse(newVal); }
+      catch { parsedVal = newVal; }
+
+      const { error } = await sb.from('config')
+        .upsert({ key, value: parsedVal, updated_at: new Date().toISOString() }, { onConflict: 'key' });
+
+      if (error) { toast('Save failed: ' + error.message, true); restoreConfigDisplay(input, currentVal); return; }
+      toast('Setting saved');
+      restoreConfigDisplay(input, newVal);
+    }
+
+    input.addEventListener('blur', saveConfig);
+    input.addEventListener('keydown', e => {
+      if (e.key === 'Enter') saveConfig();
+      if (e.key === 'Escape') restoreConfigDisplay(input, currentVal);
+    });
+  }
+
+  function restoreConfigDisplay(input, val) {
+    const display = document.createElement('div');
+    display.className = 'config-value-display';
+    display.title = val;
+    display.textContent = val;
+    display.addEventListener('click', startConfigEdit);
+    input.replaceWith(display);
+  }
+
+  // ── Add Language modal ────────────────────────────────────
+  const modalAddLang = document.getElementById('modal-add-lang');
+
+  document.getElementById('lang-modal-cancel').addEventListener('click', () => {
+    modalAddLang.classList.add('hidden');
+  });
+  modalAddLang.addEventListener('click', e => {
+    if (e.target === modalAddLang) modalAddLang.classList.add('hidden');
+  });
+
+  document.getElementById('lang-modal-save').addEventListener('click', async () => {
+    const code = document.getElementById('new-lang-code').value.trim().toLowerCase();
+    const name = document.getElementById('new-lang-name').value.trim();
+    const flag = document.getElementById('new-lang-flag').value.trim();
+
+    if (!code || !name) { toast('Code and name are required', true); return; }
+    if (!/^[a-z]{2,5}$/.test(code)) { toast('Code must be 2-5 lowercase letters', true); return; }
+
+    const saveBtn = document.getElementById('lang-modal-save');
+    saveBtn.disabled = true;
+
+    // 1. Insert language
+    const { error: langErr } = await sb.from('languages')
+      .insert({ code, name, flag, enabled: true, is_base: false })
+      .select().single();
+
+    if (langErr) {
+      toast('Failed to add language: ' + langErr.message, true);
+      saveBtn.disabled = false; return;
+    }
+
+    // 2. Create pending translation rows for all existing keys
+    const existingKeys = Object.keys(allRows);
+    if (existingKeys.length > 0) {
+      const pendingRows = existingKeys.map(key => ({
+        key, lang: code, value: null, is_source: false, pending: true,
+        updated_at: new Date().toISOString()
+      }));
+      const { error: rowErr } = await sb.from('translations')
+        .upsert(pendingRows, { onConflict: 'key,lang' });
+      if (rowErr) toast('Warning: some pending rows failed to create', true);
+    }
+
+    toast(`Language "${name}" added — ${existingKeys.length} keys queued for translation`);
+    saveBtn.disabled = false;
+    modalAddLang.classList.add('hidden');
+
+    // Reload everything
+    await Promise.all([loadLanguages(), loadTranslations(), loadSettings()]);
+  });
+
+  // ── Utility ───────────────────────────────────────────────
+  function escapeHtml(str) {
+    if (str == null) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+</script>
+</body>
+</html>
