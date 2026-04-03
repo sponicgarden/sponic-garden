@@ -1,12 +1,12 @@
 {
-  "version": "v260403.12 12:44a",
-  "release": 64,
-  "sha": "4f590b3",
-  "fullSha": "4f590b35076182c03bbc66c68f6a860c19eab620",
+  "version": "v260403.13 12:25p",
+  "release": 65,
+  "sha": "f20f214",
+  "fullSha": "f20f21485527898a564293eda90b6d677f7105d1",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
-  "machine": "runnervmrg6be",
-  "pushedAt": "2026-04-03 05:44:24+00",
-  "commits": [{"sha":"4f590b3","message":"fix: regenerate apothecary image with gemini-3-pro-image-preview","author":"Rahul"}]
+  "machine": "runnervm727z3",
+  "pushedAt": "2026-04-03 17:25:07+00",
+  "commits": [{"sha":"f20f214","message":"fix: regenerate apothecary image in illustrated watercolor style","author":"Rahul"}]
 }
