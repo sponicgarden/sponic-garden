@@ -93,7 +93,7 @@ async function loadTranslations() {
   try {
     const [tRes, lRes] = await Promise.all([
       fetch(`${SUPABASE_URL}/rest/v1/translations?select=key,lang,value&order=key`, {
-        headers: { 'apikey': SUPABASE_ANON, 'Authorization': `Bearer ${SUPABASE_ANON}` }
+        headers: { 'apikey': SUPABASE_ANON, 'Authorization': `Bearer ${SUPABASE_ANON}`, 'Range': '0-9999' }
       }),
       fetch(`${SUPABASE_URL}/rest/v1/languages?select=code,name,flag,is_base&enabled=eq.true&order=sort_order`, {
         headers: { 'apikey': SUPABASE_ANON, 'Authorization': `Bearer ${SUPABASE_ANON}` }
