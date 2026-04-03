@@ -128,23 +128,35 @@ function injectStyles() {
     }
     .sg-nav__lang {
       font-family: 'Sora', 'DM Sans', sans-serif;
-      font-size: 0.7rem;
-      font-weight: 500;
-      padding: 0.25rem 0.45rem;
-      border-radius: 5px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.28rem 0.6rem;
+      border-radius: 100px;
       cursor: pointer;
-      border: 1px solid rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.18);
       background: transparent;
-      color: rgba(232,240,228,0.65);
+      color: rgba(232,240,228,0.75);
       display: flex;
       align-items: center;
-      gap: 0.3rem;
-      transition: border-color 0.15s, color 0.15s;
+      gap: 0.35rem;
+      transition: border-color 0.15s, color 0.15s, background 0.15s;
+      white-space: nowrap;
     }
     .sg-nav__lang:hover {
-      border-color: rgba(255,255,255,0.3);
-      color: rgba(232,240,228,0.9);
+      border-color: rgba(255,255,255,0.35);
+      color: rgba(232,240,228,1);
     }
+    .sg-nav__lang.sg-nav__lang--pl {
+      color: #ff6b6b;
+      border-color: rgba(255,107,107,0.45);
+      font-weight: 700;
+    }
+    .sg-nav__lang.sg-nav__lang--pl:hover {
+      color: #ff8585;
+      border-color: rgba(255,107,107,0.65);
+    }
+    /* Hide the floating pill since nav handles switching */
+    #sg-lang-switcher { display: none !important; }
     .sg-nav__signin {
       font-family: 'Sora', 'DM Sans', sans-serif;
       font-size: 0.78rem;
@@ -293,8 +305,35 @@ function buildNav() {
 
   const lang = document.createElement('button');
   lang.className = 'sg-nav__lang';
-  lang.innerHTML = '🇬🇧 EN';
   lang.setAttribute('aria-label', 'Change language');
+
+  function updateLangBtn() {
+    const i18n = window.__sg_i18n;
+    if (!i18n) { lang.innerHTML = '🇬🇧 EN'; return; }
+    const code = i18n.getLang();
+    const map = { en: { flag: '🇬🇧', label: 'EN' }, pl: { flag: '🇵🇱', label: 'Polski' } };
+    const cur = map[code] || { flag: '🌐', label: code.toUpperCase() };
+    lang.innerHTML = `${cur.flag} ${cur.label}`;
+    lang.classList.toggle('sg-nav__lang--pl', code === 'pl');
+  }
+
+  lang.addEventListener('click', () => {
+    const i18n = window.__sg_i18n;
+    if (!i18n) return;
+    const next = i18n.getLang() === 'pl' ? 'en' : 'pl';
+    i18n.setLang(next);
+    updateLangBtn();
+  });
+
+  document.addEventListener('sg:langchange', updateLangBtn);
+
+  // Update once i18n is ready
+  if (window.__sg_i18n) {
+    updateLangBtn();
+  } else {
+    const iv = setInterval(() => { if (window.__sg_i18n) { updateLangBtn(); clearInterval(iv); } }, 100);
+  }
+
   right.appendChild(lang);
 
   // Version badge (version-info.js will find this via class)
