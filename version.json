@@ -1,12 +1,12 @@
 {
-  "version": "v260403.01 12:07a",
-  "release": 53,
-  "sha": "722a324",
-  "fullSha": "722a32494ead15441c2168d4299532a6f82e7b1a",
+  "version": "v260403.04 12:17a",
+  "release": 56,
+  "sha": "a763c98",
+  "fullSha": "a763c981b24d5cadedddcc839a2c3c0cedf5e3b8",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervmrg6be",
-  "pushedAt": "2026-04-03 05:07:57+00",
-  "commits": [{"sha":"a7c9879","message":"fix: rename apply buttons to \"Chat about this role\"","author":"Rahul"},{"sha":"6e33bd3","message":"Merge remote-tracking branch 'origin/condescending-brahmagupta-c379'","author":"Rahul"},{"sha":"722a324","message":"Merge branch 'main' of https://github.com/sponicgarden/sponic-garden","author":"Rahul"}]
+  "pushedAt": "2026-04-03 05:17:42+00",
+  "commits": [{"sha":"a763c98","message":"docs: add Cloudflare Pages migration prompt to devdocs (#11)","author":"Rahul"}]
 }
