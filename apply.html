@@ -359,7 +359,7 @@
 
     // Start the conversation
     (async function init() {
-      await callAI("Let's begin. Please greet the applicant warmly and ask the first interview question.");
+      await callAI("Let's begin. Please greet the applicant warmly and ask the first interview question.", true);
     })();
 
     async function callAI(userMessage, isHidden = false) {
