@@ -1,12 +1,12 @@
 {
-  "version": "v260403.13 12:25p",
-  "release": 65,
-  "sha": "f20f214",
-  "fullSha": "f20f21485527898a564293eda90b6d677f7105d1",
+  "version": "v260403.14 12:34p",
+  "release": 66,
+  "sha": "8b5c34c",
+  "fullSha": "8b5c34cbbffc2b70c11e73325ff93c6be3eb2321",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
-  "machine": "runnervm727z3",
-  "pushedAt": "2026-04-03 17:25:07+00",
-  "commits": [{"sha":"f20f214","message":"fix: regenerate apothecary image in illustrated watercolor style","author":"Rahul"}]
+  "machine": "runnervmrg6be",
+  "pushedAt": "2026-04-03 17:34:37+00",
+  "commits": [{"sha":"8b5c34c","message":"feat: Phase 2+3 — translation Worker, i18n runtime, language switcher, full markup pass (#12)","author":"Rahul"}]
 }
