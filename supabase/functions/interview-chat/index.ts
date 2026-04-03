@@ -288,7 +288,7 @@ serve(async (req: Request) => {
                 "Content-Type": "application/json",
               },
               body: JSON.stringify({
-                from: "Sponic Gardens <hello@sponicgardens.com>",
+                from: "Sponic Gardens <hello@sponicgarden.com>",
                 to: [email],
                 subject: `Your Sponic Gardens Application — ${ROLE_CONTEXT[role] ? role.split("-").map((w: string) => w[0].toUpperCase() + w.slice(1)).join(" ") : "Team Member"}`,
                 html: emailHtml,
