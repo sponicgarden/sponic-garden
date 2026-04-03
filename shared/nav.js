@@ -317,12 +317,13 @@ function buildNav() {
 
   function updateLangBtn() {
     const i18n = window.__sg_i18n;
-    if (!i18n) { lang.innerHTML = '🇬🇧 EN'; return; }
+    if (!i18n) { lang.innerHTML = '🇵🇱 Polski'; lang.classList.add('sg-nav__lang--pl'); return; }
     const code = i18n.getLang();
-    const map = { en: { flag: '🇬🇧', label: 'EN' }, pl: { flag: '🇵🇱', label: 'Polski' } };
-    const cur = map[code] || { flag: '🌐', label: code.toUpperCase() };
-    lang.innerHTML = `${cur.flag} ${cur.label}`;
-    lang.classList.toggle('sg-nav__lang--pl', code === 'pl');
+    // Show the language you can SWITCH TO (the other one)
+    const other = { en: { flag: '🇵🇱', label: 'Polski', pl: true }, pl: { flag: '🇬🇧', label: 'EN', pl: false } };
+    const target = other[code] || { flag: '🌐', label: code === 'en' ? 'Polski' : 'EN', pl: code !== 'pl' };
+    lang.innerHTML = `${target.flag} ${target.label}`;
+    lang.classList.toggle('sg-nav__lang--pl', target.pl);
   }
 
   lang.addEventListener('click', () => {
