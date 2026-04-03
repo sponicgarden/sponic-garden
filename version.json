@@ -1,12 +1,12 @@
 {
-  "version": "v260402.05 11:27p",
-  "release": 50,
-  "sha": "8ebc992",
-  "fullSha": "8ebc992104526a72101a9a6c976ff6aff204c191",
+  "version": "v260402.06 11:31p",
+  "release": 51,
+  "sha": "9f6d85d",
+  "fullSha": "9f6d85d15b4d910901709b3aed012c226002922e",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervmrg6be",
-  "pushedAt": "2026-04-03 04:27:32+00",
-  "commits": [{"sha":"5becde0","message":"feat: add Work With Us page with AI interview application system","author":"Rahul"},{"sha":"1a7f306","message":"feat: add Work With Us thumbnail images (Gemini 2.5 Flash)","author":"Rahul"},{"sha":"8ebc992","message":"merge: add Work With Us page + images to main","author":"Rahul"}]
+  "pushedAt": "2026-04-03 04:31:06+00",
+  "commits": [{"sha":"20d6132","message":"fix: correct Resend email domain + add generated images","author":"Rahul"},{"sha":"ff1f056","message":"Merge remote-tracking branch 'origin/condescending-brahmagupta-c379'","author":"Rahul"},{"sha":"9f6d85d","message":"Merge branch 'main' of https://github.com/sponicgarden/sponic-garden","author":"Rahul"}]
 }
