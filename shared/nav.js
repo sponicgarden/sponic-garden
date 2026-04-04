@@ -11,7 +11,7 @@
 /* ── config ────────────────────────────────────────────────────────── */
 const TABS = [
   { label: 'Home', href: '/' },
-  { label: 'Concept', href: '/charter.html' },
+  { label: 'Where?', href: '/docs/spaces/' },
   { label: 'Design', href: '/design/venue.html' },
   { label: 'Business', href: '/bizmodel.html' },
   { label: 'Join', href: '/apply.html' },
@@ -28,8 +28,8 @@ function currentTab() {
   if (path.startsWith('/design/') || path === '/physicaldesign.html') return '/design/venue.html';
   // Business group
   if (path === '/bizmodel.html' || path === '/branding.html') return '/bizmodel.html';
-  // Concept group
-  if (path === '/charter.html' || path === '/narrativesandbox.html') return '/charter.html';
+  // Where group
+  if (path.startsWith('/docs/spaces')) return '/docs/spaces/';
   // Join group
   if (path === '/apply.html' || path === '/work-with-us.html') return '/apply.html';
   // Patents — no tab highlight
