@@ -1,12 +1,12 @@
 {
-  "version": "v260404.01 12:59a",
-  "release": 78,
-  "sha": "a4e222a",
-  "fullSha": "a4e222a4d4223dd356edfd23396911db76a04ceb",
+  "version": "v260404.02 5:08p",
+  "release": 79,
+  "sha": "a2efcb1",
+  "fullSha": "a2efcb12c9815af6318402db4b1d41f8d5b41e90",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervm727z3",
-  "pushedAt": "2026-04-04 05:59:21+00",
-  "commits": [{"sha":"a4e222a","message":"update: hero tagline to \"IRL social vibe-spacing\"","author":"Rahul"}]
+  "pushedAt": "2026-04-04 22:08:31+00",
+  "commits": [{"sha":"a2efcb1","message":"nav: replace Concept tab with Where? linking to /docs/spaces/","author":"Rahul"}]
 }
