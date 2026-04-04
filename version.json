@@ -1,12 +1,12 @@
 {
-  "version": "v260403.25 6:56p",
-  "release": 77,
-  "sha": "7033e87",
-  "fullSha": "7033e8702ac834cb14834fc1bf089481af480ff7",
+  "version": "v260404.01 12:59a",
+  "release": 78,
+  "sha": "a4e222a",
+  "fullSha": "a4e222a4d4223dd356edfd23396911db76a04ceb",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervm727z3",
-  "pushedAt": "2026-04-03 23:56:41+00",
-  "commits": [{"sha":"7033e87","message":"fix: center hero image under hero text, match content column width","author":"Rahul"}]
+  "pushedAt": "2026-04-04 05:59:21+00",
+  "commits": [{"sha":"a4e222a","message":"update: hero tagline to \"IRL social vibe-spacing\"","author":"Rahul"}]
 }
