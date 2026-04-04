@@ -1,12 +1,12 @@
 {
-  "version": "v260404.02 5:08p",
-  "release": 79,
-  "sha": "a2efcb1",
-  "fullSha": "a2efcb12c9815af6318402db4b1d41f8d5b41e90",
+  "version": "v260404.04 5:40p",
+  "release": 81,
+  "sha": "0bb138a",
+  "fullSha": "0bb138acc5eca68e602eb6169ce4a8b6965d79ea",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervm727z3",
-  "pushedAt": "2026-04-04 22:08:31+00",
-  "commits": [{"sha":"a2efcb1","message":"nav: replace Concept tab with Where? linking to /docs/spaces/","author":"Rahul"}]
+  "pushedAt": "2026-04-04 22:40:12+00",
+  "commits": [{"sha":"0bb138a","message":"update: hero tagline to \"social vibe-spacing\"","author":"Rahul"}]
 }
