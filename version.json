@@ -1,12 +1,12 @@
 {
-  "version": "v260405.10 1:40a",
-  "release": 92,
-  "sha": "436d0ca",
-  "fullSha": "436d0ca07ffb1fde2d7d709ee9a22bd8b6cb4d1f",
+  "version": "v260405.11 12:02p",
+  "release": 93,
+  "sha": "0dccad1",
+  "fullSha": "0dccad15bfe9d89508f291d646f336bbd24a8bfb",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervm727z3",
-  "pushedAt": "2026-04-05 06:40:04+00",
-  "commits": [{"sha":"436d0ca","message":"fix: enlarge nav wordmark + hide version placeholder until loaded","author":"Rahul"}]
+  "pushedAt": "2026-04-05 17:02:23+00",
+  "commits": [{"sha":"0dccad1","message":"remove: CNAME file — DNS cutover to Cloudflare Pages complete","author":"Rahul"}]
 }
