@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title data-i18n="index.page.title">Sponic Gardens — Bioengineering a Bright Future</title>
-  <meta name="description" data-i18n-content="index.meta.description" content="Destination social venues anchored on botanical engineering, with AI optimized operations integrating fitness, food service, thermal wellness and community.">
+  <title data-i18n="index.page.title">Sponic Gardens — Inspiring, Healthy, Productive</title>
+  <meta name="description" content="Sponic Gardens creates AI-enhanced spaces where people socialize in a manner that is inspiring, healthy, and productive.">
   <meta property="og:site_name" content="Sponic Gardens">
   <meta property="og:locale" content="en_US">
-  <meta property="og:title" content="Sponic Gardens — Bioengineering a Bright Future">
-  <meta property="og:description" content="Destination social venues anchored on botanical engineering, with AI optimized operations integrating fitness, food service, thermal wellness and community.">
+  <meta property="og:title" content="Sponic Gardens — Inspiring, Healthy, Productive">
+  <meta property="og:description" content="Alternative overview narratives for Sponic Gardens.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://sponicgardens.com">
   <meta property="og:image" content="https://sponicgardens.com/branding/og-hero.jpg">
@@ -16,8 +16,8 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:type" content="image/jpeg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Sponic Gardens — Bioengineering a Bright Future">
-  <meta name="twitter:description" content="Destination social venues anchored on botanical engineering, with AI optimized operations integrating fitness, food service, thermal wellness and community.">
+  <meta name="twitter:title" content="Sponic Gardens — Inspiring, Healthy, Productive">
+  <meta name="twitter:description" content="Alternative overview narratives for Sponic Gardens.">
   <meta name="twitter:image" content="https://sponicgardens.com/branding/og-hero.jpg">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" type="image/svg+xml">
   <style>
@@ -58,7 +58,6 @@
       --slate: #475569;
       --slate-soft: rgba(71, 85, 105, 0.05);
       --slate-border: rgba(71, 85, 105, 0.16);
-      /* Jurassic Park × AI palette */
       --vine: #1a4d2e;
       --vine-soft: rgba(26, 77, 46, 0.06);
       --canopy: rgba(26, 77, 46, 0.03);
@@ -85,7 +84,7 @@
     }
 
     /* ════════════════════════════════════════════════════
-       HERO — Lush greenhouse with circuit grid overlay
+       HERO
        ════════════════════════════════════════════════════ */
     .hero {
       padding: 0.5rem 1.5rem 2rem;
@@ -95,7 +94,6 @@
       background: linear-gradient(180deg, #d8e8ca 0%, #dde8d2 35%, var(--bg) 100%);
       border-bottom: 1px solid var(--border);
     }
-    /* Circuit hex grid overlay */
     .hero::before {
       content: '';
       position: absolute;
@@ -104,14 +102,12 @@
       background-size: 60px 52px;
       opacity: 0.6;
     }
-    /* Radial glow */
     .hero::after {
       content: '';
       position: absolute;
       inset: 0;
       background: radial-gradient(ellipse 60% 70% at 50% 20%, rgba(52,211,153,0.08), transparent 70%);
     }
-    /* Leaf silhouettes */
     .hero-leaf-left, .hero-leaf-right {
       position: absolute;
       bottom: -20px;
@@ -123,7 +119,6 @@
     .hero-leaf-left { left: -40px; transform: rotate(15deg); }
     .hero-leaf-right { right: -40px; transform: rotate(-15deg) scaleX(-1); }
 
-    /* Glow nodes */
     .glow-node {
       position: absolute;
       width: 5px;
@@ -151,7 +146,11 @@
       letter-spacing: -0.02em;
       margin-bottom: 0.15rem;
     }
-    /* SVG vine underline */
+    .hero-logo {
+      max-width: 320px;
+      width: 80%;
+      margin-bottom: 0.5rem;
+    }
     .vine-underline {
       display: block;
       margin: 0 auto 0.5rem;
@@ -172,18 +171,19 @@
       margin: 0 auto;
       line-height: 1.55;
     }
-    .hero .launch-badge {
+
+    /* Narrative badge */
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
       margin-top: 1.25rem;
       padding: 0.4rem 1rem;
       background: rgba(255,255,255,0.7);
-      border: 1px solid var(--green-border);
+      border: 1px solid var(--plum-border);
       border-radius: 20px;
       font-size: 0.75rem;
       font-weight: 600;
-      color: var(--green);
+      color: var(--plum);
       text-transform: uppercase;
       letter-spacing: 0.06em;
       backdrop-filter: blur(4px);
@@ -191,11 +191,12 @@
 
     @media (max-width: 600px) {
       .hero h1 { font-size: 2.2rem; }
+      .hero .tagline { font-size: 1.5rem; }
       .hero-leaf-left, .hero-leaf-right { display: none; }
     }
 
     /* ════════════════════════════════════════════════════
-       HERO IMAGE — centered, same width as content column
+       HERO IMAGE
        ════════════════════════════════════════════════════ */
     .hero-image-wrap {
       max-width: 720px;
@@ -208,7 +209,7 @@
     }
 
     /* ════════════════════════════════════════════════════
-       CONTAINER — Tufte-style with margin note gutter
+       CONTAINER
        ════════════════════════════════════════════════════ */
     .container {
       max-width: 720px;
@@ -257,7 +258,7 @@
     .section p + p { margin-top: 0.6rem; }
 
     /* ════════════════════════════════════════════════════
-       CARDS — with leaf-vein texture
+       CARDS
        ════════════════════════════════════════════════════ */
     .card {
       background: var(--surface);
@@ -298,405 +299,182 @@
       position: relative;
     }
     .card li::before {
-      content: '›';
+      content: '';
       position: absolute;
       left: 0;
-      color: var(--green);
-      font-weight: 700;
+      top: 0.55rem;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--border);
     }
 
     /* Accent cards */
-    .accent-card { border-left: 3px solid; padding-left: 1rem; }
-    .accent-green { border-color: var(--green); }
-    .accent-green h3 { color: var(--green); }
-    .accent-emerald { border-color: var(--emerald); }
-    .accent-emerald h3 { color: var(--emerald); }
-    .accent-earth { border-color: var(--earth); }
-    .accent-earth h3 { color: var(--earth); }
-    .accent-sky { border-color: var(--sky); }
-    .accent-sky h3 { color: var(--sky); }
-    .accent-plum { border-color: var(--plum); }
-    .accent-plum h3 { color: var(--plum); }
-    .accent-warm { border-color: var(--warm); }
-    .accent-warm h3 { color: var(--warm); }
-    .accent-rose { border-color: var(--rose); }
-    .accent-rose h3 { color: var(--rose); }
-    .accent-slate { border-color: var(--slate); }
-    .accent-slate h3 { color: var(--slate); }
+    .accent-card { border-left: 3px solid transparent; padding-left: calc(1.2rem - 2px); }
+    .accent-green { border-left-color: var(--green); }
+    .accent-emerald { border-left-color: var(--emerald); }
+    .accent-earth { border-left-color: var(--earth); }
+    .accent-sky { border-left-color: var(--sky); }
+    .accent-plum { border-left-color: var(--plum); }
+    .accent-warm { border-left-color: var(--warm); }
+    .accent-rose { border-left-color: var(--rose); }
+    .accent-slate { border-left-color: var(--slate); }
 
     /* ════════════════════════════════════════════════════
        GRIDS
        ════════════════════════════════════════════════════ */
-    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
-    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.6rem; }
-    .grid-4 { display: grid; grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 0.6rem; }
-    @media (max-width: 600px) {
-      .grid-2, .grid-3 { grid-template-columns: 1fr; }
-      .grid-4 { grid-template-columns: 1fr 1fr; }
+    .grid-2 { display: grid; grid-template-columns: 1fr; gap: 0.6rem; }
+    .grid-3 { display: grid; grid-template-columns: 1fr; gap: 0.6rem; }
+    @media (min-width: 520px) {
+      .grid-2 { grid-template-columns: 1fr 1fr; }
+      .grid-3 { grid-template-columns: 1fr 1fr 1fr; }
     }
 
     /* ════════════════════════════════════════════════════
-       STAT PILLS
+       ILLUSTRATIONS
        ════════════════════════════════════════════════════ */
-    .stats-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 1.5rem;
+    .section-illustration {
+      margin: 1rem 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      line-height: 0;
     }
-    .stat-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      padding: 0.3rem 0.75rem;
-      background: var(--surface);
+    .section-illustration img {
+      width: 100%;
+      display: block;
+      border-radius: var(--radius);
+    }
+
+    /* ════════════════════════════════════════════════════
+       CALLOUT
+       ════════════════════════════════════════════════════ */
+    .callout {
+      position: relative;
+      background: var(--green-soft);
+      border: 1px solid var(--green-border);
+      border-radius: var(--radius);
+      padding: 1rem 1.2rem;
+      margin: 1rem 0;
+    }
+    .callout p {
+      font-size: 0.88rem;
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    /* ════════════════════════════════════════════════════
+       EXPANDABLE DETAILS
+       ════════════════════════════════════════════════════ */
+    .expandable {
+      margin-top: 0.5rem;
       border: 1px solid var(--border-light);
-      border-radius: 20px;
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: var(--text-dim);
+      border-radius: var(--radius);
+      overflow: hidden;
     }
-    .stat-pill strong { color: var(--text); font-weight: 700; }
-
-    /* ════════════════════════════════════════════════════
-       EXPANDABLE DETAILS / SUMMARY
-       ════════════════════════════════════════════════════ */
-    details.expandable { margin-top: 0.5rem; }
-    details.expandable summary {
+    .expandable summary {
+      padding: 0.6rem 0.9rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-dim);
       cursor: pointer;
       list-style: none;
       display: flex;
       align-items: center;
       gap: 0.4rem;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--text-dim);
-      padding: 0.4rem 0;
-      user-select: none;
+      background: var(--surface2);
+      transition: background 0.15s;
     }
-    details.expandable summary::-webkit-details-marker { display: none; }
-    details.expandable summary::before {
+    .expandable summary:hover { background: var(--surface3); }
+    .expandable summary::-webkit-details-marker { display: none; }
+    .expandable summary::after {
       content: '';
-      display: inline-block;
+      margin-left: auto;
       width: 14px;
       height: 14px;
-      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M5 3l6 5-6 5' fill='none' stroke='%234a6040' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M14 7c0 0-1 2-3 2' fill='none' stroke='%234a6040' stroke-width='0.8' opacity='0.5'/%3E%3C/svg%3E") no-repeat center/contain;
-      transition: transform 0.2s ease;
-      flex-shrink: 0;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 3l6 5-6 5' fill='none' stroke='%234a6040' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center/contain;
+      transition: transform 0.2s;
     }
-    details.expandable[open] summary::before { transform: rotate(90deg); }
-    details.expandable .expand-body {
-      padding: 0.5rem 0 0.5rem 1.2rem;
-      border-left: 2px solid var(--border-light);
-      margin-left: 6px;
+    .expandable[open] summary::after { transform: rotate(90deg); }
+    .expand-body {
+      padding: 0.8rem 0.9rem;
       font-size: 0.85rem;
       color: var(--text-dim);
-      line-height: 1.65;
+      line-height: 1.6;
     }
-    details.expandable .expand-body p + p { margin-top: 0.5rem; }
+    .expand-body p + p { margin-top: 0.5rem; }
 
     /* ════════════════════════════════════════════════════
-       MARGIN NOTES (Tufte-style)
+       MARGIN NOTES (Tufte)
        ════════════════════════════════════════════════════ */
     .has-margin-notes { position: relative; }
     .margin-note {
+      display: none;
       font-size: 0.72rem;
       color: var(--text-muted);
+      line-height: 1.5;
       font-style: italic;
-      line-height: 1.45;
-      border-left: 2px solid var(--border-light);
-      padding-left: 0.5rem;
-      margin-top: 0.25rem;
     }
     @media (min-width: 920px) {
       .margin-note {
+        display: block;
         position: absolute;
         right: -200px;
         width: 175px;
-        margin-top: 0;
       }
     }
 
     /* ════════════════════════════════════════════════════
-       ANNOTATIONS (inline tooltips)
-       ════════════════════════════════════════════════════ */
-    .annotation {
-      border-bottom: 1px dotted var(--text-muted);
-      cursor: help;
-      position: relative;
-    }
-    .annotation::after {
-      content: attr(data-note);
-      position: absolute;
-      bottom: calc(100% + 6px);
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--text);
-      color: var(--bg);
-      font-size: 0.72rem;
-      font-style: normal;
-      padding: 0.35rem 0.6rem;
-      border-radius: 5px;
-      white-space: nowrap;
-      max-width: 240px;
-      white-space: normal;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.15s;
-      z-index: 10;
-      line-height: 1.4;
-    }
-    .annotation:hover::after { opacity: 1; }
-
-    /* ════════════════════════════════════════════════════
-       SPARKLINES
-       ════════════════════════════════════════════════════ */
-    .sparkline { vertical-align: middle; margin-left: 0.3rem; }
-
-    /* ════════════════════════════════════════════════════
-       CALLOUT — with vine curl
-       ════════════════════════════════════════════════════ */
-    .callout {
-      background: var(--green-soft);
-      border: 1px solid var(--green-border);
-      border-radius: var(--radius);
-      padding: 1rem 1.15rem 1rem 1.5rem;
-      margin: 0.75rem 0;
-      position: relative;
-    }
-    .callout::before {
-      content: '';
-      position: absolute;
-      top: -4px;
-      left: 8px;
-      width: 20px;
-      height: 20px;
-      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M16 2c-4 1-6 4-6 8 0-3-3-5-6-5' fill='none' stroke='%232d6a1e' stroke-width='1.2' opacity='0.3'/%3E%3C/svg%3E") no-repeat center/contain;
-    }
-    .callout p {
-      font-size: 0.85rem;
-      color: var(--green);
-      font-weight: 500;
-      line-height: 1.6;
-    }
-
-    /* ════════════════════════════════════════════════════
-       DIVIDERS — circuit-to-vine SVG
+       DIVIDER
        ════════════════════════════════════════════════════ */
     .divider {
       text-align: center;
-      margin: 2.5rem 0;
-      line-height: 0;
+      margin: 1rem 0;
     }
-    .divider svg { width: 100%; max-width: 400px; height: 20px; }
+    .divider svg { width: 100%; max-width: 400px; height: auto; }
 
     /* ════════════════════════════════════════════════════
-       AI SYSTEMS — small multiples card grid
+       PHILOSOPHY CARD
        ════════════════════════════════════════════════════ */
-    .systems-category {
-      margin-bottom: 1.25rem;
+    .philosophy-card {
+      background: linear-gradient(135deg, var(--vine-soft), var(--circuit));
+      border: 1px solid var(--green-border);
+      border-radius: var(--radius-lg);
+      padding: 1.4rem;
+      margin: 1.2rem 0;
     }
-    .systems-category-label {
-      font-size: 0.6rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-muted);
-      margin-bottom: 0.4rem;
-      padding-left: 0.1rem;
-    }
-    .system-card {
-      background: var(--surface);
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius);
-      padding: 0;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      transition: box-shadow 0.2s ease;
-    }
-    @media (hover: hover) {
-      .system-card:hover { box-shadow: var(--shadow-md); }
-    }
-    .system-card summary {
-      cursor: pointer;
-      list-style: none;
-      padding: 0.65rem 0.8rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 0.5rem;
-    }
-    .system-card summary::-webkit-details-marker { display: none; }
-    .system-card .sys-icon {
-      font-size: 1.1rem;
-      line-height: 1;
-      flex-shrink: 0;
-      margin-top: 0.05rem;
-    }
-    .system-card .sys-info { flex: 1; min-width: 0; }
-    .system-card .sys-name {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--text);
-      display: block;
-    }
-    .system-card .sys-goal {
-      font-size: 0.7rem;
-      color: var(--text-muted);
-      display: block;
-      margin-top: 0.1rem;
-      font-style: italic;
-    }
-    .system-card .sys-chevron {
-      width: 12px;
-      height: 12px;
-      flex-shrink: 0;
-      margin-top: 0.15rem;
-      transition: transform 0.2s ease;
-    }
-    .system-card[open] .sys-chevron { transform: rotate(90deg); }
-    .system-card .sys-detail {
-      padding: 0 0.8rem 0.7rem 2.4rem;
-      font-size: 0.78rem;
-      color: var(--text-dim);
-      line-height: 1.55;
-    }
-    .sys-detail-label {
+    .philosophy-card .label {
       font-size: 0.62rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-muted);
-      margin-top: 0.4rem;
-      margin-bottom: 0.15rem;
+      letter-spacing: 0.1em;
+      color: var(--green);
+      margin-bottom: 0.5rem;
     }
-    .sys-detail-label:first-child { margin-top: 0; }
-    .sys-feedback-status {
-      display: inline-block;
-      font-size: 0.65rem;
-      font-weight: 700;
-      padding: 0.1rem 0.35rem;
-      border-radius: 3px;
-      margin-left: 0.3rem;
-      vertical-align: middle;
-    }
-    .fb-full { background: var(--green-soft); color: var(--green); }
-    .fb-partial { background: var(--warm-soft); color: var(--warm); }
-
-    /* ════════════════════════════════════════════════════
-       METRICS GRID
-       ════════════════════════════════════════════════════ */
-    .metric-card {
-      background: var(--surface);
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius);
-      padding: 0.75rem 0.9rem;
-      text-align: center;
-    }
-    .metric-card .metric-icon { font-size: 1.4rem; margin-bottom: 0.2rem; }
-    .metric-card .metric-name {
-      font-size: 0.72rem;
-      font-weight: 600;
+    .philosophy-card p {
+      font-size: 0.9rem;
       color: var(--text);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+      line-height: 1.7;
     }
-    .metric-card .metric-desc {
-      font-size: 0.7rem;
-      color: var(--text-muted);
-      margin-top: 0.15rem;
-      line-height: 1.4;
-    }
-
-    /* ════════════════════════════════════════════════════
-       HERO LOGO
-       ════════════════════════════════════════════════════ */
-    .hero-logo {
-      max-width: 600px;
-      width: 90%;
-      margin: -60px auto -55px;
-      display: block;
-      filter: drop-shadow(0 2px 12px rgba(0,0,0,0.15));
-    }
-
-    /* ════════════════════════════════════════════════════
-       SECTION ILLUSTRATIONS
-       ════════════════════════════════════════════════════ */
-    .section-img {
-      width: 100%;
-      border-radius: var(--radius-lg);
-      margin: 0.8rem 0 1rem;
-      box-shadow: var(--shadow-md);
-      display: block;
-    }
-    .section-img-wide {
-      aspect-ratio: 16/9;
-      object-fit: cover;
-    }
-    .section-img-square {
-      max-width: 400px;
-      margin-left: auto;
-      margin-right: auto;
-      aspect-ratio: 1;
-      object-fit: cover;
-    }
-
-    /* ════════════════════════════════════════════════════
-       CNS DIAGRAM
-       ════════════════════════════════════════════════════ */
-    .cns-diagram {
-      display: flex;
-      justify-content: center;
-      margin: 1rem 0;
-    }
-    .cns-diagram svg { max-width: 100%; }
 
     /* ════════════════════════════════════════════════════
        FOOTER
        ════════════════════════════════════════════════════ */
     footer {
       text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.7rem;
+      padding: 1.5rem 1rem 2rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
       color: var(--text-muted);
       border-top: 1px solid var(--border-light);
-    }
-  
-    /* Section Illustrations */
-    .section-illustration {
-      margin: 1.5rem -1.25rem 1.5rem;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-md);
-      border: 1px solid var(--border-light);
-    }
-    .card > .section-illustration:first-child {
-      border: none;
-      box-shadow: none;
-      border-radius: 0;
-      margin-top: -1.1rem;
-      margin-left: -1.2rem;
-      margin-right: -1.2rem;
-    }
-    .section-illustration img {
-      display: block;
-      width: 100%;
-      height: auto;
-      cursor: zoom-in;
-    }
-    @media (min-width: 920px) {
-      .section-illustration { margin-left: 0; margin-right: 0; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ══════════════════════════════════════════════════════
-       HERO
-       ══════════════════════════════════════════════════════ -->
   <div class="hero">
-    <!-- Glow nodes at circuit intersections -->
-    <div class="glow-node" style="top:18%;left:22%"></div>
-    <div class="glow-node" style="top:35%;right:18%"></div>
+    <!-- Glow nodes -->
+    <div class="glow-node" style="top:20%;left:15%"></div>
+    <div class="glow-node" style="top:30%;right:20%"></div>
     <div class="glow-node" style="top:60%;left:35%"></div>
     <div class="glow-node" style="top:45%;right:40%"></div>
 
@@ -715,258 +493,163 @@
     <div class="hero-content">
       <img src="branding/94-vines-waveform-orchid-transparent.png" alt="Sponic Gardens" class="hero-logo">
       <h1 style="position:absolute;left:-9999px;">Sponic Gardens</h1>
-      <!-- Vine underline -->
       <svg class="vine-underline" viewBox="0 0 200 12" xmlns="http://www.w3.org/2000/svg">
         <path d="M0 6 Q40 2 70 6 T130 5 T200 6" fill="none" stroke="#1a4d2e" stroke-width="1.5" opacity="0.4"/>
         <circle cx="100" cy="5" r="2" fill="#1a4d2e" opacity="0.3"/>
         <path d="M98 3c-3-4-8-3-6 1" fill="none" stroke="#1a4d2e" stroke-width="0.8" opacity="0.3"/>
         <path d="M102 3c3-4 8-3 6 1" fill="none" stroke="#1a4d2e" stroke-width="0.8" opacity="0.3"/>
       </svg>
-      <div class="tagline" data-i18n="hero.tagline">social vibe-spacing</div>
-      <p class="subtitle" data-i18n="hero.subtitle">Destination social venues anchored on botanical engineering, with AI optimized operations integrating fitness, food service, thermal wellness and community.</p>
+      <div class="tagline">inspiring, healthy, productive</div>
+      <p class="subtitle">Sponic Gardens creates AI-enhanced spaces where people socialize in a manner that is inspiring, healthy, and productive. The AI optimizes for long-term growth and lifestyle satisfaction.</p>
     </div>
   </div>
 
-  <!-- Hero overview image — below hero text, constrained width -->
+  <!-- Hero overview image -->
   <div class="hero-image-wrap"><img src="branding/hp-01-hp-hero-overview.jpg" alt="The Sponic Gardens warehouse-greenhouse complex" style="width:100%;display:block;border-radius:12px"></div>
 
   <div class="container">
 
-
     <!-- ══════════════════════════════════════════════════
-         1. CONCEPT
+         1. THE IDEA
          ══════════════════════════════════════════════════ -->
     <div class="section has-margin-notes">
-      <div class="section-label" data-i18n="section.concept.label">Concept</div>
-      <h2 data-i18n="section.concept.title">What Is Sponic Gardens?</h2>
-      <p data-i18n="section.concept.body">Sponic Gardens is a growth and wellness-oriented social club designed for an era of increasingly powerful agentic AI capabilities.</p>
+      <div class="section-label">The Idea</div>
+      <h2>AI-Enhanced Spaces for Real Human Connection</h2>
 
-      <!-- Visual breakout: Why Gardening -->
-      <div style="background:var(--surface2);border-radius:var(--radius-lg);padding:1.4rem 1.4rem 1rem;margin:1.2rem 0">
-        <p style="font-size:0.92rem;color:var(--text);font-weight:600;margin-bottom:0.8rem" data-i18n="section.concept.gardening_intro">The thematic center is <span style="color:var(--green)">plant cultivation and gardening</span> — chosen for four reasons:</p>
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:0.5rem">
-          <div style="text-align:center;padding:0.7rem 0.4rem;background:var(--surface);border-radius:var(--radius);border:1px solid var(--border-light)">
-            <div style="font-size:1.6rem;line-height:1">🧘</div>
-            <div style="font-size:0.72rem;color:var(--text-dim);margin-top:0.3rem;line-height:1.3" data-i18n="section.concept.reason1">Healthy & fulfilling activity</div>
-          </div>
-          <div style="text-align:center;padding:0.7rem 0.4rem;background:var(--surface);border-radius:var(--radius);border:1px solid var(--border-light)">
-            <div style="font-size:1.6rem;line-height:1">👥</div>
-            <div style="font-size:0.72rem;color:var(--text-dim);margin-top:0.3rem;line-height:1.3" data-i18n="section.concept.reason2">Social & group-friendly</div>
-          </div>
-          <div style="text-align:center;padding:0.7rem 0.4rem;background:var(--surface);border-radius:var(--radius);border:1px solid var(--border-light)">
-            <div style="font-size:1.6rem;line-height:1">🤖</div>
-            <div style="font-size:0.72rem;color:var(--text-dim);margin-top:0.3rem;line-height:1.3" data-i18n="section.concept.reason3">Ideal for AI & sensor management</div>
-          </div>
-          <div style="text-align:center;padding:0.7rem 0.4rem;background:var(--surface);border-radius:var(--radius);border:1px solid var(--border-light)">
-            <div style="font-size:1.6rem;line-height:1">📸</div>
-            <div style="font-size:0.72rem;color:var(--text-dim);margin-top:0.3rem;line-height:1.3" data-i18n="section.concept.reason4">Photogenic for marketing</div>
-          </div>
-        </div>
+      <p>Sponic Gardens creates AI-enhanced spaces where people can socialize in a manner that is inspiring, healthy, and productive. The venue is built around botanical cultivation, fitness, thermal wellness, music, and community food &mdash; with artificial intelligence quietly enhancing every aspect of the environment.</p>
+
+      <p>The AI doesn't just run operations. Its goal is to optimize for long-term growth and lifestyle satisfaction &mdash; learning what makes each member's experience better over time, tuning the environment to promote well-being, and helping the community cultivate something that compounds with every visit.</p>
+
+      <div class="margin-note" style="top:0">Long-term optimization means the AI gets better the longer you're a member. It learns what works &mdash; for you, for the plants, for the community.</div>
+
+      <!-- Philosophy card -->
+      <div class="philosophy-card">
+        <div class="label">Core Philosophy</div>
+        <p><strong>Inspiring.</strong> Surrounded by living, growing things &mdash; curated light, sound, and atmosphere that lifts your mood the moment you walk in. <strong>Healthy.</strong> Gardening, fitness, thermal wellness, and real food grown on-site. <strong>Productive.</strong> Every visit produces something &mdash; a harvest, a skill learned, a connection made, a plant nurtured toward its next stage. The AI ties all three together, optimizing the environment so that each visit is better than the last.</p>
       </div>
 
-      <!-- Scene images: gardening + facility -->
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;margin:1.2rem 0">
         <div class="section-illustration" style="margin:0"><img src="branding/scene-03-gardening-gemini.jpg" alt="Guided gardening session in the greenhouse" loading="lazy"></div>
         <div class="section-illustration" style="margin:0"><img src="branding/scene-13-hp2-outdoor-growing-gemini.jpg" alt="Outdoor growing zones" loading="lazy"></div>
       </div>
 
-      <p data-i18n="section.concept.experience">The experience extends into fitness, thermal bathing, music, community food, artisan vending, and continuous learning — an economically efficient micro-scale health and educational resort.</p>
+      <p>The AI is invisible to the member but omnipresent in the infrastructure. It manages irrigation, tunes the music to the energy of the room, schedules classes around demand, optimizes what gets planted and when, and continuously learns from every sensor reading and every piece of member feedback. The result is a space that feels effortlessly good &mdash; because intelligence is woven into its fabric.</p>
 
-      <!-- Pull-quote: AI thesis -->
       <blockquote style="border-left:3px solid var(--green);margin:1.2rem 0;padding:0.8rem 1rem;background:var(--green-soft);border-radius:0 var(--radius) var(--radius) 0">
-        <p style="font-size:0.95rem;font-style:italic;color:var(--text);font-weight:500;line-height:1.6;margin:0" data-i18n="section.concept.ai_quote">AI can be used to manage almost every aspect of the business — creating radical efficiencies and enhancing product-market fit faster than human management alone.</p>
+        <p style="font-size:0.95rem;font-style:italic;color:var(--text);font-weight:500;line-height:1.6;margin:0">A place where plants and people flourish together, where every element of the environment &mdash; light, sound, temperature, soil, food, activity &mdash; is being continuously tuned by an intelligence that gets better every day.</p>
       </blockquote>
-
-      <p data-i18n="section.concept.ai_optimize">The AI enables members to give constant feedback, optimizing around their health and satisfaction. It is designed to optimize for both <strong>human and botanical flourishing</strong>.</p>
-
-      <!-- Facility visual -->
-      <div class="section-illustration" style="margin:1.2rem -1.25rem">
-        <img src="branding/scene-14-hp2-indoor-greenhouse-gemini.jpg" alt="Indoor greenhouse facility" loading="lazy">
-      </div>
-
-      <p data-i18n="section.concept.facility">The facility will be a custom-built indoor–outdoor warehouse-greenhouse hybrid — built from the ground up to be maximally AI-monitored and managed, while providing members with a digital agent that enforces their privacy rights.</p>
-
-      <!-- Core principle callout -->
-      <div style="position:relative;background:linear-gradient(135deg, var(--vine-soft), var(--circuit));border:1px solid var(--green-border);border-radius:var(--radius-lg);padding:1.3rem 1.4rem;margin:1.2rem 0">
-        <div style="font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--green);margin-bottom:0.5rem" data-i18n="section.concept.core_principle_label">Core Design Principle</div>
-        <p style="font-size:0.88rem;color:var(--text);line-height:1.65;margin:0" data-i18n-html="section.concept.core_principle_body"><strong>Every system — from irrigation to event scheduling to food logistics — runs on a <span class="annotation" data-note="Not bolted-on SaaS tools — a unified platform with multimodal data fusion, built from day one.">native AI platform</span>.</strong> The facility is a living lab where AI doesn't assist operations — it <em>is</em> the operating system.</p>
-        <div style="display:flex;gap:0.4rem;flex-wrap:wrap;margin-top:0.8rem">
-          <span class="stat-pill">🌱 <strong data-i18n="section.concept.pill_plant_growth">Plant growth</strong></span>
-          <span class="stat-pill">😊 <strong data-i18n="section.concept.pill_human_satisfaction">Human satisfaction</strong></span>
-          <span class="stat-pill">📡 <span data-i18n="section.concept.pill_sensor_data">Sensor data</span></span>
-          <span class="stat-pill">🎵 <span data-i18n="section.concept.pill_music_lighting">Music & lighting</span></span>
-          <span class="stat-pill">🍽️ <span data-i18n="section.concept.pill_food_offerings">Food offerings</span></span>
-        </div>
-        <p style="font-size:0.82rem;color:var(--text-dim);line-height:1.6;margin-top:0.6rem" data-i18n="section.concept.sensor_signals">Every sensor reading, every member interaction, every harvest is a signal the system learns from — continuously adapting to maximize both beneficial plant growth and long-term human satisfaction.</p>
-      </div>
     </div>
 
+
     <!-- ══════════════════════════════════════════════════
-         2. FOUR PILLARS
+         2. WHAT YOU DO HERE
          ══════════════════════════════════════════════════ -->
     <div class="section">
-      <div class="section-label" data-i18n="section.pillars.label">Four Pillars</div>
-      <h2 data-i18n="section.pillars.title">The Experience</h2>
+      <div class="section-label">The Experience</div>
+      <h2>What You Do at Sponic Gardens</h2>
 
-      <div class="grid-2">
+      <p>A visit weaves together gardening, fitness, thermal wellness, food, music, and community &mdash; in whatever combination suits the day. The AI handles the logistics; you just show up.</p>
+
+      <div class="grid-2" style="margin-top:1rem">
         <div class="card accent-card accent-green">
-          <div class="section-illustration" style="margin-bottom:0.8rem"><img src="branding/hp-02-hp-gardening-session.jpg" alt="AI-guided gardening session with cultivation dashboard" loading="lazy"></div>
-          <h3 data-i18n="section.pillars.gardening">🌱 Gardening & Cultivation</h3>
-          <p data-i18n-html="section.pillars.gardening_body">Members participate in guided gardening sessions — planting, cultivating, harvesting. The AI manages the <span class="annotation" data-note="Planting plans, task assignments, harvest scheduling, supply ordering — all AI-coordinated with member input.">cultivation plan</span>, enlisting members to decide what to plant, how to care for it, and what to do with the produce.</p>
+          <div class="section-illustration" style="margin-bottom:0.8rem"><img src="branding/hp-02-hp-gardening-session.jpg" alt="AI-guided gardening session" loading="lazy"></div>
+          <h3>Cultivate</h3>
+          <p>Guided gardening sessions where you plant, tend, and harvest. The AI manages the cultivation plan &mdash; what to plant, when to water, when to harvest &mdash; and enlists members to make the decisions that matter. Your produce flows directly into the on-site food service.</p>
           <details class="expandable">
-            <summary data-i18n="section.pillars.gardening_why">Why gardening is the anchor</summary>
+            <summary>The Garden Show &mdash; gamified cultivation</summary>
             <div class="expand-body">
-              <p data-i18n="section.pillars.gardening_why_body">Gardening is inherently therapeutic, communal, productive, and measurable. It gives people a reason to return, a rhythm to follow, and something tangible to show for their time. The harvested produce flows directly into the on-site food service — closing the loop from soil to plate.</p>
-            </div>
-          </details>
-          <details class="expandable">
-            <summary data-i18n="section.pillars.garden_show">🏆 The Garden Show — gamified cultivation</summary>
-            <div class="expand-body">
-              <div class="section-illustration" style="margin:0.8rem -1rem"><img src="branding/hp-03-hp-garden-show.jpg" alt="The Garden Show" loading="lazy"></div>
-              <p data-i18n-html="section.pillars.garden_show_p1">Gardening at Sponic Gardens isn't just therapeutic — it's <strong>competitive and celebratory</strong>. Members photograph their creations throughout the growing cycle, building a visual portfolio of their work. On a regular cadence, the community hosts <strong>The Garden Show</strong>:</p>
-              <p data-i18n-html="section.pillars.garden_show_p2"><strong>How it works:</strong> Members submit photos of their best plants, arrangements, harvests, or creative garden projects via the app. All submissions are displayed on the facility's video screens and in a digital gallery. The community votes — each member gets a limited number of votes to cast across categories. Top entries win prizes: free visit passes, premium workshop access, featured vendor collaborations, or "Golden Trowel" recognition displayed at the facility.</p>
-              <p data-i18n-html="section.pillars.garden_show_p3"><strong>Categories</strong> rotate seasonally — tallest plant, most creative arrangement, best herb garden, biggest harvest yield, most improved plot, best team project. The AI tracks participation, suggests categories based on what's growing, and surfaces trending entries to keep engagement high.</p>
-              <p data-i18n="section.pillars.garden_show_p4">The result: a built-in social loop that makes members want to cultivate, document, share, and return — turning gardening into a community sport with real stakes and real pride.</p>
-            </div>
-          </details>
-          <details class="expandable">
-            <summary data-i18n="section.pillars.social_media">📸 AI-powered social media</summary>
-            <div class="expand-body">
-              <div class="section-illustration" style="margin:0.8rem -1rem"><img src="branding/hp-04-hp-ai-social.jpg" alt="AI social moments" loading="lazy"></div>
-              <p data-i18n-html="section.pillars.social_media_p1">The AI identifies <strong>photo opportunities</strong> throughout the facility — a plant hitting a growth milestone, a stunning arrangement, golden-hour light in the greenhouse, a member's first harvest. If the member opts in, the AI captures or prompts the moment, applies on-brand framing, and offers one-tap sharing to their social channels.</p>
-              <p data-i18n-html="section.pillars.social_media_p2">Posts are <strong>automatically distributed and measured</strong> — the AI tracks engagement (likes, shares, reach), learns what content resonates, and refines its photo-op suggestions and timing. Members build a visual journal of their cultivation journey; Sponic Gardens gets authentic, member-generated marketing at scale. The entire social media strategy — content identification, capture prompts, distribution, and performance analytics — is AI-managed.</p>
+              <div class="section-illustration" style="margin:0.8rem -0.5rem"><img src="branding/hp-03-hp-garden-show.jpg" alt="The Garden Show" loading="lazy"></div>
+              <p>Members photograph their best plants and arrangements throughout the growing cycle. On a regular cadence, the community hosts The Garden Show: submissions displayed on facility screens, community voting across rotating seasonal categories, prizes for top entries. A built-in social loop that makes cultivation competitive and celebratory.</p>
             </div>
           </details>
         </div>
 
         <div class="card accent-card accent-emerald">
-          <div class="section-illustration" style="margin-bottom:0.8rem"><img src="branding/hp-05-hp-yoga-studio.jpg" alt="AI-managed fitness studio" loading="lazy"></div>
-          <h3 data-i18n="section.pillars.fitness">🏋️ Fitness</h3>
-      
-          <ul>
-            <li data-i18n="section.pillars.fitness_li1">30-person hot yoga studio</li>
-            <li data-i18n="section.pillars.fitness_li2">30-person dance studio</li>
-            <li data-i18n="section.pillars.fitness_li3">Open movement & congregation areas (indoor + outdoor)</li>
-          </ul>
-          <p style="margin-top:0.4rem;font-size:0.82rem;color:var(--text-muted)" data-i18n="section.pillars.fitness_ai">AI schedules classes, allocates instructors, and sets per-class music/lighting presets. Opt-in fitness device data (HR, recovery — anonymized) helps tune intensity.</p>
+          <div class="section-illustration" style="margin-bottom:0.8rem"><img src="branding/hp-05-hp-yoga-studio.jpg" alt="Fitness studio" loading="lazy"></div>
+          <h3>Move</h3>
+          <p>Hot yoga studio, dance studio, and open movement areas &mdash; indoor and outdoor. AI schedules classes, sets music and lighting presets per activity, and uses opt-in fitness data to tune intensity over time.</p>
         </div>
 
         <div class="card accent-card accent-sky">
-          <div class="section-illustration" style="margin-bottom:0.8rem"><img src="branding/hp-06-hp-thermal-circuit.jpg" alt="AI-guided contrast therapy" loading="lazy"></div>
-          <h3 data-i18n="section.pillars.thermal">🧖 Thermal & Spa</h3>
-      
-          <ul>
-            <li data-i18n="section.pillars.thermal_li1">2 saunas · 1 steam room</li>
-            <li data-i18n="section.pillars.thermal_li2">2 cold plunges · 1 hot tub · 1 cool pool</li>
-          </ul>
-          <details class="expandable">
-            <summary data-i18n="section.pillars.contrast_therapy">AI-guided contrast therapy</summary>
-            <div class="expand-body">
-              <p data-i18n="section.pillars.contrast_therapy_body">The AI suggests personalized contrast protocols — sauna→cold plunge→hot tub sequences based on aggregated anonymized data. It manages temperatures, session timing, and capacity gating per unit, while water quality and hygiene sensors run continuously.</p>
-            </div>
-          </details>
+          <div class="section-illustration" style="margin-bottom:0.8rem"><img src="branding/hp-06-hp-thermal-circuit.jpg" alt="Thermal spa circuit" loading="lazy"></div>
+          <h3>Restore</h3>
+          <p>Saunas, steam room, cold plunges, hot tub, and cool pool. The AI suggests personalized contrast therapy protocols and manages temperatures, session timing, and capacity &mdash; while water quality sensors run continuously.</p>
         </div>
 
         <div class="card accent-card accent-plum">
-          <div class="section-illustration" style="margin-bottom:0.8rem"><img src="branding/hp-07-hp-music-zones.jpg" alt="AI-controlled audio zones" loading="lazy"></div>
-          <h3 data-i18n="section.pillars.music">🎵 Music & Atmosphere</h3>
-      
-          <p data-i18n="section.pillars.music_body">Pervasive, high-quality sound systems throughout — curated playlists and live sets for both human enjoyment and plant stimulation. AI-controlled audio zones adapt to activity, time of day, and crowd energy.</p>
-          <details class="expandable">
-            <summary data-i18n="section.pillars.ai_reads_room">How the AI reads the room</summary>
-            <div class="expand-body">
-              <p data-i18n="section.pillars.ai_reads_room_body">Audio-level sensors per zone measure crowd energy — conversation density, laughter, movement intensity — without recording content (privacy-first). The AI correlates these signals with occupancy and activity type to curate the right vibe: calming in spa zones, energizing in dance, focused in gardening.</p>
-            </div>
-          </details>
+          <div class="section-illustration" style="margin-bottom:0.8rem"><img src="branding/hp-07-hp-music-zones.jpg" alt="Music and atmosphere zones" loading="lazy"></div>
+          <h3>Vibe</h3>
+          <p>Pervasive high-quality sound throughout the facility. AI-controlled audio zones adapt to activity, time of day, and crowd energy &mdash; calming in spa zones, energizing in dance, focused in the greenhouse. The music is also tuned for plant stimulation.</p>
         </div>
       </div>
 
       <div class="grid-3" style="margin-top:1rem">
-        <div class="section-illustration" style="margin:0"><img src="branding/scene-18-hp2-evening-firepit-gemini.jpg" alt="Outdoor evening firepit gathering" loading="lazy"></div>
-        <div class="section-illustration" style="margin:0"><img src="branding/scene-17-hp2-juice-workshop-gemini.jpg" alt="Community kitchen and juice workshop" loading="lazy"></div>
-        <div class="section-illustration" style="margin:0"><img src="branding/scene-16-hp2-movement-studio-gemini.jpg" alt="Warehouse movement studio" loading="lazy"></div>
+        <div class="section-illustration" style="margin:0"><img src="branding/scene-18-hp2-evening-firepit-gemini.jpg" alt="Evening firepit gathering" loading="lazy"></div>
+        <div class="section-illustration" style="margin:0"><img src="branding/scene-17-hp2-juice-workshop-gemini.jpg" alt="Community kitchen" loading="lazy"></div>
+        <div class="section-illustration" style="margin:0"><img src="branding/scene-16-hp2-movement-studio-gemini.jpg" alt="Movement studio" loading="lazy"></div>
       </div>
     </div>
 
+
     <!-- ══════════════════════════════════════════════════
-         3. FOOD & DRINK
+         3. FOOD, CRAFT & COMMUNITY
          ══════════════════════════════════════════════════ -->
     <div class="section has-margin-notes">
-      <div class="section-label" data-i18n="section.food.label">Food & Drink</div>
-      <h2 data-i18n="section.food.title">Crowd-Sourced Food Service & Artisan Vending</h2>
-      <div class="section-illustration"><img src="branding/hp-08-hp-food-hall.jpg" alt="Crowd-sourced food hall" loading="lazy"></div>      <p data-i18n-html="section.food.body1">Food and drink is <strong>crowd-sourced from the local community</strong>. Sponic Gardens provides artisan vendors with everything they need: equipment, serving containers and utensils, billing infrastructure, marketing, and on-site delivery logistics — all optimized by AI. The facility becomes a platform that lowers the barrier for local food entrepreneurs while giving members diverse, fresh options.</p>      <p data-i18n-html="section.food.body2">Beyond food, the marketplace extends to <strong>artisan vendors</strong> — handmade jewelry, clothing, crafts, and wellness products. The same infrastructure that supports food vendors (billing, marketing, scheduling) powers a rotating market of local makers, turning Sponic Gardens into a vibrant community bazaar.</p>
-      <div class="margin-note" style="top:0">AI tracks sales data, consumption rates, waste levels, queue lengths, and member ratings to optimize vendor scheduling, menu composition, and portioning.</div>
+      <div class="section-label">Food & Community</div>
+      <h2>Eat, Make, Share</h2>
 
-      <details class="expandable">
-        <summary data-i18n="section.food.garden_to_plate">Garden-to-plate pipeline & member input</summary>
-        <div class="expand-body">
-          <p data-i18n="section.food.garden_to_plate_body">Produce harvested during gardening sessions flows directly to on-site vendors — closing the loop from cultivation to cuisine. Members vote on future vendors, suggest produce varieties, and rate dishes. The AI correlates food choices with wellness outcomes (via opt-in health data) to nudge menus toward ingredients that demonstrably improve how members feel.</p>
-        </div>
-      </details>
-    </div>
+      <div class="section-illustration"><img src="branding/hp-08-hp-food-hall.jpg" alt="Community food hall" loading="lazy"></div>
 
-    <!-- ══════════════════════════════════════════════════
-         APOTHECARY & HERBAL WORKSHOP
-         ══════════════════════════════════════════════════ -->
-    <div class="section">
-      <div class="section-label" data-i18n="section.apothecary.label">Apothecary</div>
-      <h2 data-i18n="section.apothecary.title">Herbal Apothecary & Plant Medicine Workshop</h2>
-      <div class="section-illustration"><img src="branding/hp-16-hp-apothecary.jpg" alt="Herbal apothecary workshop" loading="lazy"></div>
-      <p data-i18n-html="section.apothecary.body">A working apothecary where members learn to grow, harvest, and transform medicinal plants into <strong>tinctures, essential oils, salves, and herbal teas</strong>. The garden cultivates high-value medicinal species — from well-known herbs to rare botanicals — and the workshop teaches traditional preparation techniques guided by AI-optimized growing conditions.</p>
+      <p>Food and drink is <strong>crowd-sourced from local vendors</strong>. Sponic Gardens provides the infrastructure &mdash; equipment, billing, marketing, delivery logistics &mdash; all optimized by AI. Produce harvested during gardening sessions flows directly to vendors, closing the loop from soil to plate.</p>
 
-      <div class="card accent-card accent-green">
-        <h3 data-i18n="section.apothecary.plants_title">🌿 Core Medicinal Plants</h3>
-        <ul>
-          <li data-i18n-html="section.apothecary.plant_lavender"><strong>Lavender & Chamomile</strong> — calming tinctures, sleep aids, and aromatherapy oils</li>
-          <li data-i18n-html="section.apothecary.plant_echinacea"><strong>Echinacea & Elderberry</strong> — immune-boosting syrups and cold-season preparations</li>
-          <li data-i18n-html="section.apothecary.plant_rosemary"><strong>Rosemary & Thyme</strong> — antimicrobial oils, memory-enhancing extracts, and culinary medicine</li>
-          <li data-i18n-html="section.apothecary.plant_calendula"><strong>Calendula & Comfrey</strong> — healing salves and skin-repair balms</li>
-          <li data-i18n-html="section.apothecary.plant_valerian"><strong>Valerian & Passionflower</strong> — natural sleep and anxiety support tinctures</li>
-          <li data-i18n-html="section.apothecary.plant_turmeric"><strong>Turmeric & Ginger</strong> — anti-inflammatory tonics and wellness shots</li>
-          <li data-i18n-html="section.apothecary.plant_peppermint"><strong>Peppermint & Lemon Balm</strong> — digestive teas and stress-relief blends</li>
-        </ul>
+      <div class="margin-note" style="top:0">AI tracks sales data, waste levels, queue lengths, and member ratings to optimize vendor scheduling and menu composition.</div>
+
+      <p>Beyond food, a rotating market of <strong>artisan vendors</strong> &mdash; handmade goods, wellness products, crafts &mdash; turns Sponic Gardens into a vibrant community bazaar. The same AI-powered infrastructure supports every vendor.</p>
+
+      <div class="card accent-card accent-green" style="margin-top:1rem">
+        <div class="section-illustration" style="margin-bottom:0.8rem"><img src="branding/hp-16-hp-apothecary.jpg" alt="Herbal apothecary" loading="lazy"></div>
+        <h3>Herbal Apothecary</h3>
+        <p>A working apothecary where members learn to grow, harvest, and transform medicinal plants into tinctures, essential oils, salves, and herbal teas. From lavender sleep aids to turmeric wellness shots &mdash; every product is made on-site from plants grown on-site.</p>
       </div>
-      <div class="margin-note" style="top:0">AI monitors soil chemistry, light spectra, and harvest timing to maximize the potency of active compounds in each medicinal species.</div>
 
-      <details class="expandable">
-        <summary data-i18n="section.apothecary.garden_to_bottle">From garden bed to amber bottle</summary>
-        <div class="expand-body">
-          <p data-i18n="section.apothecary.garden_to_bottle_body">Members participate in the full cycle: propagating medicinal herbs in the greenhouse, tending dedicated apothecary beds, and learning harvest timing that maximizes active compound concentration. Workshop sessions cover cold-press oil extraction, alcohol and glycerin tincture preparation, beeswax salve blending, and proper herbal tea formulation. Every product is made on-site from plants grown on-site — true seed-to-remedy transparency.</p>
-        </div>
-      </details>
-    </div>
-
-    <!-- ══════════════════════════════════════════════════
-         4. AI-NATIVE PLATFORM
-         ══════════════════════════════════════════════════ -->
-    <div class="section">
-      <div class="section-label" data-i18n="section.tech.label">Core Technology</div>
-      <h2 data-i18n="section.tech.title">AI-Native Platform</h2>      <p data-i18n="section.tech.body">The AI platform is the foundation — not a bolt-on. It powers member-facing digital interfaces, on-site event management agents (calendaring, directing, announcing), and educational sessions from beginner gardening to complex horticulture and wellness science.</p>
-
-      <div class="callout">
-        <p data-i18n-html="section.tech.goal">The goal: natively design a facility where <strong>everything can be cohesively managed by AI</strong>, given the most data-rich feedback mechanisms possible — from physical sensors to digital monitoring to human surveys.</p>
+      <div class="card accent-card accent-emerald">
+        <div class="section-illustration" style="margin-bottom:0.8rem"><img src="branding/hp-14-hp-maker-3dprint.jpg" alt="Maker space" loading="lazy"></div>
+        <h3>Maker Space</h3>
+        <p>3D printers, CNC routers, and design workstations. Members fabricate custom garden infrastructure &mdash; vine trellis brackets, hanging planter frames, sensor housings, Garden Show trophies &mdash; that become part of the living facility.</p>
       </div>
     </div>
 
+    <!-- Divider -->
+    <div class="divider">
+      <svg viewBox="0 0 400 20" xmlns="http://www.w3.org/2000/svg">
+        <line x1="0" y1="10" x2="160" y2="10" stroke="var(--circuit-line)" stroke-width="0.8"/>
+        <path d="M160 10 Q180 2 200 10 Q220 18 240 10" fill="none" stroke="var(--vine)" stroke-width="1.2"/>
+        <circle cx="200" cy="10" r="3" fill="var(--vine)" opacity="0.3"/>
+        <path d="M197 7c-2-3-5-2-4 1" fill="none" stroke="var(--vine)" stroke-width="0.7" opacity="0.4"/>
+        <path d="M203 7c2-3 5-2 4 1" fill="none" stroke="var(--vine)" stroke-width="0.7" opacity="0.4"/>
+        <line x1="240" y1="10" x2="400" y2="10" stroke="var(--circuit-line)" stroke-width="0.8"/>
+      </svg>
+    </div>
+
+
     <!-- ══════════════════════════════════════════════════
-         5. CENTRAL NERVOUS SYSTEM (new)
+         4. HOW THE AI WORKS
          ══════════════════════════════════════════════════ -->
     <div class="section">
-      <div class="section-label" data-i18n="section.cns.label">Architecture</div>
-      <h2 data-i18n="section.cns.title">The Central Nervous System</h2>
+      <div class="section-label">Intelligence</div>
+      <h2>The AI That Runs the Garden</h2>
+
       <div class="section-illustration"><img src="branding/hp-10-hp-central-brain.jpg" alt="AI central nervous system" loading="lazy"></div>
-      <p data-i18n-html="section.cns.body">The AI operates as a <strong>closed-loop control system</strong> — continuously observing, reasoning, and actuating across every domain, then learning from the results.</p>
 
-      <!-- Observe → Reason → Actuate diagram -->
-      <div class="cns-diagram">
-        <svg viewBox="0 0 440 130" xmlns="http://www.w3.org/2000/svg" width="440" height="130">
-          <!-- Connection lines -->
+      <p>The facility is designed from the ground up to be AI-managed. Not a booking system bolted onto a spa &mdash; a unified platform where every system is instrumented, every signal is captured, and the AI continuously optimizes for long-term growth and lifestyle satisfaction across both people and plants.</p>
+
+      <!-- Observe / Reason / Actuate / Learn -->
+      <div style="text-align:center;margin:1.5rem 0">
+        <svg viewBox="0 0 440 130" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:440px;height:auto">
           <path d="M130 55 L195 55" stroke="#1a4d2e" stroke-width="1.2" fill="none" marker-end="url(#arrow)"/>
           <path d="M285 55 L350 55" stroke="#1a4d2e" stroke-width="1.2" fill="none" marker-end="url(#arrow)"/>
-          <!-- Learn feedback arc -->
           <path d="M380 80 Q380 115 220 115 Q60 115 60 80" stroke="var(--node)" stroke-width="1" fill="none" stroke-dasharray="4 3" marker-end="url(#arrowG)"/>
           <text x="220" y="110" text-anchor="middle" font-size="9" fill="var(--node)" font-weight="600" font-family="'DM Sans',sans-serif">LEARN</text>
-          <!-- Arrow markers -->
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
               <path d="M0 0L10 5L0 10z" fill="#1a4d2e"/>
@@ -975,585 +658,72 @@
               <path d="M0 0L10 5L0 10z" fill="var(--node)"/>
             </marker>
           </defs>
-          <!-- OBSERVE node -->
           <rect x="15" y="25" width="115" height="58" rx="8" fill="var(--vine-soft)" stroke="var(--vine)" stroke-width="1"/>
           <text x="72" y="50" text-anchor="middle" font-size="10" fill="var(--vine)" font-weight="700" font-family="'DM Sans',sans-serif">OBSERVE</text>
-          <text x="72" y="65" text-anchor="middle" font-size="8" fill="var(--text-muted)" font-family="'DM Sans',sans-serif">Sensors · Cameras</text>
-          <text x="72" y="75" text-anchor="middle" font-size="8" fill="var(--text-muted)" font-family="'DM Sans',sans-serif">Surveys · Digital streams</text>
-          <!-- REASON node -->
+          <text x="72" y="65" text-anchor="middle" font-size="8" fill="var(--text-muted)" font-family="'DM Sans',sans-serif">Sensors &middot; Cameras</text>
+          <text x="72" y="75" text-anchor="middle" font-size="8" fill="var(--text-muted)" font-family="'DM Sans',sans-serif">Surveys &middot; Digital streams</text>
           <rect x="195" y="25" width="90" height="58" rx="8" fill="var(--canopy)" stroke="var(--vine)" stroke-width="1"/>
           <text x="240" y="50" text-anchor="middle" font-size="10" fill="var(--vine)" font-weight="700" font-family="'DM Sans',sans-serif">REASON</text>
-          <text x="240" y="65" text-anchor="middle" font-size="8" fill="var(--text-muted)" font-family="'DM Sans',sans-serif">Optimize · Predict</text>
-          <text x="240" y="75" text-anchor="middle" font-size="8" fill="var(--text-muted)" font-family="'DM Sans',sans-serif">Correlate · Decide</text>
-          <!-- ACTUATE node -->
+          <text x="240" y="65" text-anchor="middle" font-size="8" fill="var(--text-muted)" font-family="'DM Sans',sans-serif">Optimize &middot; Predict</text>
+          <text x="240" y="75" text-anchor="middle" font-size="8" fill="var(--text-muted)" font-family="'DM Sans',sans-serif">Correlate &middot; Decide</text>
           <rect x="350" y="25" width="75" height="58" rx="8" fill="var(--green-soft)" stroke="var(--green)" stroke-width="1"/>
           <text x="387" y="50" text-anchor="middle" font-size="10" fill="var(--green)" font-weight="700" font-family="'DM Sans',sans-serif">ACTUATE</text>
-          <text x="387" y="65" text-anchor="middle" font-size="8" fill="var(--text-muted)" font-family="'DM Sans',sans-serif">Lights · Water</text>
-          <text x="387" y="75" text-anchor="middle" font-size="8" fill="var(--text-muted)" font-family="'DM Sans',sans-serif">Music · Events</text>
-          <!-- Glow dots on nodes -->
+          <text x="387" y="65" text-anchor="middle" font-size="8" fill="var(--text-muted)" font-family="'DM Sans',sans-serif">Lights &middot; Water</text>
+          <text x="387" y="75" text-anchor="middle" font-size="8" fill="var(--text-muted)" font-family="'DM Sans',sans-serif">Music &middot; Events</text>
           <circle cx="15" cy="25" r="2.5" fill="var(--node)" opacity="0.4"/>
           <circle cx="425" cy="25" r="2.5" fill="var(--node)" opacity="0.4"/>
         </svg>
       </div>
 
+      <p>The AI operates as a closed-loop control system: observe the environment through hundreds of sensors, reason about what to change, actuate the physical systems, then learn from the results. Over weeks and months, it converges on configurations that demonstrably improve member well-being and plant health.</p>
+
       <details class="expandable">
-        <summary data-i18n="section.cns.rl_summary">How reinforcement learning drives continuous improvement</summary>
+        <summary>What the AI controls</summary>
         <div class="expand-body">
-          <p data-i18n-html="section.cns.rl_p1">The AI treats sensor data as proxies but grounds optimization in <strong>human-perceived value</strong>. It correlates environmental patterns (specific lighting + music + temperature combinations) with high-value survey responses, then reinforces those states. It runs small experiments — slight variations in one variable at a time — and measures impact. Over weeks and months, the system converges on configurations that demonstrably improve member well-being, plant health, and operational efficiency.</p>
-          <p data-i18n-html="section.cns.rl_p2">During the early prototype phase, <strong>human experts remain in the loop</strong> — gardeners, wellness professionals, and facility operators validate AI decisions and provide training signal that pure sensors can't capture.</p>
+          <p>Irrigation schedules and nutrient dosing. Grow lighting spectra and circadian mood lighting. HVAC, ventilation, and greenhouse climate. Music playlists per zone. Class scheduling and instructor allocation. Vendor rotation and menu optimization. Pest detection via computer vision. Energy load balancing. Supply reordering. Social media content strategy. Wayfinding displays and PA announcements. Every system is paired with feedback sensors so the AI can measure what works.</p>
         </div>
       </details>
-    </div>
 
-    <!-- Divider -->
-    <div class="divider">
-      <svg viewBox="0 0 400 20" xmlns="http://www.w3.org/2000/svg">
-        <line x1="0" y1="10" x2="160" y2="10" stroke="var(--circuit-line)" stroke-width="0.8"/>
-        <path d="M160 10 Q180 2 200 10 Q220 18 240 10" fill="none" stroke="var(--vine)" stroke-width="1.2"/>
-        <circle cx="200" cy="10" r="3" fill="var(--vine)" opacity="0.3"/>
-        <path d="M197 7c-2-3-5-2-4 1" fill="none" stroke="var(--vine)" stroke-width="0.7" opacity="0.4"/>
-        <path d="M203 7c2-3 5-2 4 1" fill="none" stroke="var(--vine)" stroke-width="0.7" opacity="0.4"/>
-        <line x1="240" y1="10" x2="400" y2="10" stroke="var(--circuit-line)" stroke-width="0.8"/>
-      </svg>
-    </div>
-
-    <!-- ══════════════════════════════════════════════════
-         6. AI SYSTEMS MAP (small multiples)
-         ══════════════════════════════════════════════════ -->
-    <div class="section">
-      <div class="section-label" data-i18n="section.ai_map.label">AI Systems Map</div>
-      <h2 data-i18n="section.ai_map.title">What the AI Controls & How It Learns</h2>
-      <p data-i18n="section.ai_map.intro">Every controllable system is paired with feedback mechanisms. Click any system to see what the AI controls and how it measures results.</p>
-
-      <!-- PLANT SYSTEMS -->
-      <div class="systems-category">
-        <div class="systems-category-label" data-i18n="section.ai_map.cat.plant">Plant Systems</div>
-        <div class="grid-4">
-          <details class="system-card">
-            <summary>
-              <span class="sys-icon">💧</span>
-              <span class="sys-info">
-                <span class="sys-name" data-i18n="section.ai_map.sys.irrigation">Irrigation</span>
-                <span class="sys-goal" data-i18n="section.ai_map.goal.irrigation">Max yield per liter</span>
-              </span>
-              <svg class="sys-chevron" viewBox="0 0 16 16"><path d="M5 3l6 5-6 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            </summary>
-            <div class="sys-detail">
-              <div class="sys-detail-label" data-i18n="section.ai_map.controls_label">AI Controls</div>
-              Watering schedules, zone flow rates, nutrient dosing, hydroponics management
-              <div class="sys-detail-label">Feedback <span class="sys-feedback-status fb-full" data-i18n="section.ai_map.feedback_full">Full</span></div>
-              Soil moisture & EC/pH sensors, soil temp, humidity, plant growth cameras, water flow meters, harvest yield data, member planting input
-            </div>
-          </details>
-
-          <details class="system-card">
-            <summary>
-              <span class="sys-icon">💡</span>
-              <span class="sys-info">
-                <span class="sys-name" data-i18n="section.ai_map.sys.lighting">Lighting</span>
-                <span class="sys-goal" data-i18n="section.ai_map.goal.lighting">Photosynthesis + circadian</span>
-              </span>
-              <svg class="sys-chevron" viewBox="0 0 16 16"><path d="M5 3l6 5-6 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            </summary>
-            <div class="sys-detail">
-              <div class="sys-detail-label" data-i18n="section.ai_map.controls_label">AI Controls</div>
-              Spectra, intensity, schedules per zone — grow LEDs, circadian mood lighting, entertainment lighting
-              <div class="sys-detail-label">Feedback <span class="sys-feedback-status fb-full" data-i18n="section.ai_map.feedback_full">Full</span></div>
-              PAR/lux sensors, multispectral cameras (leaf color/stress), occupancy heatmaps, time-of-day, energy usage, member comfort surveys
-            </div>
-          </details>
-
-          <details class="system-card">
-            <summary>
-              <span class="sys-icon">🌱</span>
-              <span class="sys-info">
-                <span class="sys-name" data-i18n="section.ai_map.sys.gardening">Gardening Sessions</span>
-                <span class="sys-goal" data-i18n="section.ai_map.goal.gardening">Engagement + yield</span>
-              </span>
-              <svg class="sys-chevron" viewBox="0 0 16 16"><path d="M5 3l6 5-6 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            </summary>
-            <div class="sys-detail">
-              <div class="sys-detail-label" data-i18n="section.ai_map.controls_label">AI Controls</div>
-              Planting plans, task assignments, harvest scheduling, supply ordering, member skill matching
-              <div class="sys-detail-label">Feedback <span class="sys-feedback-status fb-full" data-i18n="section.ai_map.feedback_full">Full</span></div>
-              Plant growth cameras, yield tracking, participation rates, gardener surveys, soil analytics, produce quality ratings
-            </div>
-          </details>
-
-          <details class="system-card">
-            <summary>
-              <span class="sys-icon">🔬</span>
-              <span class="sys-info">
-                <span class="sys-name" data-i18n="section.ai_map.sys.pest">Pest & Disease</span>
-                <span class="sys-goal" data-i18n="section.ai_map.goal.pest">Early detection, zero chem</span>
-              </span>
-              <svg class="sys-chevron" viewBox="0 0 16 16"><path d="M5 3l6 5-6 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            </summary>
-            <div class="sys-detail">
-              <div class="sys-detail-label" data-i18n="section.ai_map.controls_label">AI Controls</div>
-              Computer vision leaf analysis, biological control deployment, misting schedules, quarantine zone alerts
-              <div class="sys-detail-label">Feedback <span class="sys-feedback-status fb-full" data-i18n="section.ai_map.feedback_full">Full</span></div>
-              Cameras (early spotting via leaf discoloration/damage), air quality sensors, member reports via app, treatment efficacy tracking
-            </div>
-          </details>
+      <details class="expandable">
+        <summary>The experiment engine</summary>
+        <div class="expand-body">
+          <p>The AI continuously runs small, safe experiments across every domain: change one variable (playlist genre, sauna temperature, lighting warmth), run it for a fixed window, evaluate the metric (survey scores, occupancy duration, rebooking rate), keep or revert. Over time, it autonomously discovers winning combinations &mdash; without anyone manually tuning.</p>
         </div>
-      </div>
+      </details>
 
-      <!-- ENVIRONMENT -->
-      <div class="systems-category">
-        <div class="systems-category-label" data-i18n="section.ai_map.cat.environment">Environment</div>
-        <div class="grid-4">
-          <details class="system-card">
-            <summary>
-              <span class="sys-icon">🌡️</span>
-              <span class="sys-info">
-                <span class="sys-name" data-i18n="section.ai_map.sys.climate">Climate / HVAC</span>
-                <span class="sys-goal" data-i18n="section.ai_map.goal.climate">Comfort × plant health</span>
-              </span>
-              <svg class="sys-chevron" viewBox="0 0 16 16"><path d="M5 3l6 5-6 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            </summary>
-            <div class="sys-detail">
-              <div class="sys-detail-label" data-i18n="section.ai_map.controls_label">AI Controls</div>
-              Temperature, humidity, ventilation, greenhouse vent openings, fan speed
-              <div class="sys-detail-label">Feedback <span class="sys-feedback-status fb-full" data-i18n="section.ai_map.feedback_full">Full</span></div>
-              Temp/humidity (indoor + outdoor), CO₂, VOC/particulate air quality sensors, occupancy count, plant stress signals, member comfort surveys, energy data
-            </div>
-          </details>
-
-          <details class="system-card">
-            <summary>
-              <span class="sys-icon">🎵</span>
-              <span class="sys-info">
-                <span class="sys-name" data-i18n="section.ai_map.sys.audio">Audio / Music</span>
-                <span class="sys-goal" data-i18n="section.ai_map.goal.audio">Mood alignment per zone</span>
-              </span>
-              <svg class="sys-chevron" viewBox="0 0 16 16"><path d="M5 3l6 5-6 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            </summary>
-            <div class="sys-detail">
-              <div class="sys-detail-label" data-i18n="section.ai_map.controls_label">AI Controls</div>
-              Zone playlists, volume, genre selection, live event routing, sonic frequencies for plant stimulation
-              <div class="sys-detail-label">Feedback <span class="sys-feedback-status fb-full" data-i18n="section.ai_map.feedback_full">Full</span></div>
-              Audio-level sensors, crowd energy metrics (conversation density, laughter — no content recording), occupancy, activity type, member skip/like signals, spot surveys
-            </div>
-          </details>
-
-          <details class="system-card">
-            <summary>
-              <span class="sys-icon">⚡</span>
-              <span class="sys-info">
-                <span class="sys-name" data-i18n="section.ai_map.sys.energy">Energy & Resources</span>
-                <span class="sys-goal" data-i18n="section.ai_map.goal.energy">Min waste, max efficiency</span>
-              </span>
-              <svg class="sys-chevron" viewBox="0 0 16 16"><path d="M5 3l6 5-6 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            </summary>
-            <div class="sys-detail">
-              <div class="sys-detail-label" data-i18n="section.ai_map.controls_label">AI Controls</div>
-              Electricity load balancing, water recirculation, solar integration, waste stream routing, predictive weather-based adjustments
-              <div class="sys-detail-label">Feedback <span class="sys-feedback-status fb-full" data-i18n="section.ai_map.feedback_full">Full</span></div>
-              Utility meters (electric, water, gas), solar output, weather API integration, waste tracking, cost analytics
-            </div>
-          </details>
-        </div>
-      </div>
-
-      <!-- MEMBER EXPERIENCE -->
-      <div class="systems-category">
-        <div class="systems-category-label" data-i18n="section.ai_map.cat.member">Member Experience</div>
-        <div class="grid-4">
-          <details class="system-card">
-            <summary>
-              <span class="sys-icon">🧘</span>
-              <span class="sys-info">
-                <span class="sys-name" data-i18n="section.ai_map.sys.fitness">Fitness Studios</span>
-                <span class="sys-goal" data-i18n="section.ai_map.goal.fitness">Attendance + outcomes</span>
-              </span>
-              <svg class="sys-chevron" viewBox="0 0 16 16"><path d="M5 3l6 5-6 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            </summary>
-            <div class="sys-detail">
-              <div class="sys-detail-label" data-i18n="section.ai_map.controls_label">AI Controls</div>
-              Class scheduling, instructor allocation, music/lighting presets per class type, intensity calibration
-              <div class="sys-detail-label">Feedback <span class="sys-feedback-status fb-full" data-i18n="section.ai_map.feedback_full">Full</span></div>
-              Attendance & rebooking rates, opt-in fitness device data (HR, calories — anonymized), post-class surveys, in-room temp/humidity
-            </div>
-          </details>
-
-          <details class="system-card">
-            <summary>
-              <span class="sys-icon">🧖</span>
-              <span class="sys-info">
-                <span class="sys-name" data-i18n="section.ai_map.sys.thermal">Thermal Facilities</span>
-                <span class="sys-goal" data-i18n="section.ai_map.goal.thermal">Recovery optimization</span>
-              </span>
-              <svg class="sys-chevron" viewBox="0 0 16 16"><path d="M5 3l6 5-6 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            </summary>
-            <div class="sys-detail">
-              <div class="sys-detail-label" data-i18n="section.ai_map.controls_label">AI Controls</div>
-              Sauna/steam temperatures, plunge temps, contrast therapy protocol suggestions, session timing, capacity gating
-              <div class="sys-detail-label">Feedback <span class="sys-feedback-status fb-full" data-i18n="section.ai_map.feedback_full">Full</span></div>
-              Water/air temp sensors, water quality, occupancy, session duration, opt-in HRV/recovery data, wellness surveys
-            </div>
-          </details>
-
-          <details class="system-card">
-            <summary>
-              <span class="sys-icon">📱</span>
-              <span class="sys-info">
-                <span class="sys-name" data-i18n="section.ai_map.sys.interfaces">Member Interfaces</span>
-                <span class="sys-goal" data-i18n="section.ai_map.goal.interfaces">Engagement depth</span>
-              </span>
-              <svg class="sys-chevron" viewBox="0 0 16 16"><path d="M5 3l6 5-6 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            </summary>
-            <div class="sys-detail">
-              <div class="sys-detail-label" data-i18n="section.ai_map.controls_label">AI Controls</div>
-              Personalized dashboards, booking, recommendations, educational content delivery, A/B testing of suggestions
-              <div class="sys-detail-label">Feedback <span class="sys-feedback-status fb-full" data-i18n="section.ai_map.feedback_full">Full</span></div>
-              App analytics, feature usage, session frequency, engagement depth, NPS surveys, recommendation click-through rates
-            </div>
-          </details>
-
-          <details class="system-card">
-            <summary>
-              <span class="sys-icon">❤️</span>
-              <span class="sys-info">
-                <span class="sys-name" data-i18n="section.ai_map.sys.health">Health Insights</span>
-                <span class="sys-goal" data-i18n="section.ai_map.goal.health">Well-being uplift</span>
-              </span>
-              <svg class="sys-chevron" viewBox="0 0 16 16"><path d="M5 3l6 5-6 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            </summary>
-            <div class="sys-detail">
-              <div class="sys-detail-label" data-i18n="section.ai_map.controls_label">AI Controls</div>
-              Personalized wellness recommendations, activity mix suggestions, recovery protocol guidance (all opt-in)
-              <div class="sys-detail-label">Feedback <span class="sys-feedback-status fb-partial" data-i18n="section.ai_map.feedback_partial">Partial</span></div>
-              Anonymized fitness device data (HR, steps, sleep — opt-in only), visit frequency, activity mix, self-reported well-being surveys
-            </div>
-          </details>
-
-          <details class="system-card">
-            <summary>
-              <span class="sys-icon">📚</span>
-              <span class="sys-info">
-                <span class="sys-name" data-i18n="section.ai_map.sys.education">Education</span>
-                <span class="sys-goal" data-i18n="section.ai_map.goal.education">Skill progression</span>
-              </span>
-              <svg class="sys-chevron" viewBox="0 0 16 16"><path d="M5 3l6 5-6 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            </summary>
-            <div class="sys-detail">
-              <div class="sys-detail-label" data-i18n="section.ai_map.controls_label">AI Controls</div>
-              Curriculum generation, difficulty adaptation, session recommendations — from beginner to advanced horticulture and wellness science
-              <div class="sys-detail-label">Feedback <span class="sys-feedback-status fb-full" data-i18n="section.ai_map.feedback_full">Full</span></div>
-              Completion rates, quiz scores, repeat attendance, skill progression surveys, content engagement time
-            </div>
-          </details>
-        </div>
-      </div>
-
-      <!-- OPERATIONS -->
-      <div class="systems-category">
-        <div class="systems-category-label" data-i18n="section.ai_map.cat.operations">Operations</div>
-        <div class="grid-4">
-          <details class="system-card">
-            <summary>
-              <span class="sys-icon">📅</span>
-              <span class="sys-info">
-                <span class="sys-name" data-i18n="section.ai_map.sys.events">Event Management</span>
-                <span class="sys-goal" data-i18n="section.ai_map.goal.events">Fill rate + satisfaction</span>
-              </span>
-              <svg class="sys-chevron" viewBox="0 0 16 16"><path d="M5 3l6 5-6 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            </summary>
-            <div class="sys-detail">
-              <div class="sys-detail-label" data-i18n="section.ai_map.controls_label">AI Controls</div>
-              Scheduling, room assignment, instructor booking, capacity management, PA announcements
-              <div class="sys-detail-label">Feedback <span class="sys-feedback-status fb-full" data-i18n="section.ai_map.feedback_full">Full</span></div>
-              Attendance tracking, booking patterns, no-show rates, post-event surveys, waitlist analytics
-            </div>
-          </details>
-
-          <details class="system-card">
-            <summary>
-              <span class="sys-icon">🍽️</span>
-              <span class="sys-info">
-                <span class="sys-name" data-i18n="section.ai_map.sys.food">Food Service</span>
-                <span class="sys-goal" data-i18n="section.ai_map.goal.food">Diversity + zero waste</span>
-              </span>
-              <svg class="sys-chevron" viewBox="0 0 16 16"><path d="M5 3l6 5-6 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            </summary>
-            <div class="sys-detail">
-              <div class="sys-detail-label" data-i18n="section.ai_map.controls_label">AI Controls</div>
-              Vendor scheduling, menu optimization, ordering flow, delivery routing, portioning, garden-produce integration
-              <div class="sys-detail-label">Feedback <span class="sys-feedback-status fb-full" data-i18n="section.ai_map.feedback_full">Full</span></div>
-              Sales data, item ratings, wait times, vendor performance, waste sensors/scales, dietary preferences, member produce voting
-            </div>
-          </details>
-
-          <details class="system-card">
-            <summary>
-              <span class="sys-icon">📹</span>
-              <span class="sys-info">
-                <span class="sys-name" data-i18n="section.ai_map.sys.cameras">Cameras & Analytics</span>
-                <span class="sys-goal" data-i18n="section.ai_map.goal.cameras">Flow optimization</span>
-              </span>
-              <svg class="sys-chevron" viewBox="0 0 16 16"><path d="M5 3l6 5-6 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            </summary>
-            <div class="sys-detail">
-              <div class="sys-detail-label" data-i18n="section.ai_map.controls_label">AI Controls</div>
-              Zone occupancy counting, crowd flow analysis, safety monitoring, queue detection
-              <div class="sys-detail-label">Feedback <span class="sys-feedback-status fb-full" data-i18n="section.ai_map.feedback_full">Full</span></div>
-              Computer vision: foot traffic patterns, zone density heatmaps, queue lengths, safety events, entry/exit data (all anonymized — no facial recognition)
-            </div>
-          </details>
-
-          <details class="system-card">
-            <summary>
-              <span class="sys-icon">📺</span>
-              <span class="sys-info">
-                <span class="sys-name" data-i18n="section.ai_map.sys.displays">Displays & Wayfinding</span>
-                <span class="sys-goal" data-i18n="section.ai_map.goal.displays">Ambient information</span>
-              </span>
-              <svg class="sys-chevron" viewBox="0 0 16 16"><path d="M5 3l6 5-6 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            </summary>
-            <div class="sys-detail">
-              <div class="sys-detail-label" data-i18n="section.ai_map.controls_label">AI Controls</div>
-              Content rotation, educational slides, event info, real-time wayfinding, ambiance visuals, PA announcements
-              <div class="sys-detail-label">Feedback <span class="sys-feedback-status fb-partial" data-i18n="section.ai_map.feedback_partial">Partial</span></div>
-              Screen engagement (camera gaze tracking), content dwell time, flow changes after announcements
-            </div>
-          </details>
-
-          <details class="system-card">
-            <summary>
-              <span class="sys-icon">📦</span>
-              <span class="sys-info">
-                <span class="sys-name" data-i18n="section.ai_map.sys.supply">Supply & Inventory</span>
-                <span class="sys-goal" data-i18n="section.ai_map.goal.supply">Never out of stock</span>
-              </span>
-              <svg class="sys-chevron" viewBox="0 0 16 16"><path d="M5 3l6 5-6 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            </summary>
-            <div class="sys-detail">
-              <div class="sys-detail-label" data-i18n="section.ai_map.controls_label">AI Controls</div>
-              Horticultural supply reordering, equipment allocation, vendor supply chain, predictive ordering
-              <div class="sys-detail-label">Feedback <span class="sys-feedback-status fb-full" data-i18n="section.ai_map.feedback_full">Full</span></div>
-              Inventory levels, usage rates, spoilage tracking, cost analytics, seasonal demand patterns
-            </div>
-          </details>
-
-          <details class="system-card">
-            <summary>
-              <span class="sys-icon">📸</span>
-              <span class="sys-info">
-                <span class="sys-name" data-i18n="section.ai_map.sys.social">Social Media</span>
-                <span class="sys-goal" data-i18n="section.ai_map.goal.social">Authentic reach + retention</span>
-              </span>
-              <svg class="sys-chevron" viewBox="0 0 16 16"><path d="M5 3l6 5-6 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            </summary>
-            <div class="sys-detail">
-              <div class="sys-detail-label" data-i18n="section.ai_map.controls_label">AI Controls</div>
-              Photo opportunity identification, capture prompts, on-brand framing, multi-platform distribution, posting schedule, content strategy
-              <div class="sys-detail-label">Feedback <span class="sys-feedback-status fb-full" data-i18n="section.ai_map.feedback_full">Full</span></div>
-              Social engagement metrics (likes, shares, reach, saves), member opt-in rates, content performance by type/time/platform, referral tracking, new member attribution
-            </div>
-          </details>
-        </div>
-      </div>
-    </div>
-
-    <!-- ══════════════════════════════════════════════════
-         6b. AUTONOMOUS OPTIMIZATION LOOPS
-         ══════════════════════════════════════════════════ -->
-    <div class="section">
-      <div class="section-label" data-i18n="section.experiment.label">Autonomous Optimization</div>
-      <h2 data-i18n="section.experiment.title">The Experiment Engine</h2>
-      <p data-i18n-html="section.experiment.body">The AI operational management agent runs a closed-loop control system — sensors feed data, explicit feedback (surveys, votes) and implicit feedback (motion patterns, visual sentiment detection) drive an optimization process. Inspired by <a href="https://github.com/karpathy/autoresearch" style="color:var(--green);font-weight:500">autoresearch</a>, the system continuously runs small, safe experiments across every domain of the facility.</p>
-
-      <div class="callout" style="margin-bottom:1rem">
-        <p data-i18n-html="section.experiment.loop_callout">🔄 <strong>The Loop:</strong> Modify one variable → run for a fixed time window → evaluate the metric → keep or revert → repeat. Over weeks, the AI autonomously discovers winning combinations — without anyone manually tuning.</p>
-      </div>
-
-      <div class="grid-2" style="margin-top:0.75rem">
+      <!-- Three layers -->
+      <div class="grid-3" style="margin-top:1rem">
         <div class="card accent-card accent-green">
-          <h3 data-i18n="section.experiment.env_tuning">🌡️ Environment Tuning</h3>
-          <ul>
-            <li data-i18n-html="section.experiment.env_li1"><strong>Modify:</strong> One environment variable — playlist genre, sauna temp, lighting warmth</li>
-            <li data-i18n-html="section.experiment.env_li2"><strong>Run:</strong> Fixed 2-hour session block</li>
-            <li data-i18n-html="section.experiment.env_li3"><strong>Evaluate:</strong> Survey scores, occupancy duration, rebooking rate</li>
-            <li data-i18n-html="section.experiment.env_li4"><strong>Result:</strong> AI discovers which music × temperature × lighting combos produce peak satisfaction</li>
-          </ul>
-          <p style="margin-top:0.4rem;font-size:0.8rem;color:var(--text-muted)" data-i18n="section.experiment.env_note">Not everything is initially suited for optimization — but many aspects of the experience can be.</p>
-        </div>
-
-        <div class="card accent-card accent-warm">
-          <h3 data-i18n="section.experiment.vendor_rotation">🍽️ Vendor & Menu Rotation</h3>
-          <ul>
-            <li data-i18n-html="section.experiment.vendor_li1"><strong>Modify:</strong> Swap a food vendor or menu item for a time slot</li>
-            <li data-i18n-html="section.experiment.vendor_li2"><strong>Evaluate:</strong> Sales volume, waste, member ratings</li>
-            <li data-i18n-html="section.experiment.vendor_li3"><strong>Result:</strong> Autonomous weekly vendor schedule optimization</li>
-          </ul>
-          <p style="margin-top:0.4rem;font-size:0.8rem;color:var(--text-muted)" data-i18n="section.experiment.vendor_note">New vendors enter as "challengers" — fits the champion/challenger charter pattern.</p>
-        </div>
-
-        <div class="card accent-card accent-sky">
-          <h3 data-i18n="section.experiment.class_scheduling">🧘 Class & Event Scheduling</h3>
-          <ul>
-            <li data-i18n-html="section.experiment.class_li1"><strong>Modify:</strong> Class time, instructor, or class type for a slot</li>
-            <li data-i18n-html="section.experiment.class_li2"><strong>Evaluate:</strong> Attendance rate, post-class ratings, retention</li>
-            <li data-i18n-html="section.experiment.class_li3"><strong>Result:</strong> AI discovers e.g. hot yoga at 7am with Instructor X and ambient electronica scores highest — locks it in as "champion"</li>
-          </ul>
-        </div>
-
-        <div class="card accent-card accent-emerald">
-          <h3 data-i18n="section.experiment.plant_experiments">🌱 Plant Cultivation Experiments</h3>
-          <ul>
-            <li data-i18n-html="section.experiment.plant_li1"><strong>Modify:</strong> One growing parameter — light spectrum, watering schedule, nutrient mix</li>
-            <li data-i18n-html="section.experiment.plant_li2"><strong>Run:</strong> Fixed 1-week growth window</li>
-            <li data-i18n-html="section.experiment.plant_li3"><strong>Evaluate:</strong> Growth rate, yield, member "Garden Show" votes</li>
-            <li data-i18n-html="section.experiment.plant_li4"><strong>Result:</strong> Autonomous plant optimization — the AI is the geneticist</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="card" style="margin-top:0.8rem;border-left:3px solid var(--plum);padding-left:1rem">
-        <h3 style="color:var(--plum)" data-i18n="section.experiment.meta_pattern_h3">🧬 The Meta-Pattern: Champion / Challenger = Autoresearch</h3>
-        <p data-i18n-html="section.experiment.meta_pattern_body">The existing charter pattern — one <strong>champion</strong> (current winner) + two <strong>challengers</strong> (alternatives people can vote as better) — is autoresearch applied to community decisions. The key formalizations:</p>
-        <ul>
-          <li data-i18n-html="section.experiment.meta_li1"><strong>Fixed evaluation windows</strong> — not open-ended</li>
-          <li data-i18n-html="section.experiment.meta_li2"><strong>Single-variable changes</strong> — test one thing at a time</li>
-          <li data-i18n-html="section.experiment.meta_li3"><strong>Automated keep/discard logic</strong> — clear metric decides</li>
-          <li data-i18n-html="section.experiment.meta_li4"><strong>Autonomous operation</strong> — overnight where possible</li>
-        </ul>
-        <p style="margin-top:0.4rem" data-i18n-html="section.experiment.meta_conclusion"><strong>The facility becomes a living experiment that optimizes itself</strong> — exactly the AI-native vision, with a proven engineering pattern for how the iteration loop works.</p>
-      </div>
-    </div>
-
-    <!-- ══════════════════════════════════════════════════
-         7. OPTIMIZATION METRICS (new)
-         ══════════════════════════════════════════════════ -->
-    <div class="section">
-      <div class="section-label" data-i18n="section.metrics.label">Success Metrics</div>
-      <h2 data-i18n="section.metrics.title">What the AI Optimizes For</h2>
-      <p data-i18n="section.metrics.intro">Five domains drive every AI decision. The system continuously balances these — a lighting change that boosts plant growth but drops comfort surveys gets rolled back.</p>
-
-      <div class="grid-3" style="margin-top:0.75rem">
-        <div class="metric-card">
-          <div class="metric-icon">🌿</div>
-          <div class="metric-name" data-i18n="section.metrics.plant_yield">Plant Yield
-            <svg class="sparkline" width="50" height="16" viewBox="0 0 50 16"><polyline points="0,14 8,12 16,10 24,11 32,7 40,5 50,2" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round"/></svg>
-          </div>
-          <div class="metric-desc" data-i18n="section.metrics.plant_yield_desc">Growth rate, harvest quality, plant health index</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-icon">😊</div>
-          <div class="metric-name" data-i18n="section.metrics.member_value">Member Value
-            <svg class="sparkline" width="50" height="16" viewBox="0 0 50 16"><polyline points="0,12 8,11 16,9 24,10 32,6 40,4 50,3" fill="none" stroke="var(--emerald)" stroke-width="1.5" stroke-linecap="round"/></svg>
-          </div>
-          <div class="metric-desc" data-i18n="section.metrics.member_value_desc">Retention, NPS, visit frequency, self-reported well-being</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-icon">⚡</div>
-          <div class="metric-name" data-i18n="section.metrics.efficiency">Efficiency
-            <svg class="sparkline" width="50" height="16" viewBox="0 0 50 16"><polyline points="0,13 8,11 16,9 24,8 32,6 40,4 50,3" fill="none" stroke="var(--sky)" stroke-width="1.5" stroke-linecap="round"/></svg>
-          </div>
-          <div class="metric-desc" data-i18n="section.metrics.efficiency_desc">Energy per m², water per yield unit, waste reduction</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-icon">🤝</div>
-          <div class="metric-name" data-i18n="section.metrics.community">Community
-            <svg class="sparkline" width="50" height="16" viewBox="0 0 50 16"><polyline points="0,14 8,10 16,11 24,8 32,6 40,5 50,2" fill="none" stroke="var(--warm)" stroke-width="1.5" stroke-linecap="round"/></svg>
-          </div>
-          <div class="metric-desc" data-i18n="section.metrics.community_desc">Event participation, gardening session engagement, social interactions</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-icon">🧠</div>
-          <div class="metric-name" data-i18n="section.metrics.health_uplift">Health Uplift
-            <svg class="sparkline" width="50" height="16" viewBox="0 0 50 16"><polyline points="0,12 8,13 16,10 24,8 32,7 40,4 50,3" fill="none" stroke="var(--plum)" stroke-width="1.5" stroke-linecap="round"/></svg>
-          </div>
-          <div class="metric-desc" data-i18n="section.metrics.health_uplift_desc">Mental/physical/spiritual lift (surveys + consented biometrics)</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Divider -->
-    <div class="divider">
-      <svg viewBox="0 0 400 20" xmlns="http://www.w3.org/2000/svg">
-        <line x1="0" y1="10" x2="160" y2="10" stroke="var(--circuit-line)" stroke-width="0.8"/>
-        <path d="M160 10 Q180 2 200 10 Q220 18 240 10" fill="none" stroke="var(--vine)" stroke-width="1.2"/>
-        <circle cx="200" cy="10" r="3" fill="var(--vine)" opacity="0.3"/>
-        <path d="M197 7c-2-3-5-2-4 1" fill="none" stroke="var(--vine)" stroke-width="0.7" opacity="0.4"/>
-        <path d="M203 7c2-3 5-2 4 1" fill="none" stroke="var(--vine)" stroke-width="0.7" opacity="0.4"/>
-        <line x1="240" y1="10" x2="400" y2="10" stroke="var(--circuit-line)" stroke-width="0.8"/>
-      </svg>
-    </div>
-
-    <!-- ══════════════════════════════════════════════════
-         8. THREE LAYERS OF INTELLIGENCE (enriched)
-         ══════════════════════════════════════════════════ -->
-    <div class="section">
-      <div class="section-label" data-i18n="section.layers.label">Feedback Philosophy</div>
-      <h2 data-i18n="section.layers.title">Three Layers of Intelligence</h2>
-      <div class="section-illustration"><img src="branding/hp-11-hp-sensor-mesh.jpg" alt="The sensor layer" loading="lazy"></div>
-      <div class="grid-3">
-        <div class="card accent-card accent-green">
-          <h3 data-i18n="section.layers.sensor">🔌 Sensor Layer</h3>
-          <p data-i18n="section.layers.sensor_body">Cameras, soil moisture, EC/pH, temperature, humidity, CO₂, VOC/particulate, PAR/lux, audio levels, water flow, occupancy — continuous, passive, everywhere it's not prohibitively expensive.</p>
+          <h3>Sensor Layer</h3>
+          <p>Cameras, soil moisture, temperature, humidity, CO2, light levels, audio, water flow, occupancy &mdash; continuous, passive, everywhere.</p>
         </div>
         <div class="card accent-card accent-sky">
-          <h3 data-i18n="section.layers.digital">💻 Digital Layer</h3>
-          <p data-i18n="section.layers.digital_body">App analytics, booking data, sales data, vendor performance, attendance, engagement metrics, recommendation click-through, energy usage — every digital interaction is a data point.</p>
+          <h3>Digital Layer</h3>
+          <p>App analytics, booking data, sales, attendance, vendor performance, energy usage &mdash; every digital interaction is a data point.</p>
         </div>
         <div class="card accent-card accent-plum">
-          <h3 data-i18n="section.layers.human">🗣️ Human Layer</h3>
-          <p data-i18n-html="section.layers.human_body">Contextual <span class="annotation" data-note="2-4 questions max, triggered after leaving a zone or finishing an activity. E.g.: 'On a scale of 1-10, how much mental/physical/spiritual lift did this give you?'">micro-surveys</span> — quick pulse checks letting members convey value received. Plus opt-in fitness device integration for anonymized health tracking.</p>
-          <details class="expandable">
-            <summary data-i18n="section.layers.opt_loop_summary">The optimization loop</summary>
-            <div class="expand-body">
-              <p data-i18n-html="section.layers.opt_loop_body">The AI correlates sensor patterns (e.g., specific lighting + music + temperature at 3pm in the garden zone) with high-value survey responses and reinforces those states. Sensor data provides the <em>what</em>; human surveys provide the <em>value</em> ground truth that pure sensors can't capture.</p>
-            </div>
-          </details>
+          <h3>Human Layer</h3>
+          <p>Quick contextual micro-surveys after each activity. "How much lift did this give you?" The AI correlates sensor patterns with human-reported value.</p>
         </div>
       </div>
     </div>
 
+
     <!-- ══════════════════════════════════════════════════
-         9. PRIVACY & DATA RIGHTS
+         5. PRIVACY
          ══════════════════════════════════════════════════ -->
     <div class="section">
-      <div class="section-label" data-i18n="section.privacy.label">Trust & Compliance</div>
-      <h2 data-i18n="section.privacy.title">Your Data, Your Agent</h2>
-      <div class="section-illustration"><img src="branding/hp-12-hp-privacy-agent.jpg" alt="AI privacy agent" loading="lazy"></div>      <p data-i18n-html="section.privacy.body">Operating under EU GDPR, Sponic Gardens doesn't just comply — it gives every member an <strong>AI-powered privacy agent</strong> that makes exercising your data rights as easy as asking a question.</p>
+      <div class="section-label">Trust</div>
+      <h2>Your Data, Your Agent</h2>
 
-      <div class="card accent-card accent-slate">
-        <h3 data-i18n="section.privacy.agent_h3">🤖 Your Privacy Agent</h3>
-        <p data-i18n="section.privacy.agent_body">Every member gets a personal AI agent that can instantly answer: "What data do you have on me?", "Delete my visit history from last month", "Export everything you know about me", "Stop using my fitness data for recommendations." The agent executes GDPR rights in real-time — no forms, no waiting, no support tickets.</p>
-      </div>
+      <div class="section-illustration"><img src="branding/hp-12-hp-privacy-agent.jpg" alt="AI privacy agent" loading="lazy"></div>
+
+      <p>Operating under EU GDPR, every member gets an <strong>AI-powered privacy agent</strong> that makes exercising your data rights as easy as asking a question. "What data do you have on me?" "Delete my visit history." "Stop using my fitness data." Executed in real-time &mdash; no forms, no waiting.</p>
 
       <details class="expandable">
-        <summary data-i18n="section.privacy.gdpr_summary">Full GDPR rights — all agent-accessible</summary>
+        <summary>How we collect &mdash; granular consent</summary>
         <div class="expand-body">
-          <p data-i18n-html="section.privacy.gdpr_art15"><strong>Right to Access (Art. 15)</strong> — Ask your agent to show all data collected about you: visit history, survey responses, booking patterns, fitness data, food preferences. Delivered in a readable dashboard, not a PDF dump.</p>
-          <p data-i18n-html="section.privacy.gdpr_art17"><strong>Right to Erasure (Art. 17)</strong> — Request deletion of any or all personal data. Your agent confirms what will be deleted and executes immediately. Aggregated, anonymized data (which cannot identify you) is retained for system learning.</p>
-          <p data-i18n-html="section.privacy.gdpr_art20"><strong>Right to Portability (Art. 20)</strong> — Export your complete data profile in a standard machine-readable format (JSON/CSV). Take your gardening history, wellness trends, and preferences to any other service.</p>
-          <p data-i18n-html="section.privacy.gdpr_art18"><strong>Right to Restrict Processing (Art. 18)</strong> — Pause specific data uses without deleting. Example: "Keep my data but stop using it for personalized recommendations."</p>
-          <p data-i18n-html="section.privacy.gdpr_art21"><strong>Right to Object (Art. 21)</strong> — Opt out of any specific processing at any time. Your agent shows you exactly what each data stream is used for and lets you toggle each one individually.</p>
-          <p data-i18n-html="section.privacy.gdpr_art22"><strong>Right to Explanation (Art. 22)</strong> — Ask your agent why the AI made any recommendation. "Why did you suggest this class?" "Why was this music playing?" The system provides a human-readable explanation of the inputs and reasoning.</p>
-        </div>
-      </details>
-
-      <details class="expandable">
-        <summary data-i18n="section.privacy.collect_summary">How we collect — granular consent controls</summary>
-        <div class="expand-body">
-          <p data-i18n-html="section.privacy.consent_tiered"><strong>Tiered consent model:</strong> During onboarding, members choose their data sharing level — from "minimum" (anonymous occupancy only) to "full" (personalized recommendations, fitness integration, health insights). Every tier is fully functional; more sharing unlocks more personalization, but less sharing is never penalized.</p>
-          <p data-i18n-html="section.privacy.consent_cameras"><strong>Camera systems</strong> use on-device edge processing for occupancy counting and flow analysis. No facial recognition. No individual tracking. Raw video is never stored — only aggregate counts leave the device.</p>
-          <p data-i18n-html="section.privacy.consent_audio"><strong>Audio sensors</strong> measure ambient energy levels (volume, density) only. Content is never recorded. Members can verify this via their privacy agent at any time.</p>
-          <p data-i18n-html="section.privacy.consent_fitness"><strong>Fitness device data</strong> is opt-in, encrypted in transit, and stored pseudonymized. Members can revoke access and trigger deletion instantly via their agent.</p>
-          <p data-i18n-html="section.privacy.consent_surveys"><strong>Surveys</strong> are anonymized at the point of submission. Individual responses are never linked to member profiles unless the member explicitly chooses identified feedback.</p>
-        </div>
-      </details>
-
-      <details class="expandable">
-        <summary data-i18n="section.privacy.infra_summary">Infrastructure & compliance</summary>
-        <div class="expand-body">
-          <p data-i18n-html="section.privacy.infra_minimization"><strong>Data minimization:</strong> Each system collects only what it needs. Retention periods are set per data type and automatically enforced — visit logs (12 months), survey responses (aggregated after 30 days), fitness snapshots (member-controlled).</p>
-          <p data-i18n-html="section.privacy.infra_dpo"><strong>Appointed DPO:</strong> A dedicated Data Protection Officer oversees compliance, conducts regular audits, and is reachable via the member app.</p>
-          <p data-i18n-html="section.privacy.infra_breach"><strong>Breach notification:</strong> In the unlikely event of a data breach, affected members are notified within 72 hours via their preferred channel, with plain-language explanation and remediation steps.</p>
-          <p data-i18n-html="section.privacy.infra_vendors"><strong>Vendor DPAs:</strong> Every food vendor, instructor, and third-party service signs a Data Processing Agreement. Member data never leaves the Sponic Gardens platform without explicit consent.</p>
+          <p>Tiered consent model: choose your data sharing level from "minimum" (anonymous occupancy only) to "full" (personalized recommendations, fitness integration). Every tier is fully functional. Camera systems use on-device edge processing for occupancy counting &mdash; no facial recognition, no individual tracking. Audio sensors measure ambient energy levels only &mdash; content is never recorded.</p>
         </div>
       </details>
     </div>
@@ -1570,134 +740,81 @@
       </svg>
     </div>
 
+
     <!-- ══════════════════════════════════════════════════
-         10. FACILITY
+         6. THE FACILITY
          ══════════════════════════════════════════════════ -->
     <div class="section">
-      <div class="section-label" data-i18n="section.facility.label">Physical Space</div>
-      <h2 data-i18n="section.facility.title">The Facility</h2>      <p data-i18n-html="section.facility.body">Custom-built in an <strong>indoor–outdoor warehouse/greenhouse hybrid</strong>, equipped with:</p>
-      <div class="grid-2">
+      <div class="section-label">The Space</div>
+      <h2>Built for Cultivation</h2>
+
+      <div class="section-illustration"><img src="branding/scene-14-hp2-indoor-greenhouse-gemini.jpg" alt="Indoor greenhouse facility" loading="lazy"></div>
+
+      <p>A custom-built indoor-outdoor warehouse-greenhouse hybrid, designed from the ground up to be maximally AI-monitored while feeling like a place you genuinely want to spend time.</p>
+
+      <div class="grid-2" style="margin-top:0.75rem">
         <div class="card">
-          <h3 data-i18n="section.facility.growing">🌿 Growing Zones</h3>
-          <p data-i18n="section.facility.growing_body">Greenhouse cultivation areas, planting stations, vertical gardens, harvest processing, hydroponic bays</p>
+          <h3>Growing Zones</h3>
+          <p>Greenhouse cultivation, planting stations, vertical gardens, hydroponic bays, harvest processing, outdoor plots, and plant nursery.</p>
         </div>
         <div class="card">
-          <h3 data-i18n="section.facility.thermal">🏊 Thermal Complex</h3>
-          <p data-i18n="section.facility.thermal_body">2 saunas, steam room, 2 cold plunges, hot tub, cool pool — with AI-managed contrast therapy</p>
+          <h3>Thermal Complex</h3>
+          <p>2 saunas, steam room, 2 cold plunges, hot tub, cool pool &mdash; with AI-managed contrast therapy protocols.</p>
         </div>
         <div class="card">
-          <h3 data-i18n="section.facility.fitness">🧘 Fitness Wing</h3>
-          <p data-i18n="section.facility.fitness_body">30-person hot yoga studio, 30-person dance studio, open movement & congregation areas</p>
+          <h3>Fitness Wing</h3>
+          <p>30-person hot yoga studio, 30-person dance studio, open movement and congregation areas.</p>
         </div>
         <div class="card">
-          <h3 data-i18n="section.facility.food_hall">🍽️ Food Hall</h3>
-          <p data-i18n="section.facility.food_hall_body">Vendor stations with full equipment, communal dining, outdoor seating, garden-produce integration</p>
+          <h3>Food Hall</h3>
+          <p>Vendor stations with full equipment, communal dining, outdoor seating, garden-produce integration.</p>
         </div>
         <div class="card">
-          <h3 data-i18n="section.facility.sensors">📡 Sensor Infrastructure</h3>
-          <p data-i18n="section.facility.sensors_body">Pervasive cameras, environmental sensors, video screens, zone audio systems, irrigation, smart lighting — all AI-controlled</p>
+          <h3>Sensor Mesh</h3>
+          <p>Pervasive cameras, environmental sensors, video displays, zone audio, smart irrigation, and lighting &mdash; all AI-controlled.</p>
         </div>
         <div class="card">
-          <h3 data-i18n="section.facility.outdoor">🌳 Outdoor Spaces</h3>
-          <p data-i18n="section.facility.outdoor_body">Garden plots, congregation areas, open-air fitness zones, vendor terraces, plant nursery</p>
+          <h3>Outdoor Spaces</h3>
+          <p>Garden plots, open-air fitness zones, vendor terraces, firepit gathering areas, and congregation spaces.</p>
         </div>
       </div>
     </div>
+
 
     <!-- ══════════════════════════════════════════════════
-         11. BUSINESS MODEL
-         ══════════════════════════════════════════════════ -->
-    
-    <!-- Maker Space -->
-    <div class="section">
-      <div class="section-label" data-i18n="section.maker.label">Maker Space</div>
-      <h2 data-i18n="section.maker.title">3D Printing, CNC & Digital Fabrication</h2>
-      <div class="section-illustration"><img src="branding/hp-14-hp-maker-3dprint.jpg" alt="3D printing and CNC maker space" loading="lazy"></div>
-      <p data-i18n="section.maker.intro">A dedicated fabrication area equipped with 3D printers (FDM and resin), CNC routers, and design workstations. Members create custom garden infrastructure, signage, plant markers, and functional tools.</p>
-      <div class="card accent-card accent-emerald">
-        <h3 data-i18n="section.maker.printed_infra">🌿 3D-Printed Garden Infrastructure</h3>
-        <p data-i18n="section.maker.printed_infra_body">Custom lattice brackets, vine support clips, and hanging planter frames are 3D-printed and installed throughout the growing zones. Climbing vines and trailing herbs grow through geometric frameworks suspended from the warehouse's steel trusses — creating living green canopies.</p>
-      </div>
-      <div class="section-illustration"><img src="branding/hp-15-hp-maker-vine-supports.jpg" alt="3D-printed vine supports creating green canopies" loading="lazy"></div>
-      <div class="card">
-        <h3 data-i18n="section.maker.members_make">🔧 What Members Make</h3>
-        <ul>
-          <li data-i18n="section.maker.make_item_trellis">Custom vine trellis brackets and plant clips</li>
-          <li data-i18n="section.maker.make_item_hangers">Hanging planter frames from steel trusses</li>
-          <li data-i18n="section.maker.make_item_signs">CNC-carved wooden signs and wayfinding markers</li>
-          <li data-i18n="section.maker.make_item_seed_trays">Seed tray inserts and propagation components</li>
-          <li data-i18n="section.maker.make_item_sensors">Sensor housings and IoT enclosures</li>
-          <li data-i18n="section.maker.make_item_labels">Decorative plant labels and Garden Show trophies</li>
-        </ul>
-      </div>
-    </div>
-
-<div class="section">
-      <div class="section-label" data-i18n="section.biz.label">Business Model</div>
-      <h2 data-i18n="section.biz.title">Membership & Pricing</h2>
-      <p data-i18n="section.biz.intro">Structured like a sports club or yoga studio — membership-based with à la carte offerings.</p>
-
-      <div class="card accent-card accent-earth">
-        <h3 data-i18n="section.biz.pricing_h3">💳 Pricing (Prototype)</h3>
-        <ul>
-          <li data-i18n-html="section.biz.pricing_item_base"><strong>€40</strong> — admission for 1 to 4 hours</li>
-          <li data-i18n-html="section.biz.pricing_item_extra"><strong>€10</strong> — per additional hour</li>
-          <li data-i18n="section.biz.pricing_item_classes">À la carte classes, workshops, and premium experiences</li>
-          <li data-i18n="section.biz.pricing_item_food">Food & drink purchased separately from on-site vendors</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- ══════════════════════════════════════════════════
-         12. LAUNCH PLAN (enriched)
+         7. GETTING STARTED
          ══════════════════════════════════════════════════ -->
     <div class="section has-margin-notes">
-      <div class="section-label" data-i18n="section.launch.label">Launch Plan</div>
-      <h2 data-i18n="section.launch.title">Warsaw Prototype — July 2026</h2>      <div class="card accent-card accent-warm">
-        <h3 data-i18n="section.launch.phased_rollout">🚀 Phased Rollout</h3>
-        <ul>
-          <li data-i18n-html="section.launch.phase1"><strong>Phase 1:</strong> Launch with cohorts of 64 founding members. Core loops only — plants + music + one fitness studio + spa zone. Human experts in the loop for all AI decisions.</li>
-          <li data-i18n-html="section.launch.phase2"><strong>Phase 2:</strong> Expand capacity as systems stabilize and AI learns from real data. Add full fitness wing and food vendor program.</li>
-          <li data-i18n-html="section.launch.phase3"><strong>Phase 3:</strong> Scale to full 250-person prototype capacity with autonomous AI optimization.</li>
-        </ul>
-      </div>
+      <div class="section-label">Launch</div>
+      <h2>Warsaw Prototype &mdash; July 2026</h2>
+
+      <p>The first Sponic Gardens launches in Warsaw with cohorts of founding members. Phased rollout: core loops first (plants + music + fitness + spa), then full capacity as the AI learns from real data.</p>
+
       <div class="margin-note" style="top:0">Warsaw chosen for vibrant wellness culture, affordable operational costs, and growing international community.</div>
 
-      <details class="expandable">
-        <summary data-i18n="section.launch.sensor_summary">Sensor deployment strategy</summary>
-        <div class="expand-body">
-          <p data-i18n-html="section.launch.sensor_phase1"><strong>Start with high-ROI sensors:</strong> temperature, humidity, soil moisture, cameras (for occupancy + plant vision), and audio-level sensors. These use commodity hardware (Zigbee/ESP32/Home Assistant-compatible stacks) and deliver the most actionable data per euro.</p>
-          <p data-i18n-html="section.launch.sensor_phase2"><strong>Phase 2 additions:</strong> VOC/particulate air quality, multispectral plant cameras, water flow meters, waste sensors. These require more specialized hardware but unlock deeper AI optimization.</p>
-          <p data-i18n-html="section.launch.sensor_phase3"><strong>Phase 3:</strong> Full sensor mesh — EC/pH probes, PAR sensors, per-plunge water quality, energy sub-metering. By this point the AI has enough training data to extract maximum value from granular sensor input.</p>
-        </div>
-      </details>
-    </div>
-
-    <!-- ══════════════════════════════════════════════════
-         13. VISION
-         ══════════════════════════════════════════════════ -->
-    
-    <!-- Patent Generation -->
-    <div class="section">
-      <div class="section-label" data-i18n="section.patents.label">Intellectual Property</div>
-      <h2 data-i18n="section.patents.title">AI-Automated Patent Generation</h2>
-      <div class="section-illustration"><img src="branding/hp-13-hp-patent-gen.jpg" alt="AI patent generation" loading="lazy"></div>
-      <p data-i18n="section.patents.intro">The AI platform generates intellectual property emerging from its novel innovations. Agents can review prior art and determine when there are patent ideas with genuine protective or financial potential, and then automatically file $65 US provisional patents. System designs and novel algorithms are automatically documented into patent-ready specifications.</p>
-      <div class="card accent-card accent-plum">
-        <h3 data-i18n="section.patents.first_patent_h3">📄 A System for Vision Driven Sonic Landscape Selection</h3>
-        <p data-i18n="section.patents.first_patent_body">Our first patent: an adaptive ambient audio system using computer vision for real-time audience detection, behavioral feedback analysis, and gesture-based control.</p>
-        <p style="margin-top:0.5rem"><a href="patents/specification.html" style="color:var(--plum);font-weight:600;text-decoration:none;border-bottom:1px solid var(--plum-border)" data-i18n="section.patents.spec_link">View Patent Specification →</a></p>
+      <div class="card accent-card accent-earth" style="margin-top:0.75rem">
+        <h3>Membership</h3>
+        <ul>
+          <li><strong>&euro;40</strong> admission for 1&ndash;4 hours</li>
+          <li><strong>&euro;10</strong> per additional hour</li>
+          <li>Classes, workshops, and premium experiences a la carte</li>
+          <li>Food and drink from on-site vendors</li>
+        </ul>
       </div>
     </div>
 
-<div class="section">
-      <div class="section-label" data-i18n="section.vision.label">Vision</div>
-      <h2 data-i18n="section.vision.title">Why This Matters</h2>
-      <p data-i18n-html="section.vision.body1">Most wellness concepts treat technology as an afterthought — a booking system bolted onto a spa. Sponic Gardens inverts this: <strong>the AI platform is the foundation</strong>, and the physical space is designed around what AI can measure, optimize, and learn from.</p>
-      <p data-i18n="section.vision.body2">The result is a place where plants and people flourish together, where every element of the environment — light, sound, temperature, soil, food, activity — is being continuously tuned by an intelligence that gets better every day.</p>
+
+    <!-- ══════════════════════════════════════════════════
+         8. VISION
+         ══════════════════════════════════════════════════ -->
+    <div class="section">
+      <div class="section-label">Vision</div>
+      <h2>Why This Matters</h2>
+
+      <p>Most social spaces treat technology as an afterthought. Sponic Gardens inverts this: the AI platform is the foundation, and the physical space is designed around what intelligence can measure, optimize, and learn from. The result is a new category &mdash; an AI-native social club designed from the ground up to promote human and botanical flourishing.</p>
 
       <div class="callout">
-        <p data-i18n-html="section.vision.callout">Sponic Gardens is not a gym with plants. It's not a co-working space with a sauna. It is a new category: <strong>an AI-native social club designed from the ground up to promote human and botanical flourishing.</strong></p>
+        <p>Sponic Gardens is built on the belief that the best things &mdash; health, community, skill, beauty &mdash; grow over time. The AI is there to make sure that growth compounds: learning what works, discarding what doesn't, and continuously tuning every element of the space toward <strong>long-term satisfaction for every member and every plant in the building.</strong></p>
       </div>
     </div>
 
@@ -1708,12 +825,11 @@
        ══════════════════════════════════════════════════════ -->
   <div style="max-width:720px;margin:0 auto;padding:0 1.25rem 2rem;">
     <div style="display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;">
-      <a href="bizmodel.html" style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.5rem 1rem;background:var(--surface);border:1px solid var(--border-light);border-radius:var(--radius);font-size:0.82rem;font-weight:600;color:var(--text-dim);text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;" data-i18n="nav.explore.bizmodel">📊 Business Model</a>
-      <a href="branding.html" style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.5rem 1rem;background:var(--surface);border:1px solid var(--border-light);border-radius:var(--radius);font-size:0.82rem;font-weight:600;color:var(--text-dim);text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;" data-i18n="nav.explore.branding">🎨 Brand Review</a>
-      <a href="patents/" style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.5rem 1rem;background:var(--surface);border:1px solid var(--border-light);border-radius:var(--radius);font-size:0.82rem;font-weight:600;color:var(--text-dim);text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;" data-i18n="nav.explore.patents">📜 Sonic Vision Patent</a>
-      <a href="charter.html" style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.5rem 1rem;background:var(--surface);border:1px solid var(--border-light);border-radius:var(--radius);font-size:0.82rem;font-weight:600;color:var(--text-dim);text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;" data-i18n="nav.explore.charter">📋 The Charter</a>
-      <a href="docs/spaces/" style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.5rem 1rem;background:var(--surface);border:1px solid var(--border-light);border-radius:var(--radius);font-size:0.82rem;font-weight:600;color:var(--text-dim);text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;" data-i18n="nav.explore.venues">📍 Potential Venues</a>
-      <a href="narrative-auditions.html" style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.5rem 1rem;background:var(--surface);border:1px solid var(--border-light);border-radius:var(--radius);font-size:0.82rem;font-weight:600;color:var(--text-dim);text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;">🎭 Narrative Auditions</a>
+      <a href="bizmodel.html" style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.5rem 1rem;background:var(--surface);border:1px solid var(--border-light);border-radius:var(--radius);font-size:0.82rem;font-weight:600;color:var(--text-dim);text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;" data-i18n="nav.explore.bizmodel">Business Model</a>
+      <a href="branding.html" style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.5rem 1rem;background:var(--surface);border:1px solid var(--border-light);border-radius:var(--radius);font-size:0.82rem;font-weight:600;color:var(--text-dim);text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;" data-i18n="nav.explore.branding">Brand Review</a>
+      <a href="patents/" style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.5rem 1rem;background:var(--surface);border:1px solid var(--border-light);border-radius:var(--radius);font-size:0.82rem;font-weight:600;color:var(--text-dim);text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;" data-i18n="nav.explore.patents">Sonic Vision Patent</a>
+      <a href="charter.html" style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.5rem 1rem;background:var(--surface);border:1px solid var(--border-light);border-radius:var(--radius);font-size:0.82rem;font-weight:600;color:var(--text-dim);text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;" data-i18n="nav.explore.charter">The Charter</a>
+      <a href="docs/spaces/" style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.5rem 1rem;background:var(--surface);border:1px solid var(--border-light);border-radius:var(--radius);font-size:0.82rem;font-weight:600;color:var(--text-dim);text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;" data-i18n="nav.explore.venues">Potential Venues</a>
     </div>
   </div>
 
