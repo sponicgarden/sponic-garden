@@ -1,12 +1,12 @@
 {
-  "version": "v260405.02 12:30a",
-  "release": 84,
-  "sha": "87d67dd",
-  "fullSha": "87d67ddb40a93cddb236648de40a22572950ec02",
+  "version": "v260405.03 12:36a",
+  "release": 85,
+  "sha": "4247f5e",
+  "fullSha": "4247f5ec41baacc26ba6bf819db7f8460e35efa7",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervm727z3",
-  "pushedAt": "2026-04-05 05:30:34+00",
-  "commits": [{"sha":"87d67dd","message":"update: narrative auditions to \"AI optimizes for long-term growth and lifestyle satisfaction\"","author":"Rahul"}]
+  "pushedAt": "2026-04-05 05:36:23+00",
+  "commits": [{"sha":"4247f5e","message":"update: promote narrative audition to home page","author":"Rahul"}]
 }
