@@ -1,12 +1,12 @@
 {
-  "version": "v260405.07 1:06a",
-  "release": 89,
-  "sha": "e9e9e79",
-  "fullSha": "e9e9e79a75fe560d713c2269abb9539bbd4b7105",
+  "version": "v260405.08 1:14a",
+  "release": 90,
+  "sha": "284073b",
+  "fullSha": "284073b0a475daa7c5b518fb2f325bceab79341c",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervm727z3",
-  "pushedAt": "2026-04-05 06:06:16+00",
-  "commits": [{"sha":"e9e9e79","message":"update: subtitle copy — AI working for members' best interests as individuals","author":"Rahul"}]
+  "pushedAt": "2026-04-05 06:14:04+00",
+  "commits": [{"sha":"284073b","message":"fix: content alignment — remove padding-right hack that misaligned sections vs hero","author":"Rahul"}]
 }
