@@ -1,12 +1,12 @@
 {
-  "version": "v260405.05 12:44a",
-  "release": 87,
-  "sha": "7cc0042",
-  "fullSha": "7cc004203b95240a9be6451a0a1c22141e9263c5",
+  "version": "v260405.06 12:48a",
+  "release": 88,
+  "sha": "7649f01",
+  "fullSha": "7649f01e7cdd8c95457d0dd454422f1304bd65c7",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervm727z3",
-  "pushedAt": "2026-04-05 05:44:07+00",
-  "commits": [{"sha":"7cc0042","message":"fix: nav Join link → /work-with-us.html (was /apply.html)","author":"Rahul"}]
+  "pushedAt": "2026-04-05 05:48:42+00",
+  "commits": [{"sha":"7649f01","message":"add: Farmers-Builders Market section — IRL commerce infrastructure for member vending","author":"Rahul"}]
 }
