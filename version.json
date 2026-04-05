@@ -1,12 +1,12 @@
 {
-  "version": "v260405.09 1:17a",
-  "release": 91,
-  "sha": "df594ee",
-  "fullSha": "df594ee6902aca2c603b45f1769860dd5fca645e",
+  "version": "v260405.10 1:40a",
+  "release": 92,
+  "sha": "436d0ca",
+  "fullSha": "436d0ca07ffb1fde2d7d709ee9a22bd8b6cb4d1f",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervm727z3",
-  "pushedAt": "2026-04-05 06:17:15+00",
-  "commits": [{"sha":"df594ee","message":"fix: align hero image width with content container (660px → 720px)","author":"Rahul"}]
+  "pushedAt": "2026-04-05 06:40:04+00",
+  "commits": [{"sha":"436d0ca","message":"fix: enlarge nav wordmark + hide version placeholder until loaded","author":"Rahul"}]
 }
