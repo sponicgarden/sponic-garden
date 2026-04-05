@@ -53,7 +53,7 @@ function injectStyles() {
       display: flex;
       align-items: center;
       padding: 0 2rem;
-      height: 48px;
+      height: 56px;
       background: #1a4d2e;
       border-bottom: 1px solid rgba(52,211,153,0.15);
       box-shadow: 0 1px 8px rgba(0,0,0,0.15);
@@ -71,7 +71,7 @@ function injectStyles() {
       flex-shrink: 0;
     }
     .sg-nav__wordmark {
-      height: 22px;
+      height: 34px;
       width: auto;
       display: block;
       filter: brightness(0) invert(1);
@@ -215,7 +215,7 @@ function injectStyles() {
     .sg-nav__drawer {
       display: none;
       position: fixed;
-      top: 48px;
+      top: 56px;
       left: 0;
       right: 0;
       bottom: 0;
@@ -286,10 +286,11 @@ function buildNav() {
   wmLink.appendChild(wmImg);
   left.appendChild(wmLink);
 
-  // Version badge — right of wordmark
+  // Version badge — right of wordmark (hidden until version.json loads)
   const ver = document.createElement('span');
   ver.className = 'sg-nav__version site-nav__version';
-  ver.textContent = '—';
+  ver.textContent = '';
+  ver.style.display = 'none';
   left.appendChild(ver);
 
   nav.appendChild(left);

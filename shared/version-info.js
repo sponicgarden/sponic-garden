@@ -264,6 +264,7 @@ export function setupVersionInfo() {
     const d = resolveInfo(info);
     if (d && d.version && d.version !== '—') {
       span.textContent = d.version;
+      span.style.display = '';
     }
   });
 
