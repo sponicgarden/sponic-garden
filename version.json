@@ -1,12 +1,12 @@
 {
-  "version": "v260405.03 12:36a",
-  "release": 85,
-  "sha": "4247f5e",
-  "fullSha": "4247f5ec41baacc26ba6bf819db7f8460e35efa7",
+  "version": "v260405.05 12:44a",
+  "release": 87,
+  "sha": "7cc0042",
+  "fullSha": "7cc004203b95240a9be6451a0a1c22141e9263c5",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervm727z3",
-  "pushedAt": "2026-04-05 05:36:23+00",
-  "commits": [{"sha":"4247f5e","message":"update: promote narrative audition to home page","author":"Rahul"}]
+  "pushedAt": "2026-04-05 05:44:07+00",
+  "commits": [{"sha":"7cc0042","message":"fix: nav Join link → /work-with-us.html (was /apply.html)","author":"Rahul"}]
 }
