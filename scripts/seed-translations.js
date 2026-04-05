@@ -146,6 +146,7 @@ async function main() {
       key, lang: baseLang,
       value: enValue,
       is_source: true, pending: false,
+      translated_by: 'human:seed',
       updated_at: new Date().toISOString(),
     });
     for (const lang of otherLangs) {
@@ -243,6 +244,8 @@ async function main() {
               key, lang: targetLang,
               value: value.trim(),
               is_source: false, pending: false,
+              translated_by: `llm:${model}`,
+              review_status: 'unreviewed',
               updated_at: new Date().toISOString(),
             });
           }
