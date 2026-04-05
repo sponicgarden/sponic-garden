@@ -7,7 +7,7 @@ account_id = "394b5de665bbfdea54cdd57be9094762"
 crons = ["*/5 * * * *"]
 
 # Secrets set via: wrangler secret put SUPABASE_SERVICE_KEY
-# Secrets set via: wrangler secret put ANTHROPIC_API_KEY
-# These vars are non-secret config — override with wrangler secret for sensitive values
+# NOTE: No ANTHROPIC_API_KEY — translations are done via Claude CLI (scripts/retranslate-opus.sh)
+# These vars are non-secret config
 [vars]
 SUPABASE_URL = "https://aphrrfprbixmhissnjfn.supabase.co"

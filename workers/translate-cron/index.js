@@ -2,153 +2,81 @@
  * sponic-translate-cron — Cloudflare Worker
  *
  * Runs every 5 minutes (cron: every-5-min).
- * Reads pending translations from Supabase, translates via Claude Haiku,
- * writes results back. All settings loaded from the config table at runtime
- * — change model, prompt, or batch size in the DB without redeploying.
+ * Reports pending translation counts. Does NOT call the Anthropic API.
+ * Translations are done via Claude CLI on local machines using
+ * scripts/retranslate-opus.sh.
  *
  * Required secrets (set via `wrangler secret put`):
  *   SUPABASE_SERVICE_KEY  — Supabase service role JWT
- *   ANTHROPIC_API_KEY     — Anthropic API key (sk-ant-...)
  *
  * Var (in wrangler.toml):
  *   SUPABASE_URL          — https://aphrrfprbixmhissnjfn.supabase.co
  */
 
 export default {
-  // HTTP handler (for manual trigger / health check)
+  // HTTP handler (health check + status)
   async fetch(request, env) {
-    if (request.method !== 'POST' && new URL(request.url).pathname !== '/run') {
-      return new Response('sponic-translate-cron OK', { status: 200 });
-    }
-    const result = await runTranslations(env);
+    const result = await getTranslationStatus(env);
     return Response.json(result);
   },
 
-  // Scheduled cron handler
+  // Scheduled cron handler — just logs status
   async scheduled(event, env, ctx) {
-    ctx.waitUntil(runTranslations(env));
+    const status = await getTranslationStatus(env);
+    if (status.pending > 0) {
+      console.log(`Translation status: ${status.pending} pending, ${status.total} total`);
+    }
   },
 };
 
-async function runTranslations(env) {
+async function getTranslationStatus(env) {
   const supabase = makeSupabase(env.SUPABASE_URL, env.SUPABASE_SERVICE_KEY);
 
-  // ── 1. Load config from DB ────────────────────────────────────────────────
+  // Load config
   const cfg = await loadConfig(supabase);
-  const model      = cfg['translation.model']      || 'claude-haiku-4-5-20251001';
-  const context    = cfg['translation.context']    || 'Translate for Sponic Garden wellness venue in Warsaw, Poland.';
-  const batchSize  = parseInt(cfg['translation.batch_size'] || '20', 10);
+  const model = cfg['translation.model'] || '(not set)';
 
-  // ── 2. Fetch pending translation rows ────────────────────────────────────
+  // Count pending translations
   const { data: pendingRows, error: fetchErr } = await supabase
     .from('translations')
-    .select('key, lang, pending, is_source, value')
+    .select('key, lang, pending')
     .eq('pending', true)
-    .limit(batchSize * 5); // fetch more than batch to group properly
+    .limit(5000);
 
-  if (fetchErr) throw new Error('Fetch pending failed: ' + fetchErr.message);
-  if (!pendingRows || pendingRows.length === 0) {
-    return { translated: 0, message: 'Nothing pending' };
-  }
+  if (fetchErr) return { error: 'Fetch failed: ' + fetchErr.message };
 
-  // ── 3. Group by key, find source value for each ───────────────────────────
-  // For each pending (key, lang), we need the source row's value
-  const keys = [...new Set(pendingRows.map(r => r.key))].slice(0, batchSize);
+  const pending = pendingRows?.length || 0;
 
+  // Count total and by engine
   const { data: allRows } = await supabase
     .from('translations')
-    .select('key, lang, value, is_source')
-    .in('key', keys);
+    .select('lang, translated_by, pending')
+    .limit(10000);
 
-  // Map: key → { sourceLang, sourceValue, pendingLangs[] }
-  const jobs = {};
+  const total = allRows?.length || 0;
+  const engines = {};
   (allRows || []).forEach(row => {
-    if (!jobs[row.key]) jobs[row.key] = { sourceLang: null, sourceValue: null, pendingLangs: [] };
-    if (row.is_source && row.value) {
-      jobs[row.key].sourceLang  = row.lang;
-      jobs[row.key].sourceValue = row.value;
-    }
-  });
-  pendingRows.forEach(row => {
-    if (keys.includes(row.key) && jobs[row.key]) {
-      if (!jobs[row.key].pendingLangs.includes(row.lang)) {
-        jobs[row.key].pendingLangs.push(row.lang);
-      }
-    }
+    const eng = row.translated_by || '(untagged)';
+    engines[eng] = (engines[eng] || 0) + 1;
   });
 
-  // ── 4. Translate and upsert ────────────────────────────────────────────────
-  let translated = 0;
-  const upserts = [];
-
-  for (const [key, job] of Object.entries(jobs)) {
-    if (!job.sourceValue || job.pendingLangs.length === 0) continue;
-
-    for (const targetLang of job.pendingLangs) {
-      if (targetLang === job.sourceLang) continue;
-
-      const translatedText = await translateText({
-        text:       job.sourceValue,
-        sourceLang: job.sourceLang,
-        targetLang,
-        context,
-        model,
-        apiKey: env.ANTHROPIC_API_KEY,
-      });
-
-      if (translatedText) {
-        upserts.push({
-          key,
-          lang:       targetLang,
-          value:      translatedText,
-          pending:    false,
-          is_source:  false,
-          translated_by: `llm:${model}`,
-          review_status: 'unreviewed',
-          updated_at: new Date().toISOString(),
-        });
-        translated++;
-      }
-    }
-  }
-
-  if (upserts.length > 0) {
-    const { error: upsertErr } = await supabase
-      .from('translations')
-      .upsert(upserts, { onConflict: 'key,lang' });
-    if (upsertErr) throw new Error('Upsert failed: ' + upsertErr.message);
-  }
-
-  return { translated, pending: pendingRows.length, message: `Translated ${translated} strings` };
-}
-
-async function translateText({ text, sourceLang, targetLang, context, model, apiKey }) {
-  const langNames = { en: 'English', pl: 'Polish', de: 'German', ru: 'Russian', fr: 'French', es: 'Spanish', uk: 'Ukrainian' };
-  const from = langNames[sourceLang] || sourceLang;
-  const to   = langNames[targetLang] || targetLang;
-
-  const res = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: {
-      'x-api-key':         apiKey,
-      'anthropic-version': '2023-06-01',
-      'content-type':      'application/json',
-    },
-    body: JSON.stringify({
-      model,
-      max_tokens: 1024,
-      system: `You are a professional translator. ${context}\n\nTranslate from ${from} to ${to}. Return ONLY the translated text — no explanations, no quotes, no extra formatting. Preserve any HTML tags, emoji, or punctuation exactly as they appear.`,
-      messages: [{ role: 'user', content: text }],
-    }),
+  // Per-language pending counts
+  const pendingByLang = {};
+  (pendingRows || []).forEach(row => {
+    pendingByLang[row.lang] = (pendingByLang[row.lang] || 0) + 1;
   });
 
-  if (!res.ok) {
-    console.error('Claude API error', res.status, await res.text());
-    return null;
-  }
-
-  const data = await res.json();
-  return data.content?.[0]?.text?.trim() || null;
+  return {
+    status: pending === 0 ? 'synced' : 'pending',
+    pending,
+    total,
+    pendingByLang,
+    engines,
+    model,
+    message: pending === 0
+      ? 'All translations synced'
+      : `${pending} translations pending — run scripts/retranslate-opus.sh to translate`,
+  };
 }
 
 async function loadConfig(supabase) {
@@ -169,20 +97,11 @@ function makeSupabase(url, serviceKey) {
     'Prefer':        'return=representation',
   };
 
-  function buildUrl(table, params = {}) {
-    const u = new URL(`${url}/rest/v1/${table}`);
-    for (const [k, v] of Object.entries(params)) {
-      if (v !== undefined) u.searchParams.set(k, v);
-    }
-    return u.toString();
-  }
-
   return {
     from(table) {
       let _select = '*';
       let _filters = [];
       let _limit = null;
-      let _in = null;
 
       const chain = {
         select(cols) { _select = cols; return chain; },
@@ -205,25 +124,8 @@ function makeSupabase(url, serviceKey) {
             else resolve({ data, error: null });
           } catch (e) { reject(e); }
         },
-
-        async upsert(rows, opts = {}) {
-          const u = new URL(`${url}/rest/v1/${table}`);
-          if (opts.onConflict) u.searchParams.set('on_conflict', opts.onConflict);
-          const res = await fetch(u.toString(), {
-            method: 'POST',
-            headers: { ...headers, 'Prefer': `resolution=merge-duplicates,return=minimal` },
-            body: JSON.stringify(Array.isArray(rows) ? rows : [rows]),
-          });
-          if (!res.ok) {
-            const err = await res.json().catch(() => ({ message: res.statusText }));
-            return { data: null, error: err };
-          }
-          return { data: null, error: null };
-        },
       };
 
-      // Make chain thenable at any stage
-      chain.upsert = chain.upsert.bind(chain);
       return chain;
     },
   };
