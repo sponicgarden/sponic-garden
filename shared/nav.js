@@ -14,7 +14,7 @@ const TABS = [
   { label: 'Where?', href: '/docs/spaces/' },
   { label: 'Design', href: '/design/venue.html' },
   { label: 'Business', href: '/bizmodel.html' },
-  { label: 'Join', href: '/apply.html' },
+  { label: 'Join', href: '/work-with-us.html' },
 ];
 
 const WORDMARK_SRC = '/branding/wordmark-white.png';
@@ -31,7 +31,7 @@ function currentTab() {
   // Where group
   if (path.startsWith('/docs/spaces')) return '/docs/spaces/';
   // Join group
-  if (path === '/apply.html' || path === '/work-with-us.html') return '/apply.html';
+  if (path === '/apply.html' || path === '/work-with-us.html') return '/work-with-us.html';
   // Patents — no tab highlight
   if (path.startsWith('/patents/')) return null;
   return null;
