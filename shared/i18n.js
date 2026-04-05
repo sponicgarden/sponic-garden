@@ -134,6 +134,12 @@ async function loadTranslations() {
 }
 
 function applyTranslations() {
+  // Skip when on base language — HTML already has correct English text,
+  // and DB values may contain HTML-encoded entities (e.g. &amp;) that
+  // textContent would render literally.
+  const baseLang = languages.find(l => l.is_base)?.code || 'en';
+  if (activeLang === baseLang) return;
+
   // [data-i18n="key"] — replace textContent
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.dataset.i18n;
