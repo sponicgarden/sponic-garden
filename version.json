@@ -1,12 +1,12 @@
 {
-  "version": "v260404.05 7:06p",
-  "release": 82,
-  "sha": "91985b0",
-  "fullSha": "91985b03d5b6dbec6b73e6bcce75d95ab54d95c7",
+  "version": "v260405.01 12:19a",
+  "release": 83,
+  "sha": "7926b05",
+  "fullSha": "7926b05c9b9d13ee1e7f311e566aeb6796bf3200",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervm727z3",
-  "pushedAt": "2026-04-05 00:06:42+00",
-  "commits": [{"sha":"91985b0","message":"fix: prevent i18n from re-rendering &amp; entities on English pages","author":"Rahul"}]
+  "pushedAt": "2026-04-05 05:19:00+00",
+  "commits": [{"sha":"7926b05","message":"add: narrative auditions page with \"slow road to a bountiful future\" framing","author":"Rahul"}]
 }
