@@ -1,12 +1,12 @@
 {
-  "version": "v260405.11 12:02p",
-  "release": 93,
-  "sha": "0dccad1",
-  "fullSha": "0dccad15bfe9d89508f291d646f336bbd24a8bfb",
+  "version": "v260405.12 12:37p",
+  "release": 94,
+  "sha": "ed3f6a8",
+  "fullSha": "ed3f6a83d80ae4d69890a785ca0a2bf367c53b9a",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervm727z3",
-  "pushedAt": "2026-04-05 17:02:23+00",
-  "commits": [{"sha":"0dccad1","message":"remove: CNAME file — DNS cutover to Cloudflare Pages complete","author":"Rahul"}]
+  "pushedAt": "2026-04-05 17:37:09+00",
+  "commits": [{"sha":"ed3f6a8","message":"fix: align margin notes with body text instead of section headings","author":"Rahul"}]
 }
