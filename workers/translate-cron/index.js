@@ -103,6 +103,8 @@ async function runTranslations(env) {
           value:      translatedText,
           pending:    false,
           is_source:  false,
+          translated_by: `llm:${model}`,
+          review_status: 'unreviewed',
           updated_at: new Date().toISOString(),
         });
         translated++;

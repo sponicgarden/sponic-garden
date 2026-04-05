@@ -245,6 +245,13 @@
       color: var(--warm);
       border: 1px solid var(--warm-border);
     }
+    .badge-engine {
+      background: rgba(79,70,229,0.06);
+      color: #4f46e5;
+      border: 1px solid rgba(79,70,229,0.18);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+    }
 
     .empty-state {
       text-align: center; padding: 64px 32px;
@@ -658,7 +665,7 @@
       th.textContent = `${lang.flag || ''} ${lang.name}`;
       row.appendChild(th);
     });
-    row.insertAdjacentHTML('beforeend', '<th class="col-status">Status</th>');
+    row.insertAdjacentHTML('beforeend', '<th class="col-status">Engine</th><th class="col-status">Status</th>');
   }
 
   function populateLangSelect() {
@@ -676,7 +683,7 @@
   // ── Load translations ─────────────────────────────────────
   async function loadTranslations() {
     const { data, error } = await sb.from('translations')
-      .select('key,lang,value,pending,is_source,updated_at')
+      .select('key,lang,value,pending,is_source,translated_by,updated_at')
       .order('key');
     if (error) { toast('Failed to load translations', true); return; }
 
@@ -750,6 +757,19 @@
         tr.appendChild(td);
       });
 
+      // Engine cell — show the translated_by for the first non-source language
+      const engineTd = document.createElement('td');
+      const engineValues = languages
+        .filter(l => !l.is_base)
+        .map(l => langMap[l.code]?.translated_by)
+        .filter(Boolean);
+      const engine = engineValues[0] || '';
+      if (engine) {
+        const label = engine.startsWith('llm:') ? engine.slice(4) : engine;
+        engineTd.innerHTML = `<span class="badge badge-engine">${escapeHtml(label)}</span>`;
+      }
+      tr.appendChild(engineTd);
+
       // Status cell
       const statusTd = document.createElement('td');
       statusTd.innerHTML = pending
@@ -817,9 +837,10 @@
 
   async function saveTranslation(key, editedLang, newValue) {
     // Build upsert: edited lang as source, all other enabled langs set to pending
+    const humanTag = currentUser?.email ? `human:${currentUser.email}` : 'human:admin';
     const rows = languages.map(lang => {
       if (lang.code === editedLang) {
-        return { key, lang: lang.code, value: newValue, is_source: true, pending: false, updated_at: new Date().toISOString() };
+        return { key, lang: lang.code, value: newValue, is_source: true, pending: false, translated_by: humanTag, updated_at: new Date().toISOString() };
       }
       // Only create pending row if the other lang already exists OR has a value
       const existing = allRows[key]?.[lang.code];
