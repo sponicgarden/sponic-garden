@@ -1,12 +1,12 @@
 {
-  "version": "v260405.08 1:14a",
-  "release": 90,
-  "sha": "284073b",
-  "fullSha": "284073b0a475daa7c5b518fb2f325bceab79341c",
+  "version": "v260405.09 1:17a",
+  "release": 91,
+  "sha": "df594ee",
+  "fullSha": "df594ee6902aca2c603b45f1769860dd5fca645e",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervm727z3",
-  "pushedAt": "2026-04-05 06:14:04+00",
-  "commits": [{"sha":"284073b","message":"fix: content alignment — remove padding-right hack that misaligned sections vs hero","author":"Rahul"}]
+  "pushedAt": "2026-04-05 06:17:15+00",
+  "commits": [{"sha":"df594ee","message":"fix: align hero image width with content container (660px → 720px)","author":"Rahul"}]
 }
