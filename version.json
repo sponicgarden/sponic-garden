@@ -1,12 +1,12 @@
 {
-  "version": "v260405.14 1:19p",
-  "release": 96,
-  "sha": "4ab05e8",
-  "fullSha": "4ab05e8a537ce52c8b9e2c64a622fe7d1d337d9e",
+  "version": "v260405.15 7:39p",
+  "release": 97,
+  "sha": "5a5fa93",
+  "fullSha": "5a5fa93fc8b45b34b37137cfd245f5b482589a79",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervm727z3",
-  "pushedAt": "2026-04-05 18:19:14+00",
-  "commits": [{"sha":"4fe44dd","message":"feat: add engine tagging to translation system","author":"Rahul"},{"sha":"ebfcb81","message":"refactor: remove API key from translate Worker, add CLI-based translation script","author":"Rahul"},{"sha":"4ab05e8","message":"refactor: remove API key from translate Worker, add CLI-based translation script","author":"Rahul"}]
+  "pushedAt": "2026-04-06 00:39:27+00",
+  "commits": [{"sha":"5a5fa93","message":"add: data-i18n tags for index.html (78 keys) and work-with-us.html (82 keys)","author":"Rahul"}]
 }
