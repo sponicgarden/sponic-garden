@@ -1,12 +1,12 @@
 {
-  "version": "v260406.02 2:12a",
-  "release": 102,
-  "sha": "7e2cccd",
-  "fullSha": "7e2cccd8e4734313b989c35c121971fd5b6a5da7",
+  "version": "v260406.03 2:35a",
+  "release": 103,
+  "sha": "48ecf3f",
+  "fullSha": "48ecf3f1188a30aa5ee27a842e79bf8bc929d262",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervm727z3",
-  "pushedAt": "2026-04-06 07:12:48+00",
-  "commits": [{"sha":"7e2cccd","message":"fix: language switcher EN↔PL with original text restore + translation status accuracy","author":"Rahul"}]
+  "pushedAt": "2026-04-06 07:35:06+00",
+  "commits": [{"sha":"48ecf3f","message":"fix: wire DevControl sessions tab to Cloudflare D1 worker","author":"Rahul"}]
 }
