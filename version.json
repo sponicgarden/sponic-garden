@@ -1,12 +1,12 @@
 {
-  "version": "v260406.01 1:27a",
-  "release": 101,
-  "sha": "ecedba2",
-  "fullSha": "ecedba285212057be6928101abcc197f96de9f2f",
+  "version": "v260406.02 2:12a",
+  "release": 102,
+  "sha": "7e2cccd",
+  "fullSha": "7e2cccd8e4734313b989c35c121971fd5b6a5da7",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervm727z3",
-  "pushedAt": "2026-04-06 06:27:41+00",
-  "commits": [{"sha":"ecedba2","message":"update: regenerate gtm-08 image with minimal, bootstrapped aesthetic","author":"Rahul"}]
+  "pushedAt": "2026-04-06 07:12:48+00",
+  "commits": [{"sha":"7e2cccd","message":"fix: language switcher EN↔PL with original text restore + translation status accuracy","author":"Rahul"}]
 }
