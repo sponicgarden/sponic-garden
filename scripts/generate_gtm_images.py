@@ -109,12 +109,14 @@ IMAGES = [
         "description": "Packed Saturday event showing multiple activity zones at full capacity",
         "category": "gtm",
         "prompt": (
-            "A photorealistic photograph taken from an elevated angle showing a packed industrial-garden venue during a "
-            "Saturday event. Two distinct activity zones are visible: the main covered dining area with all eight tables "
-            "full of engaged guests under string lights, and an outdoor garden area where a group is doing a guided "
-            "harvest activity among raised cedar beds. A fire pit area with wooden seating is being prepared for the "
-            "evening. Cedar saunas and hot tubs with steam rising are visible in the wellness zone. Late afternoon "
-            "golden light. Style: high-end architectural photography, Canon EOS R5, wide establishing shot, warm golden tones."
+            "A photorealistic photograph taken from a slightly elevated angle showing a modest, bootstrapped outdoor "
+            "garden venue on a Saturday. The space is intentionally minimal and low-budget: a simple open-sided shelter "
+            "with a corrugated metal roof over two or three wooden tables where a small group of people sit. A few "
+            "basic raised garden beds made from rough-cut lumber with young plants. Off to one side, a single small "
+            "barrel sauna and one simple wooden cold plunge tub — nothing fancy. Gravel paths, some pallets repurposed "
+            "as furniture, a hand-painted sign. The whole scene feels scrappy, early-stage, and DIY — like not much "
+            "money has been spent yet but the community energy is there. Late afternoon natural light. Style: candid "
+            "documentary photography, Canon EOS R5, wide shot, warm natural tones."
         ),
     },
 ]
