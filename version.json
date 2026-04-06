@@ -1,12 +1,12 @@
 {
-  "version": "v260405.15 7:39p",
-  "release": 97,
-  "sha": "5a5fa93",
-  "fullSha": "5a5fa93fc8b45b34b37137cfd245f5b482589a79",
+  "version": "v260405.16 9:03p",
+  "release": 98,
+  "sha": "03ec057",
+  "fullSha": "03ec0577e12b96aff0376bd3c96a8f91656d9138",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervm727z3",
-  "pushedAt": "2026-04-06 00:39:27+00",
-  "commits": [{"sha":"5a5fa93","message":"add: data-i18n tags for index.html (78 keys) and work-with-us.html (82 keys)","author":"Rahul"}]
+  "pushedAt": "2026-04-06 02:03:53+00",
+  "commits": [{"sha":"03ec057","message":"feat: add Go to Market page with AI-generated images","author":"Rahul"}]
 }
