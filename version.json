@@ -1,12 +1,12 @@
 {
-  "version": "v260406.03 2:35a",
-  "release": 103,
-  "sha": "48ecf3f",
-  "fullSha": "48ecf3f1188a30aa5ee27a842e79bf8bc929d262",
+  "version": "v260406.04 2:37a",
+  "release": 104,
+  "sha": "179d176",
+  "fullSha": "179d1766c9898ea0e042587e21c08124119aa352",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervm727z3",
-  "pushedAt": "2026-04-06 07:35:06+00",
-  "commits": [{"sha":"48ecf3f","message":"fix: wire DevControl sessions tab to Cloudflare D1 worker","author":"Rahul"}]
+  "pushedAt": "2026-04-06 07:37:58+00",
+  "commits": [{"sha":"179d176","message":"fix: add i18n data attributes to nav tab labels for PL translation","author":"Rahul"}]
 }
