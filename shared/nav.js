@@ -14,6 +14,7 @@ const TABS = [
   { label: 'Where?', href: '/docs/spaces/' },
   { label: 'Design', href: '/design/venue.html' },
   { label: 'Business', href: '/bizmodel.html' },
+  { label: 'GTM', href: '/gtm.html' },
   { label: 'Join', href: '/work-with-us.html' },
 ];
 
@@ -27,7 +28,9 @@ function currentTab() {
   // Design group
   if (path.startsWith('/design/') || path === '/physicaldesign.html') return '/design/venue.html';
   // Business group
-  if (path === '/bizmodel.html' || path === '/branding.html' || path === '/gtm.html') return '/bizmodel.html';
+  if (path === '/bizmodel.html' || path === '/branding.html') return '/bizmodel.html';
+  // GTM
+  if (path === '/gtm.html') return '/gtm.html';
   // Where group
   if (path.startsWith('/docs/spaces')) return '/docs/spaces/';
   // Join group
