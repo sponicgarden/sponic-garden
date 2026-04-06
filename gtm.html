@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="gtm.page.title">Sponic Gardens — Go to Market</title>
+  <meta name="description" data-i18n-content="gtm.meta.description" content="Phased launch strategy for Sponic Gardens: from first Sunday event to full-scale operations.">
+  <meta property="og:site_name" content="Sponic Gardens">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Sponic Gardens — Go to Market">
+  <meta property="og:description" content="Phased launch strategy for Sponic Gardens: from first Sunday event to full-scale operations.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://sponicgardens.com/gtm">
+  <meta property="og:image" content="https://sponicgardens.com/branding/og-hero.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sponic Gardens — Go to Market">
+  <meta name="twitter:description" content="Phased launch strategy for Sponic Gardens: from first Sunday event to full-scale operations.">
+  <meta name="twitter:image" content="https://sponicgardens.com/branding/og-hero.jpg">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" type="image/svg+xml">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500&display=swap');
+
+    :root {
+      --bg: #f4f7f1;
+      --surface: #ffffff;
+      --surface2: #eef3ea;
+      --surface3: #e2eadc;
+      --border: #c4d4ba;
+      --border-light: #d8e3cf;
+      --text: #1a2412;
+      --text-soft: #2d3b22;
+      --text-dim: #4a6040;
+      --text-muted: #7a9168;
+      --green: #2d6a1e;
+      --green-soft: rgba(45, 106, 30, 0.07);
+      --green-border: rgba(45, 106, 30, 0.20);
+      --emerald: #047857;
+      --emerald-soft: rgba(4, 120, 87, 0.06);
+      --emerald-border: rgba(4, 120, 87, 0.18);
+      --earth: #92400e;
+      --earth-soft: rgba(146, 64, 14, 0.06);
+      --earth-border: rgba(146, 64, 14, 0.20);
+      --sky: #0369a1;
+      --sky-soft: rgba(3, 105, 161, 0.05);
+      --sky-border: rgba(3, 105, 161, 0.16);
+      --plum: #7e22ce;
+      --plum-soft: rgba(126, 34, 206, 0.05);
+      --plum-border: rgba(126, 34, 206, 0.16);
+      --warm: #b45309;
+      --warm-soft: rgba(180, 83, 9, 0.06);
+      --warm-border: rgba(180, 83, 9, 0.20);
+      --rose: #be123c;
+      --rose-soft: rgba(190, 18, 60, 0.05);
+      --rose-border: rgba(190, 18, 60, 0.16);
+      --slate: #475569;
+      --slate-soft: rgba(71, 85, 105, 0.05);
+      --slate-border: rgba(71, 85, 105, 0.16);
+      --vine: #1a4d2e;
+      --vine-soft: rgba(26, 77, 46, 0.06);
+      --canopy: rgba(26, 77, 46, 0.03);
+      --circuit: rgba(79, 209, 197, 0.10);
+      --circuit-line: rgba(79, 209, 197, 0.25);
+      --glow: rgba(52, 211, 153, 0.20);
+      --node: #34d399;
+      --radius: 10px;
+      --radius-lg: 14px;
+      --shadow: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-md: 0 2px 8px rgba(0,0,0,0.06);
+      --shadow-lg: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ════════════════════════════════════════════════════
+       HERO
+       ═══���════════════════════════════════════════════════ */
+    .hero {
+      padding: 3rem 1.5rem 2.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, #d8e8ca 0%, #dde8d2 35%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='52' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l30 15v22L30 52 0 37V15z' fill='none' stroke='%234fd1c5' stroke-width='0.4' opacity='0.12'/%3E%3C/svg%3E");
+      background-size: 60px 52px;
+      opacity: 0.6;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 70% at 50% 20%, rgba(52,211,153,0.08), transparent 70%);
+    }
+    .hero-content { position: relative; z-index: 2; }
+    .hero .breadcrumb {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .hero .breadcrumb a {
+      color: var(--green);
+      text-decoration: none;
+    }
+    .hero .breadcrumb a:hover { text-decoration: underline; }
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.4rem;
+      font-weight: 400;
+      color: var(--vine);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.35rem;
+    }
+    .hero .tagline {
+      font-size: 0.95rem;
+      font-style: italic;
+      color: var(--text-dim);
+      letter-spacing: 0.03em;
+    }
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.8rem; }
+    }
+
+    /* ════════════════════════════════════════════════════
+       CONTAINER
+       ════════════════════════════════════════════════════ */
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    /* ════════════════════════════════════════════════════
+       SECTIONS
+       ════════════════════════════════════════════════════ */
+    .section { margin-bottom: 2.5rem; }
+    .section-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin-bottom: 0.6rem;
+      padding-left: 0.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 1c0 3-2 5-2 8s2 6 2 6 2-3 2-6-2-5-2-8z' fill='%237a9168' opacity='0.6'/%3E%3C/svg%3E") no-repeat center/contain;
+    }
+    .section h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.45rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+    }
+    .section p {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      line-height: 1.7;
+    }
+    .section p + p { margin-top: 0.6rem; }
+
+    /* ════════════════════════════════════════════════════
+       CARDS
+       ════════════════════════════════════════════════════ */
+    .card {
+      background: var(--surface);
+      background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cline x1='0' y1='40' x2='40' y2='0' stroke='%232d6a1e' stroke-width='0.3' opacity='0.025'/%3E%3C/svg%3E");
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      padding: 1.1rem 1.2rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 0.6rem;
+      position: relative;
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+    @media (hover: hover) {
+      .card:hover {
+        box-shadow: var(--shadow-md);
+        transform: translateY(-1px);
+      }
+    }
+    .card h3 {
+      font-size: 0.92rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+    .card p, .card li {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+    .card ul { list-style: none; padding: 0; }
+    .card li {
+      padding: 0.25rem 0 0.25rem 1.1rem;
+      position: relative;
+    }
+    .card li::before {
+      content: '\203A';
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-weight: 700;
+    }
+    .accent-card { border-left: 3px solid; padding-left: 1rem; }
+    .accent-green { border-color: var(--green); }
+    .accent-green h3 { color: var(--green); }
+    .accent-emerald { border-color: var(--emerald); }
+    .accent-emerald h3 { color: var(--emerald); }
+    .accent-earth { border-color: var(--earth); }
+    .accent-earth h3 { color: var(--earth); }
+    .accent-sky { border-color: var(--sky); }
+    .accent-sky h3 { color: var(--sky); }
+    .accent-plum { border-color: var(--plum); }
+    .accent-plum h3 { color: var(--plum); }
+    .accent-warm { border-color: var(--warm); }
+    .accent-warm h3 { color: var(--warm); }
+    .accent-rose { border-color: var(--rose); }
+    .accent-rose h3 { color: var(--rose); }
+    .accent-slate { border-color: var(--slate); }
+    .accent-slate h3 { color: var(--slate); }
+
+    /* ════════════════════════════════════════════════════
+       GRIDS
+       ════════════════════════════════════════════════════ */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.6rem; }
+    @media (max-width: 600px) {
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    }
+
+    /* ════════════════════════════════════════════════════
+       STAT PILLS
+       ════════════════════════════════════════════════════ */
+    .stats-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.5rem;
+    }
+    .stat-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.3rem 0.75rem;
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-dim);
+    }
+    .stat-pill strong { color: var(--text); font-weight: 700; }
+
+    /* ════════════════════════════════════════════════════
+       CALLOUT
+       ════════════════════════════════════════════════════ */
+    .callout {
+      background: var(--green-soft);
+      border: 1px solid var(--green-border);
+      border-radius: var(--radius);
+      padding: 1rem 1.15rem 1rem 1.5rem;
+      margin: 0.75rem 0;
+      position: relative;
+    }
+    .callout::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: 8px;
+      width: 20px;
+      height: 20px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M16 2c-4 1-6 4-6 8 0-3-3-5-6-5' fill='none' stroke='%232d6a1e' stroke-width='1.2' opacity='0.3'/%3E%3C/svg%3E") no-repeat center/contain;
+    }
+    .callout p {
+      font-size: 0.85rem;
+      color: var(--green);
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    /* ════════════════════════════════════════════════════
+       EXPANDABLE DETAILS
+       ════════════════════════════════════════════════════ */
+    details.expandable { margin-top: 0.5rem; }
+    details.expandable summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-dim);
+      padding: 0.4rem 0;
+      user-select: none;
+    }
+    details.expandable summary::-webkit-details-marker { display: none; }
+    details.expandable summary::before {
+      content: '';
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M5 3l6 5-6 5' fill='none' stroke='%234a6040' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M14 7c0 0-1 2-3 2' fill='none' stroke='%234a6040' stroke-width='0.8' opacity='0.5'/%3E%3C/svg%3E") no-repeat center/contain;
+      transition: transform 0.2s ease;
+      flex-shrink: 0;
+    }
+    details.expandable[open] summary::before { transform: rotate(90deg); }
+    details.expandable .expand-body {
+      padding: 0.5rem 0 0.5rem 1.2rem;
+      border-left: 2px solid var(--border-light);
+      margin-left: 6px;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      line-height: 1.65;
+    }
+    details.expandable .expand-body p + p { margin-top: 0.5rem; }
+
+    /* ════════════════════════════════════════════════════
+       PIPELINE / TIMELINE
+       ════════════════════════════════════════════════════ */
+    .pipeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 1.5rem 0;
+    }
+    .step {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 0;
+      position: relative;
+    }
+    .step-marker {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .step-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--green);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+    .step-num.emerald { background: var(--emerald); }
+    .step-line {
+      width: 2px;
+      flex: 1;
+      background: var(--border);
+      min-height: 20px;
+    }
+    .step:last-child .step-line { display: none; }
+    .step-content {
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      margin-bottom: 1rem;
+      box-shadow: var(--shadow);
+    }
+    .step-content h3 {
+      font-size: 0.92rem;
+      font-weight: 600;
+      margin: 0 0 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+    .step-content p {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+    .step-content ul { list-style: none; padding: 0; margin: 0.4rem 0 0; }
+    .step-content li {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      padding: 0.2rem 0 0.2rem 1.1rem;
+      position: relative;
+    }
+    .step-content li::before {
+      content: '\203A';
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    /* Section illustration */
+    .section-illustration {
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 0.75rem;
+      border: 1px solid var(--border-light);
+    }
+    .section-illustration img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* Phase summary cards */
+    .phase-card {
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .phase-card .phase-num {
+      font-size: 0.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin-bottom: 0.3rem;
+    }
+    .phase-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--vine);
+      margin-bottom: 0.5rem;
+    }
+    .phase-card .phase-detail {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+    .phase-card .phase-detail strong {
+      color: var(--text);
+    }
+
+    /* ════════════════════════════════════════════════════
+       FOOTER
+       ════════════════════════════════════════════════════ */
+    footer {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-light);
+    }
+  </style>
+</head>
+<body>
+  <div style="position:fixed;top:0;right:0;z-index:100;padding:8px 14px;">
+    <span class="aap-header__version" style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:0.65rem;color:#8b9a7d;opacity:0.7;transition:opacity .2s;" onmouseenter="this.style.opacity='1'" onmouseleave="this.style.opacity='0.7'"></span>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════
+       HERO
+       ══════════════════════════════════════════════════ -->
+  <div class="hero">
+    <div class="hero-content">
+      <div class="breadcrumb">
+        <a href="/" data-i18n="nav.home">Sponic Gardens</a> /
+        <span data-i18n="gtm.breadcrumb">Go to Market</span>
+      </div>
+      <h1 data-i18n="gtm.hero.title">Go to Market</h1>
+      <p class="tagline" data-i18n="gtm.hero.tagline">From first Sunday to full-scale — phased launch strategy</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════
+       CONTENT
+       ══════════════════════════════════════════════════ -->
+  <div class="container">
+
+    <!-- Stat pills -->
+    <div class="stats-row">
+      <span class="stat-pill" data-i18n-html="gtm.stat.day">&#128197; <strong>Sunday 1:30–5:30p</strong> first events</span>
+      <span class="stat-pill" data-i18n-html="gtm.stat.guests">&#128101; <strong>64 guests</strong> per event</span>
+      <span class="stat-pill" data-i18n-html="gtm.stat.recorded">&#127908; <strong>100% recorded</strong> all guests mic'd</span>
+      <span class="stat-pill" data-i18n-html="gtm.stat.phases">&#128200; <strong>3 phases</strong> Foundation → Scale → Full</span>
+      <span class="stat-pill" data-i18n-html="gtm.stat.volunteers">&#127793; <strong>Volunteer-driven</strong> beta testers & builders</span>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════
+         1. PHASE 1 — FOUNDATION
+         ══════════════════════════════════════════════════ -->
+    <div class="section">
+      <div class="section-label" data-i18n="gtm.s1.label">Phase 1 — Foundation</div>
+      <h2 data-i18n="gtm.s1.title">Build the Base</h2>
+      <p data-i18n="gtm.s1.intro">Everything starts with a site, the technology stack, and a single weekly event. Phase 1 is about proving the model works — that guests show up, conversations flow, plants grow, and the tech captures it all. Keep everything semi-portable in case the venue changes.</p>
+
+      <div class="pipeline">
+
+        <!-- Step 1: Select Site -->
+        <div class="step">
+          <div class="step-marker">
+            <div class="step-num">1</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <div class="section-illustration">
+              <img src="branding/gtm-01-site-scouting.jpg" alt="Scouting an industrial warehouse space for the Sponic Gardens venue" loading="lazy">
+            </div>
+            <h3 style="color: var(--green);">Select Site</h3>
+            <p data-i18n="gtm.step1.body">Find a rental or partner location — an industrial warehouse, garden center, or mixed-use space with high ceilings, natural light, and outdoor access. Prioritize spaces that can host 8+ round tables indoors and have adjacent land for raised garden beds. Assume the first site may not be permanent: design everything to be semi-portable.</p>
+          </div>
+        </div>
+
+        <!-- Step 2: Software Infrastructure -->
+        <div class="step">
+          <div class="step-marker">
+            <div class="step-num">2</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <div class="section-illustration">
+              <img src="branding/gtm-02-software-setup.jpg" alt="Developer setting up Sponic Gardens software platform" loading="lazy">
+            </div>
+            <h3 style="color: var(--sky);">Software Infrastructure</h3>
+            <p data-i18n="gtm.step2.body">Deploy the full software stack that guests and volunteers will interact with daily:</p>
+            <ul>
+              <li data-i18n="gtm.step2.privacy">Privacy system — consent management, data ownership, GDPR compliance</li>
+              <li data-i18n="gtm.step2.profiles">User profiles — interests, dietary needs, growing experience, event history</li>
+              <li data-i18n="gtm.step2.growing">Growing AI — plant recommendations, soil analysis, harvest predictions</li>
+              <li data-i18n="gtm.step2.design">Space design AI — layout optimization, seating arrangements, flow analysis</li>
+              <li data-i18n="gtm.step2.devices">Device management AI — sensor health, camera feeds, irrigation scheduling</li>
+              <li data-i18n="gtm.step2.apps">Mobile apps — guest experience app + volunteer operations app</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Step 3: Hardware Setup -->
+        <div class="step">
+          <div class="step-marker">
+            <div class="step-num">3</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <div class="section-illustration">
+              <img src="branding/gtm-03-hardware-installation.jpg" alt="Technicians installing IoT sensors and irrigation in a greenhouse" loading="lazy">
+            </div>
+            <h3 style="color: var(--plum);">Hardware Setup</h3>
+            <p data-i18n="gtm.step3.body">Install the physical technology layer that connects the space to the software:</p>
+            <ul>
+              <li data-i18n="gtm.step3.tablets">Tablets at each table — for event interaction, feedback, and growing data</li>
+              <li data-i18n="gtm.step3.cameras">Cameras — event documentation, security, and content creation</li>
+              <li data-i18n="gtm.step3.computers">Computers — central operations hub, real-time dashboards</li>
+              <li data-i18n="gtm.step3.sensors">Environmental sensors — soil moisture, temperature, humidity, light levels</li>
+              <li data-i18n="gtm.step3.irrigation">Automated irrigation — sensor-driven watering for raised beds and greenhouse</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Step 4: Space Setup -->
+        <div class="step">
+          <div class="step-marker">
+            <div class="step-num">4</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <div class="section-illustration">
+              <img src="branding/gtm-04-space-setup.jpg" alt="Volunteers arranging social tables and garden beds" loading="lazy">
+            </div>
+            <h3 style="color: var(--earth);">Space Setup</h3>
+            <p data-i18n="gtm.step4.body">Configure the physical environment for both social gatherings and horticulture:</p>
+            <ul>
+              <li data-i18n="gtm.step4.tables">8 round social tables — seats 8 people each, wired with microphones and tablets</li>
+              <li data-i18n="gtm.step4.garden">Horticultural area — raised cedar beds, greenhouse zone, tool storage, potting station</li>
+              <li data-i18n="gtm.step4.flow">Traffic flow — clear paths between dining, growing, and activity zones</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Step 5: Launch Sunday Events -->
+        <div class="step">
+          <div class="step-marker">
+            <div class="step-num">5</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <div class="section-illustration">
+              <img src="branding/gtm-05-sunday-event.jpg" alt="Lively Sunday community gathering with guests at tables" loading="lazy">
+            </div>
+            <h3 style="color: var(--emerald);">Launch Sunday Events</h3>
+            <p data-i18n="gtm.step5.body">Begin with a single weekly event every Sunday from 1:30p to 5:30p. This is the core product — a 4-hour immersive experience combining structured conversation, hands-on growing, and community building. All other days (Monday–Saturday) are work days for building, testing, and improving the space and technology.</p>
+          </div>
+        </div>
+
+        <!-- Step 6: Recruit Volunteers -->
+        <div class="step">
+          <div class="step-marker">
+            <div class="step-num">6</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <h3 style="color: var(--warm);">Recruit Volunteers</h3>
+            <p data-i18n="gtm.step6.body">Recruit a cohort of volunteers who serve a dual purpose: they work on building and maintaining the space during the week, and they beta-test the technology and attend events on Sundays. Volunteers are the first users — their feedback shapes every iteration of the product. They get early access, influence over the direction, and deep involvement in a community they're helping create.</p>
+          </div>
+        </div>
+
+        <!-- Step 7: Build Amenities -->
+        <div class="step">
+          <div class="step-marker">
+            <div class="step-num">7</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <h3 style="color: var(--rose);">Build Amenities Incrementally</h3>
+            <p data-i18n="gtm.step7.body">Add wellness and comfort amenities over time as the space proves itself. Start with semi-portable versions that can move if the venue changes:</p>
+            <ul>
+              <li data-i18n="gtm.step7.sauna">Barrel sauna — portable, cedar, electric-heated</li>
+              <li data-i18n="gtm.step7.plunge">Cold plunge — freestanding tub with chiller</li>
+              <li data-i18n="gtm.step7.hottub">Hot tub — portable cedar or inflatable, sensor-monitored</li>
+              <li data-i18n="gtm.step7.future">Future: fire pit, outdoor kitchen, movement studio</li>
+            </ul>
+          </div>
+        </div>
+
+      </div><!-- /pipeline -->
+    </div><!-- /section -->
+
+    <!-- ══════════════════════════════════════════════════
+         2. EVENT RUN-OF-SHOW
+         ══════════════════════════════════════════════════ -->
+    <div class="section">
+      <div class="section-label" data-i18n="gtm.event.label">Event Operations</div>
+      <h2 data-i18n="gtm.event.title">Event Run-of-Show</h2>
+      <p data-i18n="gtm.event.intro">Each event is a structured, data-rich experience. From the pre-event voice interview to the post-event follow-up, every touchpoint generates insights that improve the next event.</p>
+
+      <div class="pipeline">
+
+        <!-- Event Step 1: Voice Interview -->
+        <div class="step">
+          <div class="step-marker">
+            <div class="step-num emerald">1</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <div class="section-illustration">
+              <img src="branding/gtm-06-voice-interview.jpg" alt="Guest doing a pre-event voice interview on their phone" loading="lazy">
+            </div>
+            <h3>Pre-Event: Voice Interview</h3>
+            <p data-i18n="gtm.event.step1.body">Before the event, each guest receives an AI voice agent call. The interview captures their interests, dietary preferences, conversation topics they're passionate about, and what they hope to get from the experience. This data drives table assignments — matching people who will spark the most interesting conversations.</p>
+          </div>
+        </div>
+
+        <!-- Event Step 2: Seating -->
+        <div class="step">
+          <div class="step-marker">
+            <div class="step-num emerald">2</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <h3>Seating: 8 x 8 Structure</h3>
+            <p data-i18n="gtm.event.step2.body">64 guests seated across 8 round tables, 8 people each. Table assignments are AI-optimized based on voice interview data — complementary interests, diverse backgrounds, and conversation chemistry. Each table has a discussion prompt or theme to seed the conversation.</p>
+          </div>
+        </div>
+
+        <!-- Event Step 3: Recording -->
+        <div class="step">
+          <div class="step-marker">
+            <div class="step-num emerald">3</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <h3>Recording & Processing</h3>
+            <p data-i18n="gtm.event.step3.body">Every guest is microphoned. Table conversations are recorded, transcribed, and processed by AI to extract key themes, interesting insights, action items, and connection opportunities. Video cameras capture the energy of the event for content creation. All recording follows explicit consent protocols managed by the privacy system.</p>
+          </div>
+        </div>
+
+        <!-- Event Step 4: During-Event Feedback -->
+        <div class="step">
+          <div class="step-marker">
+            <div class="step-num emerald">4</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <h3>During-Event Feedback</h3>
+            <p data-i18n="gtm.event.step4.body">Real-time satisfaction signals collected throughout the experience — tablet-based pulse checks, conversation energy metrics from audio analysis, and volunteer observations. Issues are flagged and addressed in real time rather than discovered after the fact.</p>
+          </div>
+        </div>
+
+        <!-- Event Step 5: Post-Event Feedback -->
+        <div class="step">
+          <div class="step-marker">
+            <div class="step-num emerald">5</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <h3>Post-Event Feedback</h3>
+            <p data-i18n="gtm.event.step5.body">Follow-up voice or text survey within 24 hours. Captures reflection-level feedback: what stuck with them, who they want to see again, what they'd change. This feeds directly into the next event's planning — table assignments, discussion topics, space configuration.</p>
+          </div>
+        </div>
+
+        <!-- Event Step 6: Gamification & Social -->
+        <div class="step">
+          <div class="step-marker">
+            <div class="step-num emerald">6</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <div class="section-illustration">
+              <img src="branding/gtm-07-gamified-growing.jpg" alt="Volunteers filming plant growth for social media with gamification leaderboard" loading="lazy">
+            </div>
+            <h3>Gamification & Social</h3>
+            <p data-i18n="gtm.event.step6.body">The growing process is gamified — teams compete on plant health, harvest yields, and creative growing experiments. Leaderboards, badges, and progress tracking make horticulture engaging and shareable. Content is recorded with an entertaining slant and posted to social media: time-lapses of growth, harvest celebrations, unexpected growing results, and the genuine joy of people discovering they can grow things. The content strategy leans into what makes this different — it's not polished influencer content, it's real people being surprised and delighted by nature and each other.</p>
+          </div>
+        </div>
+
+      </div><!-- /pipeline -->
+
+      <div class="callout">
+        <p data-i18n="gtm.event.callout">Every event generates structured conversation data, growing insights, and social content — each one makes the next event better. The flywheel compounds: better data means better table assignments, better conversations mean better content, better content means more interesting guests.</p>
+      </div>
+    </div><!-- /section -->
+
+    <!-- ══════════════════════════════════════════════════
+         3. PHASE 2 — SCALE UP
+         ══════════════════════════════════════════════════ -->
+    <div class="section">
+      <div class="section-label" data-i18n="gtm.s2.label">Phase 2 — Scale Up</div>
+      <h2 data-i18n="gtm.s2.title">Expand by Demand</h2>
+      <p data-i18n="gtm.s2.intro">Scaling is gated by user satisfaction, not calendar dates. Each expansion is earned — only triggered when guest ratings and repeat attendance prove the model is working.</p>
+
+      <div class="section-illustration" style="margin: 1rem 0;">
+        <img src="branding/gtm-08-scale-up-saturday.jpg" alt="Packed Saturday event with dining and garden activity zones" loading="lazy">
+      </div>
+
+      <div class="grid-2">
+        <div class="card accent-card accent-green">
+          <h3 data-i18n="gtm.scale.sat.title">Add Saturday Events</h3>
+          <p data-i18n="gtm.scale.sat.body">After the Sunday model is proven — consistent attendance, high satisfaction ratings, and a growing waitlist — add a second weekly event on Saturdays. Same 1:30p–5:30p format. This doubles capacity to 128 guests/week while keeping the intimate 8x8 table structure.</p>
+        </div>
+        <div class="card accent-card accent-sky">
+          <h3 data-i18n="gtm.scale.night.title">Weekday Night Events</h3>
+          <p data-i18n="gtm.scale.night.body">After sustained high satisfaction scores (not just one good weekend), introduce weekday evening events. Shorter format, different energy — more focused on after-work decompression, growing check-ins, and smaller-group conversations. These test whether the model works beyond weekend leisure mode.</p>
+        </div>
+        <div class="card accent-card accent-emerald">
+          <h3 data-i18n="gtm.scale.freq.title">Increase Frequency</h3>
+          <p data-i18n="gtm.scale.freq.body">Continue layering in additional event days based on demand signals: waitlist length, repeat booking rate, satisfaction trends, and volunteer capacity. The goal is daily events — but only when every dimension of quality supports it.</p>
+        </div>
+        <div class="card accent-card accent-warm">
+          <h3 data-i18n="gtm.scale.work.title">Work Days Evolve</h3>
+          <p data-i18n="gtm.scale.work.body">As event days expand, dedicated work days compress. The space transitions from mostly-building to mostly-operating. Volunteers shift from construction to event operations. The tech stack handles more automatically. Maintenance, growing, and improvements happen in the gaps between events.</p>
+        </div>
+      </div>
+
+      <div class="callout">
+        <p data-i18n="gtm.s2.callout">The scaling trigger is always the same question: are guests having an experience they tell their friends about? If yes, add capacity. If not, improve what exists.</p>
+      </div>
+    </div><!-- /section -->
+
+    <!-- ══════════════════════════════════════════════════
+         4. PHASE SUMMARY
+         ══════════════════════════════════════════════════ -->
+    <div class="section">
+      <div class="section-label" data-i18n="gtm.summary.label">Overview</div>
+      <h2 data-i18n="gtm.summary.title">Phase Progression</h2>
+
+      <div class="grid-3">
+        <div class="phase-card">
+          <div class="phase-num">Phase 1</div>
+          <h3>Foundation</h3>
+          <div class="phase-detail">
+            <strong>1 event/week</strong> (Sunday)<br>
+            64 guests per event<br>
+            Volunteer-driven<br>
+            Semi-portable setup
+          </div>
+        </div>
+        <div class="phase-card">
+          <div class="phase-num">Phase 2</div>
+          <h3>Scale Up</h3>
+          <div class="phase-detail">
+            <strong>2–3 events/week</strong><br>
+            128–192 guests/week<br>
+            Mixed volunteer + staff<br>
+            Permanent amenities
+          </div>
+        </div>
+        <div class="phase-card">
+          <div class="phase-num">Phase 3</div>
+          <h3>Full Operations</h3>
+          <div class="phase-detail">
+            <strong>Daily events</strong><br>
+            Full capacity<br>
+            Professional operations<br>
+            Complete wellness suite
+          </div>
+        </div>
+      </div>
+    </div><!-- /section -->
+
+    <!-- ══════════════════════════════════════════════════
+         EXPLORE LINKS
+         ══════════════════════════════════════════════════ -->
+    <div style="display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;margin-top:1rem;">
+      <a href="/bizmodel.html" style="display:inline-flex;align-items:center;gap:0.3rem;padding:0.4rem 0.9rem;background:var(--surface);border:1px solid var(--border-light);border-radius:20px;font-size:0.78rem;font-weight:500;color:var(--text-dim);text-decoration:none;transition:all 0.15s ease;" data-i18n="gtm.link.biz">Business Model</a>
+      <a href="/work-with-us.html" style="display:inline-flex;align-items:center;gap:0.3rem;padding:0.4rem 0.9rem;background:var(--surface);border:1px solid var(--border-light);border-radius:20px;font-size:0.78rem;font-weight:500;color:var(--text-dim);text-decoration:none;transition:all 0.15s ease;" data-i18n="gtm.link.join">Join the Team</a>
+      <a href="/design/venue.html" style="display:inline-flex;align-items:center;gap:0.3rem;padding:0.4rem 0.9rem;background:var(--surface);border:1px solid var(--border-light);border-radius:20px;font-size:0.78rem;font-weight:500;color:var(--text-dim);text-decoration:none;transition:all 0.15s ease;" data-i18n="gtm.link.design">Venue Design</a>
+    </div>
+
+  </div><!-- /container -->
+
+  <footer>
+    <a href="/" style="color: var(--green); text-decoration: none; font-weight: 500;" data-i18n="nav.back_home_full">&larr; Back to Sponic Gardens</a>
+    <br>
+    <span data-site-version>v260405.13 12:56p</span>
+  </footer>
+
+  <script type="module" src="/shared/nav.js"></script>
+  <script type="module" src="/shared/feedback-widget.js"></script>
+  <script type="module" src="/shared/version-info.js"></script>
+  <script type="module" src="/shared/i18n.js"></script>
+  <script type="module" src="/shared/language-switcher.js"></script>
+</body>
+</html>

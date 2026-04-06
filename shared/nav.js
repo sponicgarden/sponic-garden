@@ -27,7 +27,7 @@ function currentTab() {
   // Design group
   if (path.startsWith('/design/') || path === '/physicaldesign.html') return '/design/venue.html';
   // Business group
-  if (path === '/bizmodel.html' || path === '/branding.html') return '/bizmodel.html';
+  if (path === '/bizmodel.html' || path === '/branding.html' || path === '/gtm.html') return '/bizmodel.html';
   // Where group
   if (path.startsWith('/docs/spaces')) return '/docs/spaces/';
   // Join group
