@@ -13,9 +13,9 @@ let currentUser = null;
 // ═══════════════════════════════════════════════════════════
 // CONFIG — project-specific values
 // ═══════════════════════════════════════════════════════════
-const SESSIONS_API = 'https://claude-sessions.your-workers.dev'; // TODO: configure if sessions worker is deployed
-const SESSIONS_TOKEN = 'sponic-sessions-2026'; // TODO: configure
-const PROJECT_FILTER = 'sponic-garden';
+const SESSIONS_API = 'https://claude-sessions.alpacapps.workers.dev';
+const SESSIONS_TOKEN = 'alpaca-sessions-2026';
+const PROJECT_FILTER = 'sponic';
 const GH_OWNER = 'sponicgarden';
 const GH_REPO = 'sponic-garden';
 const GH_API = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}`;
