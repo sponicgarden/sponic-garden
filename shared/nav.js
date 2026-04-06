@@ -10,12 +10,12 @@
 
 /* ── config ────────────────────────────────────────────────────────── */
 const TABS = [
-  { label: 'Home', href: '/' },
-  { label: 'Where?', href: '/docs/spaces/' },
-  { label: 'Design', href: '/design/venue.html' },
-  { label: 'Business', href: '/bizmodel.html' },
-  { label: 'GTM', href: '/gtm.html' },
-  { label: 'Join', href: '/work-with-us.html' },
+  { label: 'Home', href: '/', i18n: 'nav.tab.home' },
+  { label: 'Where?', href: '/docs/spaces/', i18n: 'nav.tab.where' },
+  { label: 'Design', href: '/design/venue.html', i18n: 'nav.tab.design' },
+  { label: 'Business', href: '/bizmodel.html', i18n: 'nav.tab.business' },
+  { label: 'GTM', href: '/gtm.html', i18n: 'nav.tab.gtm' },
+  { label: 'Join', href: '/work-with-us.html', i18n: 'nav.tab.join' },
 ];
 
 const WORDMARK_SRC = '/branding/wordmark-white.png';
@@ -306,6 +306,7 @@ function buildNav() {
     a.href = tab.href;
     a.className = 'sg-nav__tab';
     a.textContent = tab.label;
+    if (tab.i18n) a.dataset.i18n = tab.i18n;
     if (tab.href === active) a.classList.add('sg-nav__tab--active');
     center.appendChild(a);
   }
@@ -353,6 +354,7 @@ function buildNav() {
   signin.href = '#';
   signin.className = 'sg-nav__signin';
   signin.textContent = 'Sign in';
+  signin.dataset.i18n = 'nav.tab.signin';
   right.appendChild(signin);
 
   // Hamburger
@@ -374,6 +376,7 @@ function buildNav() {
     a.href = tab.href;
     a.className = 'sg-nav__drawer-tab';
     a.textContent = tab.label;
+    if (tab.i18n) a.dataset.i18n = tab.i18n;
     if (tab.href === active) a.classList.add('sg-nav__drawer-tab--active');
     drawerInner.appendChild(a);
   }
@@ -382,6 +385,7 @@ function buildNav() {
   drawerSignin.href = '#';
   drawerSignin.className = 'sg-nav__drawer-tab';
   drawerSignin.textContent = 'Sign in';
+  drawerSignin.dataset.i18n = 'nav.tab.signin';
   drawerSignin.style.color = '#34d399';
   drawerInner.appendChild(drawerSignin);
   drawer.appendChild(drawerInner);
