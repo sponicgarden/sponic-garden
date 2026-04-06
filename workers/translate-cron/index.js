@@ -50,32 +50,43 @@ async function getTranslationStatus(env) {
   // Count total and by engine
   const { data: allRows } = await supabase
     .from('translations')
-    .select('lang, translated_by, pending')
+    .select('lang, translated_by, pending, value')
     .limit(10000);
 
   const total = allRows?.length || 0;
   const engines = {};
+  let nullValues = 0;
   (allRows || []).forEach(row => {
     const eng = row.translated_by || '(untagged)';
     engines[eng] = (engines[eng] || 0) + 1;
+    if (row.value === null && !row.pending) nullValues++;
   });
 
   // Per-language pending counts
   const pendingByLang = {};
+  const nullByLang = {};
   (pendingRows || []).forEach(row => {
     pendingByLang[row.lang] = (pendingByLang[row.lang] || 0) + 1;
   });
+  (allRows || []).forEach(row => {
+    if (row.value === null) {
+      nullByLang[row.lang] = (nullByLang[row.lang] || 0) + 1;
+    }
+  });
 
+  const incomplete = pending + nullValues;
   return {
-    status: pending === 0 ? 'synced' : 'pending',
+    status: incomplete === 0 ? 'synced' : 'pending',
     pending,
+    nullValues,
     total,
     pendingByLang,
+    nullByLang,
     engines,
     model,
-    message: pending === 0
+    message: incomplete === 0
       ? 'All translations synced'
-      : `${pending} translations pending — run scripts/retranslate-opus.sh to translate`,
+      : `${pending} pending + ${nullValues} null-valued — run scripts/retranslate-opus.sh to translate`,
   };
 }
 

@@ -134,50 +134,49 @@ async function loadTranslations() {
 }
 
 function applyTranslations() {
-  // Skip when on base language — HTML already has correct English text,
-  // and DB values may contain HTML-encoded entities (e.g. &amp;) that
-  // textContent would render literally.
   const baseLang = languages.find(l => l.is_base)?.code || 'en';
-  if (activeLang === baseLang) return;
+  const isBase = activeLang === baseLang;
 
   // [data-i18n="key"] — replace textContent
   document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.dataset.i18n;
-    const val = t(key);
-    if (val && val !== key) el.textContent = val;
+    // Save original English text on first encounter
+    if (!('i18nOriginal' in el.dataset)) el.dataset.i18nOriginal = el.textContent;
+    if (isBase) { el.textContent = el.dataset.i18nOriginal; return; }
+    const val = t(el.dataset.i18n);
+    if (val && val !== el.dataset.i18n) el.textContent = val;
   });
 
   // [data-i18n-html="key"] — replace innerHTML (for keys with markup)
   document.querySelectorAll('[data-i18n-html]').forEach(el => {
-    const key = el.dataset.i18nHtml;
-    const val = t(key);
-    if (val && val !== key) el.innerHTML = val;
+    if (!('i18nOriginalHtml' in el.dataset)) el.dataset.i18nOriginalHtml = el.innerHTML;
+    if (isBase) { el.innerHTML = el.dataset.i18nOriginalHtml; return; }
+    const val = t(el.dataset.i18nHtml);
+    if (val && val !== el.dataset.i18nHtml) el.innerHTML = val;
   });
 
   // [data-i18n-content="key"] — replace content attribute (meta tags)
   document.querySelectorAll('[data-i18n-content]').forEach(el => {
-    const key = el.dataset.i18nContent;
-    const val = t(key);
-    if (val && val !== key) el.setAttribute('content', val);
+    if (!('i18nOriginalContent' in el.dataset)) el.dataset.i18nOriginalContent = el.getAttribute('content') || '';
+    if (isBase) { el.setAttribute('content', el.dataset.i18nOriginalContent); return; }
+    const val = t(el.dataset.i18nContent);
+    if (val && val !== el.dataset.i18nContent) el.setAttribute('content', val);
   });
 
   // [data-i18n-placeholder="key"] — replace placeholder attribute
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-    const key = el.dataset.i18nPlaceholder;
-    const val = t(key);
-    if (val && val !== key) el.setAttribute('placeholder', val);
+    if (!('i18nOriginalPlaceholder' in el.dataset)) el.dataset.i18nOriginalPlaceholder = el.getAttribute('placeholder') || '';
+    if (isBase) { el.setAttribute('placeholder', el.dataset.i18nOriginalPlaceholder); return; }
+    const val = t(el.dataset.i18nPlaceholder);
+    if (val && val !== el.dataset.i18nPlaceholder) el.setAttribute('placeholder', val);
   });
 
   // [data-i18n-title="key"] — replace title attribute (tooltips)
   document.querySelectorAll('[data-i18n-title]').forEach(el => {
-    const key = el.dataset.i18nTitle;
-    const val = t(key);
-    if (val && val !== key) el.setAttribute('title', val);
+    if (!('i18nOriginalTitle' in el.dataset)) el.dataset.i18nOriginalTitle = el.getAttribute('title') || '';
+    if (isBase) { el.setAttribute('title', el.dataset.i18nOriginalTitle); return; }
+    const val = t(el.dataset.i18nTitle);
+    if (val && val !== el.dataset.i18nTitle) el.setAttribute('title', val);
   });
-
-  // Update document title if we have a page.title key
-  const pageTitle = t('page.title');
-  if (pageTitle && pageTitle !== 'page.title') document.title = pageTitle;
 
   // Update <html lang>
   document.documentElement.lang = activeLang;
