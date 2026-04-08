@@ -1,12 +1,12 @@
 {
-  "version": "v260406.04 2:37a",
-  "release": 104,
-  "sha": "179d176",
-  "fullSha": "179d1766c9898ea0e042587e21c08124119aa352",
+  "version": "v260408.01 12:28p",
+  "release": 105,
+  "sha": "9c3c454",
+  "fullSha": "9c3c454916eaaedff56ff500084b6dc98f8ef050",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervm727z3",
-  "pushedAt": "2026-04-06 07:37:58+00",
-  "commits": [{"sha":"179d176","message":"fix: add i18n data attributes to nav tab labels for PL translation","author":"Rahul"}]
+  "pushedAt": "2026-04-08 17:28:28+00",
+  "commits": [{"sha":"babb90f","message":"fix: enable RLS on releases and spgd_building_components","author":"Rahul"},{"sha":"9c3c454","message":"Merge admiring-morse: enable RLS on releases tables","author":"Rahul"}]
 }
