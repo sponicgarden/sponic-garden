@@ -1,12 +1,12 @@
 {
-  "version": "v260408.01 12:28p",
-  "release": 105,
-  "sha": "9c3c454",
-  "fullSha": "9c3c454916eaaedff56ff500084b6dc98f8ef050",
+  "version": "v260408.02 3:11p",
+  "release": 106,
+  "sha": "5a794c8",
+  "fullSha": "5a794c846c19e87365045a0e4d668b3ffc23ebb4",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervm727z3",
-  "pushedAt": "2026-04-08 17:28:28+00",
-  "commits": [{"sha":"babb90f","message":"fix: enable RLS on releases and spgd_building_components","author":"Rahul"},{"sha":"9c3c454","message":"Merge admiring-morse: enable RLS on releases tables","author":"Rahul"}]
+  "pushedAt": "2026-04-08 20:11:37+00",
+  "commits": [{"sha":"5a794c8","message":"fix: Sign in nav link points to DevControl (#19)","author":"Rahul"}]
 }
