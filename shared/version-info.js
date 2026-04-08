@@ -69,8 +69,8 @@ function rNum(n) {
   return isNaN(num) ? '—' : 'r' + String(num).padStart(5, '0');
 }
 
-/* ── find the version span in the DOM ──────────────────────────────── */
-function findVersionSpan() {
+/* ── find all version spans in the DOM ─────────────────────────────── */
+function findVersionSpans() {
   // Match vYYMMDD.NN (primary) or r000000000 (legacy)
   const pat = /^(v\d{6}\.\d{2}|r\d{9})/;
   const versionClasses = [
@@ -78,21 +78,16 @@ function findVersionSpan() {
     '.site-nav__version',
     '.login-card__version',
   ];
-  const candidates = [
-    ...document.querySelectorAll(versionClasses.join(',')),
-    ...document.querySelectorAll('.header-left span'),
-  ];
-  // First pass: look for spans that already contain a version string
-  for (const el of candidates) if (pat.test(el.textContent.trim())) return el;
-  for (const span of document.querySelectorAll('span'))
-    if (pat.test(span.textContent.trim())) return span;
-  // Second pass: return the first empty/placeholder span with a known version class
-  // so setupVersionInfo() can populate it from /version.json at runtime
-  for (const el of candidates) {
-    const txt = el.textContent.trim();
-    if (!txt || txt === '—' || txt === '--') return el;
+  const found = new Set();
+  // All known class-based version slots (filled or empty placeholders)
+  for (const el of document.querySelectorAll(versionClasses.join(','))) found.add(el);
+  // Header-left spans
+  for (const el of document.querySelectorAll('.header-left span')) found.add(el);
+  // Any other span already containing a version string (e.g. footer)
+  for (const span of document.querySelectorAll('span')) {
+    if (pat.test(span.textContent.trim())) found.add(span);
   }
-  return null;
+  return [...found];
 }
 
 /* ── inject CSS (once) ─────────────────────────────────────────────── */
@@ -246,53 +241,54 @@ function showModal(d) {
 
 /* ── setup ─────────────────────────────────────────────────────────── */
 export function setupVersionInfo() {
-  const span = findVersionSpan();
-  if (!span) return;
-
-  span.style.cursor = 'pointer';
-  span.style.textDecoration = 'underline dotted';
-  span.style.textUnderlineOffset = '2px';
-
-  const computed = getComputedStyle(span);
-  if (parseFloat(computed.fontSize) < 10) span.style.fontSize = '0.55rem';
+  const spans = findVersionSpans();
+  if (!spans.length) return;
 
   injectStyles();
 
-  // Immediately fetch version.json and overwrite the displayed version
-  // so all pages show the same live version regardless of HTML caching
-  fetchVersionInfo().then(info => {
-    const d = resolveInfo(info);
-    if (d && d.version && d.version !== '—') {
-      span.textContent = d.version;
-      span.style.display = '';
-    }
-  });
-
-  // Tooltip
+  // Shared tooltip
   const tip = document.createElement('div');
   tip.className = 'vi-tooltip';
   tip.innerHTML = '<div class="vi-tt-ver">Loading…</div>';
   document.body.appendChild(tip);
 
-  span.addEventListener('mouseenter', async () => {
-    const info = await fetchVersionInfo();
+  // Immediately fetch version.json and populate every matched span
+  fetchVersionInfo().then(info => {
     const d = resolveInfo(info);
-    tip.innerHTML = d ? tooltipHtml(d) : '<div class="vi-tt-ver">Build info unavailable</div>';
-    const rect = span.getBoundingClientRect();
-    tip.style.left = Math.min(rect.left, window.innerWidth - 370) + 'px';
-    tip.style.top = (rect.bottom + 8) + 'px';
-    tip.style.opacity = '1';
+    if (!d || !d.version || d.version === '—') return;
+    for (const span of spans) {
+      span.textContent = d.version;
+      span.style.display = '';
+    }
   });
 
-  span.addEventListener('mouseleave', () => { tip.style.opacity = '0'; });
+  for (const span of spans) {
+    span.style.cursor = 'pointer';
+    span.style.textDecoration = 'underline dotted';
+    span.style.textUnderlineOffset = '2px';
+    const computed = getComputedStyle(span);
+    if (parseFloat(computed.fontSize) < 10) span.style.fontSize = '0.55rem';
 
-  span.addEventListener('click', async (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    tip.style.opacity = '0';
-    const info = await fetchVersionInfo();
-    showModal(resolveInfo(info));
-  });
+    span.addEventListener('mouseenter', async () => {
+      const info = await fetchVersionInfo();
+      const d = resolveInfo(info);
+      tip.innerHTML = d ? tooltipHtml(d) : '<div class="vi-tt-ver">Build info unavailable</div>';
+      const rect = span.getBoundingClientRect();
+      tip.style.left = Math.min(rect.left, window.innerWidth - 370) + 'px';
+      tip.style.top = (rect.bottom + 8) + 'px';
+      tip.style.opacity = '1';
+    });
+
+    span.addEventListener('mouseleave', () => { tip.style.opacity = '0'; });
+
+    span.addEventListener('click', async (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      tip.style.opacity = '0';
+      const info = await fetchVersionInfo();
+      showModal(resolveInfo(info));
+    });
+  }
 }
 
 // Auto-init

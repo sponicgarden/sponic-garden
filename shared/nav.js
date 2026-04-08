@@ -351,7 +351,7 @@ function buildNav() {
   right.appendChild(lang);
 
   const signin = document.createElement('a');
-  signin.href = '#';
+  signin.href = '/admin/devcontrol.html';
   signin.className = 'sg-nav__signin';
   signin.textContent = 'Sign in';
   signin.dataset.i18n = 'nav.tab.signin';
@@ -382,7 +382,7 @@ function buildNav() {
   }
   // Sign in link in drawer
   const drawerSignin = document.createElement('a');
-  drawerSignin.href = '#';
+  drawerSignin.href = '/admin/devcontrol.html';
   drawerSignin.className = 'sg-nav__drawer-tab';
   drawerSignin.textContent = 'Sign in';
   drawerSignin.dataset.i18n = 'nav.tab.signin';
