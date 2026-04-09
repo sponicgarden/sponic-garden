@@ -1,12 +1,12 @@
 {
-  "version": "v260408.02 3:11p",
-  "release": 106,
-  "sha": "5a794c8",
-  "fullSha": "5a794c846c19e87365045a0e4d668b3ffc23ebb4",
+  "version": "v260409.01 12:03a",
+  "release": 107,
+  "sha": "33c65b5",
+  "fullSha": "33c65b5a7b15c93d5553c071e209a7223c3a07d6",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervm727z3",
-  "pushedAt": "2026-04-08 20:11:37+00",
-  "commits": [{"sha":"5a794c8","message":"fix: Sign in nav link points to DevControl (#19)","author":"Rahul"}]
+  "pushedAt": "2026-04-09 05:03:46+00",
+  "commits": [{"sha":"33c65b5","message":"fix: add missing OG tags to all pages and upgrade OG hero image","author":"Rahul"}]
 }
