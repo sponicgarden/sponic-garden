@@ -1,12 +1,12 @@
 {
-  "version": "v260410.02 3:26p",
-  "release": 109,
-  "sha": "6e5ff5f",
-  "fullSha": "6e5ff5f7a9fb893d2200e7703278bc91723b59c4",
+  "version": "v260410.03 5:08p",
+  "release": 110,
+  "sha": "936990e",
+  "fullSha": "936990e643f899205c146cbe653593e820213d6f",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervm35a4x",
-  "pushedAt": "2026-04-10 20:26:55+00",
-  "commits": [{"sha":"6e5ff5f","message":"fix: update visible tagline and body text to \"radically beneficial community\"","author":"Rahul"}]
+  "pushedAt": "2026-04-10 22:08:03+00",
+  "commits": [{"sha":"936990e","message":"fix: update subtitle and meta description to \"natively AI-managed\" phrasing","author":"Rahul"}]
 }
