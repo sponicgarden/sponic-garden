@@ -1,12 +1,12 @@
 {
-  "version": "v260410.03 5:08p",
-  "release": 110,
-  "sha": "936990e",
-  "fullSha": "936990e643f899205c146cbe653593e820213d6f",
+  "version": "v260411.01 1:14p",
+  "release": 111,
+  "sha": "2699f19",
+  "fullSha": "2699f199fffde934515ac4f5d92110821c044987",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervm35a4x",
-  "pushedAt": "2026-04-10 22:08:03+00",
-  "commits": [{"sha":"936990e","message":"fix: update subtitle and meta description to \"natively AI-managed\" phrasing","author":"Rahul"}]
+  "pushedAt": "2026-04-11 18:14:07+00",
+  "commits": [{"sha":"2699f19","message":"fix: add missing i18n and language-switcher scripts to work-with-us page (#21)","author":"Rahul"}]
 }
