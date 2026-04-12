@@ -3,13 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sponic Gardens — Style Audition</title>
+  <title>Sponic Gardens — Spatial UI Color Audition</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" type="image/svg+xml">
-
-  <!-- All font families used across all 16 options -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Lora:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&family=Poiret+One&family=Didact+Gothic&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600;700&family=Lexend+Mega:wght@400;500;600;700;800&family=Public+Sans:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&family=Georgia&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -21,7 +19,6 @@
       line-height: 1.6;
     }
 
-    /* ── Page header ── */
     .page-header {
       max-width: 1200px;
       margin: 0 auto;
@@ -29,7 +26,6 @@
       text-align: center;
     }
     .page-header h1 {
-      font-family: 'Playfair Display', serif;
       font-size: clamp(2rem, 5vw, 3.2rem);
       font-weight: 600;
       color: #fff;
@@ -53,7 +49,6 @@
       text-transform: uppercase;
     }
 
-    /* ── Option grid ── */
     .options-grid {
       max-width: 1200px;
       margin: 0 auto;
@@ -63,18 +58,14 @@
       gap: 48px;
     }
 
-    /* ── Each option container ── */
     .style-option {
       border-radius: 20px;
       overflow: hidden;
       border: 1px solid #222;
       transition: border-color 0.3s;
     }
-    .style-option:hover {
-      border-color: #444;
-    }
+    .style-option:hover { border-color: #444; }
 
-    /* ── Option label bar ── */
     .option-label {
       display: flex;
       align-items: center;
@@ -93,41 +84,16 @@
       font-weight: 700;
       font-size: 0.85rem;
       flex-shrink: 0;
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.15);
     }
-    .option-meta {
-      flex: 1;
-    }
-    .option-meta h2 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #fff;
-    }
-    .option-meta .subtitle {
-      font-size: 0.82rem;
-      color: #888;
-      margin-top: 2px;
-    }
-    .option-tags {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-    .option-tags span {
-      padding: 3px 10px;
-      border-radius: 100px;
-      font-size: 0.7rem;
-      border: 1px solid #333;
-      color: #aaa;
-    }
+    .option-meta { flex: 1; }
+    .option-meta h2 { font-size: 1.1rem; font-weight: 600; color: #fff; }
+    .option-meta .subtitle { font-size: 0.82rem; color: #888; margin-top: 2px; }
+    .option-meta .flower { font-size: 0.75rem; color: #666; margin-top: 4px; font-style: italic; }
+    .option-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+    .option-tags span { padding: 3px 10px; border-radius: 100px; font-size: 0.7rem; border: 1px solid #333; color: #aaa; }
 
-    /* ── Preview area (each style fills this) ── */
-    .preview {
-      min-height: 520px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* ── Palette strip ── */
     .palette-strip {
       display: flex;
       padding: 16px 28px;
@@ -136,1974 +102,99 @@
       border-top: 1px solid #222;
       align-items: center;
     }
-    .swatch {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      border: 1px solid rgba(255,255,255,0.1);
-      flex-shrink: 0;
-    }
-    .palette-info {
-      margin-left: 12px;
-      font-size: 0.78rem;
-      color: #777;
-      line-height: 1.5;
-    }
-    .palette-info strong {
-      color: #aaa;
-    }
+    .swatch { width: 32px; height: 32px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); flex-shrink: 0; }
+    .palette-info { margin-left: 12px; font-size: 0.78rem; color: #777; line-height: 1.5; }
+    .palette-info strong { color: #aaa; }
 
-    /* ── Responsive ── */
-    @media (max-width: 768px) {
-      .page-header { padding: 40px 20px 24px; }
-      .options-grid { padding: 0 16px 60px; gap: 32px; }
-      .option-label { flex-wrap: wrap; padding: 16px 20px; }
-      .option-tags { margin-top: 8px; width: 100%; }
-      .preview { min-height: 480px; }
-      .palette-strip { padding: 12px 20px; flex-wrap: wrap; }
-    }
-
-
-    /* ╔══════════════════════════════════════════════════════╗
-       ║  OPTION 1 — Refined Botanical (current vibe, elevated)
-       ╚══════════════════════════════════════════════════════╝ */
-    .opt1 .option-number { background: #1a4d2e; color: #a7f3d0; }
-
-    .opt1 .preview {
-      background: #f4f7f1;
-      color: #1a2412;
-      font-family: 'DM Sans', sans-serif;
+    /* ── Shared Spatial UI base ── */
+    .spatial-preview {
+      font-family: 'Inter', sans-serif;
       padding: 48px;
       display: flex;
       flex-direction: column;
-      gap: 32px;
-    }
-    .opt1 .preview-nav {
-      display: flex;
-      align-items: center;
       gap: 24px;
-      padding: 14px 24px;
-      background: rgba(255,255,255,0.85);
-      backdrop-filter: blur(8px);
-      border-radius: 12px;
-      border: 1px solid #c4d4ba;
-    }
-    .opt1 .preview-nav .brand {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.15rem;
-      color: #1a4d2e;
-      font-weight: 400;
-    }
-    .opt1 .preview-nav .links {
-      display: flex;
-      gap: 20px;
-      margin-left: auto;
-      font-size: 0.85rem;
-      color: #4a6040;
-    }
-    .opt1 .preview-hero {
-      background: #ffffff;
-      border-radius: 14px;
-      border: 1px solid #c4d4ba;
-      padding: 48px 40px;
       position: relative;
       overflow: hidden;
+      min-height: 520px;
     }
-    .opt1 .preview-hero::before {
-      content: '';
+    .spatial-preview .ambient {
       position: absolute;
-      top: -40px;
-      right: -40px;
-      width: 200px;
-      height: 200px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(45,106,30,0.08) 0%, transparent 70%);
+      pointer-events: none;
     }
-    .opt1 .preview-hero h3 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.9rem;
-      color: #1a2412;
-      margin-bottom: 12px;
-      line-height: 1.25;
+    .spatial-preview .ambient-1 {
+      top: -100px; left: 15%; width: 400px; height: 400px;
+      animation: ambFloat1 12s ease-in-out infinite;
     }
-    .opt1 .preview-hero p {
-      color: #4a6040;
-      max-width: 480px;
-      font-size: 0.95rem;
-      line-height: 1.7;
-      margin-bottom: 20px;
+    .spatial-preview .ambient-2 {
+      bottom: -80px; right: 10%; width: 350px; height: 350px;
+      animation: ambFloat2 15s ease-in-out infinite;
     }
-    .opt1 .preview-hero .btn {
-      display: inline-block;
-      padding: 10px 28px;
-      background: #1a4d2e;
-      color: #e8f5e9;
-      border-radius: 8px;
-      font-size: 0.88rem;
-      font-weight: 500;
-      cursor: pointer;
+    .spatial-preview .ambient-3 {
+      top: 40%; left: 50%; width: 250px; height: 250px;
+      animation: ambFloat3 10s ease-in-out infinite;
     }
-    .opt1 .preview-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-    .opt1 .preview-card {
-      background: #ffffff;
-      border: 1px solid #d8e3cf;
-      border-radius: 10px;
-      padding: 24px 20px;
-    }
-    .opt1 .preview-card .icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .opt1 .preview-card .icon svg { width: 20px; height: 20px; }
-    .opt1 .preview-card h4 {
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: #1a2412;
-      margin-bottom: 6px;
-    }
-    .opt1 .preview-card p {
-      font-size: 0.8rem;
-      color: #7a9168;
-      line-height: 1.55;
-    }
-    .opt1 .card-green .icon { background: rgba(45,106,30,0.07); }
-    .opt1 .card-emerald .icon { background: rgba(4,120,87,0.06); }
-    .opt1 .card-earth .icon { background: rgba(146,64,14,0.06); }
-
-    @media (max-width: 768px) {
-      .opt1 .preview { padding: 24px; }
-      .opt1 .preview-cards { grid-template-columns: 1fr; }
-      .opt1 .preview-hero { padding: 32px 24px; }
-    }
-
-
-    /* ╔══════════════════════════════════════════════════════╗
-       ║  OPTION 2 — Liquid Glass
-       ╚══════════════════════════════════════════════════════╝ */
-    .opt2 .option-number { background: linear-gradient(135deg, #6366f1, #ec4899); color: #fff; }
-
-    .opt2 .preview {
-      background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 30%, #0d1b2a 60%, #162447 100%);
-      font-family: 'Raleway', sans-serif;
-      padding: 48px;
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-      position: relative;
-    }
-    .opt2 .preview::before {
-      content: '';
-      position: absolute;
-      top: -100px;
-      right: -60px;
-      width: 400px;
-      height: 400px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(99,102,241,0.25) 0%, rgba(236,72,153,0.1) 40%, transparent 70%);
-      animation: opt2float 8s ease-in-out infinite;
-    }
-    .opt2 .preview::after {
-      content: '';
-      position: absolute;
-      bottom: -80px;
-      left: -40px;
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(34,211,153,0.15) 0%, rgba(6,182,212,0.08) 50%, transparent 70%);
-      animation: opt2float 10s ease-in-out infinite reverse;
-    }
-    @keyframes opt2float {
+    @keyframes ambFloat1 {
       0%, 100% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(20px, -15px) scale(1.05); }
+      50% { transform: translate(30px, -20px) scale(1.1); }
     }
-    .opt2 .glass-nav {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      padding: 14px 24px;
-      background: rgba(255,255,255,0.06);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.08);
-      position: relative;
-      z-index: 1;
+    @keyframes ambFloat2 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-25px, -30px) scale(1.08); }
     }
-    .opt2 .glass-nav .brand {
-      font-family: 'Lora', serif;
-      font-size: 1.15rem;
-      color: rgba(255,255,255,0.9);
-    }
-    .opt2 .glass-nav .links {
-      display: flex;
-      gap: 20px;
-      margin-left: auto;
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.45);
-    }
-    .opt2 .glass-hero {
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.08);
-      padding: 48px 40px;
-      position: relative;
-      z-index: 1;
-    }
-    .opt2 .glass-hero h3 {
-      font-family: 'Lora', serif;
-      font-size: 1.9rem;
-      color: #fff;
-      margin-bottom: 12px;
-      line-height: 1.25;
-    }
-    .opt2 .glass-hero p {
-      color: rgba(255,255,255,0.55);
-      max-width: 480px;
-      font-size: 0.93rem;
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-    .opt2 .glass-hero .btn {
-      display: inline-block;
-      padding: 10px 28px;
-      background: linear-gradient(135deg, rgba(99,102,241,0.6), rgba(236,72,153,0.5));
-      backdrop-filter: blur(12px);
-      color: #fff;
-      border-radius: 10px;
-      font-size: 0.88rem;
-      font-weight: 500;
-      border: 1px solid rgba(255,255,255,0.12);
-      cursor: pointer;
-    }
-    .opt2 .glass-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      position: relative;
-      z-index: 1;
-    }
-    .opt2 .glass-card {
-      background: rgba(255,255,255,0.04);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 14px;
-      padding: 24px 20px;
-    }
-    .opt2 .glass-card .icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255,255,255,0.06);
-    }
-    .opt2 .glass-card .icon svg { width: 20px; height: 20px; }
-    .opt2 .glass-card h4 {
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.85);
-      margin-bottom: 6px;
-    }
-    .opt2 .glass-card p {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.4);
-      line-height: 1.55;
+    @keyframes ambFloat3 {
+      0%, 100% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.5; }
+      50% { transform: translate(-50%, -55%) scale(1.1); opacity: 0.8; }
     }
 
-    @media (max-width: 768px) {
-      .opt2 .preview { padding: 24px; }
-      .opt2 .glass-cards { grid-template-columns: 1fr; }
-      .opt2 .glass-hero { padding: 32px 24px; }
-    }
-
-
-    /* ╔══════════════════════════════════════════════════════╗
-       ║  OPTION 3 — Dark Botanical
-       ╚══════════════════════════════════════════════════════╝ */
-    .opt3 .option-number { background: #064e3b; color: #6ee7b7; }
-
-    .opt3 .preview {
-      background: #0a0f0d;
-      font-family: 'DM Sans', sans-serif;
-      padding: 48px;
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-      position: relative;
-    }
-    .opt3 .preview::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background:
-        radial-gradient(ellipse at 20% 80%, rgba(5,150,105,0.08) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 20%, rgba(52,211,153,0.06) 0%, transparent 50%);
-      pointer-events: none;
-    }
-    .opt3 .dark-nav {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      padding: 14px 24px;
-      background: rgba(255,255,255,0.03);
-      border-radius: 12px;
-      border: 1px solid rgba(52,211,153,0.1);
-      position: relative;
-      z-index: 1;
-    }
-    .opt3 .dark-nav .brand {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.15rem;
-      color: #6ee7b7;
-    }
-    .opt3 .dark-nav .links {
-      display: flex;
-      gap: 20px;
-      margin-left: auto;
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.35);
-    }
-    .opt3 .dark-hero {
-      background: rgba(255,255,255,0.02);
-      border-radius: 14px;
-      border: 1px solid rgba(52,211,153,0.08);
-      padding: 48px 40px;
-      position: relative;
-      z-index: 1;
-    }
-    .opt3 .dark-hero h3 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.9rem;
-      color: #ecfdf5;
-      margin-bottom: 12px;
-      line-height: 1.25;
-    }
-    .opt3 .dark-hero p {
-      color: rgba(167,243,208,0.5);
-      max-width: 480px;
-      font-size: 0.93rem;
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-    .opt3 .dark-hero .btn {
-      display: inline-block;
-      padding: 10px 28px;
-      background: #059669;
-      color: #ecfdf5;
-      border-radius: 8px;
-      font-size: 0.88rem;
-      font-weight: 500;
-      cursor: pointer;
-    }
-    .opt3 .dark-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      position: relative;
-      z-index: 1;
-    }
-    .opt3 .dark-card {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(52,211,153,0.06);
-      border-radius: 10px;
-      padding: 24px 20px;
-    }
-    .opt3 .dark-card .icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(52,211,153,0.08);
-    }
-    .opt3 .dark-card .icon svg { width: 20px; height: 20px; }
-    .opt3 .dark-card h4 {
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: #d1fae5;
-      margin-bottom: 6px;
-    }
-    .opt3 .dark-card p {
-      font-size: 0.8rem;
-      color: rgba(167,243,208,0.35);
-      line-height: 1.55;
-    }
-
-    @media (max-width: 768px) {
-      .opt3 .preview { padding: 24px; }
-      .opt3 .dark-cards { grid-template-columns: 1fr; }
-      .opt3 .dark-hero { padding: 32px 24px; }
-    }
-
-
-    /* ╔══════════════════════════════════════════════════════╗
-       ║  OPTION 4 — Exaggerated Minimalism
-       ╚══════════════════════════════════════════════════════╝ */
-    .opt4 .option-number { background: #000; color: #fff; border: 1px solid #333; }
-
-    .opt4 .preview {
-      background: #ffffff;
-      font-family: 'Space Grotesk', sans-serif;
-      padding: 48px;
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-      color: #000;
-    }
-    .opt4 .min-nav {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      padding: 0 4px;
-    }
-    .opt4 .min-nav .brand {
-      font-size: 1rem;
-      font-weight: 700;
-      color: #000;
-      letter-spacing: -0.02em;
-      text-transform: uppercase;
-    }
-    .opt4 .min-nav .links {
-      display: flex;
-      gap: 24px;
-      margin-left: auto;
-      font-size: 0.8rem;
-      color: #999;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-    .opt4 .min-hero {
-      padding: 32px 0;
-    }
-    .opt4 .min-hero h3 {
-      font-size: clamp(2.2rem, 5vw, 3.8rem);
-      font-weight: 700;
-      color: #000;
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-      margin-bottom: 20px;
-    }
-    .opt4 .min-hero h3 em {
-      font-style: italic;
-      color: #1a4d2e;
-    }
-    .opt4 .min-hero p {
-      color: #666;
-      max-width: 440px;
-      font-size: 0.95rem;
-      line-height: 1.7;
-      margin-bottom: 28px;
-    }
-    .opt4 .min-hero .btn {
-      display: inline-block;
-      padding: 12px 32px;
-      background: #000;
-      color: #fff;
-      border-radius: 0;
-      font-size: 0.82rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      cursor: pointer;
-    }
-    .opt4 .min-divider {
-      height: 1px;
-      background: #e5e5e5;
-    }
-    .opt4 .min-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      border-top: 1px solid #e5e5e5;
-    }
-    .opt4 .min-card {
-      padding: 28px 24px;
-      border-right: 1px solid #e5e5e5;
-      border-bottom: 1px solid #e5e5e5;
-    }
-    .opt4 .min-card:last-child { border-right: none; }
-    .opt4 .min-card .number {
-      font-size: 0.7rem;
-      color: #bbb;
-      margin-bottom: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-    .opt4 .min-card h4 {
-      font-weight: 600;
-      font-size: 0.95rem;
-      color: #000;
-      margin-bottom: 8px;
-      letter-spacing: -0.01em;
-    }
-    .opt4 .min-card p {
-      font-size: 0.8rem;
-      color: #888;
-      line-height: 1.6;
-    }
-
-    @media (max-width: 768px) {
-      .opt4 .preview { padding: 24px; }
-      .opt4 .min-cards { grid-template-columns: 1fr; }
-      .opt4 .min-card { border-right: none; }
-    }
-
-
-    /* ╔══════════════════════════════════════════════════════╗
-       ║  OPTION 5 — Luxury Serif (Black + Gold)
-       ╚══════════════════════════════════════════════════════╝ */
-    .opt5 .option-number { background: #1c1917; color: #ca8a04; }
-
-    .opt5 .preview {
-      background: #fafaf9;
-      font-family: 'Montserrat', sans-serif;
-      padding: 48px;
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-      color: #1c1917;
-    }
-    .opt5 .lux-nav {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      padding: 14px 24px;
-      background: #1c1917;
-      border-radius: 10px;
-    }
-    .opt5 .lux-nav .brand {
-      font-family: 'Cormorant', serif;
-      font-size: 1.25rem;
-      color: #ca8a04;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-    }
-    .opt5 .lux-nav .links {
-      display: flex;
-      gap: 20px;
-      margin-left: auto;
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.4);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-    .opt5 .lux-hero {
-      background: #ffffff;
-      border-radius: 12px;
-      border: 1px solid #e7e5e4;
-      padding: 48px 40px;
-      position: relative;
-      overflow: hidden;
-    }
-    .opt5 .lux-hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, #ca8a04, #fbbf24, #ca8a04);
-    }
-    .opt5 .lux-hero h3 {
-      font-family: 'Cormorant', serif;
-      font-size: 2.1rem;
-      color: #1c1917;
-      margin-bottom: 12px;
-      line-height: 1.2;
-      font-weight: 600;
-    }
-    .opt5 .lux-hero p {
-      color: #78716c;
-      max-width: 480px;
-      font-size: 0.9rem;
-      line-height: 1.75;
-      margin-bottom: 24px;
-    }
-    .opt5 .lux-hero .btn {
-      display: inline-block;
-      padding: 12px 32px;
-      background: #1c1917;
-      color: #ca8a04;
-      border-radius: 6px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      cursor: pointer;
-    }
-    .opt5 .lux-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-    .opt5 .lux-card {
-      background: #ffffff;
-      border: 1px solid #e7e5e4;
-      border-radius: 10px;
-      padding: 24px 20px;
-    }
-    .opt5 .lux-card .icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(202,138,4,0.08);
-    }
-    .opt5 .lux-card .icon svg { width: 20px; height: 20px; }
-    .opt5 .lux-card h4 {
-      font-family: 'Cormorant', serif;
-      font-weight: 600;
-      font-size: 1.05rem;
-      color: #1c1917;
-      margin-bottom: 6px;
-    }
-    .opt5 .lux-card p {
-      font-size: 0.8rem;
-      color: #a8a29e;
-      line-height: 1.55;
-    }
-
-    @media (max-width: 768px) {
-      .opt5 .preview { padding: 24px; }
-      .opt5 .lux-cards { grid-template-columns: 1fr; }
-      .opt5 .lux-hero { padding: 32px 24px; }
-    }
-
-
-    /* ╔══════════════════════════════════════════════════════╗
-       ║  OPTION 6 — Art Deco Garden Club
-       ╚══════════════════════════════════════════════════════╝ */
-    .opt6 .option-number { background: linear-gradient(135deg, #b45309, #ca8a04); color: #fff; }
-
-    .opt6 .preview {
-      background: #1a1a18;
-      font-family: 'Didact Gothic', sans-serif;
-      padding: 48px;
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-      color: #e8e0d0;
-      position: relative;
-      overflow: hidden;
-    }
-    .opt6 .preview::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background:
-        repeating-linear-gradient(
-          90deg,
-          transparent,
-          transparent 98px,
-          rgba(202,138,4,0.04) 98px,
-          rgba(202,138,4,0.04) 100px
-        );
-      pointer-events: none;
-    }
-    .opt6 .deco-nav {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      padding: 14px 24px;
-      border: 1px solid rgba(202,138,4,0.2);
-      border-radius: 0;
-      position: relative;
-      z-index: 1;
-    }
-    .opt6 .deco-nav::before,
-    .opt6 .deco-nav::after {
-      content: '';
-      position: absolute;
-      width: 8px;
-      height: 8px;
-      border: 1px solid rgba(202,138,4,0.4);
-      transform: rotate(45deg);
-    }
-    .opt6 .deco-nav::before { left: -4px; top: 50%; margin-top: -4px; }
-    .opt6 .deco-nav::after { right: -4px; top: 50%; margin-top: -4px; }
-    .opt6 .deco-nav .brand {
-      font-family: 'Poiret One', sans-serif;
-      font-size: 1.3rem;
-      color: #ca8a04;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-    }
-    .opt6 .deco-nav .links {
-      display: flex;
-      gap: 20px;
-      margin-left: auto;
-      font-size: 0.78rem;
-      color: rgba(232,224,208,0.4);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-    .opt6 .deco-hero {
-      border: 1px solid rgba(202,138,4,0.15);
-      padding: 48px 40px;
-      position: relative;
-      z-index: 1;
-    }
-    .opt6 .deco-hero::before {
-      content: '';
-      position: absolute;
-      top: -1px;
-      left: 40px;
-      right: 40px;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, #ca8a04, transparent);
-    }
-    .opt6 .deco-hero h3 {
-      font-family: 'Poiret One', sans-serif;
-      font-size: 2.2rem;
-      color: #fbbf24;
-      margin-bottom: 16px;
-      line-height: 1.2;
-      letter-spacing: 0.05em;
-    }
-    .opt6 .deco-hero p {
-      color: rgba(232,224,208,0.5);
-      max-width: 480px;
-      font-size: 0.93rem;
-      line-height: 1.75;
-      margin-bottom: 24px;
-    }
-    .opt6 .deco-hero .btn {
-      display: inline-block;
-      padding: 12px 36px;
-      background: transparent;
-      color: #ca8a04;
-      border: 1px solid rgba(202,138,4,0.4);
-      font-size: 0.78rem;
-      font-weight: 400;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      cursor: pointer;
-    }
-    .opt6 .deco-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      position: relative;
-      z-index: 1;
-    }
-    .opt6 .deco-card {
-      border: 1px solid rgba(202,138,4,0.1);
-      padding: 24px 20px;
-      position: relative;
-    }
-    .opt6 .deco-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 20px;
-      height: 20px;
-      border-top: 1px solid rgba(202,138,4,0.3);
-      border-left: 1px solid rgba(202,138,4,0.3);
-    }
-    .opt6 .deco-card .icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 0;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid rgba(202,138,4,0.15);
-    }
-    .opt6 .deco-card .icon svg { width: 20px; height: 20px; }
-    .opt6 .deco-card h4 {
-      font-family: 'Poiret One', sans-serif;
-      font-weight: 400;
-      font-size: 1.05rem;
-      color: #fbbf24;
-      margin-bottom: 6px;
-      letter-spacing: 0.03em;
-    }
-    .opt6 .deco-card p {
-      font-size: 0.8rem;
-      color: rgba(232,224,208,0.35);
-      line-height: 1.55;
-    }
-
-    @media (max-width: 768px) {
-      .opt6 .preview { padding: 24px; }
-      .opt6 .deco-cards { grid-template-columns: 1fr; }
-      .opt6 .deco-hero { padding: 32px 24px; }
-    }
-
-
-    /* ╔══════════════════════════════════════════════════════╗
-       ║  OPTION 7 — Swiss Modernism 2.0
-       ╚══════════════════════════════════════════════════════╝ */
-    .opt7 .option-number { background: #000; color: #fff; }
-
-    .opt7 .preview {
-      background: #ffffff;
-      font-family: 'Inter', sans-serif;
-      padding: 48px;
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-      color: #000;
-    }
-    .opt7 .swiss-nav {
-      display: flex;
-      align-items: baseline;
-      gap: 24px;
-      padding: 0 0 14px;
-      border-bottom: 2px solid #000;
-    }
-    .opt7 .swiss-nav .brand {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: #000;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-    .opt7 .swiss-nav .links {
-      display: flex;
-      gap: 24px;
-      margin-left: auto;
-      font-size: 0.75rem;
-      color: #666;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-    .opt7 .swiss-hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-      padding: 24px 0;
-    }
-    .opt7 .swiss-hero h3 {
-      font-size: 2.4rem;
-      font-weight: 700;
-      color: #000;
-      line-height: 1.08;
-      letter-spacing: -0.03em;
-    }
-    .opt7 .swiss-hero-right {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-    }
-    .opt7 .swiss-hero-right p {
-      color: #555;
-      font-size: 0.9rem;
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-    .opt7 .swiss-hero-right .btn {
-      display: inline-block;
-      width: fit-content;
-      padding: 10px 28px;
-      background: #000;
-      color: #fff;
-      font-size: 0.78rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      cursor: pointer;
-    }
-    .opt7 .swiss-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-    }
-    .opt7 .swiss-card {
-      padding: 24px;
-      border-top: 2px solid #000;
-    }
-    .opt7 .swiss-card .label {
-      font-size: 0.65rem;
-      color: #999;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      margin-bottom: 10px;
-    }
-    .opt7 .swiss-card h4 {
-      font-weight: 700;
-      font-size: 0.9rem;
-      color: #000;
-      margin-bottom: 8px;
-    }
-    .opt7 .swiss-card p {
-      font-size: 0.8rem;
-      color: #777;
-      line-height: 1.6;
-    }
-    .opt7 .swiss-accent {
-      display: inline-block;
-      width: 8px;
-      height: 8px;
-      background: #2563eb;
-      border-radius: 50%;
-      margin-right: 6px;
-      vertical-align: middle;
-    }
-
-    @media (max-width: 768px) {
-      .opt7 .preview { padding: 24px; }
-      .opt7 .swiss-hero { grid-template-columns: 1fr; }
-      .opt7 .swiss-cards { grid-template-columns: 1fr; }
-    }
-
-
-    /* ╔══════════════════════════════════════════════════════╗
-       ║  OPTION 8 — Neubrutalism
-       ╚══════════════════════════════════════════════════════╝ */
-    .opt8 .option-number { background: #FFEB3B; color: #000; border: 2px solid #000; }
-
-    .opt8 .preview {
-      background: #FAFAF8;
-      font-family: 'Lexend Mega', sans-serif;
-      padding: 48px;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      color: #000;
-    }
-    .opt8 .nb-nav {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 12px 20px;
-      background: #fff;
-      border: 3px solid #000;
-      box-shadow: 5px 5px 0 #000;
-    }
-    .opt8 .nb-nav .brand {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: #000;
-    }
-    .opt8 .nb-nav .links {
-      display: flex;
-      gap: 16px;
-      margin-left: auto;
-      font-size: 0.65rem;
-      font-family: 'Public Sans', sans-serif;
-      color: #555;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-    .opt8 .nb-hero {
-      background: #FFEB3B;
-      border: 3px solid #000;
-      box-shadow: 5px 5px 0 #000;
-      padding: 40px 36px;
-    }
-    .opt8 .nb-hero h3 {
-      font-size: 1.7rem;
-      font-weight: 800;
-      color: #000;
-      line-height: 1.15;
-      margin-bottom: 14px;
-    }
-    .opt8 .nb-hero p {
-      font-family: 'Public Sans', sans-serif;
-      color: #333;
-      max-width: 480px;
-      font-size: 0.9rem;
-      line-height: 1.65;
-      margin-bottom: 20px;
-    }
-    .opt8 .nb-hero .btn {
-      display: inline-block;
-      padding: 10px 28px;
-      background: #000;
-      color: #FFEB3B;
-      border: 3px solid #000;
-      font-size: 0.78rem;
-      font-weight: 700;
-      font-family: 'Lexend Mega', sans-serif;
-      cursor: pointer;
-    }
-    .opt8 .nb-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-    .opt8 .nb-card {
-      background: #fff;
-      border: 3px solid #000;
-      box-shadow: 4px 4px 0 #000;
-      padding: 24px 20px;
-    }
-    .opt8 .nb-card-blue { border-color: #2196F3; box-shadow: 4px 4px 0 #2196F3; }
-    .opt8 .nb-card-red { border-color: #FF5252; box-shadow: 4px 4px 0 #FF5252; }
-    .opt8 .nb-card-green { border-color: #4CAF50; box-shadow: 4px 4px 0 #4CAF50; }
-    .opt8 .nb-card h4 {
-      font-weight: 700;
-      font-size: 0.82rem;
-      color: #000;
-      margin-bottom: 8px;
-    }
-    .opt8 .nb-card p {
-      font-family: 'Public Sans', sans-serif;
-      font-size: 0.78rem;
-      color: #666;
-      line-height: 1.55;
-    }
-
-    @media (max-width: 768px) {
-      .opt8 .preview { padding: 24px; }
-      .opt8 .nb-cards { grid-template-columns: 1fr; }
-      .opt8 .nb-hero { padding: 28px 24px; }
-    }
-
-
-    /* ╔══════════════════════════════════════════════════════╗
-       ║  OPTION 9 — Organic Biophilic
-       ╚══════════════════════════════════════════════════════╝ */
-    .opt9 .option-number { background: #228B22; color: #F5F5DC; }
-
-    .opt9 .preview {
-      background: #f7f5f0;
-      font-family: 'Work Sans', sans-serif;
-      padding: 48px;
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-      color: #2d2a24;
-    }
-    .opt9 .bio-nav {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      padding: 14px 24px;
-      background: rgba(255,255,255,0.7);
-      border-radius: 24px;
-      border: 1px solid rgba(34,139,34,0.12);
-    }
-    .opt9 .bio-nav .brand {
-      font-family: 'Outfit', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #228B22;
-    }
-    .opt9 .bio-nav .links {
-      display: flex;
-      gap: 20px;
-      margin-left: auto;
-      font-size: 0.82rem;
-      color: #8B7355;
-    }
-    .opt9 .bio-hero {
-      background: #ffffff;
-      border-radius: 24px;
-      padding: 48px 40px;
-      position: relative;
-      overflow: hidden;
-      border: 1px solid rgba(34,139,34,0.08);
-    }
-    .opt9 .bio-hero::before {
-      content: '';
-      position: absolute;
-      top: -60px;
-      right: -60px;
-      width: 260px;
-      height: 260px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(34,139,34,0.06) 0%, rgba(135,206,235,0.04) 50%, transparent 70%);
-    }
-    .opt9 .bio-hero::after {
-      content: '';
-      position: absolute;
-      bottom: -40px;
-      left: -30px;
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(139,69,19,0.05) 0%, transparent 70%);
-    }
-    .opt9 .bio-hero h3 {
-      font-family: 'Outfit', sans-serif;
-      font-size: 1.9rem;
-      color: #2d2a24;
-      margin-bottom: 12px;
-      line-height: 1.25;
-      font-weight: 600;
-    }
-    .opt9 .bio-hero p {
-      color: #8B7355;
-      max-width: 480px;
-      font-size: 0.93rem;
-      line-height: 1.7;
-      margin-bottom: 20px;
-      position: relative;
-    }
-    .opt9 .bio-hero .btn {
-      display: inline-block;
-      padding: 12px 28px;
-      background: #228B22;
-      color: #f5f5dc;
-      border-radius: 24px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      cursor: pointer;
-      position: relative;
-    }
-    .opt9 .bio-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-    .opt9 .bio-card {
-      background: #ffffff;
-      border: 1px solid rgba(34,139,34,0.08);
-      border-radius: 20px;
-      padding: 24px 20px;
-    }
-    .opt9 .bio-card .icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .opt9 .bio-card .icon svg { width: 20px; height: 20px; }
-    .opt9 .bio-card .icon-forest { background: rgba(34,139,34,0.08); }
-    .opt9 .bio-card .icon-sky { background: rgba(135,206,235,0.15); }
-    .opt9 .bio-card .icon-earth { background: rgba(139,69,19,0.08); }
-    .opt9 .bio-card h4 {
-      font-family: 'Outfit', sans-serif;
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: #2d2a24;
-      margin-bottom: 6px;
-    }
-    .opt9 .bio-card p {
-      font-size: 0.8rem;
-      color: #a09080;
-      line-height: 1.55;
-    }
-
-    @media (max-width: 768px) {
-      .opt9 .preview { padding: 24px; }
-      .opt9 .bio-cards { grid-template-columns: 1fr; }
-      .opt9 .bio-hero { padding: 32px 24px; }
-    }
-
-
-    /* ╔══════════════════════════════════════════════════════╗
-       ║  OPTION 10 — Nature Distilled (Terracotta)
-       ╚══════════════════════════════════════════════════════╝ */
-    .opt10 .option-number { background: #C67B5C; color: #F5F0E1; }
-
-    .opt10 .preview {
-      background: #F5F0E1;
-      font-family: 'Raleway', sans-serif;
-      padding: 48px;
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-      color: #3d2e1e;
-    }
-    .opt10 .terra-nav {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      padding: 14px 24px;
-      border-bottom: 1px solid rgba(198,123,92,0.2);
-    }
-    .opt10 .terra-nav .brand {
-      font-family: 'Lora', serif;
-      font-size: 1.15rem;
-      color: #8B4513;
-      font-weight: 600;
-    }
-    .opt10 .terra-nav .links {
-      display: flex;
-      gap: 20px;
-      margin-left: auto;
-      font-size: 0.82rem;
-      color: #a08060;
-    }
-    .opt10 .terra-hero {
-      background: rgba(255,255,255,0.5);
-      border-radius: 12px;
-      padding: 48px 40px;
-      border: 1px solid rgba(198,123,92,0.12);
-    }
-    .opt10 .terra-hero h3 {
-      font-family: 'Lora', serif;
-      font-size: 1.9rem;
-      color: #3d2e1e;
-      margin-bottom: 14px;
-      line-height: 1.25;
-      font-weight: 600;
-    }
-    .opt10 .terra-hero p {
-      color: #8B7355;
-      max-width: 480px;
-      font-size: 0.93rem;
-      line-height: 1.75;
-      margin-bottom: 22px;
-    }
-    .opt10 .terra-hero .btn {
-      display: inline-block;
-      padding: 11px 28px;
-      background: #C67B5C;
-      color: #F5F0E1;
-      border-radius: 8px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      cursor: pointer;
-    }
-    .opt10 .terra-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-    .opt10 .terra-card {
-      background: rgba(255,255,255,0.5);
-      border: 1px solid rgba(198,123,92,0.1);
-      border-radius: 10px;
-      padding: 24px 20px;
-    }
-    .opt10 .terra-card .icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .opt10 .terra-card .icon svg { width: 20px; height: 20px; }
-    .opt10 .terra-card .icon-clay { background: rgba(198,123,92,0.1); }
-    .opt10 .terra-card .icon-olive { background: rgba(107,123,60,0.1); }
-    .opt10 .terra-card .icon-sand { background: rgba(212,196,168,0.3); }
-    .opt10 .terra-card h4 {
-      font-family: 'Lora', serif;
-      font-weight: 600;
-      font-size: 0.92rem;
-      color: #3d2e1e;
-      margin-bottom: 6px;
-    }
-    .opt10 .terra-card p {
-      font-size: 0.8rem;
-      color: #a09080;
-      line-height: 1.55;
-    }
-
-    @media (max-width: 768px) {
-      .opt10 .preview { padding: 24px; }
-      .opt10 .terra-cards { grid-template-columns: 1fr; }
-      .opt10 .terra-hero { padding: 32px 24px; }
-    }
-
-
-    /* ╔══════════════════════════════════════════════════════╗
-       ║  OPTION 11 — Bento Box Grid
-       ╚══════════════════════════════════════════════════════╝ */
-    .opt11 .option-number { background: #F5F5F7; color: #1d1d1f; border: 1px solid #ddd; }
-
-    .opt11 .preview {
-      background: #F5F5F7;
-      font-family: 'Inter', sans-serif;
-      padding: 48px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      color: #1d1d1f;
-    }
-    .opt11 .bento-nav {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      padding: 14px 24px;
-      background: rgba(255,255,255,0.8);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-radius: 14px;
-    }
-    .opt11 .bento-nav .brand {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #1d1d1f;
-    }
-    .opt11 .bento-nav .links {
-      display: flex;
-      gap: 20px;
-      margin-left: auto;
-      font-size: 0.82rem;
-      color: #86868b;
-    }
-    .opt11 .bento-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: auto auto;
-      gap: 12px;
-    }
-    .opt11 .bento-cell {
-      background: #ffffff;
-      border-radius: 20px;
-      padding: 28px 24px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-    }
-    .opt11 .bento-wide {
-      grid-column: span 2;
-    }
-    .opt11 .bento-cell h3 {
-      font-size: 1.6rem;
-      font-weight: 600;
-      color: #1d1d1f;
-      line-height: 1.2;
-      margin-bottom: 10px;
-    }
-    .opt11 .bento-cell h4 {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: #1d1d1f;
-      margin-bottom: 6px;
-    }
-    .opt11 .bento-cell p {
-      font-size: 0.82rem;
-      color: #86868b;
-      line-height: 1.6;
-    }
-    .opt11 .bento-cell .btn {
-      display: inline-block;
-      margin-top: 16px;
-      padding: 10px 24px;
-      background: #0071e3;
-      color: #fff;
-      border-radius: 20px;
-      font-size: 0.82rem;
-      font-weight: 500;
-      cursor: pointer;
-    }
-    .opt11 .bento-cell .icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #F5F5F7;
-    }
-    .opt11 .bento-cell .icon svg { width: 20px; height: 20px; }
-
-    @media (max-width: 768px) {
-      .opt11 .preview { padding: 24px; }
-      .opt11 .bento-grid { grid-template-columns: 1fr; }
-      .opt11 .bento-wide { grid-column: span 1; }
-    }
-
-
-    /* ╔══════════════════════════════════════════════════════╗
-       ║  OPTION 12 — Aurora UI
-       ╚══════════════════════════════════════════════════════╝ */
-    .opt12 .option-number { background: linear-gradient(135deg, #0080FF, #FF1493); color: #fff; }
-
-    .opt12 .preview {
-      background: #050510;
-      font-family: 'Poppins', sans-serif;
-      padding: 48px;
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-      position: relative;
-      overflow: hidden;
-    }
-    .opt12 .preview::before {
-      content: '';
-      position: absolute;
-      top: -100px;
-      left: 10%;
-      width: 500px;
-      height: 500px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,128,255,0.2) 0%, rgba(255,20,147,0.1) 40%, transparent 70%);
-      animation: aurora1 10s ease-in-out infinite;
-    }
-    .opt12 .preview::after {
-      content: '';
-      position: absolute;
-      bottom: -120px;
-      right: 5%;
-      width: 400px;
-      height: 400px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,255,255,0.12) 0%, rgba(128,0,255,0.08) 50%, transparent 70%);
-      animation: aurora2 12s ease-in-out infinite;
-    }
-    @keyframes aurora1 {
-      0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.8; }
-      33% { transform: translate(40px, -30px) scale(1.15); opacity: 1; }
-      66% { transform: translate(-20px, 20px) scale(0.95); opacity: 0.7; }
-    }
-    @keyframes aurora2 {
-      0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
-      50% { transform: translate(-30px, -40px) scale(1.2); opacity: 0.9; }
-    }
-    .opt12 .aurora-nav {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      padding: 14px 24px;
-      background: rgba(255,255,255,0.04);
-      backdrop-filter: blur(20px);
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.06);
-      position: relative;
-      z-index: 1;
-    }
-    .opt12 .aurora-nav .brand {
-      font-size: 1.05rem;
-      font-weight: 600;
-      background: linear-gradient(90deg, #0080FF, #FF1493);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .opt12 .aurora-nav .links {
-      display: flex;
-      gap: 20px;
-      margin-left: auto;
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.35);
-    }
-    .opt12 .aurora-hero {
-      background: rgba(255,255,255,0.03);
-      backdrop-filter: blur(16px);
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.06);
-      padding: 48px 40px;
-      position: relative;
-      z-index: 1;
-    }
-    .opt12 .aurora-hero h3 {
-      font-size: 1.9rem;
-      color: #fff;
-      margin-bottom: 12px;
-      line-height: 1.25;
-      font-weight: 600;
-    }
-    .opt12 .aurora-hero p {
-      color: rgba(255,255,255,0.45);
-      max-width: 480px;
-      font-size: 0.9rem;
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-    .opt12 .aurora-hero .btn {
-      display: inline-block;
-      padding: 10px 28px;
-      background: linear-gradient(135deg, #0080FF, #8000FF);
-      color: #fff;
-      border-radius: 10px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      cursor: pointer;
-    }
-    .opt12 .aurora-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      position: relative;
-      z-index: 1;
-    }
-    .opt12 .aurora-card {
-      background: rgba(255,255,255,0.03);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255,255,255,0.05);
-      border-radius: 14px;
-      padding: 24px 20px;
-    }
-    .opt12 .aurora-card .icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255,255,255,0.05);
-    }
-    .opt12 .aurora-card .icon svg { width: 20px; height: 20px; }
-    .opt12 .aurora-card h4 {
-      font-weight: 600;
-      font-size: 0.88rem;
-      color: rgba(255,255,255,0.85);
-      margin-bottom: 6px;
-    }
-    .opt12 .aurora-card p {
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.35);
-      line-height: 1.55;
-    }
-
-    @media (max-width: 768px) {
-      .opt12 .preview { padding: 24px; }
-      .opt12 .aurora-cards { grid-template-columns: 1fr; }
-      .opt12 .aurora-hero { padding: 32px 24px; }
-    }
-
-
-    /* ╔══════════════════════════════════════════════════════╗
-       ║  OPTION 13 — AI-Native UI
-       ╚══════════════════════════════════════════════════════╝ */
-    .opt13 .option-number { background: #6366F1; color: #fff; }
-
-    .opt13 .preview {
-      background: #FAFAFA;
-      font-family: 'Inter', sans-serif;
-      padding: 48px;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      color: #1a1a1a;
-    }
-    .opt13 .ai-nav {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      padding: 12px 20px;
-      background: #fff;
-      border-radius: 12px;
-      border: 1px solid #e5e7eb;
-    }
-    .opt13 .ai-nav .brand {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: #1a1a1a;
-    }
-    .opt13 .ai-nav .ai-badge {
-      font-size: 0.65rem;
-      font-weight: 600;
-      padding: 3px 8px;
-      background: #EEF2FF;
-      color: #6366F1;
-      border-radius: 6px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .opt13 .ai-nav .links {
-      display: flex;
-      gap: 20px;
-      margin-left: auto;
-      font-size: 0.82rem;
-      color: #9ca3af;
-    }
-    .opt13 .ai-hero {
-      background: #fff;
-      border-radius: 16px;
-      border: 1px solid #e5e7eb;
-      padding: 40px 36px;
-    }
-    .opt13 .ai-hero h3 {
-      font-size: 1.7rem;
-      color: #1a1a1a;
-      margin-bottom: 12px;
-      line-height: 1.25;
-      font-weight: 600;
-    }
-    .opt13 .ai-hero p {
-      color: #6b7280;
-      max-width: 480px;
-      font-size: 0.9rem;
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-    .opt13 .ai-hero .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 24px;
-      background: #6366F1;
-      color: #fff;
-      border-radius: 10px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      cursor: pointer;
-    }
-    .opt13 .ai-hero .btn .dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #a5b4fc;
-      animation: aidot 1.5s ease-in-out infinite;
-    }
-    @keyframes aidot {
-      0%, 100% { opacity: 0.4; }
-      50% { opacity: 1; }
-    }
-    .opt13 .ai-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
-    .opt13 .ai-card {
-      background: #fff;
-      border: 1px solid #e5e7eb;
-      border-radius: 12px;
-      padding: 20px 18px;
-      border-left: 3px solid;
-    }
-    .opt13 .ai-card-purple { border-left-color: #6366F1; }
-    .opt13 .ai-card-green { border-left-color: #10B981; }
-    .opt13 .ai-card-amber { border-left-color: #F59E0B; }
-    .opt13 .ai-card h4 {
-      font-weight: 600;
-      font-size: 0.85rem;
-      color: #1a1a1a;
-      margin-bottom: 6px;
-    }
-    .opt13 .ai-card p {
-      font-size: 0.78rem;
-      color: #9ca3af;
-      line-height: 1.55;
-    }
-
-    @media (max-width: 768px) {
-      .opt13 .preview { padding: 24px; }
-      .opt13 .ai-cards { grid-template-columns: 1fr; }
-    }
-
-
-    /* ╔══════════════════════════════════════════════════════╗
-       ║  OPTION 14 — E-Ink / Paper
-       ╚══════════════════════════════════════════════════════╝ */
-    .opt14 .option-number { background: #FDFBF7; color: #1A1A1A; border: 1px solid #ccc; }
-
-    .opt14 .preview {
-      background: #FDFBF7;
-      font-family: 'Libre Baskerville', Georgia, serif;
-      padding: 48px;
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-      color: #1A1A1A;
-    }
-    .opt14 .paper-nav {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      padding: 0 0 12px;
-      border-bottom: 1px solid #d0cec8;
-    }
-    .opt14 .paper-nav .brand {
-      font-size: 1rem;
-      font-weight: 700;
-      color: #1A1A1A;
-    }
-    .opt14 .paper-nav .links {
-      display: flex;
-      gap: 24px;
-      margin-left: auto;
-      font-size: 0.78rem;
-      color: #888;
-    }
-    .opt14 .paper-hero {
-      padding: 20px 0;
-      max-width: 580px;
-    }
-    .opt14 .paper-hero h3 {
-      font-size: 1.8rem;
-      color: #1A1A1A;
-      margin-bottom: 16px;
-      line-height: 1.3;
-      font-weight: 700;
-    }
-    .opt14 .paper-hero p {
-      color: #4A4A4A;
-      font-size: 0.95rem;
-      line-height: 1.8;
-      margin-bottom: 24px;
-    }
-    .opt14 .paper-hero .btn {
-      display: inline-block;
-      padding: 10px 24px;
-      background: #1A1A1A;
-      color: #FDFBF7;
-      font-size: 0.82rem;
-      font-family: 'Inter', sans-serif;
-      font-weight: 500;
-      cursor: pointer;
-    }
-    .opt14 .paper-divider {
-      height: 1px;
-      background: #d0cec8;
-    }
-    .opt14 .paper-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .opt14 .paper-card h4 {
-      font-weight: 700;
-      font-size: 0.95rem;
-      color: #1A1A1A;
-      margin-bottom: 8px;
-    }
-    .opt14 .paper-card p {
-      font-size: 0.82rem;
-      color: #666;
-      line-height: 1.7;
-    }
-    .opt14 .paper-card .rule {
-      width: 24px;
-      height: 2px;
-      background: #1A1A1A;
-      margin-bottom: 14px;
-    }
-
-    @media (max-width: 768px) {
-      .opt14 .preview { padding: 24px; }
-      .opt14 .paper-cards { grid-template-columns: 1fr; }
-    }
-
-
-    /* ╔══════════════════════════════════════════════════════╗
-       ║  OPTION 15 — Neumorphism
-       ╚══════════════════════════════════════════════════════╝ */
-    .opt15 .option-number {
-      background: #e8ece0;
-      color: #3a5a2a;
-      box-shadow: -2px -2px 4px rgba(255,255,255,0.8), 2px 2px 4px rgba(0,0,0,0.08);
-    }
-
-    .opt15 .preview {
-      background: #e8ece0;
-      font-family: 'DM Sans', sans-serif;
-      padding: 48px;
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-      color: #2d3b22;
-    }
-    .opt15 .neu-nav {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      padding: 14px 24px;
-      background: #e8ece0;
-      border-radius: 16px;
-      box-shadow: -6px -6px 14px rgba(255,255,255,0.7), 6px 6px 14px rgba(0,0,0,0.08);
-    }
-    .opt15 .neu-nav .brand {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.1rem;
-      color: #3a5a2a;
-    }
-    .opt15 .neu-nav .links {
-      display: flex;
-      gap: 20px;
-      margin-left: auto;
-      font-size: 0.82rem;
-      color: #7a9168;
-    }
-    .opt15 .neu-hero {
-      background: #e8ece0;
-      border-radius: 20px;
-      padding: 44px 40px;
-      box-shadow: -8px -8px 20px rgba(255,255,255,0.7), 8px 8px 20px rgba(0,0,0,0.08);
-    }
-    .opt15 .neu-hero h3 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.9rem;
-      color: #2d3b22;
-      margin-bottom: 12px;
-      line-height: 1.25;
-    }
-    .opt15 .neu-hero p {
-      color: #7a9168;
-      max-width: 480px;
-      font-size: 0.93rem;
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-    .opt15 .neu-hero .btn {
-      display: inline-block;
-      padding: 10px 28px;
-      background: #e8ece0;
-      color: #3a5a2a;
-      border-radius: 12px;
-      font-size: 0.88rem;
-      font-weight: 600;
-      box-shadow: -4px -4px 10px rgba(255,255,255,0.7), 4px 4px 10px rgba(0,0,0,0.08);
-      cursor: pointer;
-    }
-    .opt15 .neu-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-    .opt15 .neu-card {
-      background: #e8ece0;
-      border-radius: 16px;
-      padding: 24px 20px;
-      box-shadow: -6px -6px 14px rgba(255,255,255,0.7), 6px 6px 14px rgba(0,0,0,0.08);
-    }
-    .opt15 .neu-card .icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #e8ece0;
-      box-shadow: inset -3px -3px 6px rgba(255,255,255,0.6), inset 3px 3px 6px rgba(0,0,0,0.06);
-    }
-    .opt15 .neu-card .icon svg { width: 20px; height: 20px; }
-    .opt15 .neu-card h4 {
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: #2d3b22;
-      margin-bottom: 6px;
-    }
-    .opt15 .neu-card p {
-      font-size: 0.8rem;
-      color: #7a9168;
-      line-height: 1.55;
-    }
-
-    @media (max-width: 768px) {
-      .opt15 .preview { padding: 24px; }
-      .opt15 .neu-cards { grid-template-columns: 1fr; }
-      .opt15 .neu-hero { padding: 32px 24px; }
-    }
-
-
-    /* ╔══════════════════════════════════════════════════════╗
-       ║  OPTION 16 — Spatial UI (VisionOS)
-       ╚══════════════════════════════════════════════════════╝ */
-    .opt16 .option-number { background: rgba(255,255,255,0.15); color: #fff; backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.2); }
-
-    .opt16 .preview {
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-      font-family: 'Inter', sans-serif;
-      padding: 48px;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      position: relative;
-      overflow: hidden;
-    }
-    .opt16 .preview::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 600px;
-      height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 60%);
-    }
-    .opt16 .spatial-nav {
+    .s-nav {
       display: flex;
       align-items: center;
       gap: 24px;
       padding: 12px 24px;
-      background: rgba(255,255,255,0.08);
       backdrop-filter: blur(40px) saturate(180%);
       -webkit-backdrop-filter: blur(40px) saturate(180%);
       border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.1);
       position: relative;
       z-index: 1;
     }
-    .opt16 .spatial-nav .brand {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: rgba(255,255,255,0.9);
-    }
-    .opt16 .spatial-nav .links {
-      display: flex;
-      gap: 20px;
-      margin-left: auto;
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.4);
-    }
-    .opt16 .spatial-hero {
-      background: rgba(255,255,255,0.08);
+    .s-nav .brand { font-size: 0.95rem; font-weight: 600; }
+    .s-nav .links { display: flex; gap: 20px; margin-left: auto; font-size: 0.8rem; }
+
+    .s-hero {
       backdrop-filter: blur(40px) saturate(180%);
       -webkit-backdrop-filter: blur(40px) saturate(180%);
       border-radius: 24px;
-      border: 1px solid rgba(255,255,255,0.1);
       padding: 44px 40px;
       position: relative;
       z-index: 1;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
     }
-    .opt16 .spatial-hero h3 {
-      font-size: 1.8rem;
-      color: rgba(255,255,255,0.95);
-      margin-bottom: 12px;
-      line-height: 1.25;
-      font-weight: 600;
-    }
-    .opt16 .spatial-hero p {
-      color: rgba(255,255,255,0.45);
-      max-width: 480px;
-      font-size: 0.9rem;
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-    .opt16 .spatial-hero .btn {
+    .s-hero h3 { font-size: 1.8rem; margin-bottom: 12px; line-height: 1.25; font-weight: 600; }
+    .s-hero p { max-width: 480px; font-size: 0.9rem; line-height: 1.7; margin-bottom: 20px; }
+    .s-hero .btn {
       display: inline-block;
       padding: 10px 28px;
-      background: rgba(255,255,255,0.15);
       backdrop-filter: blur(12px);
-      color: rgba(255,255,255,0.9);
       border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.15);
       font-size: 0.85rem;
       font-weight: 500;
       cursor: pointer;
     }
-    .opt16 .spatial-cards {
+
+    .s-cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 12px;
       position: relative;
       z-index: 1;
     }
-    .opt16 .spatial-card {
-      background: rgba(255,255,255,0.06);
+    .s-card {
       backdrop-filter: blur(40px) saturate(180%);
       -webkit-backdrop-filter: blur(40px) saturate(180%);
-      border: 1px solid rgba(255,255,255,0.08);
       border-radius: 20px;
       padding: 24px 20px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
     }
-    .opt16 .spatial-card .icon {
+    .s-card .icon {
       width: 40px;
       height: 40px;
       border-radius: 12px;
@@ -2111,1167 +202,508 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(255,255,255,0.08);
     }
-    .opt16 .spatial-card .icon svg { width: 20px; height: 20px; }
-    .opt16 .spatial-card h4 {
-      font-weight: 600;
-      font-size: 0.88rem;
-      color: rgba(255,255,255,0.85);
-      margin-bottom: 6px;
-    }
-    .opt16 .spatial-card p {
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.35);
-      line-height: 1.55;
-    }
+    .s-card .icon svg { width: 20px; height: 20px; }
+    .s-card h4 { font-weight: 600; font-size: 0.88rem; margin-bottom: 6px; }
+    .s-card p { font-size: 0.78rem; line-height: 1.55; }
 
     @media (max-width: 768px) {
-      .opt16 .preview { padding: 24px; }
-      .opt16 .spatial-cards { grid-template-columns: 1fr; }
-      .opt16 .spatial-hero { padding: 32px 24px; }
+      .page-header { padding: 40px 20px 24px; }
+      .options-grid { padding: 0 16px 60px; gap: 32px; }
+      .spatial-preview { padding: 24px; }
+      .s-cards { grid-template-columns: 1fr; }
+      .s-hero { padding: 32px 24px; }
+      .option-label { flex-wrap: wrap; padding: 16px 20px; }
+      .option-tags { margin-top: 8px; width: 100%; }
+      .palette-strip { flex-wrap: wrap; padding: 12px 20px; }
     }
+
+
+    /* ═══════════════════════════════════════════════
+       A — Deep Fern  (Maidenhair Fern + Moss)
+       ═══════════════════════════════════════════════ */
+    .palA .spatial-preview { background: linear-gradient(135deg, #0a1a12 0%, #0d2818 50%, #071a0e 100%); }
+    .palA .ambient-1 { background: radial-gradient(circle, rgba(16,185,129,0.18) 0%, rgba(5,150,105,0.08) 50%, transparent 70%); }
+    .palA .ambient-2 { background: radial-gradient(circle, rgba(52,211,153,0.12) 0%, rgba(16,185,129,0.06) 50%, transparent 70%); }
+    .palA .ambient-3 { background: radial-gradient(circle, rgba(167,243,208,0.08) 0%, transparent 70%); }
+    .palA .s-nav { background: rgba(16,185,129,0.06); border: 1px solid rgba(16,185,129,0.1); }
+    .palA .s-nav .brand { color: rgba(167,243,208,0.9); }
+    .palA .s-nav .links { color: rgba(167,243,208,0.35); }
+    .palA .s-hero { background: rgba(16,185,129,0.05); border: 1px solid rgba(16,185,129,0.08); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+    .palA .s-hero h3 { color: rgba(236,253,245,0.95); }
+    .palA .s-hero p { color: rgba(167,243,208,0.4); }
+    .palA .s-hero .btn { background: rgba(16,185,129,0.15); color: rgba(167,243,208,0.9); border: 1px solid rgba(16,185,129,0.2); }
+    .palA .s-card { background: rgba(16,185,129,0.04); border: 1px solid rgba(16,185,129,0.06); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+    .palA .s-card .icon { background: rgba(16,185,129,0.08); }
+    .palA .s-card .icon svg { stroke: rgba(52,211,153,0.7); }
+    .palA .s-card h4 { color: rgba(209,250,229,0.85); }
+    .palA .s-card p { color: rgba(167,243,208,0.3); }
+    .palA .option-number { background: rgba(16,185,129,0.15); color: #6ee7b7; }
+
+
+    /* ═══════════════════════════════════════════════
+       B — Orchid Twilight  (Phalaenopsis Orchid)
+       ═══════════════════════════════════════════════ */
+    .palB .spatial-preview { background: linear-gradient(135deg, #1a0a20 0%, #2d1038 50%, #150820 100%); }
+    .palB .ambient-1 { background: radial-gradient(circle, rgba(168,85,247,0.2) 0%, rgba(139,92,246,0.08) 50%, transparent 70%); }
+    .palB .ambient-2 { background: radial-gradient(circle, rgba(232,121,249,0.12) 0%, rgba(192,132,252,0.06) 50%, transparent 70%); }
+    .palB .ambient-3 { background: radial-gradient(circle, rgba(217,70,239,0.1) 0%, transparent 70%); }
+    .palB .s-nav { background: rgba(168,85,247,0.06); border: 1px solid rgba(168,85,247,0.1); }
+    .palB .s-nav .brand { color: rgba(233,213,255,0.9); }
+    .palB .s-nav .links { color: rgba(233,213,255,0.35); }
+    .palB .s-hero { background: rgba(168,85,247,0.05); border: 1px solid rgba(168,85,247,0.08); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+    .palB .s-hero h3 { color: rgba(250,245,255,0.95); }
+    .palB .s-hero p { color: rgba(233,213,255,0.4); }
+    .palB .s-hero .btn { background: rgba(168,85,247,0.15); color: rgba(233,213,255,0.9); border: 1px solid rgba(168,85,247,0.2); }
+    .palB .s-card { background: rgba(168,85,247,0.04); border: 1px solid rgba(168,85,247,0.06); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+    .palB .s-card .icon { background: rgba(168,85,247,0.08); }
+    .palB .s-card .icon svg { stroke: rgba(192,132,252,0.7); }
+    .palB .s-card h4 { color: rgba(243,232,255,0.85); }
+    .palB .s-card p { color: rgba(233,213,255,0.3); }
+    .palB .option-number { background: rgba(168,85,247,0.15); color: #c084fc; }
+
+
+    /* ═══════════════════════════════════════════════
+       C — Cherry Blossom  (Sakura)
+       ═══════════════════════════════════════════════ */
+    .palC .spatial-preview { background: linear-gradient(135deg, #1a0e14 0%, #2a1520 50%, #1a0a12 100%); }
+    .palC .ambient-1 { background: radial-gradient(circle, rgba(244,114,182,0.18) 0%, rgba(236,72,153,0.08) 50%, transparent 70%); }
+    .palC .ambient-2 { background: radial-gradient(circle, rgba(251,191,219,0.12) 0%, rgba(244,114,182,0.06) 50%, transparent 70%); }
+    .palC .ambient-3 { background: radial-gradient(circle, rgba(249,168,212,0.1) 0%, transparent 70%); }
+    .palC .s-nav { background: rgba(244,114,182,0.06); border: 1px solid rgba(244,114,182,0.1); }
+    .palC .s-nav .brand { color: rgba(253,242,248,0.9); }
+    .palC .s-nav .links { color: rgba(251,207,232,0.35); }
+    .palC .s-hero { background: rgba(244,114,182,0.05); border: 1px solid rgba(244,114,182,0.08); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+    .palC .s-hero h3 { color: rgba(253,242,248,0.95); }
+    .palC .s-hero p { color: rgba(251,207,232,0.4); }
+    .palC .s-hero .btn { background: rgba(244,114,182,0.15); color: rgba(253,242,248,0.9); border: 1px solid rgba(244,114,182,0.2); }
+    .palC .s-card { background: rgba(244,114,182,0.04); border: 1px solid rgba(244,114,182,0.06); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+    .palC .s-card .icon { background: rgba(244,114,182,0.08); }
+    .palC .s-card .icon svg { stroke: rgba(249,168,212,0.7); }
+    .palC .s-card h4 { color: rgba(252,231,243,0.85); }
+    .palC .s-card p { color: rgba(251,207,232,0.3); }
+    .palC .option-number { background: rgba(244,114,182,0.15); color: #f9a8d4; }
+
+
+    /* ═══════════════════════════════════════════════
+       D — Sunflower Field  (Helianthus)
+       ═══════════════════════════════════════════════ */
+    .palD .spatial-preview { background: linear-gradient(135deg, #1a1408 0%, #261c0a 50%, #1a1205 100%); }
+    .palD .ambient-1 { background: radial-gradient(circle, rgba(245,158,11,0.18) 0%, rgba(217,119,6,0.08) 50%, transparent 70%); }
+    .palD .ambient-2 { background: radial-gradient(circle, rgba(251,191,36,0.14) 0%, rgba(245,158,11,0.06) 50%, transparent 70%); }
+    .palD .ambient-3 { background: radial-gradient(circle, rgba(253,224,71,0.1) 0%, transparent 70%); }
+    .palD .s-nav { background: rgba(245,158,11,0.06); border: 1px solid rgba(245,158,11,0.1); }
+    .palD .s-nav .brand { color: rgba(254,243,199,0.9); }
+    .palD .s-nav .links { color: rgba(254,243,199,0.35); }
+    .palD .s-hero { background: rgba(245,158,11,0.05); border: 1px solid rgba(245,158,11,0.08); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+    .palD .s-hero h3 { color: rgba(255,251,235,0.95); }
+    .palD .s-hero p { color: rgba(254,243,199,0.4); }
+    .palD .s-hero .btn { background: rgba(245,158,11,0.15); color: rgba(254,243,199,0.9); border: 1px solid rgba(245,158,11,0.2); }
+    .palD .s-card { background: rgba(245,158,11,0.04); border: 1px solid rgba(245,158,11,0.06); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+    .palD .s-card .icon { background: rgba(245,158,11,0.08); }
+    .palD .s-card .icon svg { stroke: rgba(251,191,36,0.7); }
+    .palD .s-card h4 { color: rgba(254,249,220,0.85); }
+    .palD .s-card p { color: rgba(254,243,199,0.3); }
+    .palD .option-number { background: rgba(245,158,11,0.15); color: #fbbf24; }
+
+
+    /* ═══════════════════════════════════════════════
+       E — Lavender Meadow  (Lavandula)
+       ═══════════════════════════════════════════════ */
+    .palE .spatial-preview { background: linear-gradient(135deg, #10081a 0%, #1a1030 50%, #0e0618 100%); }
+    .palE .ambient-1 { background: radial-gradient(circle, rgba(129,140,248,0.18) 0%, rgba(99,102,241,0.08) 50%, transparent 70%); }
+    .palE .ambient-2 { background: radial-gradient(circle, rgba(165,180,252,0.12) 0%, rgba(129,140,248,0.06) 50%, transparent 70%); }
+    .palE .ambient-3 { background: radial-gradient(circle, rgba(199,210,254,0.08) 0%, transparent 70%); }
+    .palE .s-nav { background: rgba(129,140,248,0.06); border: 1px solid rgba(129,140,248,0.1); }
+    .palE .s-nav .brand { color: rgba(224,231,255,0.9); }
+    .palE .s-nav .links { color: rgba(224,231,255,0.35); }
+    .palE .s-hero { background: rgba(129,140,248,0.05); border: 1px solid rgba(129,140,248,0.08); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+    .palE .s-hero h3 { color: rgba(238,242,255,0.95); }
+    .palE .s-hero p { color: rgba(199,210,254,0.4); }
+    .palE .s-hero .btn { background: rgba(129,140,248,0.15); color: rgba(224,231,255,0.9); border: 1px solid rgba(129,140,248,0.2); }
+    .palE .s-card { background: rgba(129,140,248,0.04); border: 1px solid rgba(129,140,248,0.06); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+    .palE .s-card .icon { background: rgba(129,140,248,0.08); }
+    .palE .s-card .icon svg { stroke: rgba(165,180,252,0.7); }
+    .palE .s-card h4 { color: rgba(224,231,255,0.85); }
+    .palE .s-card p { color: rgba(199,210,254,0.3); }
+    .palE .option-number { background: rgba(129,140,248,0.15); color: #a5b4fc; }
+
+
+    /* ═══════════════════════════════════════════════
+       F — Desert Rose  (Adenium)
+       ═══════════════════════════════════════════════ */
+    .palF .spatial-preview { background: linear-gradient(135deg, #1a0f0a 0%, #2a1510 50%, #1a0c08 100%); }
+    .palF .ambient-1 { background: radial-gradient(circle, rgba(239,68,68,0.16) 0%, rgba(220,38,38,0.08) 50%, transparent 70%); }
+    .palF .ambient-2 { background: radial-gradient(circle, rgba(248,113,113,0.12) 0%, rgba(252,165,165,0.06) 50%, transparent 70%); }
+    .palF .ambient-3 { background: radial-gradient(circle, rgba(254,202,202,0.08) 0%, transparent 70%); }
+    .palF .s-nav { background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.1); }
+    .palF .s-nav .brand { color: rgba(254,226,226,0.9); }
+    .palF .s-nav .links { color: rgba(254,226,226,0.35); }
+    .palF .s-hero { background: rgba(239,68,68,0.05); border: 1px solid rgba(239,68,68,0.08); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+    .palF .s-hero h3 { color: rgba(254,242,242,0.95); }
+    .palF .s-hero p { color: rgba(254,202,202,0.4); }
+    .palF .s-hero .btn { background: rgba(239,68,68,0.15); color: rgba(254,226,226,0.9); border: 1px solid rgba(239,68,68,0.2); }
+    .palF .s-card { background: rgba(239,68,68,0.04); border: 1px solid rgba(239,68,68,0.06); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+    .palF .s-card .icon { background: rgba(239,68,68,0.08); }
+    .palF .s-card .icon svg { stroke: rgba(248,113,113,0.7); }
+    .palF .s-card h4 { color: rgba(254,226,226,0.85); }
+    .palF .s-card p { color: rgba(254,202,202,0.3); }
+    .palF .option-number { background: rgba(239,68,68,0.15); color: #fca5a5; }
+
+
+    /* ═══════════════════════════════════════════════
+       G — Blue Lotus  (Nymphaea caerulea)
+       ═══════════════════════════════════════════════ */
+    .palG .spatial-preview { background: linear-gradient(135deg, #06101a 0%, #0a1a2e 50%, #061018 100%); }
+    .palG .ambient-1 { background: radial-gradient(circle, rgba(56,189,248,0.18) 0%, rgba(14,165,233,0.08) 50%, transparent 70%); }
+    .palG .ambient-2 { background: radial-gradient(circle, rgba(125,211,252,0.12) 0%, rgba(56,189,248,0.06) 50%, transparent 70%); }
+    .palG .ambient-3 { background: radial-gradient(circle, rgba(186,230,253,0.08) 0%, transparent 70%); }
+    .palG .s-nav { background: rgba(56,189,248,0.06); border: 1px solid rgba(56,189,248,0.1); }
+    .palG .s-nav .brand { color: rgba(224,242,254,0.9); }
+    .palG .s-nav .links { color: rgba(186,230,253,0.35); }
+    .palG .s-hero { background: rgba(56,189,248,0.05); border: 1px solid rgba(56,189,248,0.08); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+    .palG .s-hero h3 { color: rgba(240,249,255,0.95); }
+    .palG .s-hero p { color: rgba(186,230,253,0.4); }
+    .palG .s-hero .btn { background: rgba(56,189,248,0.15); color: rgba(224,242,254,0.9); border: 1px solid rgba(56,189,248,0.2); }
+    .palG .s-card { background: rgba(56,189,248,0.04); border: 1px solid rgba(56,189,248,0.06); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+    .palG .s-card .icon { background: rgba(56,189,248,0.08); }
+    .palG .s-card .icon svg { stroke: rgba(125,211,252,0.7); }
+    .palG .s-card h4 { color: rgba(224,242,254,0.85); }
+    .palG .s-card p { color: rgba(186,230,253,0.3); }
+    .palG .option-number { background: rgba(56,189,248,0.15); color: #7dd3fc; }
+
+
+    /* ═══════════════════════════════════════════════
+       H — Jade Plant  (Crassula ovata)
+       ═══════════════════════════════════════════════ */
+    .palH .spatial-preview { background: linear-gradient(135deg, #0a1210 0%, #0f1e1a 50%, #081410 100%); }
+    .palH .ambient-1 { background: radial-gradient(circle, rgba(20,184,166,0.18) 0%, rgba(13,148,136,0.08) 50%, transparent 70%); }
+    .palH .ambient-2 { background: radial-gradient(circle, rgba(94,234,212,0.12) 0%, rgba(45,212,191,0.06) 50%, transparent 70%); }
+    .palH .ambient-3 { background: radial-gradient(circle, rgba(153,246,228,0.08) 0%, transparent 70%); }
+    .palH .s-nav { background: rgba(20,184,166,0.06); border: 1px solid rgba(20,184,166,0.1); }
+    .palH .s-nav .brand { color: rgba(204,251,241,0.9); }
+    .palH .s-nav .links { color: rgba(153,246,228,0.35); }
+    .palH .s-hero { background: rgba(20,184,166,0.05); border: 1px solid rgba(20,184,166,0.08); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+    .palH .s-hero h3 { color: rgba(240,253,250,0.95); }
+    .palH .s-hero p { color: rgba(153,246,228,0.4); }
+    .palH .s-hero .btn { background: rgba(20,184,166,0.15); color: rgba(204,251,241,0.9); border: 1px solid rgba(20,184,166,0.2); }
+    .palH .s-card { background: rgba(20,184,166,0.04); border: 1px solid rgba(20,184,166,0.06); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+    .palH .s-card .icon { background: rgba(20,184,166,0.08); }
+    .palH .s-card .icon svg { stroke: rgba(94,234,212,0.7); }
+    .palH .s-card h4 { color: rgba(204,251,241,0.85); }
+    .palH .s-card p { color: rgba(153,246,228,0.3); }
+    .palH .option-number { background: rgba(20,184,166,0.15); color: #5eead4; }
   </style>
 </head>
 <body>
 
-  <!-- ── Page Header ── -->
   <header class="page-header">
-    <h1>Style Audition</h1>
-    <p>Sixteen design directions for Sponic Gardens. Each preview shows the same content rendered in a different aesthetic. Pick your favourite, or mix elements from several.</p>
-    <span class="tag">ui/ux pro max</span>
+    <h1>Spatial UI &times; Botanical Palettes</h1>
+    <p>The VisionOS Spatial UI rendered in 8 color palettes inspired by real flowers and plants. Same frosted glass, depth layers, and immersive feel &mdash; different garden moods.</p>
+    <span class="tag">spatial ui &middot; visionos</span>
   </header>
 
   <div class="options-grid">
 
-    <!-- ╔══════════════════════════════════════════════════════╗
-         ║  OPTION 1 — Refined Botanical
-         ╚══════════════════════════════════════════════════════╝ -->
-    <div class="style-option opt1">
+    <!-- A — Deep Fern -->
+    <div class="style-option palA">
       <div class="option-label">
-        <div class="option-number">1</div>
+        <div class="option-number">A</div>
         <div class="option-meta">
-          <h2>Refined Botanical</h2>
-          <div class="subtitle">Your current direction, polished. Nature-forward, warm, approachable.</div>
+          <h2>Deep Fern</h2>
+          <div class="subtitle">Maidenhair fern + forest moss. Deep emerald glow.</div>
+          <div class="flower">Adiantum capillus-veneris, Bryophyta</div>
         </div>
-        <div class="option-tags">
-          <span>DM Sans + DM Serif Display</span>
-          <span>Light Mode</span>
-          <span>Organic</span>
-        </div>
+        <div class="option-tags"><span>Emerald</span><span>Forest</span><span>Verdant</span></div>
       </div>
-
-      <div class="preview">
-        <nav class="preview-nav">
+      <div class="spatial-preview">
+        <div class="ambient ambient-1"></div>
+        <div class="ambient ambient-2"></div>
+        <div class="ambient ambient-3"></div>
+        <nav class="s-nav">
           <span class="brand">Sponic Gardens</span>
-          <div class="links">
-            <span>About</span>
-            <span>Experience</span>
-            <span>Apply</span>
-          </div>
+          <div class="links"><span>About</span><span>Experience</span><span>Apply</span></div>
         </nav>
-
-        <div class="preview-hero">
+        <div class="s-hero">
           <h3>Where nature meets<br>intelligent design</h3>
           <p>AI-enhanced spaces that promote socialization in a manner that is inspiring, healthy, and productive.</p>
           <span class="btn">Explore the Garden</span>
         </div>
-
-        <div class="preview-cards">
-          <div class="preview-card card-green">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#2d6a1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 0 20 10 10 0 0 1 0-20z"/><path d="M12 6v12"/><path d="M6 12h12"/></svg>
-            </div>
-            <h4>Botanical Spaces</h4>
-            <p>Living architecture that breathes, grows, and adapts alongside its inhabitants.</p>
-          </div>
-          <div class="preview-card card-emerald">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#047857" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-            </div>
-            <h4>AI Guidance</h4>
-            <p>Natively AI-managed environments working in members' best interests.</p>
-          </div>
-          <div class="preview-card card-earth">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#92400e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <h4>Social Club</h4>
-            <p>A curated community of members who value growth, wellness, and connection.</p>
-          </div>
+        <div class="s-cards">
+          <div class="s-card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 0 20 10 10 0 0 1 0-20z"/><path d="M12 6v12"/><path d="M6 12h12"/></svg></div><h4>Botanical Spaces</h4><p>Living architecture that breathes, grows, and adapts alongside its inhabitants.</p></div>
+          <div class="s-card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div><h4>AI Guidance</h4><p>Natively AI-managed environments working in members' best interests.</p></div>
+          <div class="s-card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h4>Social Club</h4><p>A curated community of members who value growth, wellness, and connection.</p></div>
         </div>
       </div>
-
       <div class="palette-strip">
-        <div class="swatch" style="background: #1a4d2e;"></div>
-        <div class="swatch" style="background: #2d6a1e;"></div>
-        <div class="swatch" style="background: #047857;"></div>
-        <div class="swatch" style="background: #92400e;"></div>
-        <div class="swatch" style="background: #f4f7f1;"></div>
-        <div class="swatch" style="background: #ffffff; border-color: #ddd;"></div>
-        <div class="palette-info">
-          <strong>Fonts:</strong> DM Serif Display + DM Sans<br>
-          <strong>Vibe:</strong> Warm, organic, approachable. Current site refined.
-        </div>
+        <div class="swatch" style="background:#0a1a12;"></div>
+        <div class="swatch" style="background:#10B981;"></div>
+        <div class="swatch" style="background:#34D399;"></div>
+        <div class="swatch" style="background:#6EE7B7;"></div>
+        <div class="swatch" style="background:#A7F3D0;"></div>
+        <div class="palette-info"><strong>Inspiration:</strong> Maidenhair fern, moss, deep canopy<br><strong>Mood:</strong> Verdant, alive, photosynthetic</div>
       </div>
     </div>
 
-
-    <!-- ╔══════════════════════════════════════════════════════╗
-         ║  OPTION 2 — Liquid Glass
-         ╚══════════════════════════════════════════════════════╝ -->
-    <div class="style-option opt2">
+    <!-- B — Orchid Twilight -->
+    <div class="style-option palB">
       <div class="option-label">
-        <div class="option-number">2</div>
+        <div class="option-number">B</div>
         <div class="option-meta">
-          <h2>Liquid Glass</h2>
-          <div class="subtitle">Premium, translucent, flowing. Apple-esque depth with iridescent accents.</div>
+          <h2>Orchid Twilight</h2>
+          <div class="subtitle">Phalaenopsis orchid at dusk. Regal purple luminescence.</div>
+          <div class="flower">Phalaenopsis amabilis</div>
         </div>
-        <div class="option-tags">
-          <span>Lora + Raleway</span>
-          <span>Dark Mode</span>
-          <span>Glassmorphism</span>
-        </div>
+        <div class="option-tags"><span>Purple</span><span>Orchid</span><span>Regal</span></div>
       </div>
-
-      <div class="preview">
-        <nav class="glass-nav">
-          <span class="brand">Sponic Gardens</span>
-          <div class="links">
-            <span>About</span>
-            <span>Experience</span>
-            <span>Apply</span>
-          </div>
-        </nav>
-
-        <div class="glass-hero">
+      <div class="spatial-preview">
+        <div class="ambient ambient-1"></div>
+        <div class="ambient ambient-2"></div>
+        <div class="ambient ambient-3"></div>
+        <nav class="s-nav"><span class="brand">Sponic Gardens</span><div class="links"><span>About</span><span>Experience</span><span>Apply</span></div></nav>
+        <div class="s-hero">
           <h3>Where nature meets<br>intelligent design</h3>
           <p>AI-enhanced spaces that promote socialization in a manner that is inspiring, healthy, and productive.</p>
           <span class="btn">Explore the Garden</span>
         </div>
-
-        <div class="glass-cards">
-          <div class="glass-card">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 0 20 10 10 0 0 1 0-20z"/><path d="M12 6v12"/><path d="M6 12h12"/></svg>
-            </div>
-            <h4>Botanical Spaces</h4>
-            <p>Living architecture that breathes, grows, and adapts alongside its inhabitants.</p>
-          </div>
-          <div class="glass-card">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#67e8f9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-            </div>
-            <h4>AI Guidance</h4>
-            <p>Natively AI-managed environments working in members' best interests.</p>
-          </div>
-          <div class="glass-card">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#f9a8d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <h4>Social Club</h4>
-            <p>A curated community of members who value growth, wellness, and connection.</p>
-          </div>
+        <div class="s-cards">
+          <div class="s-card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 0 20 10 10 0 0 1 0-20z"/><path d="M12 6v12"/><path d="M6 12h12"/></svg></div><h4>Botanical Spaces</h4><p>Living architecture that breathes, grows, and adapts alongside its inhabitants.</p></div>
+          <div class="s-card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div><h4>AI Guidance</h4><p>Natively AI-managed environments working in members' best interests.</p></div>
+          <div class="s-card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h4>Social Club</h4><p>A curated community of members who value growth, wellness, and connection.</p></div>
         </div>
       </div>
-
       <div class="palette-strip">
-        <div class="swatch" style="background: #0f0f23;"></div>
-        <div class="swatch" style="background: #6366f1;"></div>
-        <div class="swatch" style="background: #ec4899;"></div>
-        <div class="swatch" style="background: #67e8f9;"></div>
-        <div class="swatch" style="background: #a78bfa;"></div>
-        <div class="swatch" style="background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.15);"></div>
-        <div class="palette-info">
-          <strong>Fonts:</strong> Lora + Raleway<br>
-          <strong>Vibe:</strong> Premium, fluid, immersive. Morphing glass panels with depth.
-        </div>
+        <div class="swatch" style="background:#1a0a20;"></div>
+        <div class="swatch" style="background:#A855F7;"></div>
+        <div class="swatch" style="background:#C084FC;"></div>
+        <div class="swatch" style="background:#D8B4FE;"></div>
+        <div class="swatch" style="background:#E9D5FF;"></div>
+        <div class="palette-info"><strong>Inspiration:</strong> Phalaenopsis orchid, evening bloom<br><strong>Mood:</strong> Regal, exotic, contemplative</div>
       </div>
     </div>
 
-
-    <!-- ╔══════════════════════════════════════════════════════╗
-         ║  OPTION 3 — Dark Botanical
-         ╚══════════════════════════════════════════════════════╝ -->
-    <div class="style-option opt3">
+    <!-- C — Cherry Blossom -->
+    <div class="style-option palC">
       <div class="option-label">
-        <div class="option-number">3</div>
+        <div class="option-number">C</div>
         <div class="option-meta">
-          <h2>Dark Botanical</h2>
-          <div class="subtitle">Night-garden aesthetic. Deep blacks with emerald luminescence.</div>
+          <h2>Cherry Blossom</h2>
+          <div class="subtitle">Sakura petals at moonrise. Soft pink warmth.</div>
+          <div class="flower">Prunus serrulata</div>
         </div>
-        <div class="option-tags">
-          <span>DM Sans + DM Serif Display</span>
-          <span>Dark Mode</span>
-          <span>Nature-Tech</span>
-        </div>
+        <div class="option-tags"><span>Pink</span><span>Sakura</span><span>Gentle</span></div>
       </div>
-
-      <div class="preview">
-        <nav class="dark-nav">
-          <span class="brand">Sponic Gardens</span>
-          <div class="links">
-            <span>About</span>
-            <span>Experience</span>
-            <span>Apply</span>
-          </div>
-        </nav>
-
-        <div class="dark-hero">
+      <div class="spatial-preview">
+        <div class="ambient ambient-1"></div>
+        <div class="ambient ambient-2"></div>
+        <div class="ambient ambient-3"></div>
+        <nav class="s-nav"><span class="brand">Sponic Gardens</span><div class="links"><span>About</span><span>Experience</span><span>Apply</span></div></nav>
+        <div class="s-hero">
           <h3>Where nature meets<br>intelligent design</h3>
           <p>AI-enhanced spaces that promote socialization in a manner that is inspiring, healthy, and productive.</p>
           <span class="btn">Explore the Garden</span>
         </div>
-
-        <div class="dark-cards">
-          <div class="dark-card">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 0 20 10 10 0 0 1 0-20z"/><path d="M12 6v12"/><path d="M6 12h12"/></svg>
-            </div>
-            <h4>Botanical Spaces</h4>
-            <p>Living architecture that breathes, grows, and adapts alongside its inhabitants.</p>
-          </div>
-          <div class="dark-card">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#6ee7b7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-            </div>
-            <h4>AI Guidance</h4>
-            <p>Natively AI-managed environments working in members' best interests.</p>
-          </div>
-          <div class="dark-card">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#a7f3d0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <h4>Social Club</h4>
-            <p>A curated community of members who value growth, wellness, and connection.</p>
-          </div>
+        <div class="s-cards">
+          <div class="s-card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 0 20 10 10 0 0 1 0-20z"/><path d="M12 6v12"/><path d="M6 12h12"/></svg></div><h4>Botanical Spaces</h4><p>Living architecture that breathes, grows, and adapts alongside its inhabitants.</p></div>
+          <div class="s-card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div><h4>AI Guidance</h4><p>Natively AI-managed environments working in members' best interests.</p></div>
+          <div class="s-card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h4>Social Club</h4><p>A curated community of members who value growth, wellness, and connection.</p></div>
         </div>
       </div>
-
       <div class="palette-strip">
-        <div class="swatch" style="background: #0a0f0d;"></div>
-        <div class="swatch" style="background: #059669;"></div>
-        <div class="swatch" style="background: #34d399;"></div>
-        <div class="swatch" style="background: #6ee7b7;"></div>
-        <div class="swatch" style="background: #ecfdf5;"></div>
-        <div class="swatch" style="background: #064e3b;"></div>
-        <div class="palette-info">
-          <strong>Fonts:</strong> DM Serif Display + DM Sans<br>
-          <strong>Vibe:</strong> Mysterious, nocturnal garden. Bio-luminescent accents on deep earth.
-        </div>
+        <div class="swatch" style="background:#1a0e14;"></div>
+        <div class="swatch" style="background:#EC4899;"></div>
+        <div class="swatch" style="background:#F472B6;"></div>
+        <div class="swatch" style="background:#F9A8D4;"></div>
+        <div class="swatch" style="background:#FBCFE8;"></div>
+        <div class="palette-info"><strong>Inspiration:</strong> Sakura blossoms, cherry tree in moonlight<br><strong>Mood:</strong> Tender, poetic, tranquil</div>
       </div>
     </div>
 
-
-    <!-- ╔══════════════════════════════════════════════════════╗
-         ║  OPTION 4 — Exaggerated Minimalism
-         ╚══════════════════════════════════════════════════════╝ -->
-    <div class="style-option opt4">
+    <!-- D — Sunflower Field -->
+    <div class="style-option palD">
       <div class="option-label">
-        <div class="option-number">4</div>
+        <div class="option-number">D</div>
         <div class="option-meta">
-          <h2>Exaggerated Minimalism</h2>
-          <div class="subtitle">Bold, editorial, high-contrast. Oversized type, extreme whitespace.</div>
+          <h2>Sunflower Field</h2>
+          <div class="subtitle">Golden helianthus at golden hour. Warm amber radiance.</div>
+          <div class="flower">Helianthus annuus</div>
         </div>
-        <div class="option-tags">
-          <span>Space Grotesk</span>
-          <span>Light Mode</span>
-          <span>B&W + Accent</span>
-        </div>
+        <div class="option-tags"><span>Amber</span><span>Golden</span><span>Warm</span></div>
       </div>
-
-      <div class="preview">
-        <nav class="min-nav">
-          <span class="brand">Sponic Gardens</span>
-          <div class="links">
-            <span>About</span>
-            <span>Experience</span>
-            <span>Apply</span>
-          </div>
-        </nav>
-
-        <div class="min-hero">
-          <h3>Where nature<br>meets <em>intelligent</em><br>design</h3>
-          <p>AI-enhanced spaces that promote socialization in a manner that is inspiring, healthy, and productive.</p>
-          <span class="btn">Explore the Garden</span>
-        </div>
-
-        <div class="min-cards">
-          <div class="min-card">
-            <div class="number">01</div>
-            <h4>Botanical Spaces</h4>
-            <p>Living architecture that breathes, grows, and adapts alongside its inhabitants.</p>
-          </div>
-          <div class="min-card">
-            <div class="number">02</div>
-            <h4>AI Guidance</h4>
-            <p>Natively AI-managed environments working in members' best interests.</p>
-          </div>
-          <div class="min-card">
-            <div class="number">03</div>
-            <h4>Social Club</h4>
-            <p>A curated community of members who value growth, wellness, and connection.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="palette-strip">
-        <div class="swatch" style="background: #000000;"></div>
-        <div class="swatch" style="background: #ffffff; border-color: #ddd;"></div>
-        <div class="swatch" style="background: #1a4d2e;"></div>
-        <div class="swatch" style="background: #e5e5e5;"></div>
-        <div class="swatch" style="background: #999999;"></div>
-        <div class="palette-info">
-          <strong>Fonts:</strong> Space Grotesk<br>
-          <strong>Vibe:</strong> Fashion editorial. Let content breathe. Single green accent.
-        </div>
-      </div>
-    </div>
-
-
-    <!-- ╔══════════════════════════════════════════════════════╗
-         ║  OPTION 5 — Luxury Serif
-         ╚══════════════════════════════════════════════════════╝ -->
-    <div class="style-option opt5">
-      <div class="option-label">
-        <div class="option-number">5</div>
-        <div class="option-meta">
-          <h2>Luxury Serif</h2>
-          <div class="subtitle">Premium black and gold. Cormorant serifs with geometric precision.</div>
-        </div>
-        <div class="option-tags">
-          <span>Cormorant + Montserrat</span>
-          <span>Light Mode</span>
-          <span>Black + Gold</span>
-        </div>
-      </div>
-
-      <div class="preview">
-        <nav class="lux-nav">
-          <span class="brand">Sponic Gardens</span>
-          <div class="links">
-            <span>About</span>
-            <span>Experience</span>
-            <span>Apply</span>
-          </div>
-        </nav>
-
-        <div class="lux-hero">
-          <h3>Where Nature Meets<br>Intelligent Design</h3>
-          <p>AI-enhanced spaces that promote socialization in a manner that is inspiring, healthy, and productive. A new standard for the social experience.</p>
-          <span class="btn">Explore the Garden</span>
-        </div>
-
-        <div class="lux-cards">
-          <div class="lux-card">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#ca8a04" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 0 20 10 10 0 0 1 0-20z"/><path d="M12 6v12"/><path d="M6 12h12"/></svg>
-            </div>
-            <h4>Botanical Spaces</h4>
-            <p>Living architecture that breathes, grows, and adapts alongside its inhabitants.</p>
-          </div>
-          <div class="lux-card">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#ca8a04" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-            </div>
-            <h4>AI Guidance</h4>
-            <p>Natively AI-managed environments working in members' best interests.</p>
-          </div>
-          <div class="lux-card">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#ca8a04" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <h4>Social Club</h4>
-            <p>A curated community of members who value growth, wellness, and connection.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="palette-strip">
-        <div class="swatch" style="background: #1c1917;"></div>
-        <div class="swatch" style="background: #44403c;"></div>
-        <div class="swatch" style="background: #ca8a04;"></div>
-        <div class="swatch" style="background: #fbbf24;"></div>
-        <div class="swatch" style="background: #fafaf9;"></div>
-        <div class="swatch" style="background: #ffffff; border-color: #ddd;"></div>
-        <div class="palette-info">
-          <strong>Fonts:</strong> Cormorant + Montserrat<br>
-          <strong>Vibe:</strong> Private members' club. Authority and refinement. Gold accents.
-        </div>
-      </div>
-    </div>
-
-
-    <!-- ╔══════════════════════════════════════════════════════╗
-         ║  OPTION 6 — Art Deco Garden Club
-         ╚══════════════════════════════════════════════════════╝ -->
-    <div class="style-option opt6">
-      <div class="option-label">
-        <div class="option-number">6</div>
-        <div class="option-meta">
-          <h2>Art Deco Garden Club</h2>
-          <div class="subtitle">1920s speakeasy meets botanical greenhouse. Geometric gold on noir.</div>
-        </div>
-        <div class="option-tags">
-          <span>Poiret One + Didact Gothic</span>
-          <span>Dark Mode</span>
-          <span>Vintage Luxury</span>
-        </div>
-      </div>
-
-      <div class="preview">
-        <nav class="deco-nav">
-          <span class="brand">Sponic Gardens</span>
-          <div class="links">
-            <span>About</span>
-            <span>Experience</span>
-            <span>Apply</span>
-          </div>
-        </nav>
-
-        <div class="deco-hero">
-          <h3>Where Nature Meets<br>Intelligent Design</h3>
-          <p>AI-enhanced spaces that promote socialization in a manner that is inspiring, healthy, and productive. An experience designed for the discerning.</p>
-          <span class="btn">Explore the Garden</span>
-        </div>
-
-        <div class="deco-cards">
-          <div class="deco-card">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#ca8a04" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 0 20 10 10 0 0 1 0-20z"/><path d="M12 6v12"/><path d="M6 12h12"/></svg>
-            </div>
-            <h4>Botanical Spaces</h4>
-            <p>Living architecture that breathes, grows, and adapts alongside its inhabitants.</p>
-          </div>
-          <div class="deco-card">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#ca8a04" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-            </div>
-            <h4>AI Guidance</h4>
-            <p>Natively AI-managed environments working in members' best interests.</p>
-          </div>
-          <div class="deco-card">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#ca8a04" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <h4>Social Club</h4>
-            <p>A curated community of members who value growth, wellness, and connection.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="palette-strip">
-        <div class="swatch" style="background: #1a1a18;"></div>
-        <div class="swatch" style="background: #ca8a04;"></div>
-        <div class="swatch" style="background: #fbbf24;"></div>
-        <div class="swatch" style="background: #e8e0d0;"></div>
-        <div class="swatch" style="background: #44403c;"></div>
-        <div class="palette-info">
-          <strong>Fonts:</strong> Poiret One + Didact Gothic<br>
-          <strong>Vibe:</strong> Gatsby-era speakeasy meets greenhouse. Geometric, opulent.
-        </div>
-      </div>
-    </div>
-
-
-    <!-- ╔══════════════════════════════════════════════════════╗
-         ║  OPTION 7 — Swiss Modernism 2.0
-         ╚══════════════════════════════════════════════════════╝ -->
-    <div class="style-option opt7">
-      <div class="option-label">
-        <div class="option-number">7</div>
-        <div class="option-meta">
-          <h2>Swiss Modernism 2.0</h2>
-          <div class="subtitle">Grid-based, mathematical, rational. International style with a single accent.</div>
-        </div>
-        <div class="option-tags">
-          <span>Inter</span>
-          <span>Light Mode</span>
-          <span>Grid System</span>
-        </div>
-      </div>
-
-      <div class="preview">
-        <nav class="swiss-nav">
-          <span class="brand">Sponic Gardens</span>
-          <div class="links">
-            <span>About</span>
-            <span>Experience</span>
-            <span>Apply</span>
-          </div>
-        </nav>
-
-        <div class="swiss-hero">
-          <div>
-            <h3>Where nature<br>meets intelligent<br>design</h3>
-          </div>
-          <div class="swiss-hero-right">
-            <p>AI-enhanced spaces that promote socialization in a manner that is inspiring, healthy, and productive.</p>
-            <span class="btn"><span class="swiss-accent"></span>Explore the Garden</span>
-          </div>
-        </div>
-
-        <div class="swiss-cards">
-          <div class="swiss-card">
-            <div class="label">01 — Space</div>
-            <h4>Botanical Spaces</h4>
-            <p>Living architecture that breathes, grows, and adapts alongside its inhabitants.</p>
-          </div>
-          <div class="swiss-card">
-            <div class="label">02 — Intelligence</div>
-            <h4>AI Guidance</h4>
-            <p>Natively AI-managed environments working in members' best interests.</p>
-          </div>
-          <div class="swiss-card">
-            <div class="label">03 — Community</div>
-            <h4>Social Club</h4>
-            <p>A curated community of members who value growth, wellness, and connection.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="palette-strip">
-        <div class="swatch" style="background: #000000;"></div>
-        <div class="swatch" style="background: #ffffff; border-color: #ddd;"></div>
-        <div class="swatch" style="background: #F5F5F5;"></div>
-        <div class="swatch" style="background: #2563eb;"></div>
-        <div class="swatch" style="background: #666666;"></div>
-        <div class="palette-info">
-          <strong>Fonts:</strong> Inter (single family, weight hierarchy)<br>
-          <strong>Vibe:</strong> Rational, grid-based, Helvetica-school. Clean authority.
-        </div>
-      </div>
-    </div>
-
-
-    <!-- ╔══════════════════════════════════════════════════════╗
-         ║  OPTION 8 — Neubrutalism
-         ╚══════════════════════════════════════════════════════╝ -->
-    <div class="style-option opt8">
-      <div class="option-label">
-        <div class="option-number">8</div>
-        <div class="option-meta">
-          <h2>Neubrutalism</h2>
-          <div class="subtitle">Bold borders, hard shadows, primary colors. Raw but functional.</div>
-        </div>
-        <div class="option-tags">
-          <span>Lexend Mega + Public Sans</span>
-          <span>Light Mode</span>
-          <span>Gen Z</span>
-        </div>
-      </div>
-
-      <div class="preview">
-        <nav class="nb-nav">
-          <span class="brand">Sponic Gardens</span>
-          <div class="links">
-            <span>About</span>
-            <span>Experience</span>
-            <span>Apply</span>
-          </div>
-        </nav>
-
-        <div class="nb-hero">
+      <div class="spatial-preview">
+        <div class="ambient ambient-1"></div>
+        <div class="ambient ambient-2"></div>
+        <div class="ambient ambient-3"></div>
+        <nav class="s-nav"><span class="brand">Sponic Gardens</span><div class="links"><span>About</span><span>Experience</span><span>Apply</span></div></nav>
+        <div class="s-hero">
           <h3>Where nature meets<br>intelligent design</h3>
           <p>AI-enhanced spaces that promote socialization in a manner that is inspiring, healthy, and productive.</p>
           <span class="btn">Explore the Garden</span>
         </div>
-
-        <div class="nb-cards">
-          <div class="nb-card nb-card-blue">
-            <h4>Botanical Spaces</h4>
-            <p>Living architecture that breathes, grows, and adapts alongside its inhabitants.</p>
-          </div>
-          <div class="nb-card nb-card-red">
-            <h4>AI Guidance</h4>
-            <p>Natively AI-managed environments working in members' best interests.</p>
-          </div>
-          <div class="nb-card nb-card-green">
-            <h4>Social Club</h4>
-            <p>A curated community of members who value growth, wellness, and connection.</p>
-          </div>
+        <div class="s-cards">
+          <div class="s-card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 0 20 10 10 0 0 1 0-20z"/><path d="M12 6v12"/><path d="M6 12h12"/></svg></div><h4>Botanical Spaces</h4><p>Living architecture that breathes, grows, and adapts alongside its inhabitants.</p></div>
+          <div class="s-card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div><h4>AI Guidance</h4><p>Natively AI-managed environments working in members' best interests.</p></div>
+          <div class="s-card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h4>Social Club</h4><p>A curated community of members who value growth, wellness, and connection.</p></div>
         </div>
       </div>
-
       <div class="palette-strip">
-        <div class="swatch" style="background: #FFEB3B;"></div>
-        <div class="swatch" style="background: #2196F3;"></div>
-        <div class="swatch" style="background: #FF5252;"></div>
-        <div class="swatch" style="background: #4CAF50;"></div>
-        <div class="swatch" style="background: #000000;"></div>
-        <div class="swatch" style="background: #FAFAF8;"></div>
-        <div class="palette-info">
-          <strong>Fonts:</strong> Lexend Mega + Public Sans<br>
-          <strong>Vibe:</strong> Bold, loud, playful. Hard shadows, thick borders, no gradients.
-        </div>
+        <div class="swatch" style="background:#1a1408;"></div>
+        <div class="swatch" style="background:#F59E0B;"></div>
+        <div class="swatch" style="background:#FBBF24;"></div>
+        <div class="swatch" style="background:#FDE047;"></div>
+        <div class="swatch" style="background:#FEF3C7;"></div>
+        <div class="palette-info"><strong>Inspiration:</strong> Sunflower field, golden hour light<br><strong>Mood:</strong> Energizing, optimistic, solar</div>
       </div>
     </div>
 
-
-    <!-- ╔══════════════════════════════════════════════════════╗
-         ║  OPTION 9 — Organic Biophilic
-         ╚══════════════════════════════════════════════════════╝ -->
-    <div class="style-option opt9">
+    <!-- E — Lavender Meadow -->
+    <div class="style-option palE">
       <div class="option-label">
-        <div class="option-number">9</div>
+        <div class="option-number">E</div>
         <div class="option-meta">
-          <h2>Organic Biophilic</h2>
-          <div class="subtitle">Nature-inspired curves, flowing shapes, forest-earth palette.</div>
+          <h2>Lavender Meadow</h2>
+          <div class="subtitle">Provence lavender rows at twilight. Serene indigo calm.</div>
+          <div class="flower">Lavandula angustifolia</div>
         </div>
-        <div class="option-tags">
-          <span>Outfit + Work Sans</span>
-          <span>Light Mode</span>
-          <span>Rounded / Flowing</span>
-        </div>
+        <div class="option-tags"><span>Indigo</span><span>Lavender</span><span>Serene</span></div>
       </div>
-
-      <div class="preview">
-        <nav class="bio-nav">
-          <span class="brand">Sponic Gardens</span>
-          <div class="links">
-            <span>About</span>
-            <span>Experience</span>
-            <span>Apply</span>
-          </div>
-        </nav>
-
-        <div class="bio-hero">
+      <div class="spatial-preview">
+        <div class="ambient ambient-1"></div>
+        <div class="ambient ambient-2"></div>
+        <div class="ambient ambient-3"></div>
+        <nav class="s-nav"><span class="brand">Sponic Gardens</span><div class="links"><span>About</span><span>Experience</span><span>Apply</span></div></nav>
+        <div class="s-hero">
           <h3>Where nature meets<br>intelligent design</h3>
           <p>AI-enhanced spaces that promote socialization in a manner that is inspiring, healthy, and productive.</p>
           <span class="btn">Explore the Garden</span>
         </div>
-
-        <div class="bio-cards">
-          <div class="bio-card">
-            <div class="icon icon-forest">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#228B22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 0 20 10 10 0 0 1 0-20z"/><path d="M12 6v12"/><path d="M6 12h12"/></svg>
-            </div>
-            <h4>Botanical Spaces</h4>
-            <p>Living architecture that breathes, grows, and adapts alongside its inhabitants.</p>
-          </div>
-          <div class="bio-card">
-            <div class="icon icon-sky">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#4a90a4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-            </div>
-            <h4>AI Guidance</h4>
-            <p>Natively AI-managed environments working in members' best interests.</p>
-          </div>
-          <div class="bio-card">
-            <div class="icon icon-earth">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#8B4513" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <h4>Social Club</h4>
-            <p>A curated community of members who value growth, wellness, and connection.</p>
-          </div>
+        <div class="s-cards">
+          <div class="s-card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 0 20 10 10 0 0 1 0-20z"/><path d="M12 6v12"/><path d="M6 12h12"/></svg></div><h4>Botanical Spaces</h4><p>Living architecture that breathes, grows, and adapts alongside its inhabitants.</p></div>
+          <div class="s-card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div><h4>AI Guidance</h4><p>Natively AI-managed environments working in members' best interests.</p></div>
+          <div class="s-card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h4>Social Club</h4><p>A curated community of members who value growth, wellness, and connection.</p></div>
         </div>
       </div>
-
       <div class="palette-strip">
-        <div class="swatch" style="background: #228B22;"></div>
-        <div class="swatch" style="background: #8B4513;"></div>
-        <div class="swatch" style="background: #87CEEB;"></div>
-        <div class="swatch" style="background: #F5F5DC;"></div>
-        <div class="swatch" style="background: #f7f5f0;"></div>
-        <div class="palette-info">
-          <strong>Fonts:</strong> Outfit + Work Sans<br>
-          <strong>Vibe:</strong> Soft, rounded, earthy. Feels like a wellness app.
-        </div>
+        <div class="swatch" style="background:#10081a;"></div>
+        <div class="swatch" style="background:#6366F1;"></div>
+        <div class="swatch" style="background:#818CF8;"></div>
+        <div class="swatch" style="background:#A5B4FC;"></div>
+        <div class="swatch" style="background:#C7D2FE;"></div>
+        <div class="palette-info"><strong>Inspiration:</strong> Lavender fields, Provence twilight<br><strong>Mood:</strong> Calm, meditative, aromatic</div>
       </div>
     </div>
 
-
-    <!-- ╔══════════════════════════════════════════════════════╗
-         ║  OPTION 10 — Nature Distilled (Terracotta)
-         ╚══════════════════════════════════════════════════════╝ -->
-    <div class="style-option opt10">
+    <!-- F — Desert Rose -->
+    <div class="style-option palF">
       <div class="option-label">
-        <div class="option-number">10</div>
+        <div class="option-number">F</div>
         <div class="option-meta">
-          <h2>Nature Distilled</h2>
-          <div class="subtitle">Terracotta, sand, warm clay. Handmade warmth, artisan quality.</div>
+          <h2>Desert Rose</h2>
+          <div class="subtitle">Adenium bloom in arid twilight. Warm crimson glow.</div>
+          <div class="flower">Adenium obesum</div>
         </div>
-        <div class="option-tags">
-          <span>Lora + Raleway</span>
-          <span>Light Mode</span>
-          <span>Warm Earth</span>
-        </div>
+        <div class="option-tags"><span>Crimson</span><span>Rose</span><span>Bold</span></div>
       </div>
-
-      <div class="preview">
-        <nav class="terra-nav">
-          <span class="brand">Sponic Gardens</span>
-          <div class="links">
-            <span>About</span>
-            <span>Experience</span>
-            <span>Apply</span>
-          </div>
-        </nav>
-
-        <div class="terra-hero">
+      <div class="spatial-preview">
+        <div class="ambient ambient-1"></div>
+        <div class="ambient ambient-2"></div>
+        <div class="ambient ambient-3"></div>
+        <nav class="s-nav"><span class="brand">Sponic Gardens</span><div class="links"><span>About</span><span>Experience</span><span>Apply</span></div></nav>
+        <div class="s-hero">
           <h3>Where nature meets<br>intelligent design</h3>
           <p>AI-enhanced spaces that promote socialization in a manner that is inspiring, healthy, and productive.</p>
           <span class="btn">Explore the Garden</span>
         </div>
-
-        <div class="terra-cards">
-          <div class="terra-card">
-            <div class="icon icon-clay">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#C67B5C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 0 20 10 10 0 0 1 0-20z"/><path d="M12 6v12"/><path d="M6 12h12"/></svg>
-            </div>
-            <h4>Botanical Spaces</h4>
-            <p>Living architecture that breathes, grows, and adapts alongside its inhabitants.</p>
-          </div>
-          <div class="terra-card">
-            <div class="icon icon-olive">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#6B7B3C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-            </div>
-            <h4>AI Guidance</h4>
-            <p>Natively AI-managed environments working in members' best interests.</p>
-          </div>
-          <div class="terra-card">
-            <div class="icon icon-sand">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#8B7355" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <h4>Social Club</h4>
-            <p>A curated community of members who value growth, wellness, and connection.</p>
-          </div>
+        <div class="s-cards">
+          <div class="s-card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 0 20 10 10 0 0 1 0-20z"/><path d="M12 6v12"/><path d="M6 12h12"/></svg></div><h4>Botanical Spaces</h4><p>Living architecture that breathes, grows, and adapts alongside its inhabitants.</p></div>
+          <div class="s-card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div><h4>AI Guidance</h4><p>Natively AI-managed environments working in members' best interests.</p></div>
+          <div class="s-card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h4>Social Club</h4><p>A curated community of members who value growth, wellness, and connection.</p></div>
         </div>
       </div>
-
       <div class="palette-strip">
-        <div class="swatch" style="background: #C67B5C;"></div>
-        <div class="swatch" style="background: #D4C4A8;"></div>
-        <div class="swatch" style="background: #B5651D;"></div>
-        <div class="swatch" style="background: #6B7B3C;"></div>
-        <div class="swatch" style="background: #F5F0E1;"></div>
-        <div class="palette-info">
-          <strong>Fonts:</strong> Lora + Raleway<br>
-          <strong>Vibe:</strong> Warm clay, artisan. Like a ceramics studio or organic market.
-        </div>
+        <div class="swatch" style="background:#1a0f0a;"></div>
+        <div class="swatch" style="background:#EF4444;"></div>
+        <div class="swatch" style="background:#F87171;"></div>
+        <div class="swatch" style="background:#FCA5A5;"></div>
+        <div class="swatch" style="background:#FECACA;"></div>
+        <div class="palette-info"><strong>Inspiration:</strong> Desert rose bloom, red earth at dusk<br><strong>Mood:</strong> Passionate, resilient, striking</div>
       </div>
     </div>
 
-
-    <!-- ╔══════════════════════════════════════════════════════╗
-         ║  OPTION 11 — Bento Box Grid
-         ╚══════════════════════════════════════════════════════╝ -->
-    <div class="style-option opt11">
+    <!-- G — Blue Lotus -->
+    <div class="style-option palG">
       <div class="option-label">
-        <div class="option-number">11</div>
+        <div class="option-number">G</div>
         <div class="option-meta">
-          <h2>Bento Box Grid</h2>
-          <div class="subtitle">Apple-style modular cards with varied sizes. Clean, modern, spacious.</div>
+          <h2>Blue Lotus</h2>
+          <div class="subtitle">Sacred water lily on a still pond. Cool azure luminance.</div>
+          <div class="flower">Nymphaea caerulea</div>
         </div>
-        <div class="option-tags">
-          <span>Inter</span>
-          <span>Light Mode</span>
-          <span>Modular Cards</span>
-        </div>
+        <div class="option-tags"><span>Azure</span><span>Aquatic</span><span>Sacred</span></div>
       </div>
-
-      <div class="preview">
-        <nav class="bento-nav">
-          <span class="brand">Sponic Gardens</span>
-          <div class="links">
-            <span>About</span>
-            <span>Experience</span>
-            <span>Apply</span>
-          </div>
-        </nav>
-
-        <div class="bento-grid">
-          <div class="bento-cell bento-wide">
-            <h3>Where nature meets<br>intelligent design</h3>
-            <p>AI-enhanced spaces that promote socialization in a manner that is inspiring, healthy, and productive.</p>
-            <span class="btn">Explore the Garden</span>
-          </div>
-          <div class="bento-cell">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#0071e3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-            </div>
-            <h4>AI Guidance</h4>
-            <p>Natively AI-managed environments working in members' best interests.</p>
-          </div>
-          <div class="bento-cell">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#0071e3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 0 20 10 10 0 0 1 0-20z"/><path d="M12 6v12"/><path d="M6 12h12"/></svg>
-            </div>
-            <h4>Botanical Spaces</h4>
-            <p>Living architecture that breathes, grows, and adapts alongside its inhabitants.</p>
-          </div>
-          <div class="bento-cell bento-wide">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#0071e3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <h4>Social Club</h4>
-            <p>A curated community of members who value growth, wellness, and connection. Join a space designed for meaningful interaction.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="palette-strip">
-        <div class="swatch" style="background: #F5F5F7;"></div>
-        <div class="swatch" style="background: #ffffff; border-color: #ddd;"></div>
-        <div class="swatch" style="background: #1d1d1f;"></div>
-        <div class="swatch" style="background: #0071e3;"></div>
-        <div class="swatch" style="background: #86868b;"></div>
-        <div class="palette-info">
-          <strong>Fonts:</strong> Inter<br>
-          <strong>Vibe:</strong> Apple keynote aesthetic. Modular, airy, premium consumer tech.
-        </div>
-      </div>
-    </div>
-
-
-    <!-- ╔══════════════════════════════════════════════════════╗
-         ║  OPTION 12 — Aurora UI
-         ╚══════════════════════════════════════════════════════╝ -->
-    <div class="style-option opt12">
-      <div class="option-label">
-        <div class="option-number">12</div>
-        <div class="option-meta">
-          <h2>Aurora UI</h2>
-          <div class="subtitle">Northern Lights gradients, atmospheric depth, vibrant flowing colors.</div>
-        </div>
-        <div class="option-tags">
-          <span>Poppins</span>
-          <span>Dark Mode</span>
-          <span>Gradient Mesh</span>
-        </div>
-      </div>
-
-      <div class="preview">
-        <nav class="aurora-nav">
-          <span class="brand">Sponic Gardens</span>
-          <div class="links">
-            <span>About</span>
-            <span>Experience</span>
-            <span>Apply</span>
-          </div>
-        </nav>
-
-        <div class="aurora-hero">
+      <div class="spatial-preview">
+        <div class="ambient ambient-1"></div>
+        <div class="ambient ambient-2"></div>
+        <div class="ambient ambient-3"></div>
+        <nav class="s-nav"><span class="brand">Sponic Gardens</span><div class="links"><span>About</span><span>Experience</span><span>Apply</span></div></nav>
+        <div class="s-hero">
           <h3>Where nature meets<br>intelligent design</h3>
           <p>AI-enhanced spaces that promote socialization in a manner that is inspiring, healthy, and productive.</p>
           <span class="btn">Explore the Garden</span>
         </div>
-
-        <div class="aurora-cards">
-          <div class="aurora-card">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#0080FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 0 20 10 10 0 0 1 0-20z"/><path d="M12 6v12"/><path d="M6 12h12"/></svg>
-            </div>
-            <h4>Botanical Spaces</h4>
-            <p>Living architecture that breathes, grows, and adapts alongside its inhabitants.</p>
-          </div>
-          <div class="aurora-card">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#00FFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-            </div>
-            <h4>AI Guidance</h4>
-            <p>Natively AI-managed environments working in members' best interests.</p>
-          </div>
-          <div class="aurora-card">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#FF1493" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <h4>Social Club</h4>
-            <p>A curated community of members who value growth, wellness, and connection.</p>
-          </div>
+        <div class="s-cards">
+          <div class="s-card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 0 20 10 10 0 0 1 0-20z"/><path d="M12 6v12"/><path d="M6 12h12"/></svg></div><h4>Botanical Spaces</h4><p>Living architecture that breathes, grows, and adapts alongside its inhabitants.</p></div>
+          <div class="s-card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div><h4>AI Guidance</h4><p>Natively AI-managed environments working in members' best interests.</p></div>
+          <div class="s-card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h4>Social Club</h4><p>A curated community of members who value growth, wellness, and connection.</p></div>
         </div>
       </div>
-
       <div class="palette-strip">
-        <div class="swatch" style="background: #050510;"></div>
-        <div class="swatch" style="background: #0080FF;"></div>
-        <div class="swatch" style="background: #FF1493;"></div>
-        <div class="swatch" style="background: #00FFFF;"></div>
-        <div class="swatch" style="background: #8000FF;"></div>
-        <div class="palette-info">
-          <strong>Fonts:</strong> Poppins<br>
-          <strong>Vibe:</strong> Northern Lights. Living color gradients on void-black.
-        </div>
+        <div class="swatch" style="background:#06101a;"></div>
+        <div class="swatch" style="background:#0EA5E9;"></div>
+        <div class="swatch" style="background:#38BDF8;"></div>
+        <div class="swatch" style="background:#7DD3FC;"></div>
+        <div class="swatch" style="background:#BAE6FD;"></div>
+        <div class="palette-info"><strong>Inspiration:</strong> Sacred blue lotus, moonlit water<br><strong>Mood:</strong> Tranquil, reflective, refreshing</div>
       </div>
     </div>
 
-
-    <!-- ╔══════════════════════════════════════════════════════╗
-         ║  OPTION 13 — AI-Native UI
-         ╚══════════════════════════════════════════════════════╝ -->
-    <div class="style-option opt13">
+    <!-- H — Jade Plant -->
+    <div class="style-option palH">
       <div class="option-label">
-        <div class="option-number">13</div>
+        <div class="option-number">H</div>
         <div class="option-meta">
-          <h2>AI-Native UI</h2>
-          <div class="subtitle">Minimal chrome, conversational feel. Built for an AI-first product.</div>
+          <h2>Jade Plant</h2>
+          <div class="subtitle">Succulent jade leaves with teal undertones. Cool botanical.</div>
+          <div class="flower">Crassula ovata</div>
         </div>
-        <div class="option-tags">
-          <span>Inter</span>
-          <span>Light Mode</span>
-          <span>Conversational</span>
-        </div>
+        <div class="option-tags"><span>Teal</span><span>Jade</span><span>Cool</span></div>
       </div>
-
-      <div class="preview">
-        <nav class="ai-nav">
-          <span class="brand">Sponic Gardens</span>
-          <span class="ai-badge">AI-Native</span>
-          <div class="links">
-            <span>About</span>
-            <span>Experience</span>
-            <span>Apply</span>
-          </div>
-        </nav>
-
-        <div class="ai-hero">
-          <h3>Where nature meets<br>intelligent design</h3>
-          <p>AI-enhanced spaces that promote socialization in a manner that is inspiring, healthy, and productive.</p>
-          <span class="btn"><span class="dot"></span> Explore the Garden</span>
-        </div>
-
-        <div class="ai-cards">
-          <div class="ai-card ai-card-purple">
-            <h4>Botanical Spaces</h4>
-            <p>Living architecture that breathes, grows, and adapts alongside its inhabitants.</p>
-          </div>
-          <div class="ai-card ai-card-green">
-            <h4>AI Guidance</h4>
-            <p>Natively AI-managed environments working in members' best interests.</p>
-          </div>
-          <div class="ai-card ai-card-amber">
-            <h4>Social Club</h4>
-            <p>A curated community of members who value growth, wellness, and connection.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="palette-strip">
-        <div class="swatch" style="background: #FAFAFA;"></div>
-        <div class="swatch" style="background: #ffffff; border-color: #ddd;"></div>
-        <div class="swatch" style="background: #6366F1;"></div>
-        <div class="swatch" style="background: #10B981;"></div>
-        <div class="swatch" style="background: #F59E0B;"></div>
-        <div class="swatch" style="background: #1a1a1a;"></div>
-        <div class="palette-info">
-          <strong>Fonts:</strong> Inter<br>
-          <strong>Vibe:</strong> ChatGPT / Linear aesthetic. Clean, functional, AI-forward.
-        </div>
-      </div>
-    </div>
-
-
-    <!-- ╔══════════════════════════════════════════════════════╗
-         ║  OPTION 14 — E-Ink / Paper
-         ╚══════════════════════════════════════════════════════╝ -->
-    <div class="style-option opt14">
-      <div class="option-label">
-        <div class="option-number">14</div>
-        <div class="option-meta">
-          <h2>E-Ink / Paper</h2>
-          <div class="subtitle">Calm, reading-focused, high contrast. Paper texture, zero animation.</div>
-        </div>
-        <div class="option-tags">
-          <span>Libre Baskerville</span>
-          <span>Light Mode</span>
-          <span>Monochrome</span>
-        </div>
-      </div>
-
-      <div class="preview">
-        <nav class="paper-nav">
-          <span class="brand">Sponic Gardens</span>
-          <div class="links">
-            <span>About</span>
-            <span>Experience</span>
-            <span>Apply</span>
-          </div>
-        </nav>
-
-        <div class="paper-hero">
-          <h3>Where nature meets<br>intelligent design</h3>
-          <p>AI-enhanced spaces that promote socialization in a manner that is inspiring, healthy, and productive. A place where technology serves the human experience, not the other way around.</p>
-          <span class="btn">Explore the Garden</span>
-        </div>
-
-        <div class="paper-divider"></div>
-
-        <div class="paper-cards">
-          <div class="paper-card">
-            <div class="rule"></div>
-            <h4>Botanical Spaces</h4>
-            <p>Living architecture that breathes, grows, and adapts alongside its inhabitants.</p>
-          </div>
-          <div class="paper-card">
-            <div class="rule"></div>
-            <h4>AI Guidance</h4>
-            <p>Natively AI-managed environments working in members' best interests.</p>
-          </div>
-          <div class="paper-card">
-            <div class="rule"></div>
-            <h4>Social Club</h4>
-            <p>A curated community of members who value growth, wellness, and connection.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="palette-strip">
-        <div class="swatch" style="background: #FDFBF7;"></div>
-        <div class="swatch" style="background: #1A1A1A;"></div>
-        <div class="swatch" style="background: #4A4A4A;"></div>
-        <div class="swatch" style="background: #d0cec8;"></div>
-        <div class="swatch" style="background: #888888;"></div>
-        <div class="palette-info">
-          <strong>Fonts:</strong> Libre Baskerville (serif)<br>
-          <strong>Vibe:</strong> Printed page. Quiet, literary, distraction-free. Slow tech.
-        </div>
-      </div>
-    </div>
-
-
-    <!-- ╔══════════════════════════════════════════════════════╗
-         ║  OPTION 15 — Neumorphism
-         ╚══════════════════════════════════════════════════════╝ -->
-    <div class="style-option opt15">
-      <div class="option-label">
-        <div class="option-number">15</div>
-        <div class="option-meta">
-          <h2>Neumorphism</h2>
-          <div class="subtitle">Soft 3D, embossed elements, botanical-green monochrome.</div>
-        </div>
-        <div class="option-tags">
-          <span>DM Sans + DM Serif Display</span>
-          <span>Light Mode</span>
-          <span>Soft UI</span>
-        </div>
-      </div>
-
-      <div class="preview">
-        <nav class="neu-nav">
-          <span class="brand">Sponic Gardens</span>
-          <div class="links">
-            <span>About</span>
-            <span>Experience</span>
-            <span>Apply</span>
-          </div>
-        </nav>
-
-        <div class="neu-hero">
+      <div class="spatial-preview">
+        <div class="ambient ambient-1"></div>
+        <div class="ambient ambient-2"></div>
+        <div class="ambient ambient-3"></div>
+        <nav class="s-nav"><span class="brand">Sponic Gardens</span><div class="links"><span>About</span><span>Experience</span><span>Apply</span></div></nav>
+        <div class="s-hero">
           <h3>Where nature meets<br>intelligent design</h3>
           <p>AI-enhanced spaces that promote socialization in a manner that is inspiring, healthy, and productive.</p>
           <span class="btn">Explore the Garden</span>
         </div>
-
-        <div class="neu-cards">
-          <div class="neu-card">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#3a5a2a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 0 20 10 10 0 0 1 0-20z"/><path d="M12 6v12"/><path d="M6 12h12"/></svg>
-            </div>
-            <h4>Botanical Spaces</h4>
-            <p>Living architecture that breathes, grows, and adapts alongside its inhabitants.</p>
-          </div>
-          <div class="neu-card">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#3a5a2a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-            </div>
-            <h4>AI Guidance</h4>
-            <p>Natively AI-managed environments working in members' best interests.</p>
-          </div>
-          <div class="neu-card">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#3a5a2a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <h4>Social Club</h4>
-            <p>A curated community of members who value growth, wellness, and connection.</p>
-          </div>
+        <div class="s-cards">
+          <div class="s-card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 0 20 10 10 0 0 1 0-20z"/><path d="M12 6v12"/><path d="M6 12h12"/></svg></div><h4>Botanical Spaces</h4><p>Living architecture that breathes, grows, and adapts alongside its inhabitants.</p></div>
+          <div class="s-card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div><h4>AI Guidance</h4><p>Natively AI-managed environments working in members' best interests.</p></div>
+          <div class="s-card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h4>Social Club</h4><p>A curated community of members who value growth, wellness, and connection.</p></div>
         </div>
       </div>
-
       <div class="palette-strip">
-        <div class="swatch" style="background: #e8ece0;"></div>
-        <div class="swatch" style="background: #3a5a2a;"></div>
-        <div class="swatch" style="background: #7a9168;"></div>
-        <div class="swatch" style="background: #2d3b22;"></div>
-        <div class="swatch" style="background: #c4d4b0;"></div>
-        <div class="palette-info">
-          <strong>Fonts:</strong> DM Serif Display + DM Sans<br>
-          <strong>Vibe:</strong> Tactile, soft-touch. Elements feel embossed from the surface.
-        </div>
-      </div>
-    </div>
-
-
-    <!-- ╔══════════════════════════════════════════════════════╗
-         ║  OPTION 16 — Spatial UI (VisionOS)
-         ╚══════════════════════════════════════════════════════╝ -->
-    <div class="style-option opt16">
-      <div class="option-label">
-        <div class="option-number">16</div>
-        <div class="option-meta">
-          <h2>Spatial UI (VisionOS)</h2>
-          <div class="subtitle">Apple Vision Pro inspired. Frosted glass, depth layers, immersive feel.</div>
-        </div>
-        <div class="option-tags">
-          <span>Inter</span>
-          <span>Dark Mode</span>
-          <span>Frosted Glass</span>
-        </div>
-      </div>
-
-      <div class="preview">
-        <nav class="spatial-nav">
-          <span class="brand">Sponic Gardens</span>
-          <div class="links">
-            <span>About</span>
-            <span>Experience</span>
-            <span>Apply</span>
-          </div>
-        </nav>
-
-        <div class="spatial-hero">
-          <h3>Where nature meets<br>intelligent design</h3>
-          <p>AI-enhanced spaces that promote socialization in a manner that is inspiring, healthy, and productive.</p>
-          <span class="btn">Explore the Garden</span>
-        </div>
-
-        <div class="spatial-cards">
-          <div class="spatial-card">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 0 20 10 10 0 0 1 0-20z"/><path d="M12 6v12"/><path d="M6 12h12"/></svg>
-            </div>
-            <h4>Botanical Spaces</h4>
-            <p>Living architecture that breathes, grows, and adapts alongside its inhabitants.</p>
-          </div>
-          <div class="spatial-card">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-            </div>
-            <h4>AI Guidance</h4>
-            <p>Natively AI-managed environments working in members' best interests.</p>
-          </div>
-          <div class="spatial-card">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <h4>Social Club</h4>
-            <p>A curated community of members who value growth, wellness, and connection.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="palette-strip">
-        <div class="swatch" style="background: #1a1a2e;"></div>
-        <div class="swatch" style="background: #16213e;"></div>
-        <div class="swatch" style="background: #0f3460;"></div>
-        <div class="swatch" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2);"></div>
-        <div class="swatch" style="background: rgba(255,255,255,0.9);"></div>
-        <div class="palette-info">
-          <strong>Fonts:</strong> Inter<br>
-          <strong>Vibe:</strong> Vision Pro. Floating frosted panels in deep space. Immersive depth.
-        </div>
+        <div class="swatch" style="background:#0a1210;"></div>
+        <div class="swatch" style="background:#14B8A6;"></div>
+        <div class="swatch" style="background:#2DD4BF;"></div>
+        <div class="swatch" style="background:#5EEAD4;"></div>
+        <div class="swatch" style="background:#99F6E4;"></div>
+        <div class="palette-info"><strong>Inspiration:</strong> Jade plant leaves, succulent garden<br><strong>Mood:</strong> Balanced, grounding, mineral</div>
       </div>
     </div>
 
   </div>
-
 </body>
 </html>
