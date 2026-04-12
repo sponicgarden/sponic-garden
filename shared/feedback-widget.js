@@ -17,33 +17,35 @@ function injectStyles() {
       padding: 0 1.25rem 1.5rem;
     }
     .sg-feedback-box {
-      background: var(--surface, #ffffff);
-      border: 1px solid var(--border-light, #d8e3cf);
+      background: var(--surface, rgba(2,132,199,0.03));
+      border: 1px solid var(--border-light, rgba(14,165,233,0.06));
+      backdrop-filter: blur(40px) saturate(180%);
+      -webkit-backdrop-filter: blur(40px) saturate(180%);
       border-radius: var(--radius-lg, 14px);
       padding: 1.5rem;
     }
     .sg-feedback-box h3 {
-      font-family: 'DM Serif Display', serif;
+      font-family: 'Inter', sans-serif;
       font-size: 1.1rem;
-      color: var(--text, #1a2412);
+      color: var(--text, rgba(240,249,255,0.93));
       margin-bottom: 0.25rem;
     }
     .sg-feedback-box .sg-fb-sub {
       font-size: 0.82rem;
-      color: var(--text-muted, #7a9168);
+      color: var(--text-muted, rgba(186,230,253,0.38));
       margin-bottom: 1rem;
     }
     .sg-feedback-box input,
     .sg-feedback-box textarea {
       display: block;
       width: 100%;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 0.9rem;
       padding: 0.6rem 0.75rem;
       border: 1px solid var(--border, #c4d4ba);
       border-radius: var(--radius, 10px);
-      background: var(--bg, #f4f7f1);
-      color: var(--text, #1a2412);
+      background: var(--bg, #080c14);
+      color: var(--text, rgba(240,249,255,0.93));
       outline: none;
       transition: border-color 0.2s;
     }
@@ -59,7 +61,7 @@ function injectStyles() {
     .sg-feedback-box button {
       margin-top: 0.75rem;
       padding: 0.55rem 1.25rem;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 0.85rem;
       font-weight: 600;
       color: #fff;

@@ -21,7 +21,7 @@
   <meta name="twitter:image" content="https://sponicgardens.com/branding/og-hero.jpg">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" type="image/svg+xml">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
     :root {
       --bg: #f4f7f1;
@@ -75,7 +75,7 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.65;
@@ -91,7 +91,7 @@
       text-align: center;
       position: relative;
       overflow: hidden;
-      background: linear-gradient(180deg, #d8e8ca 0%, #dde8d2 35%, var(--bg) 100%);
+      background: linear-gradient(180deg, #060e18 0%, #0a1620 35%, var(--bg) 100%);
       border-bottom: 1px solid var(--border);
     }
     .hero::before {
@@ -120,7 +120,7 @@
     }
     .hero .breadcrumb a:hover { text-decoration: underline; }
     .hero h1 {
-      font-family: 'DM Serif Display', serif;
+      font-family: 'Inter', sans-serif;
       font-size: 2.4rem;
       font-weight: 400;
       color: var(--vine);
@@ -170,7 +170,7 @@
       background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 1c0 3-2 5-2 8s2 6 2 6 2-3 2-6-2-5-2-8z' fill='%237a9168' opacity='0.6'/%3E%3C/svg%3E") no-repeat center/contain;
     }
     .section h2 {
-      font-family: 'DM Serif Display', serif;
+      font-family: 'Inter', sans-serif;
       font-size: 1.45rem;
       font-weight: 400;
       color: var(--text);
@@ -450,7 +450,7 @@
       margin-bottom: 0.3rem;
     }
     .phase-card h3 {
-      font-family: 'DM Serif Display', serif;
+      font-family: 'Inter', sans-serif;
       font-size: 1.1rem;
       font-weight: 400;
       color: var(--vine);
@@ -476,8 +476,16 @@
       border-top: 1px solid var(--border-light);
     }
   </style>
+  <link rel="stylesheet" href="spatial-ui.css">
 </head>
 <body>
+  <div class="spatial-ambient">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
+  </div>
+
   <div style="position:fixed;top:0;right:0;z-index:100;padding:8px 14px;">
     <span class="aap-header__version" style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:0.65rem;color:#8b9a7d;opacity:0.7;transition:opacity .2s;" onmouseenter="this.style.opacity='1'" onmouseleave="this.style.opacity='0.7'"></span>
   </div>

@@ -6,7 +6,7 @@
   <title data-i18n="filing.page.title">Filing Guide — Sonic Vision Provisional Patent | Sponic Garden</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" type="image/svg+xml">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
     :root {
       --bg: #f4f7f1; --surface: #ffffff; --surface2: #eef3ea; --surface3: #e2eadc;
@@ -24,7 +24,7 @@
       --shadow: 0 1px 3px rgba(0,0,0,0.05); --shadow-md: 0 2px 8px rgba(0,0,0,0.06);
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'DM Sans', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; -webkit-font-smoothing: antialiased; }
 
     .hero {
       padding: 3.5rem 1.5rem 2.5rem; text-align: center; position: relative; overflow: hidden;
@@ -37,7 +37,7 @@
     .hero .breadcrumb { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.2rem; }
     .hero .breadcrumb a { color: var(--emerald); text-decoration: none; }
     .hero .breadcrumb a:hover { text-decoration: underline; }
-    .hero h1 { font-family: 'DM Serif Display', serif; font-size: 2.2rem; color: var(--green); line-height: 1.15; margin-bottom: 0.5rem; }
+    .hero h1 { font-family: 'Inter', sans-serif; font-size: 2.2rem; color: var(--green); line-height: 1.15; margin-bottom: 0.5rem; }
     .hero .subtitle { font-size: 1rem; color: var(--text-dim); max-width: 600px; margin: 0 auto; }
 
     .container { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
@@ -47,7 +47,7 @@
       padding: 2rem; margin-bottom: 1.5rem; box-shadow: var(--shadow);
     }
     .section-card h2 {
-      font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--vine);
+      font-family: 'Inter', sans-serif; font-size: 1.4rem; color: var(--vine);
       margin-bottom: 1rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border-light);
     }
     .section-card h3 { font-size: 1rem; font-weight: 600; color: var(--text-soft); margin: 1.4rem 0 0.5rem; }
@@ -134,14 +134,14 @@
       position: fixed; inset: 0; z-index: 9999;
       display: flex; align-items: center; justify-content: center;
       background: rgba(26, 36, 18, 0.65); backdrop-filter: blur(12px);
-      font-family: 'DM Sans', -apple-system, sans-serif;
+      font-family: 'Inter', -apple-system, sans-serif;
     }
     .auth-card {
       background: #fff; border-radius: 16px; padding: 2.5rem 2rem; text-align: center;
       max-width: 380px; width: 90%; box-shadow: 0 8px 40px rgba(0,0,0,0.18);
     }
     .auth-logo { height: 90px; margin-bottom: 0.5rem; }
-    .auth-card h2 { font-family: 'DM Serif Display', serif; color: #1a4d2e; font-size: 1.5rem; margin-bottom: 0.3rem; }
+    .auth-card h2 { font-family: 'Inter', sans-serif; color: #38bdf8; font-size: 1.5rem; margin-bottom: 0.3rem; }
     .auth-subtitle { color: #4a6040; font-size: 0.95rem; margin-bottom: 1.5rem; }
     #auth-google-btn {
       display: inline-flex; align-items: center; gap: 10px;
@@ -154,8 +154,16 @@
     .auth-error { color: #be123c; font-size: 0.85rem; margin-top: 1rem; }
     .auth-footer { color: #7a9168; font-size: 0.8rem; margin-top: 1.5rem; }
   </style>
+  <link rel="stylesheet" href="../spatial-ui.css">
 </head>
 <body>
+  <div class="spatial-ambient">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
+  </div>
+
 
   <div class="hero">
     <div class="hero-content">

@@ -56,14 +56,14 @@
       position: fixed; inset: 0; z-index: 9999;
       display: flex; align-items: center; justify-content: center;
       background: rgba(26, 36, 18, 0.65); backdrop-filter: blur(12px);
-      font-family: 'DM Sans', -apple-system, sans-serif;
+      font-family: 'Inter', -apple-system, sans-serif;
     }
     .auth-card {
       background: #fff; border-radius: 16px; padding: 2.5rem 2rem; text-align: center;
       max-width: 380px; width: 90%; box-shadow: 0 8px 40px rgba(0,0,0,0.18);
     }
     .auth-logo { height: 90px; margin-bottom: 0.5rem; }
-    .auth-card h2 { font-family: 'DM Serif Display', serif; color: #1a4d2e; font-size: 1.5rem; margin-bottom: 0.3rem; }
+    .auth-card h2 { font-family: 'Inter', sans-serif; color: #38bdf8; font-size: 1.5rem; margin-bottom: 0.3rem; }
     .auth-subtitle { color: #4a6040; font-size: 0.95rem; margin-bottom: 1.5rem; }
     #auth-google-btn {
       display: inline-flex; align-items: center; gap: 10px;
@@ -77,8 +77,16 @@
     .auth-footer { color: #7a9168; font-size: 0.8rem; margin-top: 1.5rem; }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../spatial-ui.css">
 </head>
 <body>
+  <div class="spatial-ambient">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
+  </div>
+
 
 <div class="print-bar no-print">
   <span data-i18n="spec.print_bar.label">Sonic Vision — Provisional Patent Specification &nbsp;|&nbsp; <a href="/patents/" data-i18n="spec.print_bar.back">Back to overview</a> <a href="/patents/filing-guide.html" data-i18n="spec.print_bar.filing">Filing guide</a></span>

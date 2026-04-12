@@ -7,7 +7,7 @@
   <meta name="description" data-i18n-content="meta.description" content="Comprehensive evaluation of prototype facility locations for Sponic Gardens across Warsaw and Krakow, including partnerships, budgets, and implementation strategy.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" type="image/svg+xml">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
     :root {
       --bg: #f4f7f1;
@@ -61,7 +61,7 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.65;
@@ -74,7 +74,7 @@
       text-align: center;
       position: relative;
       overflow: hidden;
-      background: linear-gradient(180deg, #d8e8ca 0%, #dde8d2 35%, var(--bg) 100%);
+      background: linear-gradient(180deg, #060e18 0%, #0a1620 35%, var(--bg) 100%);
       border-bottom: 1px solid var(--border);
     }
     .hero::before {
@@ -93,7 +93,7 @@
     }
     .hero-content { position: relative; z-index: 2; }
     .hero h1 {
-      font-family: 'DM Serif Display', serif;
+      font-family: 'Inter', sans-serif;
       font-size: clamp(1.8rem, 4vw, 2.6rem);
       font-weight: 400;
       color: var(--vine);
@@ -139,14 +139,14 @@
       margin-bottom: 0.5rem;
     }
     h2 {
-      font-family: 'DM Serif Display', serif;
+      font-family: 'Inter', sans-serif;
       font-size: 1.6rem;
       font-weight: 400;
       color: var(--vine);
       margin-bottom: 0.75rem;
     }
     h3 {
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 1.05rem;
       font-weight: 700;
       color: var(--text);
@@ -298,7 +298,7 @@
       gap: 1rem;
     }
     .loc-title {
-      font-family: 'DM Serif Display', serif;
+      font-family: 'Inter', sans-serif;
       font-size: 1.3rem;
       color: var(--vine);
       font-weight: 400;
@@ -472,7 +472,7 @@
       margin-bottom: 0.25rem;
     }
     .strategy-card h3 {
-      font-family: 'DM Serif Display', serif;
+      font-family: 'Inter', sans-serif;
       font-size: 1.1rem;
       font-weight: 400;
       color: var(--vine);
@@ -535,8 +535,16 @@
       .budget-grid { grid-template-columns: 1fr; }
     }
   </style>
+  <link rel="stylesheet" href="../../spatial-ui.css">
 </head>
 <body>
+  <div class="spatial-ambient">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
+  </div>
+
 
 <!-- ════════ HERO ════════ -->
 <div class="hero">

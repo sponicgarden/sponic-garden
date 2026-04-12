@@ -21,7 +21,7 @@
   <meta name="twitter:image" content="https://sponicgardens.com/branding/og-hero.jpg">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" type="image/svg+xml">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
     :root {
       --bg: #f4f7f1;
@@ -75,7 +75,7 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.65;
@@ -91,7 +91,7 @@
       text-align: center;
       position: relative;
       overflow: hidden;
-      background: linear-gradient(180deg, #d8e8ca 0%, #dde8d2 35%, var(--bg) 100%);
+      background: linear-gradient(180deg, #060e18 0%, #0a1620 35%, var(--bg) 100%);
       border-bottom: 1px solid var(--border);
     }
     .hero::before {
@@ -139,7 +139,7 @@
 
     .hero-content { position: relative; z-index: 2; }
     .hero h1 {
-      font-family: 'DM Serif Display', serif;
+      font-family: 'Inter', sans-serif;
       font-size: 3rem;
       font-weight: 400;
       color: var(--vine);
@@ -178,12 +178,12 @@
       gap: 0.4rem;
       margin-top: 1.25rem;
       padding: 0.4rem 1rem;
-      background: rgba(255,255,255,0.7);
-      border: 1px solid var(--plum-border);
+      background: rgba(14,165,233,0.08);
+      border: 1px solid rgba(56,189,248,0.12);
       border-radius: 20px;
       font-size: 0.75rem;
       font-weight: 600;
-      color: var(--plum);
+      color: #38bdf8;
       text-transform: uppercase;
       letter-spacing: 0.06em;
       backdrop-filter: blur(4px);
@@ -244,7 +244,7 @@
       background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 1c0 3-2 5-2 8s2 6 2 6 2-3 2-6-2-5-2-8z' fill='%237a9168' opacity='0.6'/%3E%3C/svg%3E") no-repeat center/contain;
     }
     .section h2 {
-      font-family: 'DM Serif Display', serif;
+      font-family: 'Inter', sans-serif;
       font-size: 1.45rem;
       font-weight: 400;
       color: var(--text);
@@ -468,8 +468,16 @@
       border-top: 1px solid var(--border-light);
     }
   </style>
+  <link rel="stylesheet" href="spatial-ui.css">
 </head>
 <body>
+  <div class="spatial-ambient">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
+  </div>
+
 
   <div class="hero">
     <!-- Glow nodes -->
@@ -480,24 +488,24 @@
 
     <!-- Leaf silhouettes -->
     <svg class="hero-leaf-left" viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
-      <path d="M100 0C60 40 10 80 5 160c-3 50 30 90 95 100C95 200 80 140 70 100 65 80 80 50 100 0z" fill="#1a4d2e"/>
-      <path d="M100 0c40 40 85 80 90 160 3 50-30 90-90 100 5-60 15-120 25-160 5-20-5-50-25-100z" fill="#1a4d2e"/>
-      <path d="M100 30v230M60 80l40-20M55 120l45-15M50 160l50-10M140 80l-40-20M145 120l-45-15M150 160l-50-10" stroke="#f4f7f1" stroke-width="0.8" opacity="0.3" fill="none"/>
+      <path d="M100 0C60 40 10 80 5 160c-3 50 30 90 95 100C95 200 80 140 70 100 65 80 80 50 100 0z" fill="#0284c7"/>
+      <path d="M100 0c40 40 85 80 90 160 3 50-30 90-90 100 5-60 15-120 25-160 5-20-5-50-25-100z" fill="#0284c7"/>
+      <path d="M100 30v230M60 80l40-20M55 120l45-15M50 160l50-10M140 80l-40-20M145 120l-45-15M150 160l-50-10" stroke="#0a1620" stroke-width="0.8" opacity="0.3" fill="none"/>
     </svg>
     <svg class="hero-leaf-right" viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
-      <path d="M100 0C60 40 10 80 5 160c-3 50 30 90 95 100C95 200 80 140 70 100 65 80 80 50 100 0z" fill="#1a4d2e"/>
-      <path d="M100 0c40 40 85 80 90 160 3 50-30 90-90 100 5-60 15-120 25-160 5-20-5-50-25-100z" fill="#1a4d2e"/>
-      <path d="M100 30v230M60 80l40-20M55 120l45-15M50 160l50-10M140 80l-40-20M145 120l-45-15M150 160l-50-10" stroke="#f4f7f1" stroke-width="0.8" opacity="0.3" fill="none"/>
+      <path d="M100 0C60 40 10 80 5 160c-3 50 30 90 95 100C95 200 80 140 70 100 65 80 80 50 100 0z" fill="#0284c7"/>
+      <path d="M100 0c40 40 85 80 90 160 3 50-30 90-90 100 5-60 15-120 25-160 5-20-5-50-25-100z" fill="#0284c7"/>
+      <path d="M100 30v230M60 80l40-20M55 120l45-15M50 160l50-10M140 80l-40-20M145 120l-45-15M150 160l-50-10" stroke="#0a1620" stroke-width="0.8" opacity="0.3" fill="none"/>
     </svg>
 
     <div class="hero-content">
       <img src="branding/94-vines-waveform-orchid-transparent.png" alt="Sponic Gardens" class="hero-logo">
       <h1 style="position:absolute;left:-9999px;">Sponic Gardens</h1>
       <svg class="vine-underline" viewBox="0 0 200 12" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0 6 Q40 2 70 6 T130 5 T200 6" fill="none" stroke="#1a4d2e" stroke-width="1.5" opacity="0.4"/>
-        <circle cx="100" cy="5" r="2" fill="#1a4d2e" opacity="0.3"/>
-        <path d="M98 3c-3-4-8-3-6 1" fill="none" stroke="#1a4d2e" stroke-width="0.8" opacity="0.3"/>
-        <path d="M102 3c3-4 8-3 6 1" fill="none" stroke="#1a4d2e" stroke-width="0.8" opacity="0.3"/>
+        <path d="M0 6 Q40 2 70 6 T130 5 T200 6" fill="none" stroke="#0284c7" stroke-width="1.5" opacity="0.3"/>
+        <circle cx="100" cy="5" r="2" fill="#38bdf8" opacity="0.3"/>
+        <path d="M98 3c-3-4-8-3-6 1" fill="none" stroke="#38bdf8" stroke-width="0.8" opacity="0.3"/>
+        <path d="M102 3c3-4 8-3 6 1" fill="none" stroke="#38bdf8" stroke-width="0.8" opacity="0.3"/>
       </svg>
       <div class="tagline" data-i18n="index.hero.tagline">radically beneficial community</div>
       <p class="subtitle" data-i18n="index.hero.subtitle">Sponic Gardens creates natively AI-managed spaces that promote socialization in a healthy, inspiring and productive manner. Sponic Gardens optimizes for the long-term growth and satisfaction of its members, with a focus on ensuring that the AI is working for their best interests as individuals.</p>
@@ -535,8 +543,8 @@
 
       <p data-i18n="index.idea.p3">The AI is invisible to the member but omnipresent in the infrastructure. It manages irrigation, tunes the music to the energy of the room, schedules classes around demand, optimizes what gets planted and when, and continuously learns from every sensor reading and every piece of member feedback. The result is a space that feels effortlessly good &mdash; because intelligence is woven into its fabric.</p>
 
-      <blockquote style="border-left:3px solid var(--green);margin:1.2rem 0;padding:0.8rem 1rem;background:var(--green-soft);border-radius:0 var(--radius) var(--radius) 0">
-        <p style="font-size:0.95rem;font-style:italic;color:var(--text);font-weight:500;line-height:1.6;margin:0" data-i18n="index.idea.quote">A place where plants and people flourish together, where every element of the environment &mdash; light, sound, temperature, soil, food, activity &mdash; is being continuously tuned by an intelligence that gets better every day.</p>
+      <blockquote style="border-left:3px solid var(--sky);margin:1.2rem 0;padding:0.8rem 1rem;background:rgba(14,165,233,0.04);border-radius:0 var(--radius) var(--radius) 0">
+        <p style="font-size:0.95rem;font-style:italic;color:var(--text-soft);font-weight:500;line-height:1.6;margin:0" data-i18n="index.idea.quote">A place where plants and people flourish together, where every element of the environment &mdash; light, sound, temperature, soil, food, activity &mdash; is being continuously tuned by an intelligence that gets better every day.</p>
       </blockquote>
     </div>
 
@@ -607,25 +615,25 @@
       <p data-i18n="index.market.p2">The infrastructure covers everything a seller needs: equipped vendor stations, billing and payments, digital menus and signage, inventory tracking, marketing through the member app, and AI-optimized scheduling that puts the right sellers in front of the right buyers at the right time.</p>
 
       <!-- What you can sell -->
-      <div style="background:var(--surface2);border-radius:var(--radius-lg);padding:1.4rem 1.4rem 1rem;margin:1.2rem 0">
+      <div style="background:rgba(2,132,199,0.05);border-radius:var(--radius-lg);border:1px solid rgba(14,165,233,0.08);padding:1.4rem 1.4rem 1rem;margin:1.2rem 0">
         <p style="font-size:0.92rem;color:var(--text);font-weight:600;margin-bottom:0.8rem" data-i18n="index.market.sell_label">What members sell:</p>
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:0.5rem">
-          <div style="text-align:center;padding:0.7rem 0.4rem;background:var(--surface);border-radius:var(--radius);border:1px solid var(--border-light)">
+          <div style="text-align:center;padding:0.7rem 0.4rem;background:rgba(2,132,199,0.03);border-radius:var(--radius);border:1px solid rgba(14,165,233,0.06);backdrop-filter:blur(12px)">
             <div style="font-size:1.4rem;line-height:1">🥗</div>
             <div style="font-size:0.78rem;font-weight:600;color:var(--text);margin-top:0.3rem" data-i18n="index.market.food.title">Food & Drink</div>
             <div style="font-size:0.7rem;color:var(--text-muted);margin-top:0.15rem;line-height:1.3" data-i18n="index.market.food.desc">Prepared meals, baked goods, juices, smoothies, ferments</div>
           </div>
-          <div style="text-align:center;padding:0.7rem 0.4rem;background:var(--surface);border-radius:var(--radius);border:1px solid var(--border-light)">
+          <div style="text-align:center;padding:0.7rem 0.4rem;background:rgba(2,132,199,0.03);border-radius:var(--radius);border:1px solid rgba(14,165,233,0.06);backdrop-filter:blur(12px)">
             <div style="font-size:1.4rem;line-height:1">🌿</div>
             <div style="font-size:0.78rem;font-weight:600;color:var(--text);margin-top:0.3rem" data-i18n="index.market.botanical.title">Botanical Products</div>
             <div style="font-size:0.7rem;color:var(--text-muted);margin-top:0.15rem;line-height:1.3" data-i18n="index.market.botanical.desc">Tinctures, essential oils, herbal teas, salves, potted plants</div>
           </div>
-          <div style="text-align:center;padding:0.7rem 0.4rem;background:var(--surface);border-radius:var(--radius);border:1px solid var(--border-light)">
+          <div style="text-align:center;padding:0.7rem 0.4rem;background:rgba(2,132,199,0.03);border-radius:var(--radius);border:1px solid rgba(14,165,233,0.06);backdrop-filter:blur(12px)">
             <div style="font-size:1.4rem;line-height:1">🎨</div>
             <div style="font-size:0.78rem;font-weight:600;color:var(--text);margin-top:0.3rem" data-i18n="index.market.art.title">Art & Craft</div>
             <div style="font-size:0.7rem;color:var(--text-muted);margin-top:0.15rem;line-height:1.3" data-i18n="index.market.art.desc">Handmade goods, jewelry, ceramics, textiles, prints</div>
           </div>
-          <div style="text-align:center;padding:0.7rem 0.4rem;background:var(--surface);border-radius:var(--radius);border:1px solid var(--border-light)">
+          <div style="text-align:center;padding:0.7rem 0.4rem;background:rgba(2,132,199,0.03);border-radius:var(--radius);border:1px solid rgba(14,165,233,0.06);backdrop-filter:blur(12px)">
             <div style="font-size:1.4rem;line-height:1">🔧</div>
             <div style="font-size:0.78rem;font-weight:600;color:var(--text);margin-top:0.3rem" data-i18n="index.market.built.title">Built Things</div>
             <div style="font-size:0.7rem;color:var(--text-muted);margin-top:0.15rem;line-height:1.3" data-i18n="index.market.built.desc">3D prints, CNC work, garden tools, custom hardware, furniture</div>
@@ -634,8 +642,8 @@
       </div>
 
       <!-- How it works -->
-      <blockquote style="border-left:3px solid var(--green);margin:1.2rem 0;padding:0.8rem 1rem;background:var(--green-soft);border-radius:0 var(--radius) var(--radius) 0">
-        <p style="font-size:0.95rem;font-style:italic;color:var(--text);font-weight:500;line-height:1.6;margin:0" data-i18n="index.market.quote">The market closes the loop: members grow produce in the greenhouse, transform it in the apothecary or kitchen, and sell it to other members &mdash; all without leaving the building. From soil to sale under one roof.</p>
+      <blockquote style="border-left:3px solid var(--sky);margin:1.2rem 0;padding:0.8rem 1rem;background:rgba(14,165,233,0.04);border-radius:0 var(--radius) var(--radius) 0">
+        <p style="font-size:0.95rem;font-style:italic;color:var(--text-soft);font-weight:500;line-height:1.6;margin:0" data-i18n="index.market.quote">The market closes the loop: members grow produce in the greenhouse, transform it in the apothecary or kitchen, and sell it to other members &mdash; all without leaving the building. From soil to sale under one roof.</p>
       </blockquote>
 
       <div class="grid-2" style="margin-top:1rem">
@@ -712,30 +720,30 @@
       <!-- Observe / Reason / Actuate / Learn -->
       <div style="text-align:center;margin:1.5rem 0">
         <svg viewBox="0 0 440 130" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:440px;height:auto">
-          <path d="M130 55 L195 55" stroke="#1a4d2e" stroke-width="1.2" fill="none" marker-end="url(#arrow)"/>
-          <path d="M285 55 L350 55" stroke="#1a4d2e" stroke-width="1.2" fill="none" marker-end="url(#arrow)"/>
+          <path d="M130 55 L195 55" stroke="#0284c7" stroke-width="1.2" fill="none" marker-end="url(#arrow)"/>
+          <path d="M285 55 L350 55" stroke="#0284c7" stroke-width="1.2" fill="none" marker-end="url(#arrow)"/>
           <path d="M380 80 Q380 115 220 115 Q60 115 60 80" stroke="var(--node)" stroke-width="1" fill="none" stroke-dasharray="4 3" marker-end="url(#arrowG)"/>
-          <text x="220" y="110" text-anchor="middle" font-size="9" fill="var(--node)" font-weight="600" font-family="'DM Sans',sans-serif">LEARN</text>
+          <text x="220" y="110" text-anchor="middle" font-size="9" fill="var(--node)" font-weight="600" font-family="'Inter',sans-serif">LEARN</text>
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-              <path d="M0 0L10 5L0 10z" fill="#1a4d2e"/>
+              <path d="M0 0L10 5L0 10z" fill="#0284c7"/>
             </marker>
             <marker id="arrowG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
               <path d="M0 0L10 5L0 10z" fill="var(--node)"/>
             </marker>
           </defs>
           <rect x="15" y="25" width="115" height="58" rx="8" fill="var(--vine-soft)" stroke="var(--vine)" stroke-width="1"/>
-          <text x="72" y="50" text-anchor="middle" font-size="10" fill="var(--vine)" font-weight="700" font-family="'DM Sans',sans-serif">OBSERVE</text>
-          <text x="72" y="65" text-anchor="middle" font-size="8" fill="var(--text-muted)" font-family="'DM Sans',sans-serif">Sensors &middot; Cameras</text>
-          <text x="72" y="75" text-anchor="middle" font-size="8" fill="var(--text-muted)" font-family="'DM Sans',sans-serif">Surveys &middot; Digital streams</text>
+          <text x="72" y="50" text-anchor="middle" font-size="10" fill="var(--vine)" font-weight="700" font-family="'Inter',sans-serif">OBSERVE</text>
+          <text x="72" y="65" text-anchor="middle" font-size="8" fill="var(--text-muted)" font-family="'Inter',sans-serif">Sensors &middot; Cameras</text>
+          <text x="72" y="75" text-anchor="middle" font-size="8" fill="var(--text-muted)" font-family="'Inter',sans-serif">Surveys &middot; Digital streams</text>
           <rect x="195" y="25" width="90" height="58" rx="8" fill="var(--canopy)" stroke="var(--vine)" stroke-width="1"/>
-          <text x="240" y="50" text-anchor="middle" font-size="10" fill="var(--vine)" font-weight="700" font-family="'DM Sans',sans-serif">REASON</text>
-          <text x="240" y="65" text-anchor="middle" font-size="8" fill="var(--text-muted)" font-family="'DM Sans',sans-serif">Optimize &middot; Predict</text>
-          <text x="240" y="75" text-anchor="middle" font-size="8" fill="var(--text-muted)" font-family="'DM Sans',sans-serif">Correlate &middot; Decide</text>
+          <text x="240" y="50" text-anchor="middle" font-size="10" fill="var(--vine)" font-weight="700" font-family="'Inter',sans-serif">REASON</text>
+          <text x="240" y="65" text-anchor="middle" font-size="8" fill="var(--text-muted)" font-family="'Inter',sans-serif">Optimize &middot; Predict</text>
+          <text x="240" y="75" text-anchor="middle" font-size="8" fill="var(--text-muted)" font-family="'Inter',sans-serif">Correlate &middot; Decide</text>
           <rect x="350" y="25" width="75" height="58" rx="8" fill="var(--green-soft)" stroke="var(--green)" stroke-width="1"/>
-          <text x="387" y="50" text-anchor="middle" font-size="10" fill="var(--green)" font-weight="700" font-family="'DM Sans',sans-serif">ACTUATE</text>
-          <text x="387" y="65" text-anchor="middle" font-size="8" fill="var(--text-muted)" font-family="'DM Sans',sans-serif">Lights &middot; Water</text>
-          <text x="387" y="75" text-anchor="middle" font-size="8" fill="var(--text-muted)" font-family="'DM Sans',sans-serif">Music &middot; Events</text>
+          <text x="387" y="50" text-anchor="middle" font-size="10" fill="var(--green)" font-weight="700" font-family="'Inter',sans-serif">ACTUATE</text>
+          <text x="387" y="65" text-anchor="middle" font-size="8" fill="var(--text-muted)" font-family="'Inter',sans-serif">Lights &middot; Water</text>
+          <text x="387" y="75" text-anchor="middle" font-size="8" fill="var(--text-muted)" font-family="'Inter',sans-serif">Music &middot; Events</text>
           <circle cx="15" cy="25" r="2.5" fill="var(--node)" opacity="0.4"/>
           <circle cx="425" cy="25" r="2.5" fill="var(--node)" opacity="0.4"/>
         </svg>
@@ -891,11 +899,11 @@
        ══════════════════════════════════════════════════════ -->
   <div style="max-width:720px;margin:0 auto;padding:0 1.25rem 2rem;">
     <div style="display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;">
-      <a href="bizmodel.html" style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.5rem 1rem;background:var(--surface);border:1px solid var(--border-light);border-radius:var(--radius);font-size:0.82rem;font-weight:600;color:var(--text-dim);text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;" data-i18n="nav.explore.bizmodel">Business Model</a>
-      <a href="branding.html" style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.5rem 1rem;background:var(--surface);border:1px solid var(--border-light);border-radius:var(--radius);font-size:0.82rem;font-weight:600;color:var(--text-dim);text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;" data-i18n="nav.explore.branding">Brand Review</a>
-      <a href="patents/" style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.5rem 1rem;background:var(--surface);border:1px solid var(--border-light);border-radius:var(--radius);font-size:0.82rem;font-weight:600;color:var(--text-dim);text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;" data-i18n="nav.explore.patents">Sonic Vision Patent</a>
-      <a href="charter.html" style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.5rem 1rem;background:var(--surface);border:1px solid var(--border-light);border-radius:var(--radius);font-size:0.82rem;font-weight:600;color:var(--text-dim);text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;" data-i18n="nav.explore.charter">The Charter</a>
-      <a href="docs/spaces/" style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.5rem 1rem;background:var(--surface);border:1px solid var(--border-light);border-radius:var(--radius);font-size:0.82rem;font-weight:600;color:var(--text-dim);text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;" data-i18n="nav.explore.venues">Potential Venues</a>
+      <a href="bizmodel.html" style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.5rem 1rem;background:rgba(2,132,199,0.04);border:1px solid rgba(14,165,233,0.08);border-radius:var(--radius);font-size:0.82rem;font-weight:600;color:rgba(186,230,253,0.7);text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;backdrop-filter:blur(12px);" data-i18n="nav.explore.bizmodel">Business Model</a>
+      <a href="branding.html" style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.5rem 1rem;background:rgba(2,132,199,0.04);border:1px solid rgba(14,165,233,0.08);border-radius:var(--radius);font-size:0.82rem;font-weight:600;color:rgba(186,230,253,0.7);text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;backdrop-filter:blur(12px);" data-i18n="nav.explore.branding">Brand Review</a>
+      <a href="patents/" style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.5rem 1rem;background:rgba(2,132,199,0.04);border:1px solid rgba(14,165,233,0.08);border-radius:var(--radius);font-size:0.82rem;font-weight:600;color:rgba(186,230,253,0.7);text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;backdrop-filter:blur(12px);" data-i18n="nav.explore.patents">Sonic Vision Patent</a>
+      <a href="charter.html" style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.5rem 1rem;background:rgba(2,132,199,0.04);border:1px solid rgba(14,165,233,0.08);border-radius:var(--radius);font-size:0.82rem;font-weight:600;color:rgba(186,230,253,0.7);text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;backdrop-filter:blur(12px);" data-i18n="nav.explore.charter">The Charter</a>
+      <a href="docs/spaces/" style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.5rem 1rem;background:rgba(2,132,199,0.04);border:1px solid rgba(14,165,233,0.08);border-radius:var(--radius);font-size:0.82rem;font-weight:600;color:rgba(186,230,253,0.7);text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;backdrop-filter:blur(12px);" data-i18n="nav.explore.venues">Potential Venues</a>
     </div>
   </div>
 

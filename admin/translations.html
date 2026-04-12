@@ -7,7 +7,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" type="image/svg+xml">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
     :root {
       --bg: #f4f7f1;
@@ -33,7 +33,7 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Inter', sans-serif;
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
@@ -211,7 +211,7 @@
     .value-display.empty { color: var(--text-muted); font-style: italic; }
     .value-editor {
       width: 100%;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 0.88rem; color: var(--text);
       background: var(--surface);
       border: 1px solid var(--green);
@@ -285,7 +285,7 @@
     }
     .form-row input, .form-row select, .form-row textarea {
       width: 100%;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 0.9rem; color: var(--text);
       background: var(--surface);
       border: 1px solid var(--border);
@@ -425,8 +425,16 @@
       font-size: 0.78rem; color: var(--text-muted); margin-top: 4px;
     }
   </style>
+  <link rel="stylesheet" href="../spatial-ui.css">
 </head>
 <body class="auth-locked">
+  <div class="spatial-ambient">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
+  </div>
+
 
 <!-- Auth overlay -->
 <div id="auth-overlay">

@@ -1,0 +1,386 @@
+/* ══════════════════════════════════════════════════════════════════
+   SPATIAL UI — Cool Dawn Design System
+   Blue Lotus + Rose + Bamboo Green tri-color palette
+   Lotus blue dominant, bamboo sage, rose blush whisper
+   ══════════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ── Variable Overrides ── */
+:root {
+  --bg: #080c14;
+  --surface: rgba(2,132,199,0.03);
+  --surface2: rgba(2,132,199,0.06);
+  --surface3: rgba(2,132,199,0.09);
+  --border: rgba(14,165,233,0.10);
+  --border-light: rgba(14,165,233,0.06);
+  --text: rgba(240,249,255,0.93);
+  --text-soft: rgba(186,230,253,0.7);
+  --text-dim: rgba(186,230,253,0.5);
+  --text-muted: rgba(186,230,253,0.38);
+
+  /* Accent: Bamboo */
+  --green: #65a30d;
+  --green-soft: rgba(77,124,15,0.08);
+  --green-border: rgba(101,163,13,0.18);
+  /* Accent: Lotus Blue */
+  --emerald: #0ea5e9;
+  --emerald-soft: rgba(14,165,233,0.06);
+  --emerald-border: rgba(14,165,233,0.15);
+  /* Accent: Rose */
+  --earth: #fb7185;
+  --earth-soft: rgba(251,113,133,0.06);
+  --earth-border: rgba(251,113,133,0.15);
+  /* Accent: Lotus Light */
+  --sky: #38bdf8;
+  --sky-soft: rgba(56,189,248,0.05);
+  --sky-border: rgba(56,189,248,0.12);
+  /* Accent: Bamboo Light */
+  --plum: #a3e635;
+  --plum-soft: rgba(163,230,53,0.05);
+  --plum-border: rgba(163,230,53,0.12);
+  /* Accent: Rose Light */
+  --warm: #fda4af;
+  --warm-soft: rgba(253,164,175,0.06);
+  --warm-border: rgba(253,164,175,0.15);
+  /* Accent: Rose */
+  --rose: #f43f5e;
+  --rose-soft: rgba(244,63,94,0.05);
+  --rose-border: rgba(244,63,94,0.12);
+  /* Accent: Muted */
+  --slate: rgba(186,230,253,0.45);
+  --slate-soft: rgba(186,230,253,0.04);
+  --slate-border: rgba(186,230,253,0.08);
+
+  /* Vine → Lotus */
+  --vine: #0284c7;
+  --vine-soft: rgba(2,132,199,0.06);
+  --canopy: rgba(2,132,199,0.03);
+  --circuit: rgba(14,165,233,0.08);
+  --circuit-line: rgba(14,165,233,0.18);
+  --glow: rgba(56,189,248,0.2);
+  --node: #38bdf8;
+
+  --radius: 14px;
+  --radius-lg: 20px;
+  --shadow: 0 1px 4px rgba(0,0,0,0.3);
+  --shadow-md: 0 2px 12px rgba(0,0,0,0.35);
+  --shadow-lg: 0 4px 24px rgba(0,0,0,0.4);
+}
+
+/* ── Base ── */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  background: #080c14 !important;
+  color: var(--text) !important;
+}
+
+/* ── Frosted Glass Panels ── */
+.card,
+.philosophy-card,
+.callout,
+.expandable,
+.chat-header,
+.chat-input-wrap,
+details,
+.spec-card,
+.patent-card {
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  background: var(--surface) !important;
+  border-color: var(--border) !important;
+}
+
+.card {
+  background-image: none !important;
+}
+
+.expandable summary {
+  background: var(--surface2) !important;
+  color: var(--text-dim) !important;
+}
+.expandable summary:hover {
+  background: var(--surface3) !important;
+}
+.expandable summary::after {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 3l6 5-6 5' fill='none' stroke='%2338bdf8' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") !important;
+}
+
+.philosophy-card {
+  background: linear-gradient(135deg, rgba(2,132,199,0.06), rgba(14,165,233,0.04)) !important;
+  border: 1px solid rgba(14,165,233,0.12) !important;
+}
+.philosophy-card .label {
+  color: var(--sky) !important;
+}
+
+.callout {
+  background: rgba(14,165,233,0.05) !important;
+  border: 1px solid rgba(14,165,233,0.12) !important;
+}
+
+/* ── Hero ── */
+.hero {
+  background: linear-gradient(180deg, #060e18 0%, #0a1620 35%, var(--bg) 100%) !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+.hero::before {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='52' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l30 15v22L30 52 0 37V15z' fill='none' stroke='%230ea5e9' stroke-width='0.4' opacity='0.08'/%3E%3C/svg%3E") !important;
+  opacity: 0.5 !important;
+}
+.hero::after {
+  background: radial-gradient(ellipse 60% 70% at 50% 20%, rgba(2,132,199,0.12), transparent 70%) !important;
+}
+.hero h1 {
+  font-family: 'Inter', sans-serif !important;
+  color: rgba(186,230,253,0.9) !important;
+}
+.hero .tagline {
+  color: rgba(186,230,253,0.5) !important;
+}
+.hero .subtitle {
+  color: var(--text-muted) !important;
+}
+
+/* Hero leaf SVGs - dim for dark theme */
+.hero-leaf-left, .hero-leaf-right {
+  opacity: 0.03 !important;
+  filter: hue-rotate(180deg) brightness(3);
+}
+
+/* Glow nodes - recolor to lotus blue */
+.glow-node {
+  background: var(--node) !important;
+  box-shadow: 0 0 10px var(--glow), 0 0 20px rgba(56,189,248,0.08) !important;
+}
+
+/* ── Section Labels ── */
+.section-label {
+  color: var(--text-muted) !important;
+}
+.section-label::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 1c0 3-2 5-2 8s2 6 2 6 2-3 2-6-2-5-2-8z' fill='%2338bdf8' opacity='0.5'/%3E%3C/svg%3E") !important;
+}
+
+/* ── Headings ── */
+.section h2,
+h2 {
+  font-family: 'Inter', sans-serif !important;
+  color: var(--text) !important;
+  font-weight: 600 !important;
+}
+
+/* ── Blockquotes ── */
+blockquote {
+  border-left-color: var(--sky) !important;
+  background: rgba(14,165,233,0.04) !important;
+}
+blockquote p {
+  color: var(--text-soft) !important;
+}
+
+/* ── Links ── */
+a {
+  color: var(--sky);
+}
+a:hover {
+  color: #7dd3fc;
+}
+
+/* ── Footer ── */
+footer {
+  border-top-color: var(--border) !important;
+  color: var(--text-muted) !important;
+  font-family: 'Inter', monospace !important;
+}
+
+/* ── Explore Links ── */
+a[href="bizmodel.html"],
+a[href="branding.html"],
+a[href="patents/"],
+a[href="charter.html"],
+a[href="docs/spaces/"],
+a[href="work-with-us.html"],
+a[href="apply.html"],
+a[href="gtm.html"],
+a[href="physicaldesign.html"],
+a[href="index.html"],
+a[href="/"] {
+  background: var(--surface) !important;
+  border-color: var(--border) !important;
+  color: var(--text-dim) !important;
+  backdrop-filter: blur(12px);
+}
+
+/* ── Images ── */
+.section-illustration img {
+  border-radius: var(--radius) !important;
+  border: 1px solid var(--border);
+}
+
+.hero-image-wrap img {
+  border: 1px solid var(--border) !important;
+}
+
+/* ── Market Item Grid ── */
+div[style*="grid-template-columns:repeat(auto-fill"] > div {
+  background: var(--surface) !important;
+  border-color: var(--border) !important;
+}
+
+/* ── Narrative Badge ── */
+.narrative-badge {
+  background: rgba(14,165,233,0.08) !important;
+  border-color: var(--sky-border) !important;
+  color: var(--sky) !important;
+  backdrop-filter: blur(8px);
+}
+
+/* ── SVG Diagrams ── */
+svg text {
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* ── Accent Cards (left border colors for dark theme) ── */
+.accent-green { border-left-color: var(--green) !important; }
+.accent-emerald { border-left-color: var(--emerald) !important; }
+.accent-earth { border-left-color: var(--earth) !important; }
+.accent-sky { border-left-color: var(--sky) !important; }
+.accent-plum { border-left-color: var(--plum) !important; }
+.accent-warm { border-left-color: var(--warm) !important; }
+.accent-rose { border-left-color: var(--rose) !important; }
+.accent-slate { border-left-color: var(--slate) !important; }
+
+/* ── Ambient Floating Orbs ── */
+.spatial-ambient {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.spatial-ambient .orb {
+  position: absolute;
+  border-radius: 50%;
+}
+.spatial-ambient .orb-1 {
+  top: -100px; left: 15%; width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(2,132,199,0.15) 0%, rgba(3,105,161,0.06) 50%, transparent 70%);
+  animation: spatialFloat1 18s ease-in-out infinite;
+}
+.spatial-ambient .orb-2 {
+  bottom: -80px; right: 10%; width: 450px; height: 450px;
+  background: radial-gradient(circle, rgba(77,124,15,0.1) 0%, rgba(101,163,13,0.04) 50%, transparent 70%);
+  animation: spatialFloat2 22s ease-in-out infinite;
+}
+.spatial-ambient .orb-3 {
+  top: 40%; left: 55%; width: 350px; height: 350px;
+  background: radial-gradient(circle, rgba(14,165,233,0.08) 0%, transparent 70%);
+  animation: spatialFloat3 15s ease-in-out infinite;
+}
+.spatial-ambient .orb-4 {
+  top: 10%; right: 25%; width: 280px; height: 280px;
+  background: radial-gradient(circle, rgba(251,113,133,0.05) 0%, transparent 70%);
+  animation: spatialFloat4 20s ease-in-out infinite;
+}
+
+@keyframes spatialFloat1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, -30px) scale(1.12); }
+}
+@keyframes spatialFloat2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-35px, -40px) scale(1.08); }
+}
+@keyframes spatialFloat3 {
+  0%, 100% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.5; }
+  50% { transform: translate(-50%, -55%) scale(1.1); opacity: 0.8; }
+}
+@keyframes spatialFloat4 {
+  0%, 100% { transform: translate(0, 0) scale(0.8); opacity: 0.4; }
+  50% { transform: translate(-20px, 25px) scale(1.05); opacity: 0.7; }
+}
+
+/* Ensure page content sits above orbs */
+body > *:not(.spatial-ambient) {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Shared Nav Override ── */
+nav, .nav, [class*="nav"] {
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+}
+
+/* ── Chat UI (apply.html) ── */
+.chat-body {
+  background: transparent !important;
+}
+.chat-msg.bot .bubble {
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text-soft) !important;
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+}
+.chat-msg.user .bubble {
+  background: rgba(14,165,233,0.1) !important;
+  border: 1px solid rgba(14,165,233,0.15) !important;
+  color: var(--text) !important;
+}
+.chat-input-wrap {
+  background: rgba(2,132,199,0.04) !important;
+  border-top: 1px solid var(--border) !important;
+}
+.chat-input-wrap input,
+.chat-input-wrap textarea {
+  background: var(--surface) !important;
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+}
+.chat-input-wrap button {
+  background: rgba(77,124,15,0.15) !important;
+  color: rgba(190,242,100,0.9) !important;
+  border: 1px solid rgba(101,163,13,0.2) !important;
+}
+
+/* ── Form Elements ── */
+input, textarea, select {
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text) !important;
+  border-radius: var(--radius);
+}
+input::placeholder, textarea::placeholder {
+  color: var(--text-muted) !important;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(2,132,199,0.03);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(14,165,233,0.15);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(14,165,233,0.25);
+}
+
+/* ── Selection ── */
+::selection {
+  background: rgba(56,189,248,0.25);
+  color: #f0f9ff;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .spatial-ambient .orb { opacity: 0.6; }
+}

@@ -22,7 +22,7 @@
   <meta name="twitter:image" content="https://sponicgardens.com/branding/og-hero.jpg">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" type="image/svg+xml">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
     :root {
       --bg: #f4f7f1;
@@ -51,7 +51,7 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.65;
@@ -83,7 +83,7 @@
     }
     .chat-header a:hover { text-decoration: underline; }
     .chat-header .role-title {
-      font-family: 'DM Serif Display', serif;
+      font-family: 'Inter', sans-serif;
       font-size: 1.1rem;
       color: var(--vine);
       flex: 1;
@@ -151,7 +151,7 @@
     }
     .message.user .bubble {
       background: var(--vine);
-      color: #f4f7f1;
+      color: rgba(240,249,255,0.93);
       border-top-right-radius: 4px;
     }
 
@@ -194,7 +194,7 @@
     }
     .input-wrap textarea {
       flex: 1;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 0.9rem;
       padding: 0.65rem 0.85rem;
       border: 1px solid var(--border);
@@ -214,10 +214,10 @@
     .send-btn {
       padding: 0.6rem 1rem;
       background: var(--vine);
-      color: #f4f7f1;
+      color: rgba(240,249,255,0.93);
       border: none;
       border-radius: var(--radius);
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 0.82rem;
       font-weight: 600;
       cursor: pointer;
@@ -247,7 +247,7 @@
       margin-bottom: 1rem;
     }
     .summary-card h3 {
-      font-family: 'DM Serif Display', serif;
+      font-family: 'Inter', sans-serif;
       font-size: 1.1rem;
       color: var(--vine);
       margin-bottom: 0.6rem;
@@ -267,7 +267,7 @@
     }
     .email-form input {
       flex: 1;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 0.88rem;
       padding: 0.6rem 0.85rem;
       border: 1px solid var(--border);
@@ -286,7 +286,7 @@
       background: var(--green-soft);
       border: 1px solid var(--green-border);
       border-radius: var(--radius);
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 0.82rem;
       font-weight: 600;
       color: var(--green);
@@ -314,8 +314,16 @@
       .message .bubble { max-width: 88%; }
     }
   </style>
+  <link rel="stylesheet" href="spatial-ui.css">
 </head>
 <body>
+  <div class="spatial-ambient">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
+  </div>
+
 
   <div class="chat-header">
     <a href="work-with-us.html">&larr; Back</a>
