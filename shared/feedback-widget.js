@@ -17,22 +17,23 @@ function injectStyles() {
       padding: 0 1.25rem 1.5rem;
     }
     .sg-feedback-box {
-      background: var(--surface, rgba(2,132,199,0.03));
-      border: 1px solid var(--border-light, rgba(14,165,233,0.06));
+      background: var(--surface, rgba(255,255,255,0.72));
+      border: 1px solid var(--border-light, rgba(14,165,233,0.08));
       backdrop-filter: blur(40px) saturate(180%);
       -webkit-backdrop-filter: blur(40px) saturate(180%);
+      box-shadow: 0 1px 3px rgba(0,40,80,0.06), 0 0 0 1px rgba(255,255,255,0.5) inset;
       border-radius: var(--radius-lg, 14px);
       padding: 1.5rem;
     }
     .sg-feedback-box h3 {
       font-family: 'Inter', sans-serif;
       font-size: 1.1rem;
-      color: var(--text, rgba(240,249,255,0.93));
+      color: var(--text, #0c1a2e);
       margin-bottom: 0.25rem;
     }
     .sg-feedback-box .sg-fb-sub {
       font-size: 0.82rem;
-      color: var(--text-muted, rgba(186,230,253,0.38));
+      color: var(--text-muted, rgba(2,132,199,0.50));
       margin-bottom: 1rem;
     }
     .sg-feedback-box input,
@@ -44,8 +45,8 @@ function injectStyles() {
       padding: 0.6rem 0.75rem;
       border: 1px solid var(--border, #c4d4ba);
       border-radius: var(--radius, 10px);
-      background: var(--bg, #080c14);
-      color: var(--text, rgba(240,249,255,0.93));
+      background: var(--bg, rgba(255,255,255,0.8));
+      color: var(--text, #0c1a2e);
       outline: none;
       transition: border-color 0.2s;
     }
