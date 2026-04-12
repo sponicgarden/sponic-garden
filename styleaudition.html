@@ -131,8 +131,12 @@
       animation: ambFloat2 15s ease-in-out infinite;
     }
     .spatial-preview .ambient-3 {
-      top: 40%; left: 50%; width: 250px; height: 250px;
+      top: 40%; left: 55%; width: 280px; height: 280px;
       animation: ambFloat3 10s ease-in-out infinite;
+    }
+    .spatial-preview .ambient-4 {
+      top: 10%; right: 25%; width: 200px; height: 200px;
+      animation: ambFloat4 14s ease-in-out infinite;
     }
     @keyframes ambFloat1 {
       0%, 100% { transform: translate(0, 0) scale(1); }
@@ -145,6 +149,10 @@
     @keyframes ambFloat3 {
       0%, 100% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.5; }
       50% { transform: translate(-50%, -55%) scale(1.1); opacity: 0.8; }
+    }
+    @keyframes ambFloat4 {
+      0%, 100% { transform: translate(0, 0) scale(0.8); opacity: 0.4; }
+      50% { transform: translate(-15px, 20px) scale(1.05); opacity: 0.7; }
     }
 
     .s-nav {
@@ -220,210 +228,253 @@
 
 
     /* ═══════════════════════════════════════════════
-       A — Deep Fern  (Maidenhair Fern + Moss)
+       A — Garden at Dawn  (Fern + Morning Light)
+       Green canopy with warm golden sunrise filtering through
        ═══════════════════════════════════════════════ */
-    .palA .spatial-preview { background: linear-gradient(135deg, #0a1a12 0%, #0d2818 50%, #071a0e 100%); }
-    .palA .ambient-1 { background: radial-gradient(circle, rgba(16,185,129,0.18) 0%, rgba(5,150,105,0.08) 50%, transparent 70%); }
-    .palA .ambient-2 { background: radial-gradient(circle, rgba(52,211,153,0.12) 0%, rgba(16,185,129,0.06) 50%, transparent 70%); }
-    .palA .ambient-3 { background: radial-gradient(circle, rgba(167,243,208,0.08) 0%, transparent 70%); }
-    .palA .s-nav { background: rgba(16,185,129,0.06); border: 1px solid rgba(16,185,129,0.1); }
+    .palA .spatial-preview { background: linear-gradient(145deg, #0a1510 0%, #121a0d 40%, #1a1608 100%); }
+    .palA .ambient-1 { background: radial-gradient(circle, rgba(16,185,129,0.2) 0%, rgba(5,150,105,0.08) 50%, transparent 70%); }
+    .palA .ambient-2 { background: radial-gradient(circle, rgba(245,158,11,0.16) 0%, rgba(217,119,6,0.06) 50%, transparent 70%); }
+    .palA .ambient-3 { background: radial-gradient(circle, rgba(52,211,153,0.1) 0%, transparent 70%); }
+    .palA .ambient-4 { background: radial-gradient(circle, rgba(251,191,36,0.1) 0%, transparent 70%); }
+    .palA .s-nav { background: rgba(16,185,129,0.05); border: 1px solid rgba(16,185,129,0.1); }
     .palA .s-nav .brand { color: rgba(167,243,208,0.9); }
-    .palA .s-nav .links { color: rgba(167,243,208,0.35); }
-    .palA .s-hero { background: rgba(16,185,129,0.05); border: 1px solid rgba(16,185,129,0.08); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+    .palA .s-nav .links { color: rgba(254,243,199,0.3); }
+    .palA .s-hero { background: rgba(16,185,129,0.04); border: 1px solid rgba(52,211,153,0.08); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
     .palA .s-hero h3 { color: rgba(236,253,245,0.95); }
-    .palA .s-hero p { color: rgba(167,243,208,0.4); }
-    .palA .s-hero .btn { background: rgba(16,185,129,0.15); color: rgba(167,243,208,0.9); border: 1px solid rgba(16,185,129,0.2); }
-    .palA .s-card { background: rgba(16,185,129,0.04); border: 1px solid rgba(16,185,129,0.06); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
-    .palA .s-card .icon { background: rgba(16,185,129,0.08); }
-    .palA .s-card .icon svg { stroke: rgba(52,211,153,0.7); }
+    .palA .s-hero p { color: rgba(254,243,199,0.4); }
+    .palA .s-hero .btn { background: rgba(245,158,11,0.12); color: rgba(254,243,199,0.9); border: 1px solid rgba(245,158,11,0.2); }
+    .palA .s-card { background: rgba(16,185,129,0.04); border: 1px solid rgba(52,211,153,0.06); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+    .palA .s-card:nth-child(1) .icon { background: rgba(16,185,129,0.1); }
+    .palA .s-card:nth-child(1) .icon svg { stroke: rgba(52,211,153,0.75); }
+    .palA .s-card:nth-child(2) .icon { background: rgba(245,158,11,0.1); }
+    .palA .s-card:nth-child(2) .icon svg { stroke: rgba(251,191,36,0.75); }
+    .palA .s-card:nth-child(3) .icon { background: rgba(167,243,208,0.06); }
+    .palA .s-card:nth-child(3) .icon svg { stroke: rgba(167,243,208,0.6); }
     .palA .s-card h4 { color: rgba(209,250,229,0.85); }
-    .palA .s-card p { color: rgba(167,243,208,0.3); }
-    .palA .option-number { background: rgba(16,185,129,0.15); color: #6ee7b7; }
+    .palA .s-card p { color: rgba(254,243,199,0.3); }
+    .palA .option-number { background: linear-gradient(135deg, rgba(16,185,129,0.2), rgba(245,158,11,0.2)); color: #6ee7b7; }
 
 
     /* ═══════════════════════════════════════════════
-       B — Orchid Twilight  (Phalaenopsis Orchid)
+       B — Tropical Greenhouse  (Monstera + Hibiscus)
+       Deep tropical green with hot pink flower accents
        ═══════════════════════════════════════════════ */
-    .palB .spatial-preview { background: linear-gradient(135deg, #1a0a20 0%, #2d1038 50%, #150820 100%); }
-    .palB .ambient-1 { background: radial-gradient(circle, rgba(168,85,247,0.2) 0%, rgba(139,92,246,0.08) 50%, transparent 70%); }
-    .palB .ambient-2 { background: radial-gradient(circle, rgba(232,121,249,0.12) 0%, rgba(192,132,252,0.06) 50%, transparent 70%); }
-    .palB .ambient-3 { background: radial-gradient(circle, rgba(217,70,239,0.1) 0%, transparent 70%); }
-    .palB .s-nav { background: rgba(168,85,247,0.06); border: 1px solid rgba(168,85,247,0.1); }
-    .palB .s-nav .brand { color: rgba(233,213,255,0.9); }
-    .palB .s-nav .links { color: rgba(233,213,255,0.35); }
-    .palB .s-hero { background: rgba(168,85,247,0.05); border: 1px solid rgba(168,85,247,0.08); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
-    .palB .s-hero h3 { color: rgba(250,245,255,0.95); }
-    .palB .s-hero p { color: rgba(233,213,255,0.4); }
-    .palB .s-hero .btn { background: rgba(168,85,247,0.15); color: rgba(233,213,255,0.9); border: 1px solid rgba(168,85,247,0.2); }
-    .palB .s-card { background: rgba(168,85,247,0.04); border: 1px solid rgba(168,85,247,0.06); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
-    .palB .s-card .icon { background: rgba(168,85,247,0.08); }
-    .palB .s-card .icon svg { stroke: rgba(192,132,252,0.7); }
-    .palB .s-card h4 { color: rgba(243,232,255,0.85); }
-    .palB .s-card p { color: rgba(233,213,255,0.3); }
-    .palB .option-number { background: rgba(168,85,247,0.15); color: #c084fc; }
+    .palB .spatial-preview { background: linear-gradient(145deg, #081410 0%, #0a1a12 40%, #150a14 100%); }
+    .palB .ambient-1 { background: radial-gradient(circle, rgba(5,150,105,0.2) 0%, rgba(16,185,129,0.08) 50%, transparent 70%); }
+    .palB .ambient-2 { background: radial-gradient(circle, rgba(236,72,153,0.16) 0%, rgba(244,114,182,0.06) 50%, transparent 70%); }
+    .palB .ambient-3 { background: radial-gradient(circle, rgba(20,184,166,0.12) 0%, transparent 70%); }
+    .palB .ambient-4 { background: radial-gradient(circle, rgba(249,168,212,0.08) 0%, transparent 70%); }
+    .palB .s-nav { background: rgba(5,150,105,0.05); border: 1px solid rgba(16,185,129,0.1); }
+    .palB .s-nav .brand { color: rgba(167,243,208,0.9); }
+    .palB .s-nav .links { color: rgba(251,207,232,0.3); }
+    .palB .s-hero { background: rgba(5,150,105,0.04); border: 1px solid rgba(16,185,129,0.07); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+    .palB .s-hero h3 { color: rgba(236,253,245,0.95); }
+    .palB .s-hero p { color: rgba(251,207,232,0.4); }
+    .palB .s-hero .btn { background: rgba(236,72,153,0.12); color: rgba(251,207,232,0.9); border: 1px solid rgba(236,72,153,0.2); }
+    .palB .s-card { background: rgba(5,150,105,0.04); border: 1px solid rgba(16,185,129,0.06); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+    .palB .s-card:nth-child(1) .icon { background: rgba(16,185,129,0.1); }
+    .palB .s-card:nth-child(1) .icon svg { stroke: rgba(52,211,153,0.75); }
+    .palB .s-card:nth-child(2) .icon { background: rgba(236,72,153,0.1); }
+    .palB .s-card:nth-child(2) .icon svg { stroke: rgba(244,114,182,0.75); }
+    .palB .s-card:nth-child(3) .icon { background: rgba(20,184,166,0.1); }
+    .palB .s-card:nth-child(3) .icon svg { stroke: rgba(45,212,191,0.7); }
+    .palB .s-card h4 { color: rgba(209,250,229,0.85); }
+    .palB .s-card p { color: rgba(251,207,232,0.3); }
+    .palB .option-number { background: linear-gradient(135deg, rgba(16,185,129,0.2), rgba(236,72,153,0.2)); color: #6ee7b7; }
 
 
     /* ═══════════════════════════════════════════════
-       C — Cherry Blossom  (Sakura)
+       C — Autumn Canopy  (Maple + Oak + Moss)
+       Rust, amber, olive — fall foliage over moss
        ═══════════════════════════════════════════════ */
-    .palC .spatial-preview { background: linear-gradient(135deg, #1a0e14 0%, #2a1520 50%, #1a0a12 100%); }
-    .palC .ambient-1 { background: radial-gradient(circle, rgba(244,114,182,0.18) 0%, rgba(236,72,153,0.08) 50%, transparent 70%); }
-    .palC .ambient-2 { background: radial-gradient(circle, rgba(251,191,219,0.12) 0%, rgba(244,114,182,0.06) 50%, transparent 70%); }
-    .palC .ambient-3 { background: radial-gradient(circle, rgba(249,168,212,0.1) 0%, transparent 70%); }
-    .palC .s-nav { background: rgba(244,114,182,0.06); border: 1px solid rgba(244,114,182,0.1); }
-    .palC .s-nav .brand { color: rgba(253,242,248,0.9); }
-    .palC .s-nav .links { color: rgba(251,207,232,0.35); }
-    .palC .s-hero { background: rgba(244,114,182,0.05); border: 1px solid rgba(244,114,182,0.08); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
-    .palC .s-hero h3 { color: rgba(253,242,248,0.95); }
-    .palC .s-hero p { color: rgba(251,207,232,0.4); }
-    .palC .s-hero .btn { background: rgba(244,114,182,0.15); color: rgba(253,242,248,0.9); border: 1px solid rgba(244,114,182,0.2); }
-    .palC .s-card { background: rgba(244,114,182,0.04); border: 1px solid rgba(244,114,182,0.06); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
-    .palC .s-card .icon { background: rgba(244,114,182,0.08); }
-    .palC .s-card .icon svg { stroke: rgba(249,168,212,0.7); }
-    .palC .s-card h4 { color: rgba(252,231,243,0.85); }
-    .palC .s-card p { color: rgba(251,207,232,0.3); }
-    .palC .option-number { background: rgba(244,114,182,0.15); color: #f9a8d4; }
+    .palC .spatial-preview { background: linear-gradient(145deg, #1a120a 0%, #1a1408 40%, #12160c 100%); }
+    .palC .ambient-1 { background: radial-gradient(circle, rgba(180,83,9,0.18) 0%, rgba(146,64,14,0.08) 50%, transparent 70%); }
+    .palC .ambient-2 { background: radial-gradient(circle, rgba(101,163,13,0.14) 0%, rgba(77,124,15,0.06) 50%, transparent 70%); }
+    .palC .ambient-3 { background: radial-gradient(circle, rgba(217,119,6,0.12) 0%, transparent 70%); }
+    .palC .ambient-4 { background: radial-gradient(circle, rgba(239,68,68,0.08) 0%, transparent 70%); }
+    .palC .s-nav { background: rgba(180,83,9,0.05); border: 1px solid rgba(180,83,9,0.1); }
+    .palC .s-nav .brand { color: rgba(254,243,199,0.9); }
+    .palC .s-nav .links { color: rgba(190,242,100,0.3); }
+    .palC .s-hero { background: rgba(146,64,14,0.04); border: 1px solid rgba(180,83,9,0.08); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+    .palC .s-hero h3 { color: rgba(255,251,235,0.95); }
+    .palC .s-hero p { color: rgba(254,215,170,0.4); }
+    .palC .s-hero .btn { background: rgba(101,163,13,0.12); color: rgba(190,242,100,0.9); border: 1px solid rgba(101,163,13,0.2); }
+    .palC .s-card { background: rgba(146,64,14,0.04); border: 1px solid rgba(180,83,9,0.06); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+    .palC .s-card:nth-child(1) .icon { background: rgba(180,83,9,0.1); }
+    .palC .s-card:nth-child(1) .icon svg { stroke: rgba(251,146,60,0.75); }
+    .palC .s-card:nth-child(2) .icon { background: rgba(101,163,13,0.1); }
+    .palC .s-card:nth-child(2) .icon svg { stroke: rgba(163,230,53,0.7); }
+    .palC .s-card:nth-child(3) .icon { background: rgba(239,68,68,0.08); }
+    .palC .s-card:nth-child(3) .icon svg { stroke: rgba(248,113,113,0.65); }
+    .palC .s-card h4 { color: rgba(254,243,199,0.85); }
+    .palC .s-card p { color: rgba(254,215,170,0.3); }
+    .palC .option-number { background: linear-gradient(135deg, rgba(180,83,9,0.2), rgba(101,163,13,0.2)); color: #fbbf24; }
 
 
     /* ═══════════════════════════════════════════════
-       D — Sunflower Field  (Helianthus)
+       D — Wildflower Meadow  (Lavender + Goldenrod + Clover)
+       Purple wildflowers with golden and green grasses
        ═══════════════════════════════════════════════ */
-    .palD .spatial-preview { background: linear-gradient(135deg, #1a1408 0%, #261c0a 50%, #1a1205 100%); }
-    .palD .ambient-1 { background: radial-gradient(circle, rgba(245,158,11,0.18) 0%, rgba(217,119,6,0.08) 50%, transparent 70%); }
-    .palD .ambient-2 { background: radial-gradient(circle, rgba(251,191,36,0.14) 0%, rgba(245,158,11,0.06) 50%, transparent 70%); }
-    .palD .ambient-3 { background: radial-gradient(circle, rgba(253,224,71,0.1) 0%, transparent 70%); }
-    .palD .s-nav { background: rgba(245,158,11,0.06); border: 1px solid rgba(245,158,11,0.1); }
-    .palD .s-nav .brand { color: rgba(254,243,199,0.9); }
-    .palD .s-nav .links { color: rgba(254,243,199,0.35); }
-    .palD .s-hero { background: rgba(245,158,11,0.05); border: 1px solid rgba(245,158,11,0.08); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
-    .palD .s-hero h3 { color: rgba(255,251,235,0.95); }
-    .palD .s-hero p { color: rgba(254,243,199,0.4); }
-    .palD .s-hero .btn { background: rgba(245,158,11,0.15); color: rgba(254,243,199,0.9); border: 1px solid rgba(245,158,11,0.2); }
-    .palD .s-card { background: rgba(245,158,11,0.04); border: 1px solid rgba(245,158,11,0.06); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
-    .palD .s-card .icon { background: rgba(245,158,11,0.08); }
-    .palD .s-card .icon svg { stroke: rgba(251,191,36,0.7); }
-    .palD .s-card h4 { color: rgba(254,249,220,0.85); }
-    .palD .s-card p { color: rgba(254,243,199,0.3); }
-    .palD .option-number { background: rgba(245,158,11,0.15); color: #fbbf24; }
+    .palD .spatial-preview { background: linear-gradient(145deg, #10081a 0%, #141410 40%, #0e0618 100%); }
+    .palD .ambient-1 { background: radial-gradient(circle, rgba(139,92,246,0.18) 0%, rgba(129,140,248,0.08) 50%, transparent 70%); }
+    .palD .ambient-2 { background: radial-gradient(circle, rgba(234,179,8,0.14) 0%, rgba(202,138,4,0.06) 50%, transparent 70%); }
+    .palD .ambient-3 { background: radial-gradient(circle, rgba(34,197,94,0.1) 0%, transparent 70%); }
+    .palD .ambient-4 { background: radial-gradient(circle, rgba(192,132,252,0.08) 0%, transparent 70%); }
+    .palD .s-nav { background: rgba(139,92,246,0.05); border: 1px solid rgba(139,92,246,0.1); }
+    .palD .s-nav .brand { color: rgba(233,213,255,0.9); }
+    .palD .s-nav .links { color: rgba(254,240,138,0.3); }
+    .palD .s-hero { background: rgba(139,92,246,0.04); border: 1px solid rgba(139,92,246,0.08); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+    .palD .s-hero h3 { color: rgba(250,245,255,0.95); }
+    .palD .s-hero p { color: rgba(254,240,138,0.4); }
+    .palD .s-hero .btn { background: rgba(234,179,8,0.12); color: rgba(254,240,138,0.9); border: 1px solid rgba(234,179,8,0.2); }
+    .palD .s-card { background: rgba(139,92,246,0.04); border: 1px solid rgba(139,92,246,0.06); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+    .palD .s-card:nth-child(1) .icon { background: rgba(139,92,246,0.1); }
+    .palD .s-card:nth-child(1) .icon svg { stroke: rgba(192,132,252,0.75); }
+    .palD .s-card:nth-child(2) .icon { background: rgba(234,179,8,0.1); }
+    .palD .s-card:nth-child(2) .icon svg { stroke: rgba(250,204,21,0.75); }
+    .palD .s-card:nth-child(3) .icon { background: rgba(34,197,94,0.1); }
+    .palD .s-card:nth-child(3) .icon svg { stroke: rgba(74,222,128,0.7); }
+    .palD .s-card h4 { color: rgba(233,213,255,0.85); }
+    .palD .s-card p { color: rgba(254,240,138,0.3); }
+    .palD .option-number { background: linear-gradient(135deg, rgba(139,92,246,0.2), rgba(234,179,8,0.2)); color: #c084fc; }
 
 
     /* ═══════════════════════════════════════════════
-       E — Lavender Meadow  (Lavandula)
+       E — Moss & Rose  (Forest Floor + Climbing Roses)
+       Deep forest green with dusty rose pink accents
        ═══════════════════════════════════════════════ */
-    .palE .spatial-preview { background: linear-gradient(135deg, #10081a 0%, #1a1030 50%, #0e0618 100%); }
-    .palE .ambient-1 { background: radial-gradient(circle, rgba(129,140,248,0.18) 0%, rgba(99,102,241,0.08) 50%, transparent 70%); }
-    .palE .ambient-2 { background: radial-gradient(circle, rgba(165,180,252,0.12) 0%, rgba(129,140,248,0.06) 50%, transparent 70%); }
-    .palE .ambient-3 { background: radial-gradient(circle, rgba(199,210,254,0.08) 0%, transparent 70%); }
-    .palE .s-nav { background: rgba(129,140,248,0.06); border: 1px solid rgba(129,140,248,0.1); }
-    .palE .s-nav .brand { color: rgba(224,231,255,0.9); }
-    .palE .s-nav .links { color: rgba(224,231,255,0.35); }
-    .palE .s-hero { background: rgba(129,140,248,0.05); border: 1px solid rgba(129,140,248,0.08); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
-    .palE .s-hero h3 { color: rgba(238,242,255,0.95); }
-    .palE .s-hero p { color: rgba(199,210,254,0.4); }
-    .palE .s-hero .btn { background: rgba(129,140,248,0.15); color: rgba(224,231,255,0.9); border: 1px solid rgba(129,140,248,0.2); }
-    .palE .s-card { background: rgba(129,140,248,0.04); border: 1px solid rgba(129,140,248,0.06); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
-    .palE .s-card .icon { background: rgba(129,140,248,0.08); }
-    .palE .s-card .icon svg { stroke: rgba(165,180,252,0.7); }
-    .palE .s-card h4 { color: rgba(224,231,255,0.85); }
-    .palE .s-card p { color: rgba(199,210,254,0.3); }
-    .palE .option-number { background: rgba(129,140,248,0.15); color: #a5b4fc; }
+    .palE .spatial-preview { background: linear-gradient(145deg, #0a130d 0%, #0e1a10 40%, #14100e 100%); }
+    .palE .ambient-1 { background: radial-gradient(circle, rgba(22,101,52,0.2) 0%, rgba(21,128,61,0.08) 50%, transparent 70%); }
+    .palE .ambient-2 { background: radial-gradient(circle, rgba(244,63,94,0.14) 0%, rgba(251,113,133,0.06) 50%, transparent 70%); }
+    .palE .ambient-3 { background: radial-gradient(circle, rgba(34,197,94,0.1) 0%, transparent 70%); }
+    .palE .ambient-4 { background: radial-gradient(circle, rgba(253,164,175,0.08) 0%, transparent 70%); }
+    .palE .s-nav { background: rgba(22,101,52,0.06); border: 1px solid rgba(34,197,94,0.1); }
+    .palE .s-nav .brand { color: rgba(187,247,208,0.9); }
+    .palE .s-nav .links { color: rgba(253,164,175,0.3); }
+    .palE .s-hero { background: rgba(22,101,52,0.04); border: 1px solid rgba(34,197,94,0.07); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+    .palE .s-hero h3 { color: rgba(240,253,244,0.95); }
+    .palE .s-hero p { color: rgba(253,164,175,0.4); }
+    .palE .s-hero .btn { background: rgba(244,63,94,0.12); color: rgba(255,228,230,0.9); border: 1px solid rgba(244,63,94,0.2); }
+    .palE .s-card { background: rgba(22,101,52,0.04); border: 1px solid rgba(34,197,94,0.06); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+    .palE .s-card:nth-child(1) .icon { background: rgba(34,197,94,0.1); }
+    .palE .s-card:nth-child(1) .icon svg { stroke: rgba(74,222,128,0.75); }
+    .palE .s-card:nth-child(2) .icon { background: rgba(244,63,94,0.1); }
+    .palE .s-card:nth-child(2) .icon svg { stroke: rgba(251,113,133,0.75); }
+    .palE .s-card:nth-child(3) .icon { background: rgba(187,247,208,0.06); }
+    .palE .s-card:nth-child(3) .icon svg { stroke: rgba(187,247,208,0.6); }
+    .palE .s-card h4 { color: rgba(187,247,208,0.85); }
+    .palE .s-card p { color: rgba(253,164,175,0.3); }
+    .palE .option-number { background: linear-gradient(135deg, rgba(34,197,94,0.2), rgba(244,63,94,0.2)); color: #86efac; }
 
 
     /* ═══════════════════════════════════════════════
-       F — Desert Rose  (Adenium)
+       F — Night Orchid  (Purple Orchid + Emerald Fern + Teal)
+       Tropical evening greenhouse — rich and layered
        ═══════════════════════════════════════════════ */
-    .palF .spatial-preview { background: linear-gradient(135deg, #1a0f0a 0%, #2a1510 50%, #1a0c08 100%); }
-    .palF .ambient-1 { background: radial-gradient(circle, rgba(239,68,68,0.16) 0%, rgba(220,38,38,0.08) 50%, transparent 70%); }
-    .palF .ambient-2 { background: radial-gradient(circle, rgba(248,113,113,0.12) 0%, rgba(252,165,165,0.06) 50%, transparent 70%); }
-    .palF .ambient-3 { background: radial-gradient(circle, rgba(254,202,202,0.08) 0%, transparent 70%); }
-    .palF .s-nav { background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.1); }
-    .palF .s-nav .brand { color: rgba(254,226,226,0.9); }
-    .palF .s-nav .links { color: rgba(254,226,226,0.35); }
-    .palF .s-hero { background: rgba(239,68,68,0.05); border: 1px solid rgba(239,68,68,0.08); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
-    .palF .s-hero h3 { color: rgba(254,242,242,0.95); }
-    .palF .s-hero p { color: rgba(254,202,202,0.4); }
-    .palF .s-hero .btn { background: rgba(239,68,68,0.15); color: rgba(254,226,226,0.9); border: 1px solid rgba(239,68,68,0.2); }
-    .palF .s-card { background: rgba(239,68,68,0.04); border: 1px solid rgba(239,68,68,0.06); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
-    .palF .s-card .icon { background: rgba(239,68,68,0.08); }
-    .palF .s-card .icon svg { stroke: rgba(248,113,113,0.7); }
-    .palF .s-card h4 { color: rgba(254,226,226,0.85); }
-    .palF .s-card p { color: rgba(254,202,202,0.3); }
-    .palF .option-number { background: rgba(239,68,68,0.15); color: #fca5a5; }
+    .palF .spatial-preview { background: linear-gradient(145deg, #120a18 0%, #0a1412 40%, #0e1018 100%); }
+    .palF .ambient-1 { background: radial-gradient(circle, rgba(168,85,247,0.18) 0%, rgba(147,51,234,0.08) 50%, transparent 70%); }
+    .palF .ambient-2 { background: radial-gradient(circle, rgba(16,185,129,0.16) 0%, rgba(5,150,105,0.06) 50%, transparent 70%); }
+    .palF .ambient-3 { background: radial-gradient(circle, rgba(20,184,166,0.12) 0%, transparent 70%); }
+    .palF .ambient-4 { background: radial-gradient(circle, rgba(232,121,249,0.08) 0%, transparent 70%); }
+    .palF .s-nav { background: rgba(168,85,247,0.05); border: 1px solid rgba(168,85,247,0.08); }
+    .palF .s-nav .brand { color: rgba(233,213,255,0.9); }
+    .palF .s-nav .links { color: rgba(167,243,208,0.3); }
+    .palF .s-hero { background: rgba(168,85,247,0.04); border: 1px solid rgba(168,85,247,0.07); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+    .palF .s-hero h3 { color: rgba(250,245,255,0.95); }
+    .palF .s-hero p { color: rgba(167,243,208,0.4); }
+    .palF .s-hero .btn { background: rgba(16,185,129,0.12); color: rgba(167,243,208,0.9); border: 1px solid rgba(16,185,129,0.2); }
+    .palF .s-card { background: rgba(168,85,247,0.04); border: 1px solid rgba(168,85,247,0.06); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+    .palF .s-card:nth-child(1) .icon { background: rgba(168,85,247,0.1); }
+    .palF .s-card:nth-child(1) .icon svg { stroke: rgba(192,132,252,0.75); }
+    .palF .s-card:nth-child(2) .icon { background: rgba(16,185,129,0.1); }
+    .palF .s-card:nth-child(2) .icon svg { stroke: rgba(52,211,153,0.75); }
+    .palF .s-card:nth-child(3) .icon { background: rgba(20,184,166,0.1); }
+    .palF .s-card:nth-child(3) .icon svg { stroke: rgba(45,212,191,0.7); }
+    .palF .s-card h4 { color: rgba(233,213,255,0.85); }
+    .palF .s-card p { color: rgba(167,243,208,0.3); }
+    .palF .option-number { background: linear-gradient(135deg, rgba(168,85,247,0.2), rgba(16,185,129,0.2)); color: #c084fc; }
 
 
     /* ═══════════════════════════════════════════════
-       G — Blue Lotus  (Nymphaea caerulea)
+       G — Japanese Garden  (Sakura + Bamboo + Stone)
+       Cherry blossom pink with sage green and stone grey
        ═══════════════════════════════════════════════ */
-    .palG .spatial-preview { background: linear-gradient(135deg, #06101a 0%, #0a1a2e 50%, #061018 100%); }
-    .palG .ambient-1 { background: radial-gradient(circle, rgba(56,189,248,0.18) 0%, rgba(14,165,233,0.08) 50%, transparent 70%); }
-    .palG .ambient-2 { background: radial-gradient(circle, rgba(125,211,252,0.12) 0%, rgba(56,189,248,0.06) 50%, transparent 70%); }
-    .palG .ambient-3 { background: radial-gradient(circle, rgba(186,230,253,0.08) 0%, transparent 70%); }
-    .palG .s-nav { background: rgba(56,189,248,0.06); border: 1px solid rgba(56,189,248,0.1); }
-    .palG .s-nav .brand { color: rgba(224,242,254,0.9); }
-    .palG .s-nav .links { color: rgba(186,230,253,0.35); }
-    .palG .s-hero { background: rgba(56,189,248,0.05); border: 1px solid rgba(56,189,248,0.08); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
-    .palG .s-hero h3 { color: rgba(240,249,255,0.95); }
-    .palG .s-hero p { color: rgba(186,230,253,0.4); }
-    .palG .s-hero .btn { background: rgba(56,189,248,0.15); color: rgba(224,242,254,0.9); border: 1px solid rgba(56,189,248,0.2); }
-    .palG .s-card { background: rgba(56,189,248,0.04); border: 1px solid rgba(56,189,248,0.06); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
-    .palG .s-card .icon { background: rgba(56,189,248,0.08); }
-    .palG .s-card .icon svg { stroke: rgba(125,211,252,0.7); }
-    .palG .s-card h4 { color: rgba(224,242,254,0.85); }
-    .palG .s-card p { color: rgba(186,230,253,0.3); }
-    .palG .option-number { background: rgba(56,189,248,0.15); color: #7dd3fc; }
+    .palG .spatial-preview { background: linear-gradient(145deg, #14100e 0%, #0e1410 40%, #121014 100%); }
+    .palG .ambient-1 { background: radial-gradient(circle, rgba(244,114,182,0.16) 0%, rgba(236,72,153,0.06) 50%, transparent 70%); }
+    .palG .ambient-2 { background: radial-gradient(circle, rgba(132,204,22,0.12) 0%, rgba(101,163,13,0.06) 50%, transparent 70%); }
+    .palG .ambient-3 { background: radial-gradient(circle, rgba(168,162,158,0.1) 0%, transparent 70%); }
+    .palG .ambient-4 { background: radial-gradient(circle, rgba(249,168,212,0.08) 0%, transparent 70%); }
+    .palG .s-nav { background: rgba(168,162,158,0.05); border: 1px solid rgba(168,162,158,0.1); }
+    .palG .s-nav .brand { color: rgba(251,207,232,0.9); }
+    .palG .s-nav .links { color: rgba(190,242,100,0.3); }
+    .palG .s-hero { background: rgba(168,162,158,0.04); border: 1px solid rgba(168,162,158,0.08); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+    .palG .s-hero h3 { color: rgba(253,242,248,0.95); }
+    .palG .s-hero p { color: rgba(214,211,209,0.45); }
+    .palG .s-hero .btn { background: rgba(244,114,182,0.12); color: rgba(251,207,232,0.9); border: 1px solid rgba(244,114,182,0.2); }
+    .palG .s-card { background: rgba(168,162,158,0.04); border: 1px solid rgba(168,162,158,0.06); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+    .palG .s-card:nth-child(1) .icon { background: rgba(244,114,182,0.1); }
+    .palG .s-card:nth-child(1) .icon svg { stroke: rgba(249,168,212,0.75); }
+    .palG .s-card:nth-child(2) .icon { background: rgba(132,204,22,0.1); }
+    .palG .s-card:nth-child(2) .icon svg { stroke: rgba(163,230,53,0.7); }
+    .palG .s-card:nth-child(3) .icon { background: rgba(168,162,158,0.1); }
+    .palG .s-card:nth-child(3) .icon svg { stroke: rgba(214,211,209,0.6); }
+    .palG .s-card h4 { color: rgba(253,242,248,0.85); }
+    .palG .s-card p { color: rgba(214,211,209,0.3); }
+    .palG .option-number { background: linear-gradient(135deg, rgba(244,114,182,0.2), rgba(132,204,22,0.15)); color: #f9a8d4; }
 
 
     /* ═══════════════════════════════════════════════
-       H — Jade Plant  (Crassula ovata)
+       H — Coral Reef Garden  (Coral + Seafoam + Aqua)
+       Underwater botanical — warm coral meets cool aqua
        ═══════════════════════════════════════════════ */
-    .palH .spatial-preview { background: linear-gradient(135deg, #0a1210 0%, #0f1e1a 50%, #081410 100%); }
-    .palH .ambient-1 { background: radial-gradient(circle, rgba(20,184,166,0.18) 0%, rgba(13,148,136,0.08) 50%, transparent 70%); }
-    .palH .ambient-2 { background: radial-gradient(circle, rgba(94,234,212,0.12) 0%, rgba(45,212,191,0.06) 50%, transparent 70%); }
-    .palH .ambient-3 { background: radial-gradient(circle, rgba(153,246,228,0.08) 0%, transparent 70%); }
-    .palH .s-nav { background: rgba(20,184,166,0.06); border: 1px solid rgba(20,184,166,0.1); }
+    .palH .spatial-preview { background: linear-gradient(145deg, #0e100a 0%, #081412 40%, #12100a 100%); }
+    .palH .ambient-1 { background: radial-gradient(circle, rgba(251,146,60,0.16) 0%, rgba(249,115,22,0.06) 50%, transparent 70%); }
+    .palH .ambient-2 { background: radial-gradient(circle, rgba(20,184,166,0.16) 0%, rgba(6,182,212,0.06) 50%, transparent 70%); }
+    .palH .ambient-3 { background: radial-gradient(circle, rgba(52,211,153,0.1) 0%, transparent 70%); }
+    .palH .ambient-4 { background: radial-gradient(circle, rgba(253,186,116,0.08) 0%, transparent 70%); }
+    .palH .s-nav { background: rgba(20,184,166,0.05); border: 1px solid rgba(20,184,166,0.1); }
     .palH .s-nav .brand { color: rgba(204,251,241,0.9); }
-    .palH .s-nav .links { color: rgba(153,246,228,0.35); }
-    .palH .s-hero { background: rgba(20,184,166,0.05); border: 1px solid rgba(20,184,166,0.08); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+    .palH .s-nav .links { color: rgba(254,215,170,0.3); }
+    .palH .s-hero { background: rgba(20,184,166,0.04); border: 1px solid rgba(20,184,166,0.07); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
     .palH .s-hero h3 { color: rgba(240,253,250,0.95); }
-    .palH .s-hero p { color: rgba(153,246,228,0.4); }
-    .palH .s-hero .btn { background: rgba(20,184,166,0.15); color: rgba(204,251,241,0.9); border: 1px solid rgba(20,184,166,0.2); }
+    .palH .s-hero p { color: rgba(254,215,170,0.4); }
+    .palH .s-hero .btn { background: rgba(251,146,60,0.12); color: rgba(255,237,213,0.9); border: 1px solid rgba(251,146,60,0.2); }
     .palH .s-card { background: rgba(20,184,166,0.04); border: 1px solid rgba(20,184,166,0.06); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
-    .palH .s-card .icon { background: rgba(20,184,166,0.08); }
-    .palH .s-card .icon svg { stroke: rgba(94,234,212,0.7); }
+    .palH .s-card:nth-child(1) .icon { background: rgba(251,146,60,0.1); }
+    .palH .s-card:nth-child(1) .icon svg { stroke: rgba(253,186,116,0.75); }
+    .palH .s-card:nth-child(2) .icon { background: rgba(20,184,166,0.1); }
+    .palH .s-card:nth-child(2) .icon svg { stroke: rgba(94,234,212,0.75); }
+    .palH .s-card:nth-child(3) .icon { background: rgba(52,211,153,0.08); }
+    .palH .s-card:nth-child(3) .icon svg { stroke: rgba(110,231,183,0.65); }
     .palH .s-card h4 { color: rgba(204,251,241,0.85); }
-    .palH .s-card p { color: rgba(153,246,228,0.3); }
-    .palH .option-number { background: rgba(20,184,166,0.15); color: #5eead4; }
+    .palH .s-card p { color: rgba(254,215,170,0.3); }
+    .palH .option-number { background: linear-gradient(135deg, rgba(251,146,60,0.2), rgba(20,184,166,0.2)); color: #5eead4; }
   </style>
 </head>
 <body>
 
   <header class="page-header">
-    <h1>Spatial UI &times; Botanical Palettes</h1>
-    <p>The VisionOS Spatial UI rendered in 8 color palettes inspired by real flowers and plants. Same frosted glass, depth layers, and immersive feel &mdash; different garden moods.</p>
-    <span class="tag">spatial ui &middot; visionos</span>
+    <h1>Spatial UI &times; Multi-Color Botanicals</h1>
+    <p>The VisionOS Spatial UI with multi-color palettes &mdash; each blending 2-3 plant and flower colors together. Ambient orbs, frosted glass, and icon accents all use different botanical hues.</p>
+    <span class="tag">spatial ui &middot; multi-color</span>
   </header>
 
   <div class="options-grid">
 
-    <!-- A — Deep Fern -->
+    <!-- A — Garden at Dawn -->
     <div class="style-option palA">
       <div class="option-label">
         <div class="option-number">A</div>
         <div class="option-meta">
-          <h2>Deep Fern</h2>
-          <div class="subtitle">Maidenhair fern + forest moss. Deep emerald glow.</div>
-          <div class="flower">Adiantum capillus-veneris, Bryophyta</div>
+          <h2>Garden at Dawn</h2>
+          <div class="subtitle">Emerald canopy with golden sunrise filtering through the leaves.</div>
+          <div class="flower">Fern fronds + morning light through glass</div>
         </div>
-        <div class="option-tags"><span>Emerald</span><span>Forest</span><span>Verdant</span></div>
+        <div class="option-tags"><span>Emerald</span><span>Amber</span><span>Warm Light</span></div>
       </div>
       <div class="spatial-preview">
-        <div class="ambient ambient-1"></div>
-        <div class="ambient ambient-2"></div>
-        <div class="ambient ambient-3"></div>
-        <nav class="s-nav">
-          <span class="brand">Sponic Gardens</span>
-          <div class="links"><span>About</span><span>Experience</span><span>Apply</span></div>
-        </nav>
+        <div class="ambient ambient-1"></div><div class="ambient ambient-2"></div><div class="ambient ambient-3"></div><div class="ambient ambient-4"></div>
+        <nav class="s-nav"><span class="brand">Sponic Gardens</span><div class="links"><span>About</span><span>Experience</span><span>Apply</span></div></nav>
         <div class="s-hero">
           <h3>Where nature meets<br>intelligent design</h3>
           <p>AI-enhanced spaces that promote socialization in a manner that is inspiring, healthy, and productive.</p>
@@ -436,30 +487,28 @@
         </div>
       </div>
       <div class="palette-strip">
-        <div class="swatch" style="background:#0a1a12;"></div>
         <div class="swatch" style="background:#10B981;"></div>
         <div class="swatch" style="background:#34D399;"></div>
-        <div class="swatch" style="background:#6EE7B7;"></div>
-        <div class="swatch" style="background:#A7F3D0;"></div>
-        <div class="palette-info"><strong>Inspiration:</strong> Maidenhair fern, moss, deep canopy<br><strong>Mood:</strong> Verdant, alive, photosynthetic</div>
+        <div class="swatch" style="background:#F59E0B;"></div>
+        <div class="swatch" style="background:#FBBF24;"></div>
+        <div class="swatch" style="background:#0a1510;"></div>
+        <div class="palette-info"><strong>Colors:</strong> Emerald green + amber gold<br><strong>Mood:</strong> Morning light through a greenhouse canopy</div>
       </div>
     </div>
 
-    <!-- B — Orchid Twilight -->
+    <!-- B — Tropical Greenhouse -->
     <div class="style-option palB">
       <div class="option-label">
         <div class="option-number">B</div>
         <div class="option-meta">
-          <h2>Orchid Twilight</h2>
-          <div class="subtitle">Phalaenopsis orchid at dusk. Regal purple luminescence.</div>
-          <div class="flower">Phalaenopsis amabilis</div>
+          <h2>Tropical Greenhouse</h2>
+          <div class="subtitle">Monstera leaves with hibiscus blooms and teal undertones.</div>
+          <div class="flower">Monstera deliciosa + Hibiscus rosa-sinensis</div>
         </div>
-        <div class="option-tags"><span>Purple</span><span>Orchid</span><span>Regal</span></div>
+        <div class="option-tags"><span>Emerald</span><span>Hot Pink</span><span>Teal</span></div>
       </div>
       <div class="spatial-preview">
-        <div class="ambient ambient-1"></div>
-        <div class="ambient ambient-2"></div>
-        <div class="ambient ambient-3"></div>
+        <div class="ambient ambient-1"></div><div class="ambient ambient-2"></div><div class="ambient ambient-3"></div><div class="ambient ambient-4"></div>
         <nav class="s-nav"><span class="brand">Sponic Gardens</span><div class="links"><span>About</span><span>Experience</span><span>Apply</span></div></nav>
         <div class="s-hero">
           <h3>Where nature meets<br>intelligent design</h3>
@@ -473,30 +522,28 @@
         </div>
       </div>
       <div class="palette-strip">
-        <div class="swatch" style="background:#1a0a20;"></div>
-        <div class="swatch" style="background:#A855F7;"></div>
-        <div class="swatch" style="background:#C084FC;"></div>
-        <div class="swatch" style="background:#D8B4FE;"></div>
-        <div class="swatch" style="background:#E9D5FF;"></div>
-        <div class="palette-info"><strong>Inspiration:</strong> Phalaenopsis orchid, evening bloom<br><strong>Mood:</strong> Regal, exotic, contemplative</div>
+        <div class="swatch" style="background:#059669;"></div>
+        <div class="swatch" style="background:#34D399;"></div>
+        <div class="swatch" style="background:#EC4899;"></div>
+        <div class="swatch" style="background:#14B8A6;"></div>
+        <div class="swatch" style="background:#081410;"></div>
+        <div class="palette-info"><strong>Colors:</strong> Forest green + hibiscus pink + teal<br><strong>Mood:</strong> Lush tropical conservatory at night</div>
       </div>
     </div>
 
-    <!-- C — Cherry Blossom -->
+    <!-- C — Autumn Canopy -->
     <div class="style-option palC">
       <div class="option-label">
         <div class="option-number">C</div>
         <div class="option-meta">
-          <h2>Cherry Blossom</h2>
-          <div class="subtitle">Sakura petals at moonrise. Soft pink warmth.</div>
-          <div class="flower">Prunus serrulata</div>
+          <h2>Autumn Canopy</h2>
+          <div class="subtitle">Rust and amber leaves over olive-green moss. Fall foliage warmth.</div>
+          <div class="flower">Acer palmatum + Quercus + Polytrichum moss</div>
         </div>
-        <div class="option-tags"><span>Pink</span><span>Sakura</span><span>Gentle</span></div>
+        <div class="option-tags"><span>Rust</span><span>Olive</span><span>Amber</span></div>
       </div>
       <div class="spatial-preview">
-        <div class="ambient ambient-1"></div>
-        <div class="ambient ambient-2"></div>
-        <div class="ambient ambient-3"></div>
+        <div class="ambient ambient-1"></div><div class="ambient ambient-2"></div><div class="ambient ambient-3"></div><div class="ambient ambient-4"></div>
         <nav class="s-nav"><span class="brand">Sponic Gardens</span><div class="links"><span>About</span><span>Experience</span><span>Apply</span></div></nav>
         <div class="s-hero">
           <h3>Where nature meets<br>intelligent design</h3>
@@ -510,30 +557,28 @@
         </div>
       </div>
       <div class="palette-strip">
-        <div class="swatch" style="background:#1a0e14;"></div>
-        <div class="swatch" style="background:#EC4899;"></div>
-        <div class="swatch" style="background:#F472B6;"></div>
-        <div class="swatch" style="background:#F9A8D4;"></div>
-        <div class="swatch" style="background:#FBCFE8;"></div>
-        <div class="palette-info"><strong>Inspiration:</strong> Sakura blossoms, cherry tree in moonlight<br><strong>Mood:</strong> Tender, poetic, tranquil</div>
+        <div class="swatch" style="background:#B45309;"></div>
+        <div class="swatch" style="background:#FB923C;"></div>
+        <div class="swatch" style="background:#65A30D;"></div>
+        <div class="swatch" style="background:#EF4444;"></div>
+        <div class="swatch" style="background:#1a120a;"></div>
+        <div class="palette-info"><strong>Colors:</strong> Burnt orange + olive green + crimson leaf<br><strong>Mood:</strong> Crisp autumn walk through a forest canopy</div>
       </div>
     </div>
 
-    <!-- D — Sunflower Field -->
+    <!-- D — Wildflower Meadow -->
     <div class="style-option palD">
       <div class="option-label">
         <div class="option-number">D</div>
         <div class="option-meta">
-          <h2>Sunflower Field</h2>
-          <div class="subtitle">Golden helianthus at golden hour. Warm amber radiance.</div>
-          <div class="flower">Helianthus annuus</div>
+          <h2>Wildflower Meadow</h2>
+          <div class="subtitle">Lavender blooms with goldenrod and clover green in tall grass.</div>
+          <div class="flower">Lavandula + Solidago + Trifolium</div>
         </div>
-        <div class="option-tags"><span>Amber</span><span>Golden</span><span>Warm</span></div>
+        <div class="option-tags"><span>Purple</span><span>Gold</span><span>Green</span></div>
       </div>
       <div class="spatial-preview">
-        <div class="ambient ambient-1"></div>
-        <div class="ambient ambient-2"></div>
-        <div class="ambient ambient-3"></div>
+        <div class="ambient ambient-1"></div><div class="ambient ambient-2"></div><div class="ambient ambient-3"></div><div class="ambient ambient-4"></div>
         <nav class="s-nav"><span class="brand">Sponic Gardens</span><div class="links"><span>About</span><span>Experience</span><span>Apply</span></div></nav>
         <div class="s-hero">
           <h3>Where nature meets<br>intelligent design</h3>
@@ -547,30 +592,28 @@
         </div>
       </div>
       <div class="palette-strip">
-        <div class="swatch" style="background:#1a1408;"></div>
-        <div class="swatch" style="background:#F59E0B;"></div>
-        <div class="swatch" style="background:#FBBF24;"></div>
-        <div class="swatch" style="background:#FDE047;"></div>
-        <div class="swatch" style="background:#FEF3C7;"></div>
-        <div class="palette-info"><strong>Inspiration:</strong> Sunflower field, golden hour light<br><strong>Mood:</strong> Energizing, optimistic, solar</div>
+        <div class="swatch" style="background:#8B5CF6;"></div>
+        <div class="swatch" style="background:#C084FC;"></div>
+        <div class="swatch" style="background:#EAB308;"></div>
+        <div class="swatch" style="background:#22C55E;"></div>
+        <div class="swatch" style="background:#10081a;"></div>
+        <div class="palette-info"><strong>Colors:</strong> Violet lavender + goldenrod + clover green<br><strong>Mood:</strong> Wandering through a meadow at twilight</div>
       </div>
     </div>
 
-    <!-- E — Lavender Meadow -->
+    <!-- E — Moss & Rose -->
     <div class="style-option palE">
       <div class="option-label">
         <div class="option-number">E</div>
         <div class="option-meta">
-          <h2>Lavender Meadow</h2>
-          <div class="subtitle">Provence lavender rows at twilight. Serene indigo calm.</div>
-          <div class="flower">Lavandula angustifolia</div>
+          <h2>Moss &amp; Rose</h2>
+          <div class="subtitle">Deep forest green with dusty climbing roses on an old garden wall.</div>
+          <div class="flower">Bryophyta + Rosa damascena</div>
         </div>
-        <div class="option-tags"><span>Indigo</span><span>Lavender</span><span>Serene</span></div>
+        <div class="option-tags"><span>Forest Green</span><span>Rose</span><span>Romantic</span></div>
       </div>
       <div class="spatial-preview">
-        <div class="ambient ambient-1"></div>
-        <div class="ambient ambient-2"></div>
-        <div class="ambient ambient-3"></div>
+        <div class="ambient ambient-1"></div><div class="ambient ambient-2"></div><div class="ambient ambient-3"></div><div class="ambient ambient-4"></div>
         <nav class="s-nav"><span class="brand">Sponic Gardens</span><div class="links"><span>About</span><span>Experience</span><span>Apply</span></div></nav>
         <div class="s-hero">
           <h3>Where nature meets<br>intelligent design</h3>
@@ -584,30 +627,28 @@
         </div>
       </div>
       <div class="palette-strip">
-        <div class="swatch" style="background:#10081a;"></div>
-        <div class="swatch" style="background:#6366F1;"></div>
-        <div class="swatch" style="background:#818CF8;"></div>
-        <div class="swatch" style="background:#A5B4FC;"></div>
-        <div class="swatch" style="background:#C7D2FE;"></div>
-        <div class="palette-info"><strong>Inspiration:</strong> Lavender fields, Provence twilight<br><strong>Mood:</strong> Calm, meditative, aromatic</div>
+        <div class="swatch" style="background:#166534;"></div>
+        <div class="swatch" style="background:#4ADE80;"></div>
+        <div class="swatch" style="background:#F43F5E;"></div>
+        <div class="swatch" style="background:#FB7185;"></div>
+        <div class="swatch" style="background:#0a130d;"></div>
+        <div class="palette-info"><strong>Colors:</strong> Deep moss green + dusty rose red<br><strong>Mood:</strong> Romantic walled garden, ivy and climbing roses</div>
       </div>
     </div>
 
-    <!-- F — Desert Rose -->
+    <!-- F — Night Orchid -->
     <div class="style-option palF">
       <div class="option-label">
         <div class="option-number">F</div>
         <div class="option-meta">
-          <h2>Desert Rose</h2>
-          <div class="subtitle">Adenium bloom in arid twilight. Warm crimson glow.</div>
-          <div class="flower">Adenium obesum</div>
+          <h2>Night Orchid</h2>
+          <div class="subtitle">Purple orchids with emerald ferns and teal in a tropical evening.</div>
+          <div class="flower">Phalaenopsis + Nephrolepis + Calathea</div>
         </div>
-        <div class="option-tags"><span>Crimson</span><span>Rose</span><span>Bold</span></div>
+        <div class="option-tags"><span>Purple</span><span>Emerald</span><span>Teal</span></div>
       </div>
       <div class="spatial-preview">
-        <div class="ambient ambient-1"></div>
-        <div class="ambient ambient-2"></div>
-        <div class="ambient ambient-3"></div>
+        <div class="ambient ambient-1"></div><div class="ambient ambient-2"></div><div class="ambient ambient-3"></div><div class="ambient ambient-4"></div>
         <nav class="s-nav"><span class="brand">Sponic Gardens</span><div class="links"><span>About</span><span>Experience</span><span>Apply</span></div></nav>
         <div class="s-hero">
           <h3>Where nature meets<br>intelligent design</h3>
@@ -621,30 +662,28 @@
         </div>
       </div>
       <div class="palette-strip">
-        <div class="swatch" style="background:#1a0f0a;"></div>
-        <div class="swatch" style="background:#EF4444;"></div>
-        <div class="swatch" style="background:#F87171;"></div>
-        <div class="swatch" style="background:#FCA5A5;"></div>
-        <div class="swatch" style="background:#FECACA;"></div>
-        <div class="palette-info"><strong>Inspiration:</strong> Desert rose bloom, red earth at dusk<br><strong>Mood:</strong> Passionate, resilient, striking</div>
+        <div class="swatch" style="background:#A855F7;"></div>
+        <div class="swatch" style="background:#C084FC;"></div>
+        <div class="swatch" style="background:#10B981;"></div>
+        <div class="swatch" style="background:#14B8A6;"></div>
+        <div class="swatch" style="background:#120a18;"></div>
+        <div class="palette-info"><strong>Colors:</strong> Orchid purple + emerald + teal<br><strong>Mood:</strong> Tropical conservatory after dark, humid and lush</div>
       </div>
     </div>
 
-    <!-- G — Blue Lotus -->
+    <!-- G — Japanese Garden -->
     <div class="style-option palG">
       <div class="option-label">
         <div class="option-number">G</div>
         <div class="option-meta">
-          <h2>Blue Lotus</h2>
-          <div class="subtitle">Sacred water lily on a still pond. Cool azure luminance.</div>
-          <div class="flower">Nymphaea caerulea</div>
+          <h2>Japanese Garden</h2>
+          <div class="subtitle">Sakura pink, bamboo green, and river stone grey. Zen balance.</div>
+          <div class="flower">Prunus serrulata + Phyllostachys + river stone</div>
         </div>
-        <div class="option-tags"><span>Azure</span><span>Aquatic</span><span>Sacred</span></div>
+        <div class="option-tags"><span>Sakura</span><span>Bamboo</span><span>Stone</span></div>
       </div>
       <div class="spatial-preview">
-        <div class="ambient ambient-1"></div>
-        <div class="ambient ambient-2"></div>
-        <div class="ambient ambient-3"></div>
+        <div class="ambient ambient-1"></div><div class="ambient ambient-2"></div><div class="ambient ambient-3"></div><div class="ambient ambient-4"></div>
         <nav class="s-nav"><span class="brand">Sponic Gardens</span><div class="links"><span>About</span><span>Experience</span><span>Apply</span></div></nav>
         <div class="s-hero">
           <h3>Where nature meets<br>intelligent design</h3>
@@ -658,30 +697,28 @@
         </div>
       </div>
       <div class="palette-strip">
-        <div class="swatch" style="background:#06101a;"></div>
-        <div class="swatch" style="background:#0EA5E9;"></div>
-        <div class="swatch" style="background:#38BDF8;"></div>
-        <div class="swatch" style="background:#7DD3FC;"></div>
-        <div class="swatch" style="background:#BAE6FD;"></div>
-        <div class="palette-info"><strong>Inspiration:</strong> Sacred blue lotus, moonlit water<br><strong>Mood:</strong> Tranquil, reflective, refreshing</div>
+        <div class="swatch" style="background:#F472B6;"></div>
+        <div class="swatch" style="background:#F9A8D4;"></div>
+        <div class="swatch" style="background:#84CC16;"></div>
+        <div class="swatch" style="background:#A8A29E;"></div>
+        <div class="swatch" style="background:#14100e;"></div>
+        <div class="palette-info"><strong>Colors:</strong> Cherry blossom + bamboo lime + stone grey<br><strong>Mood:</strong> Contemplative zen garden at dusk</div>
       </div>
     </div>
 
-    <!-- H — Jade Plant -->
+    <!-- H — Coral Reef Garden -->
     <div class="style-option palH">
       <div class="option-label">
         <div class="option-number">H</div>
         <div class="option-meta">
-          <h2>Jade Plant</h2>
-          <div class="subtitle">Succulent jade leaves with teal undertones. Cool botanical.</div>
-          <div class="flower">Crassula ovata</div>
+          <h2>Coral Reef Garden</h2>
+          <div class="subtitle">Warm coral with cool aqua teal and seafoam. Underwater botanical.</div>
+          <div class="flower">Coral polyps + sea anemone + kelp</div>
         </div>
-        <div class="option-tags"><span>Teal</span><span>Jade</span><span>Cool</span></div>
+        <div class="option-tags"><span>Coral</span><span>Teal</span><span>Seafoam</span></div>
       </div>
       <div class="spatial-preview">
-        <div class="ambient ambient-1"></div>
-        <div class="ambient ambient-2"></div>
-        <div class="ambient ambient-3"></div>
+        <div class="ambient ambient-1"></div><div class="ambient ambient-2"></div><div class="ambient ambient-3"></div><div class="ambient ambient-4"></div>
         <nav class="s-nav"><span class="brand">Sponic Gardens</span><div class="links"><span>About</span><span>Experience</span><span>Apply</span></div></nav>
         <div class="s-hero">
           <h3>Where nature meets<br>intelligent design</h3>
@@ -695,12 +732,12 @@
         </div>
       </div>
       <div class="palette-strip">
-        <div class="swatch" style="background:#0a1210;"></div>
+        <div class="swatch" style="background:#FB923C;"></div>
+        <div class="swatch" style="background:#FDBA74;"></div>
         <div class="swatch" style="background:#14B8A6;"></div>
-        <div class="swatch" style="background:#2DD4BF;"></div>
-        <div class="swatch" style="background:#5EEAD4;"></div>
-        <div class="swatch" style="background:#99F6E4;"></div>
-        <div class="palette-info"><strong>Inspiration:</strong> Jade plant leaves, succulent garden<br><strong>Mood:</strong> Balanced, grounding, mineral</div>
+        <div class="swatch" style="background:#6EE7B7;"></div>
+        <div class="swatch" style="background:#0e100a;"></div>
+        <div class="palette-info"><strong>Colors:</strong> Warm coral + teal + seafoam green<br><strong>Mood:</strong> Underwater garden, warm meets cool currents</div>
       </div>
     </div>
 
