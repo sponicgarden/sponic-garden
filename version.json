@@ -1,12 +1,12 @@
 {
-  "version": "v260413.01 12:12p",
-  "release": 118,
-  "sha": "9dc9f23",
-  "fullSha": "9dc9f23eb8672e8246eccb3d470dc3542b920cb0",
+  "version": "v260413.02 1:57p",
+  "release": 119,
+  "sha": "c14ae97",
+  "fullSha": "c14ae97f8c98620642ec91050dd56204f274ee88",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervm35a4x",
-  "pushedAt": "2026-04-13 17:12:34+00",
-  "commits": [{"sha":"9dc9f23","message":"fix: update OG description on index.html to match product tagline (#22)","author":"Rahul"}]
+  "pushedAt": "2026-04-13 18:57:24+00",
+  "commits": [{"sha":"c14ae97","message":"feat: add Soho House investment comparison page","author":"Rahul"}]
 }
