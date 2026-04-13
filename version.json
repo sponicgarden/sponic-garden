@@ -1,12 +1,12 @@
 {
-  "version": "v260412.06 3:06p",
-  "release": 117,
-  "sha": "096e65a",
-  "fullSha": "096e65ade269fbd0e5674705b52c179f990f376e",
+  "version": "v260413.01 12:12p",
+  "release": 118,
+  "sha": "9dc9f23",
+  "fullSha": "9dc9f23eb8672e8246eccb3d470dc3542b920cb0",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervm35a4x",
-  "pushedAt": "2026-04-12 20:06:42+00",
-  "commits": [{"sha":"096e65a","message":"feat: switch to Light Cool Dawn Spatial UI theme","author":"Rahul"}]
+  "pushedAt": "2026-04-13 17:12:34+00",
+  "commits": [{"sha":"9dc9f23","message":"fix: update OG description on index.html to match product tagline (#22)","author":"Rahul"}]
 }
