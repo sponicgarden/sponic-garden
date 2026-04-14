@@ -520,6 +520,71 @@
       flex-wrap: wrap;
     }
 
+    .pick-body .website-link,
+    .investor-card .website-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--green);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 4px 12px;
+      background: rgba(74, 222, 128, 0.08);
+      border: 1px solid rgba(74, 222, 128, 0.2);
+      border-radius: 100px;
+      transition: all 0.2s;
+      margin-bottom: 12px;
+    }
+
+    .pick-body .website-link:hover,
+    .investor-card .website-link:hover {
+      background: rgba(74, 222, 128, 0.15);
+      border-color: rgba(74, 222, 128, 0.4);
+    }
+
+    .pick-body .deals,
+    .investor-card .deals {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      margin-bottom: 14px;
+    }
+
+    .pick-body .deals h4,
+    .investor-card .deals h4 {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .pick-body .deals ul,
+    .investor-card .deals ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .pick-body .deals li,
+    .investor-card .deals li {
+      padding: 3px 0 3px 20px;
+      position: relative;
+      color: var(--text-soft);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .pick-body .deals li::before,
+    .investor-card .deals li::before {
+      content: '→';
+      position: absolute;
+      left: 2px;
+      color: var(--gold);
+      font-size: 12px;
+    }
+
     .pick-body .fit-item {
       display: flex;
       align-items: center;
@@ -742,7 +807,18 @@
         <div class="pick-body">
           <h3>Ashton Kutcher / Sound Ventures</h3>
           <div class="subtitle">General Partner, Sound Ventures &bull; Soho House Board Member &bull; $1B+ AUM</div>
+          <a href="https://www.soundventures.com/" target="_blank" class="website-link">soundventures.com &#8599;</a>
           <p class="rationale">The single most aligned investor for Sponic Gardens. Kutcher just invested in the Soho House take-private and joined the board — proving deep conviction in the social club sector. Simultaneously, Sound Ventures raised a dedicated <strong>$240M AI fund</strong> (invested in OpenAI, Anthropic, Stability AI). Sponic Gardens sits at the exact intersection of his two biggest bets: <strong>AI infrastructure</strong> and <strong>social club membership</strong>. His "enduring happiness" investment thesis — backing companies that are "good for you, good for me" — maps directly to Sponic's Inspiring, Healthy, Productive positioning. His portfolio includes Airbnb (experience platforms), Uber (marketplace models), and Thrive Global (wellness) — all structural analogues to what Sponic is building.</p>
+          <div class="deals">
+            <h4>Recent Deals &amp; Exits</h4>
+            <ul>
+              <li><strong>Soho House</strong> — Invested in $2.7B take-private, joined board (Jan 2026)</li>
+              <li><strong>OpenAI</strong> — Participated in Corporate Minority VI round (Feb 2026)</li>
+              <li><strong>Forethought</strong> — Portfolio exit (Mar 2026), AI customer support platform</li>
+              <li><strong>$240M AI Fund</strong> — Deployed into OpenAI, Anthropic, Stability AI (2023)</li>
+              <li><strong>220 total investments</strong> — 37 exits including Airbnb, Uber, Spotify IPOs</li>
+            </ul>
+          </div>
           <div class="evidence">
             <h4>Why He's #1</h4>
             <ul>
@@ -767,7 +843,17 @@
         <div class="pick-body">
           <h3>DIAFA / IHC Group (Abu Dhabi)</h3>
           <div class="subtitle">Abu Dhabi Luxury Hospitality Platform &bull; Affiliate of IHC (Sheikh Tahnoon bin Zayed) &bull; CEO: Ravi Thakran (ex-LVMH Asia)</div>
+          <a href="https://www.thenationalnews.com/business/markets/2026/04/12/abu-dhabis-diafa-acquires-majority-stake-in-richard-caring-restaurant-empire/" target="_blank" class="website-link">DIAFA coverage (The National) &#8599;</a>
           <p class="rationale">DIAFA just completed a <strong>£1.4B ($1.8B) acquisition</strong> of Richard Caring's entire hospitality empire (April 2026) — including Annabel's, The Ivy, Sexy Fish, and The Birley Clubs. Their stated mission is to build <strong>"the world's most celebrated F&B portfolio, from iconic members' clubs to premium social destinations and innovative concepts redefining how people gather."</strong> That's almost a word-for-word description of what Sponic Gardens is building. Their CEO Ravi Thakran previously oversaw $4B+ in investments at LVMH Asia. They're on an active acquisition spree in private clubs and social venues — and Sponic's AI-native angle gives them something no one else in their portfolio has.</p>
+          <div class="deals">
+            <h4>Recent Deals &amp; Acquisitions</h4>
+            <ul>
+              <li><strong>Richard Caring Portfolio</strong> — £1.4B ($1.8B) majority stake (Apr 2026): The Ivy, Annabel's, Scott's, Sexy Fish, Noema, George, Harry's Bar, Mark's Club</li>
+              <li><strong>Azumi Group</strong> — Acquired Zuma and ROKA restaurant chains (global luxury Japanese dining)</li>
+              <li><strong>The h.wood Group</strong> — Acquired Delilah, The Nice Guy, Bird Streets Club (LA social venues)</li>
+              <li><strong>Expansion pipeline</strong> — Annabel's New York opening planned, Ivy Brasseries expanding to US, Scott's &amp; Sexy Fish going international</li>
+            </ul>
+          </div>
           <div class="evidence">
             <h4>Why They're #2</h4>
             <ul>
@@ -792,15 +878,27 @@
         <div class="pick-body">
           <h3>Apollo Global Management</h3>
           <div class="subtitle">$840B AUM &bull; Soho House Deal Participant &bull; GoodLife Fitness Investor (Feb 2026)</div>
+          <a href="https://www.apollo.com/" target="_blank" class="website-link">apollo.com &#8599;</a>
           <p class="rationale">Apollo didn't just participate in the Soho House deal — in February 2026, they made a <strong>strategic minority investment in GoodLife Fitness</strong> (Canada's largest fitness club, $1.5B valuation, 400+ clubs, 1.5M members). This confirms Apollo is actively deploying capital into membership-based fitness and wellness clubs in 2026. Their dual conviction in social clubs (Soho House) and wellness clubs (GoodLife) makes Sponic Gardens — which combines both — a natural portfolio fit. Apollo's real assets division has deep hospitality experience (Caesars, Diamond Resorts) and the operational infrastructure to support rapid scaling.</p>
+          <div class="deals">
+            <h4>Recent Deals &amp; Exits</h4>
+            <ul>
+              <li><strong>GoodLife Fitness</strong> — Strategic minority investment at C$2B ($1.5B) valuation, 400+ clubs, 1.5M members (Feb 2026)</li>
+              <li><strong>Soho House</strong> — Participated in $2.7B take-private deal (Jan 2026)</li>
+              <li><strong>Invited (ClubCorp)</strong> — Exploring $3B+ exit (IPO or sale) of membership golf/club operator; bought for $2.2B in 2017 (Dec 2025)</li>
+              <li><strong>IGT Gaming</strong> — Acquired IGT Global Gaming &amp; Everi for $6.3B (Jul 2025)</li>
+              <li><strong>Atletico de Madrid</strong> — Acquired stake in football club (Nov 2025)</li>
+              <li><strong>Gatehouse Living Group</strong> — Acquired from Gatehouse Bank (Mar 2026)</li>
+            </ul>
+          </div>
           <div class="evidence">
             <h4>Why They're #3</h4>
             <ul>
               <li>GoodLife Fitness investment (Feb 2026) — active wellness club investor RIGHT NOW</li>
               <li>Soho House deal — active social club investor simultaneously</li>
+              <li>Invited/ClubCorp pending $3B+ exit proves membership clubs generate massive returns</li>
               <li>Sponic combines both theses: social club + wellness/fitness</li>
               <li>$840B AUM with dedicated real assets and hospitality teams</li>
-              <li>Portfolio includes Caesars, Diamond Resorts — understands experiential venues</li>
               <li>133 portfolio companies with 18 new rounds in last 12 months — high velocity</li>
             </ul>
           </div>
@@ -817,7 +915,19 @@
         <div class="pick-body">
           <h3>Tyler Morse / MCR Hotels</h3>
           <div class="subtitle">Chairman & CEO, MCR Hotels &bull; $5B AUM &bull; 150 Hotels &bull; Led Soho House Acquisition</div>
+          <a href="https://www.mcrhotels.com/" target="_blank" class="website-link">mcrhotels.com &#8599;</a>
           <p class="rationale">Morse led the MCR consortium that acquired Soho House — the most operationally hands-on investor in the deal. MCR is the 3rd largest hotel owner-operator in the US with $5B in assets. Critically, Morse is also <strong>Chairman of Stayntouch</strong> (digital property management) and <strong>Chairman of Optii</strong> (AI hotel operations software) — he already invests in tech-enabled hospitality. MCR acquired 70 hotels during the pandemic and London's BT Tower for £275M, showing appetite for unconventional, iconic venues. Sponic's warehouse-greenhouse concept is exactly the kind of distinctive property play MCR excels at.</p>
+          <div class="deals">
+            <h4>Recent Deals &amp; Acquisitions</h4>
+            <ul>
+              <li><strong>Soho House</strong> — Led MCR consortium in $2.7B take-private (Jan 2026)</li>
+              <li><strong>BT Tower, London</strong> — Acquired for £275M; converting to hotel with revolving restaurant, infinity pool, Thomas Heatherwick design (Feb 2024)</li>
+              <li><strong>TWA Hotel, JFK</strong> — Award-winning adaptive reuse of Eero Saarinen's iconic TWA terminal</li>
+              <li><strong>70 pandemic acquisitions</strong> — Deployed $2B+ and $500M equity during 2020-2022 downturn</li>
+              <li><strong>Stayntouch</strong> — Chairman; cloud-based property management system (proptech)</li>
+              <li><strong>Optii</strong> — Chairman; AI-powered hotel operations software</li>
+            </ul>
+          </div>
           <div class="evidence">
             <h4>Why He's #4</h4>
             <ul>
@@ -842,7 +952,20 @@
         <div class="pick-body">
           <h3>Inovo Venture Partners</h3>
           <div class="subtitle">Warsaw-Based VC &bull; €100M Fund III &bull; CEE Seed & Series A &bull; 56 Portfolio Companies</div>
+          <a href="https://inovo.vc/" target="_blank" class="website-link">inovo.vc &#8599;</a>
           <p class="rationale">The most stage-appropriate investor on this list. Inovo is Warsaw's leading VC firm, investing at <strong>pre-seed, seed, and Series A</strong> in Central & Eastern Europe — exactly where Sponic is and exactly the stage Sponic needs. They just raised their biggest fund yet (€100M) and completed 8 new investments in the last 12 months. Their portfolio includes <strong>Booksy</strong> (a beauty services marketplace — the closest analogue to Sponic's member-as-seller model in their portfolio). Being Warsaw-based, they bring local network, regulatory knowledge, talent pipeline access, and credibility with follow-on European investors.</p>
+          <div class="deals">
+            <h4>Recent Deals &amp; Exits</h4>
+            <ul>
+              <li><strong>Navigara</strong> — Latest investment, business productivity software (Feb 2026)</li>
+              <li><strong>SPLX</strong> — Portfolio exit (Nov 2025)</li>
+              <li><strong>Spacelift, Sintra</strong> — Recent 2025 investments</li>
+              <li><strong>Booksy</strong> — Beauty services marketplace (closest Sponic analogue in portfolio)</li>
+              <li><strong>Preply</strong> — Online tutoring marketplace; raised from a16z, follow-on validation</li>
+              <li><strong>Portfolio startups raised €500M+</strong> from Insight Partners, a16z, Gradient Ventures</li>
+              <li><strong>Avg seed round: $2.87M</strong> — 36 seed investments; exactly Sponic's stage</li>
+            </ul>
+          </div>
           <div class="evidence">
             <h4>Why They're #5</h4>
             <ul>
@@ -877,7 +1000,17 @@
         <div class="tier-badge">From Soho House Deal</div>
         <h3>Ashton Kutcher</h3>
         <div class="role">Actor-Investor &bull; Sound Ventures &bull; Soho House Board Member</div>
+        <a href="https://www.soundventures.com/" target="_blank" class="website-link">soundventures.com &#8599;</a>
         <p>Just invested in the Soho House take-private and joined the board. Has a prolific track record backing early-stage tech-meets-lifestyle companies (Airbnb, Uber, Spotify). Sponic's AI-native model and tech-forward approach aligns perfectly with his thesis of technology transforming traditional industries.</p>
+        <div class="deals">
+          <h4>Key Deals &amp; Exits</h4>
+          <ul>
+            <li>Soho House $2.7B take-private + board seat (Jan 2026)</li>
+            <li>OpenAI Corporate Minority VI (Feb 2026)</li>
+            <li>Forethought exit (Mar 2026)</li>
+            <li>220 investments, 37 exits incl. Airbnb, Uber, Spotify IPOs</li>
+          </ul>
+        </div>
         <div class="tags">
           <span class="tag">AI + Lifestyle</span>
           <span class="tag">Early-Stage Track Record</span>
@@ -888,8 +1021,17 @@
       <div class="investor-card tier-1">
         <div class="tier-badge">From Soho House Deal</div>
         <h3>Goldman Sachs Alternatives</h3>
-        <div class="role">Global Asset Manager &bull; Soho House Investor (rolled equity)</div>
+        <div class="role">$540B AUM &bull; Soho House Investor (rolled equity)</div>
+        <a href="https://am.gs.com/en-us/advisors/products/alternative-investing" target="_blank" class="website-link">Goldman Sachs Alternatives &#8599;</a>
         <p>Rolled their equity in the Soho House take-private, signaling long-term conviction in members-only social platforms. Their alternatives division actively seeks high-growth hospitality and lifestyle investments. Sponic Gardens could fit their emerging markets + tech-enabled hospitality thesis.</p>
+        <div class="deals">
+          <h4>Key Deals</h4>
+          <ul>
+            <li>Soho House — Rolled equity in $2.7B take-private (Jan 2026)</li>
+            <li>Xpress Wellness — Acquired urgent care chain (May 2024)</li>
+            <li>$540B alternatives AUM across PE, credit, real estate, infrastructure</li>
+          </ul>
+        </div>
         <div class="tags">
           <span class="tag">Hospitality Thesis</span>
           <span class="tag">Rolled Soho Equity</span>
@@ -900,11 +1042,21 @@
       <div class="investor-card tier-1">
         <div class="tier-badge">From Soho House Deal</div>
         <h3>Apollo Global Management</h3>
-        <div class="role">$840B AUM &bull; Soho House Deal Participant</div>
-        <p>Participated in the $2.7B Soho House deal. Apollo's real assets division targets hospitality and leisure. Their portfolio includes Caesars Entertainment and Diamond Resorts. A seed-stage bet on Sponic Gardens could serve as an innovation scout investment in next-gen social hospitality.</p>
+        <div class="role">$840B AUM &bull; Soho House + GoodLife Fitness Investor</div>
+        <a href="https://www.apollo.com/" target="_blank" class="website-link">apollo.com &#8599;</a>
+        <p>Participated in the $2.7B Soho House deal and invested in GoodLife Fitness ($1.5B, Feb 2026). Currently exploring a $3B+ exit of Invited (ClubCorp), a membership club operator they bought for $2.2B in 2017 — proving massive returns in the membership club space.</p>
+        <div class="deals">
+          <h4>Key Deals &amp; Exits</h4>
+          <ul>
+            <li>GoodLife Fitness — C$2B minority stake (Feb 2026)</li>
+            <li>Soho House — $2.7B take-private (Jan 2026)</li>
+            <li>Invited (ClubCorp) — Exploring $3B+ exit; bought for $2.2B (2017→2025)</li>
+            <li>IGT Gaming + Everi — $6.3B acquisition (Jul 2025)</li>
+          </ul>
+        </div>
         <div class="tags">
           <span class="tag">Hospitality Portfolio</span>
-          <span class="tag">Real Assets</span>
+          <span class="tag">Membership Clubs</span>
           <span class="tag">Scale Expertise</span>
         </div>
       </div>
@@ -913,7 +1065,17 @@
         <div class="tier-badge">From Soho House Deal</div>
         <h3>Ron Burkle / Yucaipa Companies</h3>
         <div class="role">Billionaire &bull; Soho House Controlling Shareholder since 2012</div>
-        <p>Orchestrated the entire $2.7B take-private. Has deep conviction in curated social spaces and has spent 14 years building Soho House globally. Would understand Sponic's model instantly. A strategic angel investment could position Yucaipa in the AI-native evolution of social clubs they already dominate.</p>
+        <a href="https://www.yucaipaco.com/" target="_blank" class="website-link">yucaipaco.com &#8599;</a>
+        <p>Orchestrated the entire $2.7B take-private. Has deep conviction in curated social spaces and has spent 14 years building Soho House globally. Also Chairman of The Ned (5-star luxury hotel, London). $40B+ in completed M&A across hospitality, entertainment, sports, and retail.</p>
+        <div class="deals">
+          <h4>Key Deals</h4>
+          <ul>
+            <li>Soho House — Orchestrated $2.7B take-private; rescued deal after MCR financing gap (Jan 2026)</li>
+            <li>The Ned — Chairman; 5-star 252-room luxury hotel, City of London</li>
+            <li>Soho House — Original controlling stake acquired 2012</li>
+            <li>$40B+ in completed M&A across retail, hospitality, entertainment, sports</li>
+          </ul>
+        </div>
         <div class="tags">
           <span class="tag">Category Expert</span>
           <span class="tag">Global Scaling</span>
@@ -925,23 +1087,43 @@
         <div class="tier-badge">From Soho House Deal</div>
         <h3>Tyler Morse / MCR Hotels</h3>
         <div class="role">Chairman & CEO, MCR Hotels &bull; Led Soho House Acquisition</div>
-        <p>Led the MCR consortium that acquired Soho House. MCR is one of the largest hotel operators in the US. Understands hospitality operations at scale and could bring operational expertise to Sponic's expansion from prototype to multi-city rollout.</p>
+        <a href="https://www.mcrhotels.com/" target="_blank" class="website-link">mcrhotels.com &#8599;</a>
+        <p>Led the MCR consortium that acquired Soho House. MCR is the 3rd largest hotel owner-operator in the US ($5B AUM, 150 hotels). Also Chairman of Stayntouch (proptech PMS) and Optii (AI hotel ops). Known for iconic adaptive reuse projects.</p>
+        <div class="deals">
+          <h4>Key Deals</h4>
+          <ul>
+            <li>Soho House — Led $2.7B take-private consortium (Jan 2026)</li>
+            <li>BT Tower — £275M acquisition; converting to hotel w/ Heatherwick design (2024)</li>
+            <li>TWA Hotel, JFK — Award-winning Saarinen terminal conversion</li>
+            <li>70 hotels acquired during 2020-22 pandemic ($2B+ deployed)</li>
+          </ul>
+        </div>
         <div class="tags">
           <span class="tag">Hospitality Ops</span>
-          <span class="tag">Deal Leadership</span>
-          <span class="tag">Scaling Expertise</span>
+          <span class="tag">Iconic Venues</span>
+          <span class="tag">Proptech Investor</span>
         </div>
       </div>
 
       <div class="investor-card tier-1">
         <div class="tier-badge">From Soho House Deal</div>
         <h3>Richard Caring</h3>
-        <div class="role">Restaurateur &bull; Soho House Major Shareholder (rolled equity)</div>
-        <p>Rolled his equity in the take-private. Owner of The Ivy, Annabel's, and other iconic London venues. Deeply understands premium social venues and F&B operations. Sponic's community marketplace and food hall concept would resonate with his expertise in creating beloved dining destinations.</p>
+        <div class="role">Restaurateur &bull; Soho House Shareholder &bull; "King of Mayfair"</div>
+        <p>Rolled equity in Soho House take-private. Just sold majority stake in his hospitality empire to DIAFA for £1.4B (Apr 2026) — remains Executive Chairman. Built The Ivy, Annabel's, Scott's, Sexy Fish into global brands. Deeply understands premium social venues and F&B operations.</p>
+        <div class="deals">
+          <h4>Key Deals</h4>
+          <ul>
+            <li>DIAFA — Sold majority stake for £1.4B ($1.8B), remains Exec Chairman (Apr 2026)</li>
+            <li>Soho House — Rolled equity in take-private (Jan 2026)</li>
+            <li>Caprice Holdings — Acquired The Ivy, Le Caprice, J Sheekey for £31.5M (2005)</li>
+            <li>Birley Clubs — Acquired Annabel's, George, Harry's Bar, Mark's Club</li>
+            <li>Cote — Co-founded; sold 51% to CBPE for £100M (2013)</li>
+          </ul>
+        </div>
         <div class="tags">
-          <span class="tag">F&B Expertise</span>
-          <span class="tag">Venue Operations</span>
-          <span class="tag">London Network</span>
+          <span class="tag">F&B Empire Builder</span>
+          <span class="tag">£1.4B Exit</span>
+          <span class="tag">Still Active</span>
         </div>
       </div>
 
@@ -949,7 +1131,17 @@
         <div class="tier-badge">From Caring Deal</div>
         <h3>DIAFA / IHC Group</h3>
         <div class="role">Abu Dhabi Luxury Hospitality Platform &bull; Sheikh Tahnoon bin Zayed &bull; CEO: Ravi Thakran (ex-LVMH)</div>
-        <p>Just acquired Richard Caring's entire empire for £1.4B ($1.8B) in April 2026 — Annabel's, The Ivy, Birley Clubs, Sexy Fish. Their stated mission: building "the world's most celebrated F&B portfolio and innovative concepts redefining how people gather." Also owns Zuma, ROKA, and Bird Streets Club. Actively acquiring social clubs at unprecedented velocity.</p>
+        <a href="https://www.thenationalnews.com/business/markets/2026/04/12/abu-dhabis-diafa-acquires-majority-stake-in-richard-caring-restaurant-empire/" target="_blank" class="website-link">DIAFA coverage (The National) &#8599;</a>
+        <p>Just acquired Richard Caring's entire empire for £1.4B ($1.8B) in April 2026. Their stated mission: building "the world's most celebrated F&B portfolio and innovative concepts redefining how people gather." CEO Ravi Thakran oversaw $4B+ at LVMH Asia. Actively acquiring social clubs at unprecedented velocity.</p>
+        <div class="deals">
+          <h4>Recent Acquisitions</h4>
+          <ul>
+            <li>Richard Caring portfolio — £1.4B: Ivy, Annabel's, Scott's, Sexy Fish, Birley Clubs (Apr 2026)</li>
+            <li>Azumi Group — Zuma and ROKA global restaurant chains</li>
+            <li>The h.wood Group — Delilah, The Nice Guy, Bird Streets Club (LA)</li>
+            <li>Pipeline: Annabel's New York, Ivy US expansion, Scott's/Sexy Fish international</li>
+          </ul>
+        </div>
         <div class="tags">
           <span class="tag">£1.4B Active Buyer</span>
           <span class="tag">Private Clubs</span>
@@ -961,8 +1153,18 @@
       <div class="investor-card tier-2">
         <div class="tier-badge">Wellness + AI Investor</div>
         <h3>Welltech Ventures</h3>
-        <div class="role">Dedicated Wellness VC</div>
+        <div class="role">Dedicated Wellness VC &bull; Israel-based &bull; Founded 2019</div>
+        <a href="https://welltechventures.com/" target="_blank" class="website-link">welltechventures.com &#8599;</a>
         <p>One of the few VCs exclusively focused on wellness technology. Sponic Gardens sits at the intersection of their core thesis: tech-enabled wellness experiences with strong community engagement. The AI-managed botanical and thermal wellness systems are differentiated from pure-digital wellness plays.</p>
+        <div class="deals">
+          <h4>Recent Investments</h4>
+          <ul>
+            <li>Longevity AI — Latest investment (Feb 2025)</li>
+            <li>Amp — Consumer durables (Nov 2024)</li>
+            <li>Quris AI, XTrodes — Notable portfolio companies</li>
+            <li>35 investments across wellness technology</li>
+          </ul>
+        </div>
         <div class="tags">
           <span class="tag">Wellness-First VC</span>
           <span class="tag">Sector Expertise</span>
@@ -973,24 +1175,44 @@
       <div class="investor-card tier-2">
         <div class="tier-badge">Wellness + AI Investor</div>
         <h3>Torch Capital</h3>
-        <div class="role">Early-Stage VC &bull; Consumer + Health Tech</div>
-        <p>Active early-stage investor in consumer health and wellness technology. Sponic's blend of physical experience and AI optimization represents the convergence of consumer and health tech that Torch targets. Pay-per-visit model aligns with their consumer accessibility thesis.</p>
+        <div class="role">Early-Stage VC &bull; Consumer + Health Tech &bull; NYC</div>
+        <a href="https://www.torchcapital.vc/" target="_blank" class="website-link">torchcapital.vc &#8599;</a>
+        <p>Active early-stage investor in consumer health and wellness technology. Portfolio includes 4 unicorns (Ro, Savage X Fenty, Acorns). Sponic's blend of physical experience and AI optimization represents the convergence of consumer and health tech that Torch targets.</p>
+        <div class="deals">
+          <h4>Recent Deals &amp; Portfolio</h4>
+          <ul>
+            <li>Solace Health — Latest investment, clinics/outpatient (Jan 2026)</li>
+            <li>Recess — Most recent first-time investment (2025)</li>
+            <li>Ro — Telehealth unicorn in portfolio</li>
+            <li>Sweetgreen — Public company (healthy fast-casual)</li>
+            <li>52 tech companies, 37 consumer (B2C); 8 investments in 2025</li>
+          </ul>
+        </div>
         <div class="tags">
           <span class="tag">Early-Stage</span>
+          <span class="tag">4 Unicorns</span>
           <span class="tag">Consumer Health</span>
-          <span class="tag">NYC Based</span>
         </div>
       </div>
 
       <div class="investor-card tier-2">
         <div class="tier-badge">Wellness + AI Investor</div>
         <h3>Bullish</h3>
-        <div class="role">Seed-Stage VC &bull; NYC &bull; Wellness Focus</div>
-        <p>New York-based seed fund with active wellness portfolio. Invests at exactly the stage Sponic is at. Their thesis around community-driven wellness businesses and marketplace models maps directly to Sponic's member-as-seller architecture.</p>
+        <div class="role">Seed-Stage VC + Brand Agency &bull; NYC &bull; Since 2010</div>
+        <p>New York-based seed fund and strategy-led brand agency. Dual investing + brand-building model is uniquely relevant to Sponic's need for both capital and brand development at launch. Portfolio includes category-defining consumer brands.</p>
+        <div class="deals">
+          <h4>Notable Portfolio</h4>
+          <ul>
+            <li>Peloton — Early investor in fitness/community platform</li>
+            <li>Warby Parker — Early investor in DTC brand</li>
+            <li>Dual model: investing + brand strategy (unique value for Sponic launch)</li>
+            <li>Focus: consumer, fashion, wellness since 2010</li>
+          </ul>
+        </div>
         <div class="tags">
           <span class="tag">Seed Stage</span>
-          <span class="tag">Community Commerce</span>
-          <span class="tag">Marketplace Models</span>
+          <span class="tag">Brand Building</span>
+          <span class="tag">Peloton, Warby Parker</span>
         </div>
       </div>
 
@@ -998,11 +1220,20 @@
       <div class="investor-card tier-3">
         <div class="tier-badge">Strategic Investor</div>
         <h3>Nick Jones</h3>
-        <div class="role">Soho House Founder &bull; Rolled equity in take-private</div>
-        <p>Founded Soho House in 1995 and built it into a global brand. Rolled his equity in the take-private, showing continued commitment to the sector. As the original visionary of the modern members' club, he'd be uniquely positioned to evaluate and advise Sponic Gardens as the AI-native evolution of his creation.</p>
+        <div class="role">Soho House Founder &bull; Jones & Co (Hotels, Restaurants, Residences)</div>
+        <p>Founded Soho House in 1995 and built it into a global brand. Rolled his equity in the take-private. Now launching independent ventures: St. Clement Hotel (90-room London hotel opening 2026) and Corner Shop 180 (café/deli). Proves he's still actively building hospitality concepts.</p>
+        <div class="deals">
+          <h4>Recent Ventures</h4>
+          <ul>
+            <li>St. Clement Hotel — 90-room hotel + rooftop restaurant + gym, The Strand, London (opening 2026)</li>
+            <li>Corner Shop 180 — Café, deli, wine bar on Arundel Street, London</li>
+            <li>Soho House — Rolled equity in $2.7B take-private; retains stake</li>
+            <li>New company: Jones & Co (Hotels, Restaurants and Residences)</li>
+          </ul>
+        </div>
         <div class="tags">
           <span class="tag">Category Creator</span>
-          <span class="tag">30yr Experience</span>
+          <span class="tag">Still Building</span>
           <span class="tag">Advisory Value</span>
         </div>
       </div>
@@ -1011,10 +1242,20 @@
         <div class="tier-badge">Strategic Investor</div>
         <h3>Andrew Carnie</h3>
         <div class="role">CEO, Soho House</div>
-        <p>Current CEO steering Soho House through its transition back to private ownership. His stated focus on "what made Soho House special from the beginning" signals alignment with Sponic's community-first, experience-driven philosophy. Could serve as a strategic advisor or angel investor with direct operational insight into scaling social clubs globally.</p>
+        <a href="https://www.sohohouseco.com/" target="_blank" class="website-link">sohohouseco.com &#8599;</a>
+        <p>Current CEO steering Soho House through its transition back to private ownership. Leading expansion: "social wellness space" in Meatpacking (diagnostics, IVs, red light therapy), Soho House Festival Manhattan, new Flatiron location (NYC's 4th and largest), Soho House Los Cabos, Palm Springs, Sonoma.</p>
+        <div class="deals">
+          <h4>Expansion Pipeline Under His Leadership</h4>
+          <ul>
+            <li>Meatpacking "social wellness" — 2-floor diagnostic + wellness center</li>
+            <li>Flatiron District — NYC's 4th and largest Soho House + Soho Health Club</li>
+            <li>Soho House Los Cabos, Palm Springs, Sonoma — West Coast expansion</li>
+            <li>Soho House Festival — Manhattan, Oct 2026</li>
+          </ul>
+        </div>
         <div class="tags">
           <span class="tag">Operating CEO</span>
-          <span class="tag">Scaling Playbook</span>
+          <span class="tag">Wellness Expansion</span>
           <span class="tag">Angel Potential</span>
         </div>
       </div>
@@ -1024,6 +1265,14 @@
         <h3>European Wellness VCs</h3>
         <div class="role">Berlin, London, Warsaw-based funds</div>
         <p>Sponic's Warsaw launch puts it squarely in the emerging European wellness market. Funds like Inovo Venture Partners (Warsaw), Cherry Ventures (Berlin), and Firstminute Capital (London) actively back European consumer and health startups. Warsaw HQ is a strategic advantage — EU access at Eastern European operating costs.</p>
+        <div class="deals">
+          <h4>Notable Funds</h4>
+          <ul>
+            <li><a href="https://inovo.vc/" target="_blank" style="color:var(--green)">Inovo VC</a> — Warsaw; €100M Fund III; 56 CEE companies</li>
+            <li><a href="https://www.cherry.vc/" target="_blank" style="color:var(--green)">Cherry Ventures</a> — Berlin; early-stage European consumer/tech</li>
+            <li><a href="https://www.firstminute.capital/" target="_blank" style="color:var(--green)">Firstminute Capital</a> — London; backed by founders of Lastminute.com</li>
+          </ul>
+        </div>
         <div class="tags">
           <span class="tag">Local Market</span>
           <span class="tag">EU Ecosystem</span>
@@ -1043,6 +1292,11 @@
       <a href="https://wehotimes.com/soho-house-returns-to-private-ownership-in-2-7-billion-deal-with-west-hollywood-private-equity-firm/">WEHO Times — Soho House Returns to Private Ownership</a>
       <a href="https://therealdeal.com/national/2026/01/19/billionaire-ron-burkle-saves-soho-house-privatization/">The Real Deal — Ron Burkle rescues Soho House privatization</a>
       <a href="https://en.wikipedia.org/wiki/Soho_House_(club)">Wikipedia — Soho House</a>
+      <a href="https://www.thenationalnews.com/business/markets/2026/04/12/abu-dhabis-diafa-acquires-majority-stake-in-richard-caring-restaurant-empire/">The National — DIAFA acquires Richard Caring empire for £1.4B</a>
+      <a href="https://www.apollo.com/insights-news/pressreleases/2026/02/the-goodlife-group-announces-strategic-minority-investment-from-apollo-funds">Apollo — GoodLife Fitness strategic investment</a>
+      <a href="https://money.usnews.com/investing/news/articles/2025-12-11/exclusive-apollo-explores-3-billion-plus-exit-of-membership-club-operator-invited-sources-say">US News — Apollo explores $3B+ exit of Invited (ClubCorp)</a>
+      <a href="https://usa.boutiquehotelier.com/nick-jones-to-open-new-hotel-in-2026/">Boutique Hotelier — Nick Jones to open new hotel in 2026</a>
+      <a href="https://www.mcrhotels.com/about/news-press-releases/mcr-to-purchase-bt-tower/">MCR Hotels — BT Tower acquisition</a>
     </section>
 
   </div>
