@@ -550,17 +550,19 @@
     <div class="section">
       <div class="section-label" data-i18n="biz.s1.label">Assumptions</div>
       <h2 data-i18n="biz.s1.title">Model Inputs</h2>
-      <p data-i18n="biz.s1.body">Conservative scenario for the Warsaw prototype. Opens 1 day/week, adding one more day each month until 6 days/week (7th reserved for private events). Promotional pricing at 40% discount from list. 5.5% weekly visitor growth reaches ~216/day by Month 12. 64 founding members get their first experience free.</p>
+      <p data-i18n="biz.s1.body">Conservative scenario for the Warsaw prototype. Opens 1 day/week, adding one more day each month until 6 days/week (7th reserved for private events). Promotional pricing at 40% discount from list. 5.5% weekly visitor growth reaches ~216/day by Month 12. 64 founding members get their first experience free. Unlimited memberships at €195/month launch at Month 6 — starting at 2% of visitors and growing 2% per month toward ~50% long-term.</p>
 
       <div class="grid-2" style="margin-top: 0.75rem;">
         <div class="card accent-card accent-emerald">
           <h3 data-i18n="biz.card.revenue">💰 Revenue</h3>
           <ul>
-            <li data-i18n-html="biz.revenue.item_avg"><strong>€24</strong> avg per visit (40% promo discount from €40 list)</li>
+            <li data-i18n-html="biz.revenue.item_avg"><strong>€24</strong> day-pass per visit (40% promo discount from €40 list)</li>
+            <li data-i18n-html="biz.revenue.item_membership"><strong>€195/month</strong> unlimited membership (launches Month 6)</li>
+            <li data-i18n-html="biz.revenue.item_member_growth"><strong>2% → +2%/mo</strong> member share of visitors (targeting ~50% long-term)</li>
             <li data-i18n-html="biz.revenue.item_capacity"><strong>250</strong> daily capacity (max)</li>
             <li data-i18n-html="biz.revenue.item_growth"><strong>5.5% weekly growth</strong> from 15 visits/day</li>
             <li data-i18n-html="biz.revenue.item_ramp"><strong>1→6 days/week</strong> ramp (+1 day/month)</li>
-            <li data-i18n-html="biz.revenue.item_m12">Month 12 revenue: <strong>€134,784</strong> (216 visits × 26 days)</li>
+            <li data-i18n-html="biz.revenue.item_m12">Month 12 revenue: <strong>€135,030</strong> (day-pass + 98 members)</li>
           </ul>
         </div>
         <div class="card accent-card accent-earth">
@@ -638,7 +640,7 @@
     <div class="section">
       <div class="section-label" data-i18n="biz.s3.label">Financials</div>
       <h2 data-i18n="biz.s3.title">12-Month Profit & Loss</h2>
-      <p data-i18n="biz.s3.body">All figures in EUR (€). Opens 1 day/week, adding a day each month to 6 days/week. 7th day reserved for private events. Visits grow 5.5%/week from 15/day at €24 avg (40% promo discount).</p>
+      <p data-i18n="biz.s3.body">All figures in EUR (€). Opens 1 day/week, adding a day each month to 6 days/week. 7th day reserved for private events. Visits grow 5.5%/week from 15/day. Day-pass at €24 (40% promo discount). Unlimited memberships at €195/month launch Month 6 at 2% of visitors, growing +2%/month.</p>
 
       <div class="fin-table-wrap">
         <table class="fin-table">
@@ -672,16 +674,28 @@
               <td>—</td>
             </tr>
             <tr>
-              <td class="indent">Admission @ €24</td>
-              <td>1,632</td><td>4,536</td><td>8,424</td><td>13,872</td><td>22,704</td><td>33,696</td>
-              <td>42,432</td><td>53,040</td><td>67,392</td><td>84,864</td><td>106,704</td><td>134,784</td>
-              <td>574,080</td>
+              <td class="indent">Day-pass admission @ €24</td>
+              <td>1,632</td><td>4,536</td><td>8,424</td><td>13,872</td><td>22,704</td><td>33,024</td>
+              <td>40,728</td><td>49,848</td><td>61,992</td><td>76,368</td><td>93,888</td><td>115,920</td>
+              <td>522,936</td>
+            </tr>
+            <tr>
+              <td class="indent">Active members</td>
+              <td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>4</td>
+              <td>9</td><td>17</td><td>28</td><td>44</td><td>67</td><td>98</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td class="indent">Membership @ €195/mo</td>
+              <td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>780</td>
+              <td>1,755</td><td>3,315</td><td>5,460</td><td>8,580</td><td>13,065</td><td>19,110</td>
+              <td>52,065</td>
             </tr>
             <tr class="row-total">
               <td>Total Revenue</td>
-              <td>1,632</td><td>4,536</td><td>8,424</td><td>13,872</td><td>22,704</td><td>33,696</td>
-              <td>42,432</td><td>53,040</td><td>67,392</td><td>84,864</td><td>106,704</td><td>134,784</td>
-              <td>574,080</td>
+              <td>1,632</td><td>4,536</td><td>8,424</td><td>13,872</td><td>22,704</td><td>33,804</td>
+              <td>42,483</td><td>53,163</td><td>67,452</td><td>84,948</td><td>106,953</td><td>135,030</td>
+              <td>575,001</td>
             </tr>
 
             <!-- OPERATING COSTS -->
@@ -734,14 +748,14 @@
               <td class="neg">(24,909)</td>
               <td class="neg">(19,461)</td>
               <td class="neg">(10,629)</td>
-              <td class="neg">(28,208)</td>
-              <td class="neg">(19,472)</td>
-              <td class="neg">(8,864)</td>
-              <td class="pos">5,488</td>
-              <td class="pos">22,960</td>
-              <td class="pos">44,800</td>
-              <td class="pos">72,880</td>
-              <td class="neg">(25,913)</td>
+              <td class="neg">(28,100)</td>
+              <td class="neg">(19,421)</td>
+              <td class="neg">(8,741)</td>
+              <td class="pos">5,548</td>
+              <td class="pos">23,044</td>
+              <td class="pos">45,049</td>
+              <td class="pos">73,126</td>
+              <td class="neg">(24,992)</td>
             </tr>
             <tr>
               <td class="indent" style="font-style:italic; color: var(--text-muted);">Cumulative</td>
@@ -750,13 +764,13 @@
               <td class="neg">(85,407)</td>
               <td class="neg">(104,868)</td>
               <td class="neg">(115,497)</td>
-              <td class="neg">(143,705)</td>
-              <td class="neg">(163,177)</td>
-              <td class="neg">(172,041)</td>
-              <td class="neg">(166,553)</td>
-              <td class="neg">(143,593)</td>
-              <td class="neg">(98,793)</td>
-              <td class="neg">(25,913)</td>
+              <td class="neg">(143,597)</td>
+              <td class="neg">(163,018)</td>
+              <td class="neg">(171,759)</td>
+              <td class="neg">(166,211)</td>
+              <td class="neg">(143,167)</td>
+              <td class="neg">(98,118)</td>
+              <td class="neg">(24,992)</td>
               <td>—</td>
             </tr>
           </tbody>
@@ -764,7 +778,7 @@
       </div>
 
       <div class="callout" style="margin-top: 1rem;">
-        <p><strong>Monthly breakeven at Month 9.</strong> Revenue overtakes costs once visits reach ~99/day on 6 operating days. The last 4 months generate €146k in profit, nearly erasing the €172k hole from the first 8 months. Year 1 ends just <strong>€26k short</strong> of cumulative breakeven — Month 13 turns green.</p>
+        <p><strong>Monthly breakeven at Month 9.</strong> Revenue overtakes costs once visits reach ~99/day on 6 operating days. The last 4 months generate €147k in profit, nearly erasing the €172k hole from the first 8 months. Year 1 ends just <strong>€25k short</strong> of cumulative breakeven — Month 13 turns green. By M12, 98 active members contribute €19k/mo in recurring revenue (14% of total).</p>
       </div>
     </div>
 
@@ -774,13 +788,14 @@
     <div class="section">
       <div class="section-label" data-i18n="biz.s4.label">Unit Economics</div>
       <h2 data-i18n="biz.s4.title">Per-Visit Breakdown</h2>
-      <p data-i18n="biz.s4.body">At Month 12 (216 visits/day × 26 days), the unit economics have turned positive and are accelerating.</p>
+      <p data-i18n="biz.s4.body">At Month 12 (216 visits/day × 26 days, 98 active members), the unit economics have turned positive and are accelerating.</p>
 
       <div class="grid-2" style="margin-top: 0.75rem;">
         <div class="card accent-card accent-green">
           <h3 data-i18n="biz.card.rev_per_visit">📥 Revenue per Visit</h3>
           <ul>
-            <li data-i18n-html="biz.unit.admission">Admission (discounted): <strong>€24.00</strong></li>
+            <li data-i18n-html="biz.unit.daypass">Day-pass (discounted): <strong>€24.00</strong></li>
+            <li data-i18n-html="biz.unit.membership">Membership: <strong>€195/mo</strong> (~€24.38/visit at 8 visits/mo)</li>
           </ul>
         </div>
         <div class="card accent-card accent-rose">
@@ -810,6 +825,7 @@
           <li data-i18n-html="biz.upside.item_full">At <strong>250/day × €40 × 26 days</strong>: €260k revenue vs €62k costs → <strong>€198k/mo net (76%)</strong></li>
           <li data-i18n-html="biz.upside.item_promo">At <strong>250/day × €24 × 26 days</strong>: €156k revenue vs €62k costs → <strong>€94k/mo net (60%)</strong></li>
           <li data-i18n="biz.upside.item_timeline">250 visits/day at €24 reached ~Month 14</li>
+          <li data-i18n-html="biz.upside.item_membership">At <strong>50% member mix</strong> (~300 members × €195): €58.5k/mo recurring + day-pass revenue</li>
         </ul>
       </div>
     </div>
@@ -825,7 +841,7 @@
         <h3 data-i18n="biz.card.growth_rate">🔮 Growth Rate Impact</h3>
         <ul>
           <li data-i18n-html="biz.sensitivity.growth_3pct"><strong>3%/week:</strong> M12 at 65 visits/day. Year 1 loss €363k. Monthly breakeven ~Month 20</li>
-          <li data-i18n-html="biz.sensitivity.growth_5pct"><strong>5.5%/week (this model):</strong> M12 at 216 visits/day. Year 1 loss €26k. Monthly breakeven Month 9</li>
+          <li data-i18n-html="biz.sensitivity.growth_5pct"><strong>5.5%/week (this model):</strong> M12 at 216 visits/day + 98 members. Year 1 loss €25k. Monthly breakeven Month 9</li>
           <li data-i18n-html="biz.sensitivity.growth_7pct"><strong>7%/week:</strong> M12 at 250 (capped). Year 1 profit ~€80k. Monthly breakeven Month 7</li>
           <li data-i18n-html="biz.sensitivity.breakeven"><strong>Monthly breakeven:</strong> ~99 visits/day on 6 days/week at €24</li>
         </ul>
@@ -834,7 +850,7 @@
       <details class="expandable">
         <summary data-i18n="biz.expand.discount">Discount phase-out strategy</summary>
         <div class="expand-body">
-          <p data-i18n="biz.expand.discount_body">If the 40% promo discount is gradually phased out (€24 → €32 by M6, €40 by M12), Year 1 revenue increases ~40% to ~€800k, easily flipping the €26k loss into a healthy profit. The promotional period buys market awareness; the question is whether demand sustains as prices rise.</p>
+          <p data-i18n="biz.expand.discount_body">If the 40% promo discount is gradually phased out (€24 → €32 by M6, €40 by M12), Year 1 revenue increases ~40% to ~€800k, easily flipping the €25k loss into a healthy profit. The €195/month membership provides a natural bridge: members lock in value while day-pass prices rise, reducing churn risk during the transition.</p>
         </div>
       </details>
 
@@ -850,7 +866,7 @@
       <details class="expandable">
         <summary data-i18n="biz.expand.founding_cohort">Founding cohort economics</summary>
         <div class="expand-body">
-          <p data-i18n-html="biz.founding_cohort.body">64 founding members receive their first visit free. At €24/visit, this represents <strong>€1,536 in foregone revenue</strong>. If each founding member returns 2x/month at €24, that cohort generates <strong>€3,072/month</strong> ongoing — meaningful when total monthly revenue is €11–47k.</p>
+          <p data-i18n-html="biz.founding_cohort.body">64 founding members receive their first visit free. At €24/visit, this represents <strong>€1,536 in foregone revenue</strong>. If each founding member returns 2x/month at €24, that cohort generates <strong>€3,072/month</strong> ongoing — meaningful when total monthly revenue is €11–47k. Founding members are prime candidates for €195/month membership conversion at Month 6, potentially converting 10–20 into the first subscriber cohort.</p>
         </div>
       </details>
     </div>
@@ -870,11 +886,11 @@
           <li data-i18n-html="biz.capital.working_capital">Working capital buffer: <strong>~€28,000</strong></li>
           <li data-i18n-html="biz.capital.total"><strong>Total funding needed: ~€300,000</strong></li>
         </ul>
-        <p style="margin-top: 0.5rem;" data-i18n="biz.capital.note">The business needs ~€300k to get through the first 8 months. After Month 9, monthly profits start paying back the accumulated losses. By Month 13, the cumulative position turns positive.</p>
+        <p style="margin-top: 0.5rem;" data-i18n="biz.capital.note">The business needs ~€300k to get through the first 8 months. After Month 9, monthly profits start paying back the accumulated losses. By Month 13, the cumulative position turns positive. Growing membership base (98 members by M12) adds €19k/mo in predictable recurring revenue.</p>
       </div>
 
       <div class="callout">
-        <p data-i18n-html="biz.capital.callout"><strong>Manageable seed round.</strong> €300k covers equipment + losses through the valley. The 5.5%/week growth means the painful period is only 8 months, not 20. Private event revenue from the 7th day represents unmodeled upside.</p>
+        <p data-i18n-html="biz.capital.callout"><strong>Manageable seed round.</strong> €300k covers equipment + losses through the valley. The 5.5%/week growth means the painful period is only 8 months, not 20. Membership revenue de-risks the back half — by M12, €19k/mo is recurring regardless of daily walk-in traffic. Private event revenue from the 7th day represents unmodeled upside.</p>
       </div>
     </div>
 
@@ -888,11 +904,11 @@
       <div class="grid-2">
         <div class="card accent-card accent-rose">
           <h3 data-i18n="biz.risk.growth_stall.title">⚠️ Growth Stall</h3>
-          <p data-i18n="biz.risk.growth_stall.body">If 5.5%/week growth drops to 3%/week, visits only reach 65/day by M12 — never hitting monthly breakeven. The difference between 3% and 5.5% weekly growth is the difference between a €363k loss and a €26k loss.</p>
+          <p data-i18n="biz.risk.growth_stall.body">If 5.5%/week growth drops to 3%/week, visits only reach 65/day by M12 — never hitting monthly breakeven. The difference between 3% and 5.5% weekly growth is the difference between a €363k loss and a €25k loss. Membership revenue provides a partial buffer — even at 3% growth, recurring member income reduces the gap.</p>
         </div>
         <div class="card accent-card accent-warm">
           <h3 data-i18n="biz.risk.discount_trap.title">⚠️ Discount Trap</h3>
-          <p data-i18n="biz.risk.discount_trap.body">Promotional pricing at €24 may anchor customer expectations. Raising prices later risks churn. Must plan the transition from promotional to full price carefully.</p>
+          <p data-i18n="biz.risk.discount_trap.body">Promotional pricing at €24 may anchor customer expectations. The €195/month membership provides a natural upgrade path — frequent visitors save money by converting, softening the eventual day-pass price increase. Still, the transition from promotional to full price must be managed carefully.</p>
         </div>
       </div>
       <div class="grid-2">
@@ -911,7 +927,7 @@
          8. FOOTNOTE
          ══════════════════════════════════════════════════ -->
     <div class="section">
-      <p style="font-size: 0.78rem; color: var(--text-muted); font-style: italic;" data-i18n="biz.footnote">Growth model: 15 paying visits/day compounding at 5.5% per week (doubling every ~13 weeks), capped at 250 daily capacity. Opens 1 day/week, adding one day each month to 6 days/week (7th day reserved for private events). Average admission €24 (40% promotional discount from €40 list). 64 founding members receive their first experience free. Private event revenue, full-price transitions, workshop fees, F&B commissions, and premium experiences represent unmodeled upside.</p>
+      <p style="font-size: 0.78rem; color: var(--text-muted); font-style: italic;" data-i18n="biz.footnote">Growth model: 15 paying visits/day compounding at 5.5% per week (doubling every ~13 weeks), capped at 250 daily capacity. Opens 1 day/week, adding one day each month to 6 days/week (7th day reserved for private events). Day-pass admission €24 (40% promotional discount from €40 list). Unlimited memberships at €195/month launch at Month 6, starting at 2% of visitors and growing +2%/month toward ~50% long-term; members assumed to visit ~8×/month. 64 founding members receive their first experience free. Private event revenue, full-price transitions, workshop fees, F&B commissions, and premium experiences represent unmodeled upside.</p>
     </div>
 
   </div>
