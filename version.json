@@ -1,12 +1,12 @@
 {
-  "version": "v260413.03 9:54p",
-  "release": 120,
-  "sha": "2ffa1da",
-  "fullSha": "2ffa1da75f1b975c7be8baf2dcba17e05aa1cde5",
+  "version": "v260415.01 12:10p",
+  "release": 121,
+  "sha": "cd72cfd",
+  "fullSha": "cd72cfd8911c269ef385d44215458b61e735d6ae",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervm35a4x",
-  "pushedAt": "2026-04-14 02:54:18+00",
-  "commits": [{"sha":"2ffa1da","message":"feat: add investor website links, recent deals and exits to sohocompare","author":"Rahul"}]
+  "pushedAt": "2026-04-15 17:10:52+00",
+  "commits": [{"sha":"3cb9fff","message":"feat: add €195/month unlimited membership tier to business model","author":"Rahul"},{"sha":"cd72cfd","message":"Merge branch 'laughing-goodall'","author":"Rahul"}]
 }
