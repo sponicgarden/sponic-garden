@@ -1,12 +1,12 @@
 {
-  "version": "v260415.01 12:10p",
-  "release": 121,
-  "sha": "cd72cfd",
-  "fullSha": "cd72cfd8911c269ef385d44215458b61e735d6ae",
+  "version": "v260415.02 12:12p",
+  "release": 122,
+  "sha": "270e143",
+  "fullSha": "270e14390e70bd4090d915d0a5366dfefcbd6419",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervm35a4x",
-  "pushedAt": "2026-04-15 17:10:52+00",
-  "commits": [{"sha":"3cb9fff","message":"feat: add €195/month unlimited membership tier to business model","author":"Rahul"},{"sha":"cd72cfd","message":"Merge branch 'laughing-goodall'","author":"Rahul"}]
+  "pushedAt": "2026-04-15 17:12:31+00",
+  "commits": [{"sha":"270e143","message":"feat: update sohocompare with €195/mo unlimited membership model","author":"Rahul"}]
 }
