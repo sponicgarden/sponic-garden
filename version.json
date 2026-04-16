@@ -1,12 +1,12 @@
 {
-  "version": "v260416.01 6:16a",
-  "release": 123,
-  "sha": "40cf739",
-  "fullSha": "40cf739abadd422df1033868daa2941dc80f76f3",
+  "version": "v260416.02 6:25p",
+  "release": 124,
+  "sha": "67fdac1",
+  "fullSha": "67fdac142e6a3bd26636528273d634d37d266130",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervmeorf1",
-  "pushedAt": "2026-04-16 11:16:40+00",
-  "commits": [{"sha":"6bc7501","message":"feat: add Learn and Connect experience cards to homepage","author":"Rahul"},{"sha":"90aa454","message":"feat: add Gemini-generated images for Learn and Connect experience cards","author":"Rahul"},{"sha":"40cf739","message":"Merge pull request #24 from sponicgarden/compassionate-rhodes","author":"Rahul"}]
+  "pushedAt": "2026-04-16 23:25:50+00",
+  "commits": [{"sha":"d27cc3f","message":"fix: regenerate Learn/Connect images in watercolor style to match existing cards","author":"Rahul"},{"sha":"67fdac1","message":"Merge pull request #25 from sponicgarden/compassionate-rhodes","author":"Rahul"}]
 }
