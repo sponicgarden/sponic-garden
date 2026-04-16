@@ -1,12 +1,12 @@
 {
-  "version": "v260416.02 6:25p",
-  "release": 124,
-  "sha": "67fdac1",
-  "fullSha": "67fdac142e6a3bd26636528273d634d37d266130",
+  "version": "v260416.03 6:50p",
+  "release": 125,
+  "sha": "642d5ea",
+  "fullSha": "642d5ea74812d3190663641b398463908fcb3c05",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervmeorf1",
-  "pushedAt": "2026-04-16 23:25:50+00",
-  "commits": [{"sha":"d27cc3f","message":"fix: regenerate Learn/Connect images in watercolor style to match existing cards","author":"Rahul"},{"sha":"67fdac1","message":"Merge pull request #25 from sponicgarden/compassionate-rhodes","author":"Rahul"}]
+  "pushedAt": "2026-04-16 23:50:54+00",
+  "commits": [{"sha":"23568d1","message":"copy: update Learn card description with broader skill examples","author":"Rahul"},{"sha":"642d5ea","message":"Merge pull request #26 from sponicgarden/compassionate-rhodes","author":"Rahul"}]
 }
