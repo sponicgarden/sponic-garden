@@ -15,28 +15,31 @@ IMAGES = [
         "filename": "hp-17-hp-learn-workshop.jpg",
         "description": "Workshop and skill-share session in a greenhouse community space",
         "prompt": (
-            "A photorealistic photograph of a hands-on workshop inside a converted industrial warehouse "
-            "with greenhouse glass panels and exposed steel trusses. A diverse group of 8-10 people aged "
-            "20-55 gathered around a long cedar table, learning fermentation techniques — glass jars, "
-            "fresh herbs, and ingredients spread across the table. An instructor demonstrates at the head. "
-            "A wall-mounted screen shows an AI-curated class schedule and skill progression tracker. "
-            "Potted plants and grow lights in the background, string lights overhead. Natural light through "
-            "greenhouse glass. Style: high-end editorial photography, Canon EOS R5, warm golden tones, "
-            "shallow depth of field. Collaborative, focused, inviting mood."
+            "A soft watercolor illustration in the same style as a series of warehouse-greenhouse scenes: "
+            "loose watercolor washes, warm earth tones, red brick, cedar wood, lush green plants, visible "
+            "pencil line work, white paper showing through, gentle bleeding edges. Scene: hands-on workshop "
+            "inside a converted warehouse with exposed wooden trusses, brick walls, and greenhouse glass. "
+            "A diverse group of 8-10 people aged 20-55 gathered around a long cedar worktable learning "
+            "fermentation — glass jars, fresh herbs, chopping boards across the table. An instructor "
+            "demonstrates at the head. A wall-mounted screen shows 'AI CLASS SCHEDULE — FERMENTATION 101' "
+            "with a small progression tracker. Potted plants and grow lights in background, string lights "
+            "overhead. Warm, inviting, collaborative mood. Illustration style, NOT photography."
         ),
     },
     {
         "filename": "hp-18-hp-connect-gathering.jpg",
         "description": "Community dinner and firepit gathering at Sponic Gardens",
         "prompt": (
-            "A photorealistic photograph of an outdoor community dinner at golden hour in a garden courtyard "
-            "adjacent to an industrial greenhouse building. A long communal table set with farm-to-table food, "
-            "candles, and fresh flowers from the garden. 12-15 diverse people aged 20-60 sharing a meal, "
-            "laughing, and talking animatedly. In the background, a stone firepit with a few people gathered "
-            "around it. Raised garden beds and climbing plants frame the scene. String lights and lanterns "
-            "overhead. The greenhouse glass walls glow warmly from inside. Style: high-end editorial "
-            "photography, Canon EOS R5, golden hour light, warm tones, shallow depth of field. Convivial, "
-            "warm, community-focused mood."
+            "A soft watercolor illustration in the same style as a series of warehouse-greenhouse scenes: "
+            "loose watercolor washes, warm earth tones, red brick, cedar wood, lush green plants, visible "
+            "pencil line work, white paper showing through, gentle bleeding edges. Scene: outdoor community "
+            "dinner at golden hour in a garden courtyard next to a warehouse-greenhouse building with brick "
+            "walls and glass panels glowing warmly from inside. A long communal cedar table set with "
+            "farm-to-table plates, candles, and wildflowers from the garden. 12-15 diverse people aged 20-60 "
+            "sharing a meal, talking and laughing. A stone firepit in the background with a few people "
+            "gathered around it. Raised garden beds and climbing vines frame the scene. String lights and "
+            "paper lanterns overhead. Warm, convivial, community-focused mood. Illustration style, NOT "
+            "photography."
         ),
     },
 ]
