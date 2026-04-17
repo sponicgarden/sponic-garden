@@ -1,12 +1,12 @@
 {
-  "version": "v260416.03 6:50p",
-  "release": 125,
-  "sha": "642d5ea",
-  "fullSha": "642d5ea74812d3190663641b398463908fcb3c05",
+  "version": "v260416.04 7:21p",
+  "release": 126,
+  "sha": "53b11df",
+  "fullSha": "53b11dfb19c1f774e1df1a982658ca8b20d0ae07",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervmeorf1",
-  "pushedAt": "2026-04-16 23:50:54+00",
-  "commits": [{"sha":"23568d1","message":"copy: update Learn card description with broader skill examples","author":"Rahul"},{"sha":"642d5ea","message":"Merge pull request #26 from sponicgarden/compassionate-rhodes","author":"Rahul"}]
+  "pushedAt": "2026-04-17 00:21:04+00",
+  "commits": [{"sha":"b642b10","message":"copy: reorder experience cards — connect, learn, cultivate, move, vibe, restore","author":"Rahul"},{"sha":"53b11df","message":"Merge pull request #27 from sponicgarden/compassionate-rhodes","author":"Rahul"}]
 }
