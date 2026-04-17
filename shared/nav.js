@@ -18,7 +18,7 @@ const TABS = [
   { label: 'Join', href: '/work-with-us.html', i18n: 'nav.tab.join' },
 ];
 
-const WORDMARK_SRC = '/branding/wordmark-white.png';
+const WORDMARK_SRC = '/branding/wordmark-black.png';
 
 /* ── detect current page ──────────────────────────────────────────── */
 function currentTab() {
@@ -79,8 +79,7 @@ function injectStyles() {
       height: 34px;
       width: auto;
       display: block;
-      filter: brightness(0);
-      opacity: 0.75;
+      opacity: 0.92;
       transition: opacity 0.15s;
     }
     .sg-nav__wordmark:hover { opacity: 1; }
@@ -253,10 +252,14 @@ function injectStyles() {
 
     /* ── responsive ──────────────────────── */
     @media (max-width: 768px) {
-      .sg-nav { padding: 0 1rem; }
+      .sg-nav { padding: 0 0.85rem; }
       .sg-nav__center { display: none; }
       .sg-nav__signin { display: none; }
+      .sg-nav__version { display: none !important; }
       .sg-nav__hamburger { display: flex; }
+      .sg-nav__right { gap: 0.4rem; }
+      .sg-nav__lang { padding: 0.26rem 0.5rem; font-size: 0.72rem; }
+      .sg-nav__wordmark { height: 28px; }
     }
 
     /* ── push page content below sticky nav ── */

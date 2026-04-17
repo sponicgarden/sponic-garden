@@ -141,7 +141,7 @@ details,
   color: #3b6090 !important;
 }
 .hero .subtitle {
-  color: var(--text-muted) !important;
+  color: var(--text-soft) !important;
 }
 
 /* Hero leaf SVGs */
