@@ -1,12 +1,12 @@
 {
-  "version": "v260416.04 7:21p",
-  "release": 126,
-  "sha": "53b11df",
-  "fullSha": "53b11dfb19c1f774e1df1a982658ca8b20d0ae07",
+  "version": "v260417.01 12:55p",
+  "release": 127,
+  "sha": "cc00845",
+  "fullSha": "cc008459b7d37841ab718e80b5fcad7461b26312",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervmeorf1",
-  "pushedAt": "2026-04-17 00:21:04+00",
-  "commits": [{"sha":"b642b10","message":"copy: reorder experience cards — connect, learn, cultivate, move, vibe, restore","author":"Rahul"},{"sha":"53b11df","message":"Merge pull request #27 from sponicgarden/compassionate-rhodes","author":"Rahul"}]
+  "pushedAt": "2026-04-17 17:55:17+00",
+  "commits": [{"sha":"cc00845","message":"fix(mobile): declutter top nav, improve hero subtitle + wordmark legibility","author":"Rahul"}]
 }
