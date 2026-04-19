@@ -1,12 +1,12 @@
 {
-  "version": "v260417.01 12:55p",
-  "release": 127,
-  "sha": "cc00845",
-  "fullSha": "cc008459b7d37841ab718e80b5fcad7461b26312",
+  "version": "v260419.01 3:29a",
+  "release": 128,
+  "sha": "61fa4d2",
+  "fullSha": "61fa4d23bcd138b10a46971f89c2021fe5e0211d",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervmeorf1",
-  "pushedAt": "2026-04-17 17:55:17+00",
-  "commits": [{"sha":"cc00845","message":"fix(mobile): declutter top nav, improve hero subtitle + wordmark legibility","author":"Rahul"}]
+  "pushedAt": "2026-04-19 08:29:39+00",
+  "commits": [{"sha":"61fa4d2","message":"copy: update hero tagline to \"get high on your own supplai\"","author":"Rahul"}]
 }
