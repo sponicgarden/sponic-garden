@@ -1,12 +1,12 @@
 {
-  "version": "v260427.01 4:20p",
-  "release": 129,
-  "sha": "bde0965",
-  "fullSha": "bde0965eed8ddf6c4a33a42698dba63aeab0c69c",
+  "version": "v260427.02 4:25p",
+  "release": 130,
+  "sha": "d298055",
+  "fullSha": "d298055d6c2d513093f190a8595eebf59043c070",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervmeorf1",
-  "pushedAt": "2026-04-27 21:20:44+00",
-  "commits": [{"sha":"bde0965","message":"feat(recruiting): cofounder pitch deck for Sonia, gated to allowlist","author":"Rahul"}]
+  "pushedAt": "2026-04-27 21:25:23+00",
+  "commits": [{"sha":"d298055","message":"copy(recruiting): add dilution waterfall to offer card; tech recruiting","author":"Rahul"}]
 }
