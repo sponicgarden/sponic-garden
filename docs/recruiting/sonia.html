@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Sonia — An invitation to build Sponic Gardens</title>
+  <meta name="description" content="A personal invitation for Sonia to join Sponic Gardens as a founder.">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f4f7f1;
+      --bg-warm: #f6f1e7;
+      --bg-deep: #0f1a0c;
+      --surface: #ffffff;
+      --border: #c4d4ba;
+      --border-light: #d8e3cf;
+      --text: #1a2412;
+      --text-soft: #2d3b22;
+      --text-dim: #4a6040;
+      --text-muted: #7a9168;
+      --green: #2d6a1e;
+      --vine: #1a4d2e;
+      --vine-dark: #0d3a1e;
+      --gold: #8b7b4a;
+      --gold-deep: #6f5e2c;
+      --rose: #b94560;
+      --sky: #4a7f9e;
+      --node: #34d399;
+      --glow: rgba(52, 211, 153, 0.20);
+    }
+
+    html, body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      scroll-snap-type: y mandatory;
+      overflow-y: scroll;
+      height: 100vh;
+    }
+
+    body.auth-locked {
+      scroll-snap-type: none;
+      overflow: hidden;
+    }
+    body.auth-locked > *:not(#auth-overlay) { visibility: hidden; }
+
+    /* ════════════════════════════════════════
+       AUTH OVERLAY
+       ════════════════════════════════════════ */
+    #auth-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      background: linear-gradient(180deg, #e8f2e0 0%, #f0f5e9 50%, var(--bg) 100%);
+      visibility: visible !important;
+    }
+    #auth-overlay::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='52' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l30 15v22L30 52 0 37V15z' fill='none' stroke='%234fd1c5' stroke-width='0.4' opacity='0.18'/%3E%3C/svg%3E");
+      background-size: 60px 52px;
+      opacity: 0.5;
+    }
+    .auth-card {
+      position: relative;
+      max-width: 420px;
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(45, 106, 30, 0.10);
+    }
+    .auth-leaf {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+      filter: drop-shadow(0 2px 8px rgba(45, 106, 30, 0.15));
+    }
+    .auth-card h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: var(--vine);
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.01em;
+    }
+    .auth-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      color: var(--text-dim);
+      font-size: 1rem;
+      margin-bottom: 1.75rem;
+    }
+    #auth-google-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.75rem 1.4rem;
+      background: var(--vine);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.15s ease, transform 0.15s ease;
+      width: 100%;
+      justify-content: center;
+    }
+    #auth-google-btn:hover { background: #235417; }
+    #auth-google-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    #auth-google-btn svg { flex-shrink: 0; }
+    .auth-error {
+      color: var(--rose);
+      font-size: 0.85rem;
+      margin-top: 1rem;
+      line-height: 1.5;
+    }
+    .auth-note {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 1.25rem;
+      letter-spacing: 0.04em;
+    }
+    .auth-signed-in {
+      position: fixed;
+      top: 0.85rem;
+      right: 0.85rem;
+      z-index: 200;
+      display: none;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border-light);
+      border-radius: 999px;
+      padding: 0.3rem 0.4rem 0.3rem 0.85rem;
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .auth-signed-in.visible { display: inline-flex; }
+    .auth-signed-in #signed-in-email { color: var(--vine); font-weight: 500; }
+    #signout-btn {
+      background: var(--bg);
+      border: 1px solid var(--border-light);
+      color: var(--text-muted);
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    #signout-btn:hover { color: var(--rose); border-color: var(--rose); }
+
+    .slide {
+      min-height: 100vh;
+      width: 100%;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 4rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide-inner {
+      max-width: 720px;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .chapter {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+    }
+    .chapter::before, .chapter::after {
+      content: '';
+      width: 32px;
+      height: 1px;
+      background: var(--border);
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      color: var(--vine);
+      letter-spacing: -0.015em;
+      line-height: 1.05;
+      margin-bottom: 1.2rem;
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      color: var(--vine);
+      font-size: clamp(2rem, 5vw, 3rem);
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 em {
+      color: var(--gold-deep);
+      font-style: italic;
+    }
+
+    p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--text-soft);
+    }
+
+    p + p { margin-top: 1rem; }
+
+    .lead {
+      font-size: 1.15rem;
+      color: var(--text-dim);
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    /* SLIDE 1 — TITLE */
+    .slide-title {
+      background: linear-gradient(180deg, #e8f2e0 0%, #f0f5e9 50%, var(--bg) 100%);
+    }
+    .slide-title::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='52' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l30 15v22L30 52 0 37V15z' fill='none' stroke='%234fd1c5' stroke-width='0.4' opacity='0.18'/%3E%3C/svg%3E");
+      background-size: 60px 52px;
+      opacity: 0.5;
+    }
+    .slide-title::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 30%, rgba(52,211,153,0.10), transparent 70%);
+    }
+
+    .leaf-mark {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      filter: drop-shadow(0 2px 8px rgba(45, 106, 30, 0.15));
+    }
+
+    .title-illustration {
+      width: clamp(220px, 40vw, 320px);
+      height: auto;
+      margin: 0 auto 1rem;
+      display: block;
+      border-radius: 8px;
+      filter: drop-shadow(0 4px 18px rgba(45, 106, 30, 0.10));
+    }
+
+    .slide-title h1 {
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      margin-bottom: 0.4rem;
+    }
+
+    .slide-title .for {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      color: var(--gold-deep);
+      margin-bottom: 0.3rem;
+      display: block;
+    }
+
+    .slide-title .name {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: clamp(4rem, 12vw, 7rem);
+      color: var(--vine);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .slide-title .tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.1rem, 2.4vw, 1.5rem);
+      color: var(--text-dim);
+      max-width: 560px;
+      margin: 1.5rem auto 0;
+      line-height: 1.45;
+    }
+
+    .vine-divider {
+      width: 120px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 2rem auto;
+      position: relative;
+    }
+    .vine-divider::after {
+      content: '🌿';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--bg);
+      padding: 0 0.6rem;
+      font-size: 0.85rem;
+    }
+
+    .from {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    /* SLIDE 2 — WHY YOU */
+    .slide-why-you {
+      background: var(--bg-warm);
+    }
+    .slide-why-you::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 50% at 50% 50%, rgba(139,123,74,0.06), transparent 70%);
+    }
+    .slide-why-you .quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+      color: var(--vine);
+      line-height: 1.4;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .slide-why-you .quote-attr {
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* REASON SLIDES */
+    .reason { background: var(--bg); }
+
+    .reason-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(7rem, 18vw, 12rem);
+      font-weight: 400;
+      line-height: 0.85;
+      color: var(--vine);
+      opacity: 0.10;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .reason h2 {
+      font-size: clamp(2.2rem, 5.5vw, 3.4rem);
+      margin-bottom: 1.5rem;
+    }
+
+    .reason .body {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--text-soft);
+    }
+
+    .reason .body strong {
+      color: var(--vine);
+      font-weight: 600;
+    }
+
+    .reason-1 { background: linear-gradient(180deg, #f0f5e9 0%, var(--bg) 100%); }
+    .reason-2 { background: var(--bg-warm); }
+    .reason-2 .reason-num { color: var(--gold-deep); opacity: 0.10; }
+    .reason-2 h2 em { color: var(--gold-deep); }
+
+    .reason-3 {
+      background: linear-gradient(180deg, var(--vine-dark) 0%, #14331b 100%);
+      color: #e8f2e0;
+    }
+    .reason-3 h2 { color: #e8f2e0; }
+    .reason-3 h2 em { color: var(--node); }
+    .reason-3 .body { color: #c4d4ba; }
+    .reason-3 .body strong { color: var(--node); }
+    .reason-3 .reason-num { color: var(--node); opacity: 0.08; }
+    .reason-3 .chapter { color: rgba(232, 242, 224, 0.6); }
+    .reason-3 .chapter::before, .reason-3 .chapter::after { background: rgba(232, 242, 224, 0.25); }
+
+    .reason-4 { background: #eef3ea; }
+    .reason-5 { background: var(--bg-warm); }
+    .reason-5 h2 em { color: var(--rose); }
+    .reason-5 .reason-num { color: var(--rose); opacity: 0.10; }
+
+    .reason-6 {
+      background: linear-gradient(180deg, #f0ebd9 0%, #e8e2cb 100%);
+    }
+    .reason-6 h2 em { color: var(--gold-deep); }
+    .reason-6 .reason-num { color: var(--gold-deep); opacity: 0.12; }
+
+    .reason-7 { background: #e8f0f5; }
+    .reason-7 h2 em { color: var(--sky); }
+    .reason-7 .reason-num { color: var(--sky); opacity: 0.10; }
+
+    .reason-8 {
+      background: linear-gradient(180deg, #f0f5e9 0%, #e8f2e0 100%);
+    }
+
+    /* ROLES */
+    .slide-roles {
+      background: linear-gradient(180deg, #eef3ea 0%, #e8efe2 100%);
+    }
+    .slide-roles .slide-inner { max-width: 880px; }
+    .slide-roles h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 0.5rem;
+    }
+    .slide-roles .role-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--text-dim);
+      margin-bottom: 2.5rem;
+    }
+    .role-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      text-align: left;
+      margin-top: 0.5rem;
+    }
+    .role-col {
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-radius: 14px;
+      padding: 1.5rem 1.5rem 1.25rem;
+      box-shadow: 0 2px 12px rgba(45,106,30,0.05);
+    }
+    .role-col-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .role-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      color: var(--vine);
+      font-weight: 500;
+    }
+    .role-tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    .role-list { list-style: none; padding: 0; margin: 0; }
+    .role-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      padding: 0.5rem 0;
+      font-size: 0.95rem;
+      line-height: 1.45;
+      color: var(--text-soft);
+      border-bottom: 1px dashed var(--border-light);
+    }
+    .role-list li:last-child { border-bottom: none; }
+    .role-list .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--gold-deep);
+      flex-shrink: 0;
+      width: 1.2rem;
+      font-weight: 500;
+    }
+    .role-list .shared {
+      display: inline-block;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      background: rgba(139,123,74,0.10);
+      padding: 0.1rem 0.45rem;
+      border-radius: 4px;
+      margin-left: 0.4rem;
+      font-weight: 600;
+      vertical-align: 1px;
+    }
+    .role-foot {
+      margin-top: 2rem;
+      font-size: 0.95rem;
+      color: var(--text-dim);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 700px) {
+      .role-grid { grid-template-columns: 1fr; gap: 1rem; }
+    }
+
+    /* CLOSING */
+    .slide-closing {
+      background: linear-gradient(180deg, var(--vine-dark) 0%, #061508 100%);
+      color: #e8f2e0;
+    }
+    .slide-closing::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='52' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l30 15v22L30 52 0 37V15z' fill='none' stroke='%2334d399' stroke-width='0.4' opacity='0.15'/%3E%3C/svg%3E");
+      background-size: 60px 52px;
+      opacity: 0.4;
+    }
+    .slide-closing::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(52,211,153,0.12), transparent 70%);
+    }
+    .slide-closing h2 {
+      color: #fff;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      margin-bottom: 1.2rem;
+    }
+    .slide-closing h2 em { color: var(--node); }
+    .slide-closing .closing-body {
+      font-size: 1.15rem;
+      color: #c4d4ba;
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+    .slide-closing .signature {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.3rem;
+      color: var(--node);
+      margin-top: 2rem;
+    }
+    .slide-closing .from-line {
+      font-size: 0.85rem;
+      color: rgba(232, 242, 224, 0.6);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 0.4rem;
+    }
+
+    .glow-node {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--node);
+      box-shadow: 0 0 10px var(--glow), 0 0 20px rgba(52,211,153,0.10);
+      animation: pulse 4s ease-in-out infinite;
+      z-index: 1;
+    }
+    .glow-node:nth-child(2) { animation-delay: 1.3s; }
+    .glow-node:nth-child(3) { animation-delay: 2.6s; }
+    .glow-node:nth-child(4) { animation-delay: 0.8s; }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.5); }
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      opacity: 0.7;
+      animation: bounce 2.5s ease-in-out infinite;
+      z-index: 5;
+    }
+    .scroll-hint .arrow {
+      display: block;
+      margin-top: 0.4rem;
+      font-size: 0.9rem;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.7; }
+      50% { transform: translateX(-50%) translateY(6px); opacity: 1; }
+    }
+
+    .reason-3 .scroll-hint, .slide-closing .scroll-hint { color: rgba(232, 242, 224, 0.5); }
+
+    .progress {
+      position: fixed;
+      right: 1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      z-index: 100;
+    }
+    .progress a {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--text-muted);
+      opacity: 0.35;
+      transition: all 0.3s ease;
+      display: block;
+    }
+    .progress a:hover { opacity: 1; transform: scale(1.4); }
+
+    @media (max-width: 600px) {
+      .slide { padding: 3rem 1.25rem; }
+      .progress { right: 0.75rem; gap: 0.45rem; }
+      p, .reason .body { font-size: 1rem; }
+      .auth-card { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body class="auth-locked">
+
+  <!-- ═══════ AUTH OVERLAY ═══════ -->
+  <div id="auth-overlay">
+    <div class="auth-card">
+      <div class="auth-leaf">🌿</div>
+      <h2>A private invitation</h2>
+      <p class="auth-subtitle">Sign in to continue</p>
+      <button id="auth-google-btn" type="button">
+        <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59a14.5 14.5 0 0 1 0-9.18l-7.98-6.19a24.08 24.08 0 0 0 0 21.56l7.98-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+        Sign in with Google
+      </button>
+      <p id="auth-error" class="auth-error" style="display:none"></p>
+      <p class="auth-note">Access limited to invited recipients.</p>
+    </div>
+  </div>
+
+  <!-- Signed-in indicator (top right when authenticated) -->
+  <div class="auth-signed-in" id="signed-in-bar">
+    <span id="signed-in-email"></span>
+    <button id="signout-btn" type="button">sign out</button>
+  </div>
+
+  <nav class="progress" aria-label="Slide navigation">
+    <a href="#title" title="Title"></a>
+    <a href="#why-you" title="Why you"></a>
+    <a href="#r1" title="Reason 1"></a>
+    <a href="#r2" title="Reason 2"></a>
+    <a href="#r3" title="Reason 3"></a>
+    <a href="#r4" title="Reason 4"></a>
+    <a href="#r5" title="Reason 5"></a>
+    <a href="#r6" title="Reason 6"></a>
+    <a href="#r7" title="Reason 7"></a>
+    <a href="#r8" title="Reason 8"></a>
+    <a href="#roles" title="How we'd split it"></a>
+    <a href="#commitment" title="The commitment"></a>
+    <a href="#close" title="The ask"></a>
+  </nav>
+
+  <!-- ═══════ TITLE ═══════ -->
+  <section class="slide slide-title" id="title">
+    <div class="slide-inner">
+      <img class="title-illustration" src="img/01-title.jpg" alt="">
+      <span class="for">a cofounder invitation, for</span>
+      <div class="name">Sonia</div>
+      <h1 style="font-size: clamp(1.5rem, 3.5vw, 2.2rem); color: var(--text-dim); font-style: italic; margin-bottom: 0;">to build Sponic Gardens with us</h1>
+      <p class="tagline">A community-first vision for how people will live, gather, and grow — designed for the next decade, not the last one.</p>
+      <div class="vine-divider"></div>
+      <p class="from">scroll to read · 8 reasons · 5 minutes</p>
+    </div>
+    <div class="scroll-hint">scroll <span class="arrow">↓</span></div>
+  </section>
+
+  <!-- ═══════ WHY YOU ═══════ -->
+  <section class="slide slide-why-you" id="why-you">
+    <div class="slide-inner">
+      <p class="chapter">Why you, specifically</p>
+      <p class="quote">
+        You've actually <em style="font-style: normal; color: var(--gold-deep);">lived</em> what most people only theorize about — communities, in many forms, in many places. You know what makes them sing and what makes them sour.
+      </p>
+      <p class="quote-attr">that knowledge is rare, and we need it</p>
+      <div class="vine-divider"></div>
+      <p style="max-width: 540px; margin: 0 auto; color: var(--text-dim); font-size: 1rem;">
+        What follows is not a job description. It's eight honest reasons we think you should consider being a founder of this thing — written for you.
+      </p>
+    </div>
+    <div class="scroll-hint">↓</div>
+  </section>
+
+  <!-- ═══════ REASON 1 ═══════ -->
+  <section class="slide reason reason-1" id="r1">
+    <div class="reason-num">01</div>
+    <div class="slide-inner">
+      <p class="chapter">Reason one</p>
+      <h2>The most <em>interesting</em> moment in the history of technology — be in the room where it happens.</h2>
+      <p class="body">
+        AI is reshaping the texture of daily life in real time. Spaces, organizations, communities — all the structures we take for granted — are about to be rebuilt. <strong>Better to be one of the people shaping that than one of the people watching from the sidelines.</strong>
+      </p>
+      <p class="body" style="margin-top: 1rem;">
+        Decades from now, there will be a small set of people who can say <em>I helped build the playbook for this.</em> That door is open right now. It will not stay open forever.
+      </p>
+    </div>
+    <div class="scroll-hint">↓</div>
+  </section>
+
+  <!-- ═══════ REASON 2 ═══════ -->
+  <section class="slide reason reason-2" id="r2">
+    <div class="reason-num">02</div>
+    <div class="slide-inner">
+      <p class="chapter">Reason two</p>
+      <h2>It will <em>push your capacities</em> further than you think they go.</h2>
+      <p class="body">
+        Founding a company is one of the only environments left where you are forced to grow on every axis at once — strategy, craft, emotional resilience, judgment under uncertainty. There is no ceiling, and no permission to coast.
+      </p>
+      <p class="body" style="margin-top: 1rem;">
+        <strong>You will be a meaningfully different person in twelve months.</strong> Most paths can't promise that.
+      </p>
+    </div>
+    <div class="scroll-hint">↓</div>
+  </section>
+
+  <!-- ═══════ REASON 3 ═══════ -->
+  <section class="slide reason reason-3" id="r3">
+    <span class="glow-node" style="top: 18%; left: 12%;"></span>
+    <span class="glow-node" style="top: 72%; left: 85%;"></span>
+    <span class="glow-node" style="top: 28%; left: 88%;"></span>
+    <span class="glow-node" style="top: 80%; left: 18%;"></span>
+    <div class="reason-num">03</div>
+    <div class="slide-inner">
+      <p class="chapter">Reason three</p>
+      <h2>The <em>people</em> you will meet will redraw your sense of what's possible.</h2>
+      <p class="body">
+        Building something ambitious pulls you into rooms you couldn't otherwise enter. Founders, operators, investors, artists, scientists, builders — people whose existence quietly raises the ceiling of what you believe a single person can accomplish.
+      </p>
+      <p class="body" style="margin-top: 1rem;">
+        <strong>You become the average of the people you spend your weeks with.</strong> This work re-rolls that dice in your favor.
+      </p>
+    </div>
+    <div class="scroll-hint">↓</div>
+  </section>
+
+  <!-- ═══════ REASON 4 ═══════ -->
+  <section class="slide reason reason-4" id="r4">
+    <div class="reason-num">04</div>
+    <div class="slide-inner">
+      <p class="chapter">Reason four</p>
+      <h2>You will learn how to <em>build and grow an organization</em> — from the inside.</h2>
+      <p class="body">
+        Hiring. Firing. Setting culture. Designing incentives. Making the calls that everyone else has to live with. Communicating a vision so well that strangers stake their careers on it.
+      </p>
+      <p class="body" style="margin-top: 1rem;">
+        <strong>This is a graduate education that no graduate program actually offers.</strong> The only way to learn it is to do it, and doing it as a founder means you learn it from the seat where the lessons are sharpest.
+      </p>
+      <p class="body" style="margin-top: 1rem;">
+        And — even if it doesn't work — <strong>it will be super valuable, and it will change your sense of what is possible.</strong>
+      </p>
+    </div>
+    <div class="scroll-hint">↓</div>
+  </section>
+
+  <!-- ═══════ REASON 5 ═══════ -->
+  <section class="slide reason reason-5" id="r5">
+    <div class="reason-num">05</div>
+    <div class="slide-inner">
+      <p class="chapter">Reason five</p>
+      <h2>Watching your ideas <em>unfold into the world</em> is intrinsically satisfying — especially when they start to work.</h2>
+      <p class="body">
+        You'll point at a wall, a ritual, a member, a moment of connection between two strangers — and know that none of it would exist without a decision you made.
+      </p>
+      <p class="body" style="margin-top: 1rem;">
+        <strong>That feeling does not get old.</strong> Most jobs ask you to push pixels around inside someone else's vision. This is the opposite of that.
+      </p>
+    </div>
+    <div class="scroll-hint">↓</div>
+  </section>
+
+  <!-- ═══════ REASON 6 ═══════ -->
+  <section class="slide reason reason-6" id="r6">
+    <div class="reason-num">06</div>
+    <div class="slide-inner">
+      <p class="chapter">Reason six</p>
+      <h2>The <em>economic upside</em> is not theoretical.</h2>
+      <p class="body">
+        Founding equity in a venture aimed at how millions of people will live and gather is asymmetric in the truest sense — bounded downside, very wide upside. The category of "AI-native, community-first spaces" is being defined right now, and a handful of teams will define it.
+      </p>
+
+      <div style="margin: 2rem auto 0; max-width: 540px; background: rgba(255,255,255,0.55); border: 1px solid rgba(139,123,74,0.25); border-radius: 14px; padding: 1.5rem 1.5rem 1.25rem; text-align: left; box-shadow: 0 2px 12px rgba(139,123,74,0.06);">
+        <div style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 0.9rem; text-align: center;">the concrete offer</div>
+        <div style="display: grid; grid-template-columns: 1fr; gap: 0.75rem; font-size: 0.95rem; color: var(--text-soft);">
+
+          <div style="display: flex; justify-content: space-between; gap: 1rem; padding-bottom: 0.7rem; border-bottom: 1px solid var(--border-light);">
+            <span><strong style="color: var(--vine);">Role</strong></span>
+            <span style="text-align: right;">Cofounder</span>
+          </div>
+
+          <div style="padding-bottom: 0.5rem;">
+            <div style="display: flex; justify-content: space-between; gap: 1rem; margin-bottom: 0.55rem;">
+              <span><strong style="color: var(--vine);">Founders</strong></span>
+              <span style="text-align: right; font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--gold-deep);">equal partners</span>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 0.3rem;">
+              <div style="text-align: center; padding: 0.8rem 0.4rem; background: rgba(45,106,30,0.06); border: 1px solid rgba(45,106,30,0.15); border-radius: 8px;">
+                <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; color: var(--vine); font-weight: 500;">50%</div>
+                <div style="font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.05em; margin-top: 0.15rem;">you</div>
+              </div>
+              <div style="text-align: center; padding: 0.8rem 0.4rem; background: rgba(45,106,30,0.06); border: 1px solid rgba(45,106,30,0.15); border-radius: 8px;">
+                <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; color: var(--vine); font-weight: 500;">50%</div>
+                <div style="font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.05em; margin-top: 0.15rem;">me</div>
+              </div>
+            </div>
+            <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.7rem; line-height: 1.55; font-style: italic;">
+              The two of us split founder common stock 50/50. Equal partners in every meaningful sense.
+            </div>
+          </div>
+
+          <div style="padding-top: 0.9rem; border-top: 1px solid var(--border-light);">
+            <div style="display: flex; justify-content: space-between; gap: 1rem; margin-bottom: 0.7rem;">
+              <span><strong style="color: var(--vine);">Investment</strong></span>
+              <span style="text-align: right; font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--gold-deep);">runway to prove it</span>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+              <div style="text-align: center; padding: 0.8rem 0.4rem; background: rgba(139,123,74,0.08); border: 1px solid rgba(139,123,74,0.22); border-radius: 8px;">
+                <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--gold-deep); font-weight: 500;">$100k</div>
+                <div style="font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.05em; margin-top: 0.15rem;">from the trust</div>
+              </div>
+              <div style="text-align: center; padding: 0.8rem 0.4rem; background: rgba(139,123,74,0.08); border: 1px solid rgba(139,123,74,0.22); border-radius: 8px;">
+                <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--gold-deep); font-weight: 500;">33%</div>
+                <div style="font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.05em; margin-top: 0.15rem;">common stock</div>
+              </div>
+            </div>
+            <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.7rem; line-height: 1.55; font-style: italic;">
+              The trust funds <strong style="font-style: normal; color: var(--vine);">$100k for 33% of common stock</strong>, with a <strong style="font-style: normal; color: var(--vine);">$50k follow-on</strong> if it's working — enough runway to focus full-time, build the first version, and prove the thesis.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint">↓</div>
+  </section>
+
+  <!-- ═══════ REASON 7 ═══════ -->
+  <section class="slide reason reason-7" id="r7">
+    <div class="reason-num">07</div>
+    <div class="slide-inner">
+      <p class="chapter">Reason seven</p>
+      <h2>Whatever you do <em>after</em> this, you will do from a much higher floor.</h2>
+      <p class="body">
+        "Founder of Sponic Gardens" is a door-opener for the rest of your career — for any project, any role, any city, any new idea you want to chase next. The skills compound. The network compounds. The credibility compounds.
+      </p>
+      <p class="body" style="margin-top: 1rem;">
+        <strong>You are not closing doors by doing this — you are opening every door you might want later.</strong>
+      </p>
+    </div>
+    <div class="scroll-hint">↓</div>
+  </section>
+
+  <!-- ═══════ REASON 8 ═══════ -->
+  <section class="slide reason reason-8" id="r8">
+    <div class="reason-num">08</div>
+    <div class="slide-inner">
+      <p class="chapter">Reason eight</p>
+      <h2>And — let's not be coy — it's going to be <em>fun</em>.</h2>
+      <p class="body">
+        Long late nights solving problems no one has solved. Group dinners that turn into the next product spec. The specific, unrepeatable feeling of a small team that knows it's onto something. Inside jokes that become company lore. Travel. Strangeness. Stories.
+      </p>
+      <p class="body" style="margin-top: 1rem;">
+        <strong>Most adult life does not feel this alive.</strong> This will.
+      </p>
+    </div>
+    <div class="scroll-hint">↓</div>
+  </section>
+
+  <!-- ═══════ ROLES ═══════ -->
+  <section class="slide slide-roles" id="roles">
+    <div class="slide-inner">
+      <p class="chapter">How we'd split the work</p>
+      <h2>Two cofounders, <em>distinct lanes</em>, one shared lift.</h2>
+      <p class="role-sub">Equal equity, equal voice — and a clean division of who owns what, day to day.</p>
+
+      <div class="role-grid">
+        <div class="role-col">
+          <div class="role-col-header">
+            <span class="role-name">Sonia</span>
+            <span class="role-tag">your lanes</span>
+          </div>
+          <ul class="role-list">
+            <li><span class="num">1</span><span><strong style="color: var(--vine);">Recruiting</strong> — bringing the rest of the team in</span></li>
+            <li><span class="num">2</span><span><strong style="color: var(--vine);">Business development</strong> — partners, landlords, operators</span></li>
+            <li><span class="num">3</span><span><strong style="color: var(--vine);">Front-end product</strong> — the member's actual experience</span></li>
+            <li><span class="num">4</span><span><strong style="color: var(--vine);">Fundraising</strong><span class="shared">shared</span></span></li>
+            <li><span class="num">5</span><span><strong style="color: var(--vine);">Marketing</strong> — voice, narrative, pull</span></li>
+            <li><span class="num">6</span><span><strong style="color: var(--vine);">Physical infrastructure</strong> — the spaces themselves</span></li>
+          </ul>
+        </div>
+
+        <div class="role-col">
+          <div class="role-col-header">
+            <span class="role-name">Rahul</span>
+            <span class="role-tag">my lanes</span>
+          </div>
+          <ul class="role-list">
+            <li><span class="num">1</span><span><strong style="color: var(--vine);">Recruiting</strong> — alongside you</span></li>
+            <li><span class="num">2</span><span><strong style="color: var(--vine);">Technology platform</strong> — the AI-native backbone</span></li>
+            <li><span class="num">3</span><span><strong style="color: var(--vine);">Fundraising collateral</strong> — decks, models, story</span></li>
+            <li><span class="num">4</span><span><strong style="color: var(--vine);">Financial operations</strong> — books, runway, controls</span></li>
+            <li><span class="num">5</span><span><strong style="color: var(--vine);">Corporate structure</strong> — entity, equity, legal</span></li>
+            <li><span class="num">6</span><span><strong style="color: var(--vine);">Fundraising</strong><span class="shared">shared</span></span></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="role-foot">
+        Recruiting and fundraising are <strong style="color: var(--vine);">shared</strong> — everything else is owned. Clean lanes mean fewer fights and faster decisions.
+      </p>
+    </div>
+    <div class="scroll-hint">↓</div>
+  </section>
+
+  <!-- ═══════ COMMITMENT ═══════ -->
+  <section class="slide reason reason-2" id="commitment">
+    <div class="slide-inner">
+      <p class="chapter">The commitment</p>
+      <h2>Four months, full-time. <em>May through August 2026.</em></h2>
+      <p class="body">
+        A clean, time-boxed window. Long enough to actually build something; short enough that you know exactly what you're signing up for. <strong>At the end of August, we reassess together</strong> — what worked, what didn't, what the next chapter looks like.
+      </p>
+
+      <div style="margin: 2rem auto 0; max-width: 540px; background: rgba(255,255,255,0.55); border: 1px solid rgba(139,123,74,0.25); border-radius: 14px; padding: 1.5rem 1.5rem 1.25rem; text-align: left; box-shadow: 0 2px 12px rgba(139,123,74,0.06);">
+        <div style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 0.9rem; text-align: center;">cash comp during the window</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+          <div style="text-align: center; padding: 0.8rem 0.4rem; background: rgba(45,106,30,0.06); border: 1px solid rgba(45,106,30,0.15); border-radius: 8px;">
+            <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--vine); font-weight: 500;">$2,500</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.05em; margin-top: 0.15rem;">per month · first 4 months</div>
+          </div>
+          <div style="text-align: center; padding: 0.8rem 0.4rem; background: rgba(139,123,74,0.08); border: 1px solid rgba(139,123,74,0.22); border-radius: 8px;">
+            <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--gold-deep); font-weight: 500;">↑</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.05em; margin-top: 0.15rem;">scales with outside funding</div>
+          </div>
+        </div>
+        <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.7rem; line-height: 1.55; font-style: italic;">
+          Enough to cover <strong style="font-style: normal; color: var(--vine);">food and housing</strong> through the runway window. Once we close outside funding, cash comp steps up — equity stays the same.
+        </div>
+      </div>
+
+      <p class="body" style="margin-top: 1.5rem;">
+        No open-ended ask. No "we'll figure it out as we go." <strong>Four focused months, one honest checkpoint, then a real conversation about what comes next.</strong>
+      </p>
+    </div>
+    <div class="scroll-hint">↓</div>
+  </section>
+
+  <!-- ═══════ CLOSING ═══════ -->
+  <section class="slide slide-closing" id="close">
+    <span class="glow-node" style="top: 22%; left: 15%;"></span>
+    <span class="glow-node" style="top: 68%; left: 82%;"></span>
+    <span class="glow-node" style="top: 32%; left: 86%;"></span>
+    <span class="glow-node" style="top: 76%; left: 14%;"></span>
+    <div class="slide-inner">
+      <p class="chapter" style="color: rgba(232,242,224,0.6);">The ask</p>
+      <h2>Come build the <em>gardens</em> with us.</h2>
+      <p class="closing-body">
+        Not as an employee. Not later. Now — as <strong style="color: #fff;">cofounder</strong>, splitting the company 50/50 with me, with the same seat at the table and the same say in what this becomes.
+      </p>
+      <p class="closing-body" style="font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 1.3rem;">
+        You've spent years understanding what makes communities work. We are about to spend the next decade building the most ambitious answer to that question anyone has built. We would rather build it with you than without you.
+      </p>
+      <div class="signature">— let's talk this week</div>
+      <p class="from-line">🌿 sponic gardens</p>
+    </div>
+  </section>
+
+  <!-- ═══════ AUTH SCRIPT ═══════ -->
+  <script>
+    const SUPABASE_URL  = 'https://aphrrfprbixmhissnjfn.supabase.co';
+    const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFwaHJyZnByYml4bWhpc3NuamZuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk5MzA0MjUsImV4cCI6MjA4NTUwNjQyNX0.yYkdQIq97GQgxK7yT2OQEPi5Tt-a7gM45aF8xjSD6wk';
+
+    const ALLOWED_EMAILS = [
+      'rahulioson@gmail.com',
+      'sonia245g@gmail.com',
+    ];
+
+    const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+
+    const overlay      = document.getElementById('auth-overlay');
+    const authBtn      = document.getElementById('auth-google-btn');
+    const authError    = document.getElementById('auth-error');
+    const signedInBar  = document.getElementById('signed-in-bar');
+    const signedInMail = document.getElementById('signed-in-email');
+    const signoutBtn   = document.getElementById('signout-btn');
+
+    function showError(msg) {
+      authError.textContent = msg;
+      authError.style.display = 'block';
+    }
+    function clearError() {
+      authError.textContent = '';
+      authError.style.display = 'none';
+    }
+    function lock() {
+      document.body.classList.add('auth-locked');
+      overlay.style.display = 'flex';
+      signedInBar.classList.remove('visible');
+    }
+    function unlock(user) {
+      document.body.classList.remove('auth-locked');
+      overlay.style.display = 'none';
+      signedInMail.textContent = user.email;
+      signedInBar.classList.add('visible');
+    }
+
+    async function handleSession(session) {
+      if (!session || !session.user) { lock(); return; }
+      const email = (session.user.email || '').toLowerCase();
+      if (!ALLOWED_EMAILS.includes(email)) {
+        await sb.auth.signOut();
+        lock();
+        showError(`This account (${session.user.email}) isn't on the invite list. Please sign in with the email this link was sent to.`);
+        authBtn.disabled = false;
+        return;
+      }
+      clearError();
+      unlock(session.user);
+    }
+
+    authBtn.addEventListener('click', async () => {
+      authBtn.disabled = true;
+      clearError();
+      const { error } = await sb.auth.signInWithOAuth({
+        provider: 'google',
+        options: { redirectTo: window.location.href },
+      });
+      if (error) { showError(error.message); authBtn.disabled = false; }
+    });
+
+    signoutBtn.addEventListener('click', async () => {
+      await sb.auth.signOut();
+      lock();
+    });
+
+    sb.auth.getSession().then(({ data: { session } }) => handleSession(session));
+    sb.auth.onAuthStateChange((_event, session) => handleSession(session));
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+# Fingerprints of known false positives — verified non-secrets.
+# Each line: <relative-path>:<rule-id>:<line-number>
+
+# Supabase anon (publishable) JWT — designed to be embedded in client code.
+# RLS policies protect the data, not the key. Same value already lives in
+# admin/devcontrol.html and admin/translations.html on main.
+docs/recruiting/sonia.html:jwt:1021
