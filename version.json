@@ -1,12 +1,12 @@
 {
-  "version": "v260427.06 4:30p",
-  "release": 134,
-  "sha": "8e8955a",
-  "fullSha": "8e8955aa618181c84ec3f031e06319f479e99cba",
+  "version": "v260427.07 4:35p",
+  "release": 135,
+  "sha": "8d86bd3",
+  "fullSha": "8d86bd31833f3cbc7d8e056d00734855c77faf3a",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
-  "machine": "runnervmhkfpo",
-  "pushedAt": "2026-04-27 21:30:13+00",
-  "commits": [{"sha":"8e8955a","message":"copy(recruiting): rewrite closing slide as a manifesto","author":"Rahul"}]
+  "machine": "runnervmeorf1",
+  "pushedAt": "2026-04-27 21:35:10+00",
+  "commits": [{"sha":"8d86bd3","message":"feat(recruiting): illustrations for every slide of Sonia pitch","author":"Rahul"}]
 }
