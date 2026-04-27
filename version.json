@@ -1,12 +1,12 @@
 {
-  "version": "v260427.05 4:28p",
-  "release": 133,
-  "sha": "2638a50",
-  "fullSha": "2638a504ca89abace7ea479068f908ea47fa6a9a",
+  "version": "v260427.06 4:30p",
+  "release": 134,
+  "sha": "8e8955a",
+  "fullSha": "8e8955aa618181c84ec3f031e06319f479e99cba",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
-  "machine": "runnervmeorf1",
-  "pushedAt": "2026-04-27 21:28:30+00",
-  "commits": [{"sha":"2638a50","message":"copy(recruiting): tighten closing slide","author":"Rahul"}]
+  "machine": "runnervmhkfpo",
+  "pushedAt": "2026-04-27 21:30:13+00",
+  "commits": [{"sha":"8e8955a","message":"copy(recruiting): rewrite closing slide as a manifesto","author":"Rahul"}]
 }
