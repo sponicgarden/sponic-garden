@@ -1,12 +1,12 @@
 {
-  "version": "v260419.01 3:29a",
-  "release": 128,
-  "sha": "61fa4d2",
-  "fullSha": "61fa4d23bcd138b10a46971f89c2021fe5e0211d",
+  "version": "v260427.01 4:20p",
+  "release": 129,
+  "sha": "bde0965",
+  "fullSha": "bde0965eed8ddf6c4a33a42698dba63aeab0c69c",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervmeorf1",
-  "pushedAt": "2026-04-19 08:29:39+00",
-  "commits": [{"sha":"61fa4d2","message":"copy: update hero tagline to \"get high on your own supplai\"","author":"Rahul"}]
+  "pushedAt": "2026-04-27 21:20:44+00",
+  "commits": [{"sha":"bde0965","message":"feat(recruiting): cofounder pitch deck for Sonia, gated to allowlist","author":"Rahul"}]
 }
