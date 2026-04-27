@@ -13,7 +13,7 @@ from pathlib import Path
 from google import genai
 from google.genai import types
 
-MODEL = "gemini-3-pro-image-preview"
+MODEL = os.environ.get("GEMINI_IMAGE_MODEL", "gemini-3-pro-image-preview")
 OUTPUT_DIR = Path(__file__).parent.parent / "docs" / "recruiting" / "img"
 
 # Shared style preamble appended to every prompt for visual consistency.
@@ -150,9 +150,13 @@ SLIDES = {
 }
 
 
-def generate(slide_id: str):
+def generate(slide_id: str, skip_existing: bool = False):
     spec = SLIDES[slide_id]
     out_path = OUTPUT_DIR / spec["filename"]
+
+    if skip_existing and out_path.exists():
+        print(f"SKIP [{slide_id}] -> {spec['filename']} (already exists)")
+        return out_path
 
     key_file = Path("/tmp/.gemini_key_sg")
     api_key = key_file.read_text().strip() if key_file.exists() else os.environ.get("GEMINI_API_KEY")
@@ -164,7 +168,7 @@ def generate(slide_id: str):
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
     full_prompt = f"{spec['prompt']}\n\n{STYLE}"
-    print(f"Generating [{slide_id}] -> {spec['filename']} ...")
+    print(f"Generating [{slide_id}] -> {spec['filename']} (model={MODEL}) ...")
 
     response = client.models.generate_content(
         model=MODEL,
@@ -193,6 +197,6 @@ if __name__ == "__main__":
 
     if args.all:
         for sid in SLIDES.keys():
-            generate(sid)
+            generate(sid, skip_existing=True)
     else:
         generate(args.slide)

@@ -285,6 +285,24 @@
       filter: drop-shadow(0 4px 18px rgba(45, 106, 30, 0.10));
     }
 
+    .slide-illustration {
+      width: clamp(160px, 28vw, 220px);
+      height: auto;
+      margin: 0 auto 1.5rem;
+      display: block;
+      border-radius: 8px;
+      filter: drop-shadow(0 4px 14px rgba(45, 106, 30, 0.08));
+      position: relative;
+      z-index: 2;
+    }
+
+    /* On dark slides, give the cream-background illustration a soft frame */
+    .reason-3 .slide-illustration,
+    .slide-closing .slide-illustration {
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+      filter: none;
+    }
+
     .slide-title h1 {
       font-size: clamp(3rem, 8vw, 5.5rem);
       margin-bottom: 0.4rem;
@@ -720,6 +738,7 @@
   <!-- ═══════ WHY YOU ═══════ -->
   <section class="slide slide-why-you" id="why-you">
     <div class="slide-inner">
+      <img class="slide-illustration" src="img/02-why-you.jpg" alt="">
       <p class="chapter">Why you, specifically</p>
       <p class="quote">
         You've actually <em style="font-style: normal; color: var(--gold-deep);">lived</em> what most people only theorize about — communities, in many forms, in many places. You know what makes them sing and what makes them sour.
@@ -737,6 +756,7 @@
   <section class="slide reason reason-1" id="r1">
     <div class="reason-num">01</div>
     <div class="slide-inner">
+      <img class="slide-illustration" src="img/03-reason-1-moment.jpg" alt="">
       <p class="chapter">Reason one</p>
       <h2>The most <em>interesting</em> moment in the history of technology — be in the room where it happens.</h2>
       <p class="body">
@@ -753,6 +773,7 @@
   <section class="slide reason reason-2" id="r2">
     <div class="reason-num">02</div>
     <div class="slide-inner">
+      <img class="slide-illustration" src="img/04-reason-2-capacity.jpg" alt="">
       <p class="chapter">Reason two</p>
       <h2>It will <em>push your capacities</em> further than you think they go.</h2>
       <p class="body">
@@ -773,6 +794,7 @@
     <span class="glow-node" style="top: 80%; left: 18%;"></span>
     <div class="reason-num">03</div>
     <div class="slide-inner">
+      <img class="slide-illustration" src="img/05-reason-3-people.jpg" alt="">
       <p class="chapter">Reason three</p>
       <h2>The <em>people</em> you will meet will redraw your sense of what's possible.</h2>
       <p class="body">
@@ -789,6 +811,7 @@
   <section class="slide reason reason-4" id="r4">
     <div class="reason-num">04</div>
     <div class="slide-inner">
+      <img class="slide-illustration" src="img/06-reason-4-organization.jpg" alt="">
       <p class="chapter">Reason four</p>
       <h2>You will learn how to <em>build and grow an organization</em> — from the inside.</h2>
       <p class="body">
@@ -808,6 +831,7 @@
   <section class="slide reason reason-5" id="r5">
     <div class="reason-num">05</div>
     <div class="slide-inner">
+      <img class="slide-illustration" src="img/07-reason-5-ideas.jpg" alt="">
       <p class="chapter">Reason five</p>
       <h2>Watching your ideas <em>unfold into the world</em> is intrinsically satisfying — especially when they start to work.</h2>
       <p class="body">
@@ -824,6 +848,7 @@
   <section class="slide reason reason-6" id="r6">
     <div class="reason-num">06</div>
     <div class="slide-inner">
+      <img class="slide-illustration" src="img/08-reason-6-economic.jpg" alt="">
       <p class="chapter">Reason six</p>
       <h2>The <em>economic upside</em> is not theoretical.</h2>
       <p class="body">
@@ -917,6 +942,7 @@
   <section class="slide reason reason-7" id="r7">
     <div class="reason-num">07</div>
     <div class="slide-inner">
+      <img class="slide-illustration" src="img/09-reason-7-doors.jpg" alt="">
       <p class="chapter">Reason seven</p>
       <h2>Whatever you do <em>after</em> this, you will do from a much higher floor.</h2>
       <p class="body">
@@ -933,6 +959,7 @@
   <section class="slide reason reason-8" id="r8">
     <div class="reason-num">08</div>
     <div class="slide-inner">
+      <img class="slide-illustration" src="img/10-reason-8-fun.jpg" alt="">
       <p class="chapter">Reason eight</p>
       <h2>And — let's not be coy — it's going to be <em>fun</em>.</h2>
       <p class="body">
@@ -948,6 +975,7 @@
   <!-- ═══════ ROLES ═══════ -->
   <section class="slide slide-roles" id="roles">
     <div class="slide-inner">
+      <img class="slide-illustration" src="img/11-roles.jpg" alt="">
       <p class="chapter">How we'd split the work</p>
       <h2>Two cofounders, <em>distinct lanes</em>, one shared lift.</h2>
       <p class="role-sub">Equal equity, equal voice — and a clean division of who owns what, day to day.</p>
@@ -994,6 +1022,7 @@
   <!-- ═══════ COMMITMENT ═══════ -->
   <section class="slide reason reason-2" id="commitment">
     <div class="slide-inner">
+      <img class="slide-illustration" src="img/12-commitment.jpg" alt="">
       <p class="chapter">The commitment</p>
       <h2>Four months, full-time. <em>May through August 2026.</em></h2>
       <p class="body">
@@ -1035,6 +1064,7 @@
     <span class="glow-node" style="top: 32%; left: 86%;"></span>
     <span class="glow-node" style="top: 76%; left: 14%;"></span>
     <div class="slide-inner">
+      <img class="slide-illustration" src="img/13-close.jpg" alt="">
       <p class="chapter" style="color: rgba(232,242,224,0.6);">The ask</p>
       <h2 style="line-height: 1.15;">
         <span style="display: block;"><em>Invent</em> the change you are looking for.</span>
