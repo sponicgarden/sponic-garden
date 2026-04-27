@@ -1,12 +1,12 @@
 {
-  "version": "v260427.04 4:27p",
-  "release": 132,
-  "sha": "b24ac2a",
-  "fullSha": "b24ac2af26ab9a6b5627d5549653874c6854f878",
+  "version": "v260427.05 4:28p",
+  "release": 133,
+  "sha": "2638a50",
+  "fullSha": "2638a504ca89abace7ea479068f908ea47fa6a9a",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervmeorf1",
-  "pushedAt": "2026-04-27 21:27:57+00",
-  "commits": [{"sha":"b24ac2a","message":"copy(recruiting): add outside-funding caveat to commitment slide","author":"Rahul"}]
+  "pushedAt": "2026-04-27 21:28:30+00",
+  "commits": [{"sha":"2638a50","message":"copy(recruiting): tighten closing slide","author":"Rahul"}]
 }
