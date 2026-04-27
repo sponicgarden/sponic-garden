@@ -1,12 +1,12 @@
 {
-  "version": "v260427.03 4:26p",
-  "release": 131,
-  "sha": "5cf4f1a",
-  "fullSha": "5cf4f1ad726a08bd660bd5a2d3886e9be50ee134",
+  "version": "v260427.04 4:27p",
+  "release": 132,
+  "sha": "b24ac2a",
+  "fullSha": "b24ac2af26ab9a6b5627d5549653874c6854f878",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
-  "machine": "runnervmhkfpo",
-  "pushedAt": "2026-04-27 21:26:19+00",
-  "commits": [{"sha":"5cf4f1a","message":"copy(recruiting): relabel role columns; move physical infra to Rahul","author":"Rahul"}]
+  "machine": "runnervmeorf1",
+  "pushedAt": "2026-04-27 21:27:57+00",
+  "commits": [{"sha":"b24ac2a","message":"copy(recruiting): add outside-funding caveat to commitment slide","author":"Rahul"}]
 }
