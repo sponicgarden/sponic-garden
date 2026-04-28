@@ -1,12 +1,12 @@
 {
-  "version": "v260427.07 4:35p",
-  "release": 135,
-  "sha": "8d86bd3",
-  "fullSha": "8d86bd31833f3cbc7d8e056d00734855c77faf3a",
+  "version": "v260427.08 9:38p",
+  "release": 136,
+  "sha": "beef67e",
+  "fullSha": "beef67e9e98b8adfda02bbd406144f94d7987e24",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervmeorf1",
-  "pushedAt": "2026-04-27 21:35:10+00",
-  "commits": [{"sha":"8d86bd3","message":"feat(recruiting): illustrations for every slide of Sonia pitch","author":"Rahul"}]
+  "pushedAt": "2026-04-28 02:38:08+00",
+  "commits": [{"sha":"beef67e","message":"feat(pitch): investor pitch deck at docs/ipitch.html","author":"Rahul"}]
 }
