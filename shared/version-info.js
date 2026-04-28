@@ -37,7 +37,7 @@ function fmtTime(iso) {
   } catch { return iso; }
 }
 
-function shortSha(sha) { return sha ? sha.slice(0, 8) : '—'; }
+export function shortSha(sha) { return sha ? sha.slice(0, 8) : '—'; }
 
 const MODEL_NAMES = {
   ci:   'CI',
@@ -53,9 +53,9 @@ const MODEL_NAMES = {
   'modl-a': 'Cursor Auto',
   'modl a': 'Cursor Auto',
 };
-function modelName(code) { return (code && MODEL_NAMES[code]) || code || '—'; }
+export function modelName(code) { return (code && MODEL_NAMES[code]) || code || '—'; }
 
-function val(...args) {
+export function val(...args) {
   for (const v of args) {
     if (typeof v === 'string' && v.trim()) return v.trim();
     if (typeof v === 'number' && Number.isFinite(v)) return String(v);
@@ -64,7 +64,7 @@ function val(...args) {
 }
 
 /** Format release number as r00001 (r + 5-digit zero-padded) */
-function rNum(n) {
+export function rNum(n) {
   const num = parseInt(n, 10);
   return isNaN(num) ? '—' : 'r' + String(num).padStart(5, '0');
 }
@@ -153,7 +153,7 @@ function injectStyles() {
 }
 
 /* ── resolve fields from version.json (handles both old & new schemas) ─── */
-function resolveInfo(info) {
+export function resolveInfo(info) {
   if (!info) return null;
   // New schema: info.release is a number. Old schema: info.release is an object.
   const r = (typeof info.release === 'object' && info.release !== null) ? info.release : {};
@@ -291,9 +291,11 @@ export function setupVersionInfo() {
   }
 }
 
-// Auto-init
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => setupVersionInfo());
-} else {
-  setupVersionInfo();
+// Auto-init (only in a browser — guard so the module stays importable from Node tests)
+if (typeof document !== 'undefined') {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => setupVersionInfo());
+  } else {
+    setupVersionInfo();
+  }
 }

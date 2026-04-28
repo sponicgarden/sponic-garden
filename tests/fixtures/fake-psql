@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+# Mock psql for bump-version.sh tests.
+#
+# Real psql is called as:
+#   psql "$DB_URL" -t -A --no-psqlrc -F $'\t' -c "SELECT ... FROM record_release_event(...)"
+# and returns one tab-separated row:
+#   seq \t display_version \t pushed_at \t actor_login \t source
+#
+# This mock ignores the SQL and emits a canned row. Behavior is tunable
+# via env vars so individual bats cases can assert different responses:
+#
+#   FAKE_PSQL_SEQ         default "42"
+#   FAKE_PSQL_VERSION     default "v260416.01"
+#   FAKE_PSQL_PUSHED_AT   default "2026-04-16 12:00:00+00"
+#   FAKE_PSQL_ACTOR       default "test-user"
+#   FAKE_PSQL_SOURCE      default "test-source"
+#   FAKE_PSQL_EXIT        default "0" — set non-zero to simulate DB failure
+#   FAKE_PSQL_LOG         if set, append invocation to this path for assertions
+set -eu
+
+if [ -n "${FAKE_PSQL_LOG:-}" ]; then
+  printf '%s\n' "$*" >> "$FAKE_PSQL_LOG"
+fi
+
+EXIT="${FAKE_PSQL_EXIT:-0}"
+if [ "$EXIT" != "0" ]; then
+  echo "mock psql: simulated failure" >&2
+  exit "$EXIT"
+fi
+
+SEQ="${FAKE_PSQL_SEQ:-42}"
+VER="${FAKE_PSQL_VERSION:-v260416.01}"
+AT="${FAKE_PSQL_PUSHED_AT:-2026-04-16 12:00:00+00}"
+ACTOR="${FAKE_PSQL_ACTOR:-test-user}"
+SOURCE="${FAKE_PSQL_SOURCE:-test-source}"
+
+printf '%s\t%s\t%s\t%s\t%s\n' "$SEQ" "$VER" "$AT" "$ACTOR" "$SOURCE"

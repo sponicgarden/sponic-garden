@@ -32,7 +32,10 @@ while [[ $# -gt 0 ]]; do
 done
 
 # ── resolve psql ─────────────────────────────────────────────────────
-if [ -x "/opt/homebrew/opt/libpq/bin/psql" ]; then
+# PSQL_BIN lets tests / local envs inject a specific binary (or a mock).
+if [ -n "${PSQL_BIN:-}" ] && [ -x "$PSQL_BIN" ]; then
+  PSQL="$PSQL_BIN"
+elif [ -x "/opt/homebrew/opt/libpq/bin/psql" ]; then
   PSQL="/opt/homebrew/opt/libpq/bin/psql"
 elif command -v psql &>/dev/null; then
   PSQL="psql"
