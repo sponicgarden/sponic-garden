@@ -1,12 +1,12 @@
 {
-  "version": "v260427.12 11:00p",
-  "release": 140,
-  "sha": "8df7182",
-  "fullSha": "8df71825f055479fa67bac4366fd0a5b41c1c043",
+  "version": "v260428.01 1:15a",
+  "release": 141,
+  "sha": "7d3654c",
+  "fullSha": "7d3654cc3b627075c57dd93fc50a516ca96059f2",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
-  "machine": "runnervmhkfpo",
-  "pushedAt": "2026-04-28 04:00:00+00",
-  "commits": [{"sha":"8df7182","message":"docs(polishbiznotes): explicit TRP sequencing and 90-day timeline","author":"Rahul"}]
+  "machine": "runnervmeorf1",
+  "pushedAt": "2026-04-28 06:15:13+00",
+  "commits": [{"sha":"7d3654c","message":"feat(docs): add polishbiznotes to /docs/ index under new Operations & setup section","author":"Rahul"}]
 }
