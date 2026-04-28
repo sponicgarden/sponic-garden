@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sponic Gardens — Polish Business Setup Notes</title>
+  <meta name="description" content="Working notes for setting up Sponic Gardens operations in Poland: company formation, residence, property, construction, and the Polish AI/foreign-investor funding stack.">
+  <meta name="robots" content="noindex">
+  <meta property="og:site_name" content="Sponic Gardens">
+  <meta property="og:title" content="Sponic Gardens — Polish Business Setup Notes">
+  <meta property="og:description" content="Working notes for setting up Sponic Gardens operations in Poland: entity, residence, property, construction, and the Polish AI/foreign-investor funding stack.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://sponicgardens.com/docs/polishbiznotes.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #f4f7f1; --surface: #fff; --border: #c4d4ba; --border-light: #d8e3cf;
+      --text: #1a2412; --text-soft: #2d3b22; --text-dim: #4a6040; --text-muted: #7a9168;
+      --green: #2d6a1e; --green-soft: rgba(45,106,30,0.07); --green-border: rgba(45,106,30,0.2);
+      --gold: #8b7b4a; --gold-soft: rgba(139,123,74,0.08); --gold-border: rgba(139,123,74,0.2);
+      --rose: #be123c; --rose-soft: rgba(190,18,60,0.06); --rose-border: rgba(190,18,60,0.2);
+      --vine: #1a4d2e;
+    }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    .page { max-width: 760px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+    .back { display: inline-block; font-size: 0.82rem; color: var(--text-muted); text-decoration: none; margin-bottom: 2rem; }
+    .back:hover { color: var(--green); }
+
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; font-weight: 500; color: var(--vine); letter-spacing: -0.02em; margin-bottom: 0.4rem; text-align: center; }
+    .subtitle { text-align: center; font-size: 1.15rem; font-style: italic; color: var(--text-dim); margin-bottom: 0.5rem; font-family: 'Cormorant Garamond', serif; }
+    .preamble { text-align: center; font-size: 0.9rem; color: var(--text-muted); max-width: 580px; margin: 0 auto 1.5rem; line-height: 1.6; }
+    .meta-row { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; margin-bottom: 2.5rem; }
+    .pill { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-dim); background: var(--surface); border: 1px solid var(--border-light); border-radius: 999px; padding: 0.3rem 0.75rem; }
+
+    h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 500; color: var(--vine); margin: 2.5rem 0 0.8rem; letter-spacing: -0.01em; border-bottom: 1px solid var(--border-light); padding-bottom: 0.4rem; }
+    h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 500; color: var(--text-soft); margin: 1.5rem 0 0.5rem; }
+    h4 { font-family: 'Inter', sans-serif; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin: 1.2rem 0 0.4rem; }
+
+    p { font-size: 0.92rem; color: var(--text-soft); margin-bottom: 0.75rem; }
+    ul, ol { margin: 0.5rem 0 1rem 1.4rem; }
+    li { font-size: 0.92rem; color: var(--text-soft); margin-bottom: 0.35rem; }
+    li ul, li ol { margin-top: 0.35rem; margin-bottom: 0.35rem; }
+    strong { color: var(--text); font-weight: 600; }
+    em { color: var(--text-dim); }
+    a { color: var(--green); text-decoration: none; border-bottom: 1px dotted var(--green-border); }
+    a:hover { border-bottom-style: solid; }
+    code { font-family: 'JetBrains Mono', monospace; font-size: 0.85em; background: var(--green-soft); padding: 0.1rem 0.4rem; border-radius: 4px; color: var(--vine); }
+
+    .callout { background: var(--gold-soft); border: 1px solid var(--gold-border); border-left: 4px solid var(--gold); border-radius: 8px; padding: 1rem 1.25rem; margin: 1.25rem 0; }
+    .callout h4 { margin-top: 0; color: var(--gold); }
+    .callout p:last-child { margin-bottom: 0; }
+    .callout-green { background: var(--green-soft); border-color: var(--green-border); border-left-color: var(--green); }
+    .callout-green h4 { color: var(--green); }
+    .callout-warn { background: var(--rose-soft); border-color: var(--rose-border); border-left-color: var(--rose); }
+    .callout-warn h4 { color: var(--rose); }
+
+    .card { background: var(--surface); border: 1px solid var(--border-light); border-radius: 10px; padding: 1.1rem 1.25rem; margin: 0.75rem 0; }
+    .card h4 { margin-top: 0; }
+
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.85rem; background: var(--surface); border: 1px solid var(--border-light); border-radius: 8px; overflow: hidden; }
+    th, td { text-align: left; padding: 0.6rem 0.85rem; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    th { background: var(--green-soft); font-weight: 600; color: var(--vine); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    tr:last-child td { border-bottom: none; }
+
+    footer { text-align: center; padding: 2rem 0 0; font-size: 0.72rem; color: var(--text-muted); border-top: 1px solid var(--border-light); margin-top: 3rem; }
+    footer p { font-size: 0.72rem; color: var(--text-muted); margin-bottom: 0.4rem; }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <a href="/" class="back">← Sponic Gardens</a>
+
+    <h1>Polish Business Setup Notes</h1>
+    <div class="subtitle">Operating Sponic Gardens out of Poland</div>
+    <p class="preamble">Working notes — entity, residence, property, construction, and the Polish AI / foreign-investor funding stack. Sponic Gardens is a venture-funded AI business operating physical, AI-managed community spaces, so this covers both the holding-company side and the bricks-and-mortar side.</p>
+
+    <div class="meta-row">
+      <span class="pill">12 STEPS</span>
+      <span class="pill">12–18 MONTH TIMELINE</span>
+      <span class="pill">US CITIZEN FOUNDER</span>
+      <span class="pill">VC-BACKED AI</span>
+    </div>
+
+    <h2>1. The Immigration Landscape</h2>
+
+    <div class="callout callout-warn">
+      <h4>Critical Change for Americans</h4>
+      <p>The US–Poland bilateral agreement that previously allowed Americans to stay beyond 90 days <strong>ended in October 2025</strong>. US citizens are now limited to the standard <strong>90 days within any 180-day period</strong> under Schengen rules. File the residence permit application early.</p>
+    </div>
+
+    <h3>Path for a US founder</h3>
+    <p>You enter Poland visa-free for 90 days. During that window:</p>
+    <ol>
+      <li>Register the Polish operating entity (Week 1–2).</li>
+      <li>Apply for a Temporary Residence Permit (TRP) for business activity before Day 60.</li>
+      <li>The TRP filing itself extends your legal stay while it's processed.</li>
+    </ol>
+
+    <div class="callout">
+      <h4>ETIAS Note</h4>
+      <p>Starting mid-2026, Americans need an <strong>ETIAS authorization</strong> (~€7, valid 3 years) before entering Schengen. Apply online before any travel.</p>
+    </div>
+
+    <table>
+      <tr><th>Permit</th><th>Duration</th><th>Key Requirement</th></tr>
+      <tr><td>Visa-free entry</td><td>90 / 180 days</td><td>US passport + ETIAS</td></tr>
+      <tr><td>Temporary Residence (Business)</td><td>Up to 3 years</td><td>Company + income/investment proof</td></tr>
+      <tr><td>Permanent Residence</td><td>Indefinite</td><td>5 years continuous residency</td></tr>
+      <tr><td>EU Long-Term Resident</td><td>Indefinite</td><td>5 years + Polish B1</td></tr>
+    </table>
+
+    <h2>2. Choose the Business Entity</h2>
+
+    <p>For a venture-backed AI company that will (a) take cap-table investment, (b) own or lease commercial property, and (c) hire Polish staff, the answer is the <strong>Sp. z o.o.</strong> — Spółka z ograniczoną odpowiedzialnością, the Polish LLC/GmbH equivalent. Roughly 95% of foreign investors use it.</p>
+
+    <div class="card">
+      <h4>Why Sp. z o.o. for Sponic Gardens</h4>
+      <ul>
+        <li><strong>VC-friendly cap table</strong> — clean shareholder register (KRS), accepts foreign investors, supports SAFEs and convertible structures via amendment.</li>
+        <li><strong>Liability shield</strong> — essential for any physical-space build-out.</li>
+        <li><strong>Property ownership</strong> — the company can hold real estate directly.</li>
+        <li><strong>9% CIT</strong> for small taxpayers (revenue under EUR 2M); 19% above.</li>
+        <li><strong>Eligible for IP Box</strong> (5% on qualifying IP income) and R&D super-deduction.</li>
+      </ul>
+    </div>
+
+    <div class="callout callout-warn">
+      <h4>Don't use JDG (sole proprietorship)</h4>
+      <p>Only available to EU/EEA citizens or holders of specific permits. No liability protection. Not investable.</p>
+    </div>
+
+    <h3>Holdco / Opco split (recommended for VC)</h3>
+    <p>Most venture-backed structures hold the IP and cap table in a Delaware C-corp (or Estonian/Dutch holdco) and operate the Polish entity as a wholly-owned subsidiary that runs payroll, books property, and applies for grants. This keeps US/EU investors comfortable and isolates Polish regulatory exposure. Confirm with tax counsel whether a US-Poland tax-treaty-compliant transfer pricing setup makes sense for your stage.</p>
+
+    <table>
+      <tr><th>Field</th><th>Sp. z o.o.</th></tr>
+      <tr><td>Min share capital</td><td>PLN 5,000 (~$1,250)</td></tr>
+      <tr><td>Min shares</td><td>1 share, min PLN 50 each</td></tr>
+      <tr><td>Shareholders</td><td>1+ (can be a single foreign entity)</td></tr>
+      <tr><td>Directors (Zarząd)</td><td>1+ (no residency requirement)</td></tr>
+      <tr><td>CIT</td><td>9% (small) / 19% (standard)</td></tr>
+      <tr><td>VAT</td><td>23% standard; 8% on certain accommodation/services</td></tr>
+      <tr><td>Annual audit</td><td>Only if revenue &gt; EUR 5M</td></tr>
+    </table>
+
+    <h2>3. Register the Sp. z o.o.</h2>
+
+    <p>Two paths. S24 is fast but needs a Polish trusted profile (profil zaufany) or qualified e-signature, which a fresh-off-the-plane American won't have. Notarial is slower but the right call for the first round.</p>
+
+    <div class="card">
+      <h4>S24 Online — 1–3 business days</h4>
+      <p>Electronic registration via the Ministry of Justice. Standardized articles only. Capital paid within 7 days of registration.</p>
+    </div>
+    <div class="card">
+      <h4>Notarial — 2–4 weeks</h4>
+      <p>Customizable articles (better for VC structures, vesting, board seats). Capital paid before registration. Notary handles KRS filing.</p>
+    </div>
+
+    <h4>What you'll need</h4>
+    <ul>
+      <li>US passport (apostilled copy may be requested)</li>
+      <li>Proof of address (US or temporary Polish)</li>
+      <li>Company name — check at <code>ekrs.ms.gov.pl</code></li>
+      <li>Registered office in Poland (virtual office is fine initially)</li>
+      <li>Articles of association</li>
+      <li>Initial capital — PLN 5,000 minimum</li>
+      <li><strong>PKD codes</strong> — primary <code>62.01.Z</code> (computer programming) for the AI work, plus <code>96.04.Z</code> (physical well-being) and <code>56.10.A</code> (food &amp; beverage) for the space, <code>68.20.Z</code> (rental of real estate) if you sublet space</li>
+    </ul>
+
+    <p>After registration you receive a <strong>KRS</strong> (court register), <strong>NIP</strong> (tax ID), and <strong>REGON</strong> (statistical number) — all generated automatically. Total fees ~PLN 600.</p>
+
+    <h2>4. Open a Corporate Bank Account</h2>
+
+    <p>Foreign-shareholder corporate accounts can be sticky. Banks vary widely. For a VC-backed entity wiring USD or EUR from a US holdco, the realistic shortlist:</p>
+
+    <table>
+      <tr><th>Bank</th><th>Foreigner-Friendly?</th><th>Notes</th></tr>
+      <tr><td>mBank</td><td>✓ Very good</td><td>Online-first, English UI, fast onboarding</td></tr>
+      <tr><td>ING Bank Śląski</td><td>✓ Good</td><td>Strong corporate banking, English support</td></tr>
+      <tr><td>Santander PL</td><td>✓ Good</td><td>International brand, accepts complex KYC</td></tr>
+      <tr><td>PKO BP</td><td>~ Mixed</td><td>Largest bank but bureaucratic for non-residents</td></tr>
+      <tr><td>Wise Business</td><td>✓ Excellent</td><td>Multi-currency, USD/EUR/PLN, Polish IBAN, ideal for capital calls</td></tr>
+    </table>
+
+    <div class="callout callout-green">
+      <h4>Capital transfers</h4>
+      <p>Use <strong>Wise Business</strong> or <strong>OFX</strong> for USD→PLN — a 1% rate difference on a $1M wire is $10K. Open the Polish account first, then wire from the US holdco. Keep all transfer receipts; the Urząd Skarbowy (tax office) will ask about source of funds for any large inbound wire.</p>
+    </div>
+
+    <h2>5. Apply for the Temporary Residence Permit</h2>
+
+    <p>Apply <strong>no later than 45 days before</strong> the 90-day visa-free period ends. Filing extends your legal stay until a decision is issued. Processing: 4–12 months depending on voivodeship — Warsaw is the slowest.</p>
+
+    <h3>TRP for business activity (Article 142)</h3>
+    <p>You need to demonstrate <strong>at least one</strong> of:</p>
+    <ol>
+      <li><strong>Revenue:</strong> company income ≥ 12× the regional average monthly salary (~PLN 7,000–8,000/mo in Warsaw, less elsewhere).</li>
+      <li><strong>Employment:</strong> company employs ≥ <strong>2 Polish citizens</strong> full-time.</li>
+      <li><strong>Investment:</strong> demonstrated capital investment that will produce the above. <em>This is the strongest path for a funded startup with a closed round.</em></li>
+    </ol>
+
+    <h4>Documents</h4>
+    <ul>
+      <li>Application form (from voivodeship office)</li>
+      <li>4 passport photos (Polish standard, 3.5 × 4.5 cm)</li>
+      <li>Passport + copies of all pages</li>
+      <li>Proof of health insurance valid in Poland</li>
+      <li>Proof of stable income or sufficient funds (term sheet, SAFE notes, bank statements)</li>
+      <li>Proof of accommodation (rental contract or deed)</li>
+      <li>KRS extract for the Sp. z o.o.</li>
+      <li>Business plan + financial statements</li>
+      <li>Tax declarations (PIT/CIT if available)</li>
+      <li>Employment contracts if claiming the employment path</li>
+      <li>Stamp fee: PLN 340 (~$85)</li>
+    </ul>
+
+    <div class="callout callout-green">
+      <h4>The VC advantage</h4>
+      <p>A closed funding round + a build plan that creates Polish jobs is a strong TRP case. Submit a detailed plan: round size, hiring schedule, runway, projected ARR, and the property plan. Hire your first two Polish employees early (even part-time engineers or a community manager) — it satisfies the employment criterion before the case is reviewed.</p>
+    </div>
+
+    <h2>6. Get PESEL & Register Address</h2>
+
+    <h3>PESEL</h3>
+    <p>Poland's universal ID number — needed for tax, healthcare, banking, property purchase, and most contracts. Issued automatically when you register your address (zameldowanie) at the gmina, or apply separately. Bring passport and rental agreement.</p>
+
+    <h3>Address registration (Zameldowanie)</h3>
+    <p>Register at the local <strong>Urząd Gminy</strong> within 30 days of finding accommodation. Bring passport, rental contract or deed, and (if renting) the landlord's signed consent. Free, usually same-day.</p>
+
+    <h2>7. Acquire Property for the Space</h2>
+
+    <div class="callout callout-warn">
+      <h4>Foreign property purchase rules</h4>
+      <p>A non-EU citizen buying <strong>land, standalone buildings, or property with land</strong> needs an <strong>MSWiA permit</strong> (Ministry of Interior). Apartments in multi-unit buildings are exempt. A Sponic Gardens space — a building with land — needs the permit.</p>
+    </div>
+
+    <h3>The MSWiA process</h3>
+    <ol>
+      <li>Identify property and sign a preliminary purchase agreement (umowa przedwstępna) conditional on the permit.</li>
+      <li>Compile: proof of ties to Poland (KRS, address, TRP filing), preliminary contract, ksiega wieczysta, zoning excerpt, survey, source-of-funds proof.</li>
+      <li>Submit to MSWiA with PLN 1,570 stamp fee.</li>
+      <li>Wait 4–12 weeks (often longer).</li>
+      <li>Close at notary within 2 years of permit issuance.</li>
+    </ol>
+
+    <div class="callout">
+      <h4>Company-ownership workaround</h4>
+      <p>An Sp. z o.o. controlled by a foreigner also needs the permit. But a company where <strong>Polish partners hold the majority</strong> can buy land freely. If you have a trusted Polish co-founder or operating partner, this structure removes the permit step entirely. Alternatively: buy shares in an existing Polish SPV that already owns the parcel.</p>
+    </div>
+
+    <h3>Site considerations for a Sponic Gardens space</h3>
+    <ul>
+      <li><strong>Zoning (MPZP):</strong> need commercial/service or mixed-use. Agricultural land requires slow, expensive odrolnienie.</li>
+      <li><strong>Connectivity:</strong> AI-managed spaces need redundant fiber. Verify operator availability and contract for symmetric gigabit + 4G/5G failover.</li>
+      <li><strong>Utilities:</strong> kitchen, sauna/wellness elements, and edge-compute server racks are power-hungry — verify electrical capacity (40+ kW headroom) and water/sewage.</li>
+      <li><strong>Access:</strong> legal road access; check ksiega wieczysta for easements.</li>
+      <li><strong>Environmental:</strong> Natura 2000, water protection zones, flood plains.</li>
+      <li><strong>Size:</strong> for a flagship space, plan 800–2,500 m² of usable floor + outdoor / garden area.</li>
+    </ul>
+
+    <div class="callout">
+      <h4>Lease as a faster alternative</h4>
+      <p>A <strong>30-year commercial lease (dzierżawa)</strong> needs no MSWiA permit, registers in the land book for protection, and gives enough tenure to justify the build-out. Many foreign operators start with a lease + purchase option.</p>
+    </div>
+
+    <h2>8. Construction & Building Permits</h2>
+
+    <h3>Polish construction process</h3>
+    <ol>
+      <li>Hire a Polish-licensed architect (Izba Architektów).</li>
+      <li>Get a zoning decision (decyzja o warunkach zabudowy) if no MPZP exists for the parcel.</li>
+      <li>Geological survey (badania geologiczne).</li>
+      <li>Prepare projekt budowlany compliant with Prawo Budowlane.</li>
+      <li>Apply for pozwolenie na budowę at the Starostwo Powiatowe — 65 days legal, 3–4 months in practice.</li>
+      <li>Appoint a kierownik budowy (licensed Polish site manager).</li>
+      <li>Build, maintaining the dziennik budowy.</li>
+      <li>Get the occupancy permit (pozwolenie na użytkowanie) from PINB before opening.</li>
+    </ol>
+
+    <h3>Sponic-specific compliance</h3>
+    <ul>
+      <li><strong>Sanepid:</strong> mandatory if you have any food service, pools, saunas, or steam rooms. Covers water, ventilation, hygiene.</li>
+      <li><strong>Fire (PSP):</strong> required pre-opening. Sprinklers required &gt;1,000 m².</li>
+      <li><strong>Electrical:</strong> 3-phase 400V circuits for any sauna/heating elements + UPS-backed circuits for AI compute and AV systems.</li>
+      <li><strong>Network:</strong> structured cabling (Cat6A min) and a dedicated server room with cooling for edge AI hardware.</li>
+      <li><strong>Accessibility:</strong> Polish code requires disabled access for public buildings.</li>
+      <li><strong>RODO/GDPR:</strong> AI-managed spaces process biometric and behavioral data — you need a Data Protection Impact Assessment (DPIA), explicit signage, lawful basis documentation, and likely a Data Protection Officer once headcount or processing scale crosses thresholds.</li>
+    </ul>
+
+    <table>
+      <tr><th>Service</th><th>Cost</th><th>Notes</th></tr>
+      <tr><td>Architect</td><td>PLN 50–150K</td><td>~$12K–$37K full design</td></tr>
+      <tr><td>Building permit</td><td>PLN 1–5K</td><td>Fees + surveys</td></tr>
+      <tr><td>Construction</td><td>PLN 5–12K/m²</td><td>$1,250–$3,000/m² wellness/community grade</td></tr>
+    </table>
+
+    <h2>9. Licensing & Operational Compliance</h2>
+
+    <table>
+      <tr><th>Item</th><th>Authority</th><th>Notes</th></tr>
+      <tr><td>Business registration</td><td>KRS</td><td>Done in Step 3</td></tr>
+      <tr><td>VAT (VAT-R)</td><td>Urząd Skarbowy</td><td>23% standard for services</td></tr>
+      <tr><td>Sanitary approval</td><td>Sanepid (PSSE)</td><td>Pre-opening</td></tr>
+      <tr><td>Fire approval</td><td>PSP</td><td>Pre-opening</td></tr>
+      <tr><td>Occupancy permit</td><td>PINB</td><td>Post-construction</td></tr>
+      <tr><td>Alcohol concession</td><td>Gmina</td><td>If serving</td></tr>
+      <tr><td>Music license</td><td>ZAIKS / STOART</td><td>If playing music in space</td></tr>
+      <tr><td>Personal data (RODO)</td><td>UODO</td><td>Mandatory; DPIA needed for AI processing</td></tr>
+      <tr><td>AI Act compliance</td><td>EU / national supervisor</td><td>EU AI Act applies — classify your AI systems and document risk tier</td></tr>
+    </table>
+
+    <h2>10. Hire the Team</h2>
+
+    <h3>Sponic Gardens staffing pattern</h3>
+    <ul>
+      <li><strong>AI / ML engineers</strong> — Poland has deep talent in Warsaw, Kraków, Wrocław, Poznań. Salaries 30–50% below US comp.</li>
+      <li><strong>Space operations lead</strong> — runs day-to-day on the floor, bilingual.</li>
+      <li><strong>Community / events manager</strong> — programming, member experience.</li>
+      <li><strong>Reception / hospitality</strong> — at least one bilingual staff per shift.</li>
+      <li><strong>Cleaning / maintenance</strong> — critical for Sanepid compliance.</li>
+      <li><strong>Bookkeeper (księgowa)</strong> — outsource to a biuro rachunkowe initially (~PLN 1,500–3,000/mo).</li>
+      <li><strong>DPO</strong> — fractional is fine to start; required formal appointment depending on processing scale.</li>
+    </ul>
+
+    <h4>Costs (2026)</h4>
+    <ul>
+      <li>Minimum wage: ~PLN 4,700/mo gross (~$1,175)</li>
+      <li>Mid-level Polish AI engineer: PLN 18,000–28,000/mo gross (~$4,500–$7,000)</li>
+      <li>Hospitality/ops staff: PLN 5,000–7,500/mo gross</li>
+      <li>Employer's ZUS: ~20% on top of gross. Total employer cost ≈ 1.2× gross.</li>
+      <li>Two full-time Polish hires satisfies the TRP employment criterion.</li>
+    </ul>
+
+    <h2>11. Tax Obligations</h2>
+
+    <table>
+      <tr><th>Tax</th><th>Rate</th><th>Details</th></tr>
+      <tr><td>CIT</td><td>9% / 19%</td><td>9% under EUR 2M revenue; 19% standard</td></tr>
+      <tr><td>VAT</td><td>23%</td><td>Standard rate; 8% on some accommodation</td></tr>
+      <tr><td>Dividend WHT</td><td>19%</td><td>US–PL treaty can reduce</td></tr>
+      <tr><td>Property tax</td><td>Varies</td><td>Set by gmina; commercial ~PLN 28–34/m²/yr</td></tr>
+      <tr><td>PIT (you, if PL resident)</td><td>12% / 32%</td><td>Polish tax residency triggers at 183+ days/yr</td></tr>
+      <tr><td><strong>IP Box</strong></td><td><strong>5%</strong></td><td>Effective rate on qualifying IP income (proprietary AI software)</td></tr>
+      <tr><td>R&amp;D super-deduction</td><td>Up to 200%</td><td>Deduct qualifying R&amp;D salaries at up to 200%</td></tr>
+    </table>
+
+    <h3>US obligations (founder)</h3>
+    <ul>
+      <li>Annual Form 1040 + Form 2555 (foreign earned income exclusion)</li>
+      <li>FBAR / FinCEN 114 if combined foreign balances &gt; $10K</li>
+      <li>FATCA Form 8938 if foreign assets &gt; $200K ($400K joint)</li>
+      <li>Form 5471 for ownership in the Sp. z o.o.</li>
+      <li>Hire a US expat-tax CPA — non-optional for this structure</li>
+    </ul>
+
+    <h2>12. Polish AI & Foreign-Investor Funding Stack</h2>
+
+    <p>This is the section most relevant to a venture-funded AI business. Poland has stacked grants, tax incentives, and zone-based exemptions specifically for tech/AI companies and foreign investors. Many are non-dilutive and stack with VC equity.</p>
+
+    <div class="card">
+      <h4>PARP — Polish Agency for Enterprise Development</h4>
+      <p>The two flagship equity-free programs:</p>
+      <ul>
+        <li><strong>Eastern Poland Startup Platforms</strong> — incubation sprint + up to <strong>PLN 600,000</strong> (~€130K) non-repayable seed.</li>
+        <li><strong>Startup Booster Poland</strong> — MVP-stage acceleration + grants up to <strong>PLN 400,000</strong> (~€85K), can fund 100% of project costs.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h4>Poland Prize</h4>
+      <p>Built specifically for foreign founders relocating to Poland. Combines soft-landing, mentoring, market access, and grant funding. Strongly aligned with the Sponic Gardens profile (US founder, AI product, EU base).</p>
+    </div>
+
+    <div class="card">
+      <h4>National AI Fund (PFR + NCBR)</h4>
+      <p>Announced November 2024 — approximately <strong>EUR 235M (PLN 1B)</strong> dedicated to AI. Coordinated by an AI Council bringing together the Polish Development Fund (PFR), the National Centre for Research and Development (NCBR), and other state institutions. Offers both grant and equity instruments for AI ventures.</p>
+    </div>
+
+    <div class="card">
+      <h4>STEP — Strategic Technologies Programme</h4>
+      <p>Implemented under the European Funds for a Modern Economy (FENG) framework. PARP runs the investment-project track; NCBR runs the R&amp;D track. AI is an explicitly named strategic technology.</p>
+    </div>
+
+    <div class="card">
+      <h4>Polish Investment Zone (PIZ)</h4>
+      <p>The successor to the old Special Economic Zones. <strong>Tax exemption available throughout Poland</strong> (not just zone boundaries) for new investments meeting capex and quality thresholds. Decision granted for <strong>12–15 years</strong>. Run through PAIH.</p>
+    </div>
+
+    <div class="card">
+      <h4>R&amp;D-flavored tax instruments</h4>
+      <ul>
+        <li><strong>R&amp;D relief</strong> — super-deduction of qualifying R&amp;D costs (up to 200% of payroll).</li>
+        <li><strong>Innovative-employee relief</strong> — additional PIT credit for retaining R&amp;D headcount.</li>
+        <li><strong>Prototype relief</strong> — deduction for trial-production and market-introduction expenses.</li>
+        <li><strong>Robotization relief</strong> — through end of fiscal 2026.</li>
+        <li><strong>IP Box</strong> — 5% effective CIT on income from qualifying IP (registered software, patents).</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h4>PAIH — Polish Investment & Trade Agency</h4>
+      <p>Single point of contact for foreign investors. Site selection, incentive negotiation, permit guidance, and intro to local government. Free service. Engage them <strong>before</strong> committing to a city — they can route you to a region with stronger PIZ terms or available PFR co-funding.</p>
+    </div>
+
+    <div class="card">
+      <h4>Government grants (Programme for Strategic Investments)</h4>
+      <p>Discretionary cash grants for projects that meet capex + jobs thresholds. Negotiated case-by-case via PAIH. Historically reserved for large industrial projects but increasingly open to digital/AI infrastructure (e.g., the 2025 gigafactory and AI compute-cluster pushes).</p>
+    </div>
+
+    <div class="card">
+      <h4>EU horizontal instruments</h4>
+      <ul>
+        <li><strong>EIC Accelerator</strong> — up to €2.5M grant + €15M equity for deep-tech.</li>
+        <li><strong>Horizon Europe</strong> — collaborative R&amp;D consortia.</li>
+        <li><strong>Digital Europe Programme</strong> — AI testing facilities and EDIH (European Digital Innovation Hubs) — Poland hosts several.</li>
+      </ul>
+    </div>
+
+    <div class="callout callout-green">
+      <h4>Stacking strategy</h4>
+      <p>The realistic Sponic Gardens stack: (1) <strong>Poland Prize</strong> for soft-landing and seed-tier non-dilutive cash, (2) <strong>PARP Startup Booster</strong> for MVP build, (3) <strong>IP Box + R&amp;D relief</strong> ongoing on the AI engineering payroll, (4) <strong>Polish Investment Zone</strong> for the property build-out CIT exemption, (5) approach the <strong>National AI Fund</strong> at Series A for follow-on equity that local LPs love. Coordinate all of this through <strong>PAIH</strong> — they'll deconflict programs and route you to the right regional officer.</p>
+    </div>
+
+    <h2>13. Master Timeline</h2>
+
+    <h4>Pre-arrival (now → June 2026)</h4>
+    <p>Engage Polish law firm + PAIH. Prepare apostilled docs. ETIAS application. Open Wise Business. Begin Poland Prize and PARP grant scoping.</p>
+
+    <h4>Month 1 (July 2026)</h4>
+    <p>Arrive. Notarial company registration. Open corporate bank account. Deposit capital. PESEL + zameldowanie.</p>
+
+    <h4>Month 2 (Aug 2026)</h4>
+    <p>File TRP. Begin property/site search. Engage commercial real estate broker. Register for VAT. File first grant application (PARP Startup Booster or Poland Prize).</p>
+
+    <h4>Month 3–4 (Sep–Oct 2026)</h4>
+    <p>Sign preliminary property agreement. File MSWiA permit (or close on a leased site). Engage architect. Hire first 2 Polish staff (TRP requirement).</p>
+
+    <h4>Month 5–7 (Nov 2026 – Jan 2027)</h4>
+    <p>MSWiA processing. Architecture development. Geological surveys. PIZ application via PAIH. TRP still in queue (normal).</p>
+
+    <h4>Month 8–9 (Feb–Mar 2027)</h4>
+    <p>Property close. Submit building permit. Finalize construction GC. Grant disbursements begin.</p>
+
+    <h4>Month 10–12 (Apr–Jun 2027)</h4>
+    <p>Building permit issued. Construction starts. TRP card (karta pobytu) collected.</p>
+
+    <h4>Month 13–18 (Jul–Dec 2027)</h4>
+    <p>Construction. AI hardware install. Sanepid + fire inspections. Staff hire-up. Soft launch programming.</p>
+
+    <h4>Month 18–20 (Early 2028)</h4>
+    <p>Occupancy permit. Final Sanepid sign-off. Soft open → public launch.</p>
+
+    <h2>Budget Snapshot ($1M Build-Out)</h2>
+
+    <table>
+      <tr><th>Category</th><th>USD</th><th>Notes</th></tr>
+      <tr><td>Property / land</td><td>$150K – $300K</td><td>Heavy regional variance</td></tr>
+      <tr><td>Architecture &amp; design</td><td>$15K – $40K</td><td>Polish-licensed</td></tr>
+      <tr><td>Construction</td><td>$350K – $500K</td><td>Shell + fit-out, 300–500 m²</td></tr>
+      <tr><td>AI hardware + AV + network</td><td>$60K – $120K</td><td>Edge compute, sensors, cameras, displays</td></tr>
+      <tr><td>FF&amp;E (furniture, kitchen, lockers)</td><td>$40K – $80K</td><td></td></tr>
+      <tr><td>Permits &amp; fees</td><td>$5K – $10K</td><td>Building, MSWiA, Sanepid, fire</td></tr>
+      <tr><td>Legal &amp; accounting (yr 1–2)</td><td>$15K – $25K</td><td>Law firm + biuro rachunkowe</td></tr>
+      <tr><td>Working capital</td><td>$50K – $100K</td><td>6-mo opex buffer</td></tr>
+      <tr><td><strong>Total</strong></td><td><strong>$685K – $1.18M</strong></td><td>Offset by grants + PIZ</td></tr>
+    </table>
+
+    <div class="callout">
+      <h4>Reality check</h4>
+      <p>$1M is a real budget for a flagship Sponic Gardens space outside Warsaw. In Warsaw, plan $1.5–2M. Best price/demand ratio: <strong>Wrocław, Poznań, Kraków, Lublin, Tri-City (Gdańsk)</strong>. Land 3–5× cheaper than Warsaw, deep AI talent pools, established startup scenes. Lake/mountain regions (Mazury, Podhale) work for retreat-format spaces but need seasonal demand modeling.</p>
+    </div>
+
+    <h2>Pro Tips</h2>
+
+    <h3>Hire a Polish law firm first</h3>
+    <p>The single highest-leverage investment. Budget PLN 25K–50K ($6K–$12K) for the first year. They handle company formation, TRP, property, MSWiA, and construction contracts. Pick a firm with English-speaking partners and a track record with US clients <em>and</em> with PARP/PFR grant filings.</p>
+
+    <h3>Engage PAIH before the city decision</h3>
+    <p>PAIH is free, and choice of city changes which grants and PIZ tiers are available. Don't lock in Warsaw before checking what Wrocław, Poznań, or Łódź will offer.</p>
+
+    <h3>AI Act compliance is a Day 1 design problem</h3>
+    <p>The EU AI Act applies. Behavior-tracking systems in public spaces sit close to high-risk classification. Build the DPIA + risk classification + transparency signage into the architecture from the start — retrofitting is expensive.</p>
+
+    <h3>Learn Polish</h3>
+    <p>English carries you in Warsaw and Kraków, but contractor / municipal / Sanepid interactions go vastly faster in Polish. B1 by opening day. Tools: italki for tutors, Krok po Kroku textbook series.</p>
+
+    <h2>Resources</h2>
+    <ul>
+      <li><a href="https://www.biznes.gov.pl/en">Biznes.gov.pl</a> — official business portal (English)</li>
+      <li><a href="https://www.paih.gov.pl/en/">PAIH</a> — Polish Investment &amp; Trade Agency</li>
+      <li><a href="https://www.parp.gov.pl/">PARP</a> — Polish Agency for Enterprise Development</li>
+      <li><a href="https://www.gov.pl/web/ncbr-en">NCBR</a> — National Centre for Research and Development</li>
+      <li><a href="https://pfr.pl/en">PFR</a> — Polish Development Fund</li>
+      <li><a href="https://www.gov.pl/web/mswia-en">MSWiA</a> — Interior Ministry (foreign property permits)</li>
+      <li><a href="https://ekrs.ms.gov.pl/">KRS</a> — Company register</li>
+      <li><a href="https://travel-europe.europa.eu/etias_en">ETIAS</a> — Schengen travel authorization</li>
+      <li><a href="https://pl.usembassy.gov/">US Embassy Warsaw</a></li>
+    </ul>
+
+    <footer>
+      <p>Working notes — last updated April 2026. Not legal or tax advice.</p>
+      <p>Sponic Gardens internal · <a href="/">sponicgardens.com</a></p>
+    </footer>
+  </div>
+</body>
+</html>
