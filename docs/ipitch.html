@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sponic Gardens — Investor Pitch</title>
+  <meta name="description" content="Sponic Gardens is building AI-native spaces for the next decade of how people live, gather, and grow.">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f4f7f1;
+      --bg-warm: #f6f1e7;
+      --bg-deep: #0f1a0c;
+      --surface: #ffffff;
+      --border: #c4d4ba;
+      --border-light: #d8e3cf;
+      --text: #1a2412;
+      --text-soft: #2d3b22;
+      --text-dim: #4a6040;
+      --text-muted: #7a9168;
+      --green: #2d6a1e;
+      --vine: #1a4d2e;
+      --vine-dark: #0d3a1e;
+      --gold: #8b7b4a;
+      --gold-deep: #6f5e2c;
+      --rose: #b94560;
+      --sky: #4a7f9e;
+      --node: #34d399;
+      --glow: rgba(52, 211, 153, 0.20);
+    }
+
+    html, body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      scroll-snap-type: y mandatory;
+      overflow-y: scroll;
+      height: 100vh;
+    }
+
+    .slide {
+      min-height: 100vh;
+      width: 100%;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 4rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide-inner {
+      max-width: 760px;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .slide-inner.wide { max-width: 920px; }
+
+    .chapter {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+    }
+    .chapter::before, .chapter::after {
+      content: '';
+      width: 32px;
+      height: 1px;
+      background: var(--border);
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      color: var(--vine);
+      letter-spacing: -0.015em;
+      line-height: 1.05;
+      margin-bottom: 1.2rem;
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      color: var(--vine);
+      font-size: clamp(2rem, 5vw, 3rem);
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 em {
+      color: var(--gold-deep);
+      font-style: italic;
+    }
+
+    p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--text-soft);
+    }
+
+    p + p { margin-top: 1rem; }
+
+    .lead {
+      font-size: 1.15rem;
+      color: var(--text-dim);
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    /* TITLE */
+    .slide-title {
+      background: linear-gradient(180deg, #e8f2e0 0%, #f0f5e9 50%, var(--bg) 100%);
+    }
+    .slide-title::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='52' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l30 15v22L30 52 0 37V15z' fill='none' stroke='%234fd1c5' stroke-width='0.4' opacity='0.18'/%3E%3C/svg%3E");
+      background-size: 60px 52px;
+      opacity: 0.5;
+    }
+    .slide-title::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 30%, rgba(52,211,153,0.10), transparent 70%);
+    }
+
+    .leaf-mark {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      filter: drop-shadow(0 2px 8px rgba(45, 106, 30, 0.15));
+    }
+
+    .title-illustration {
+      width: clamp(220px, 40vw, 320px);
+      height: auto;
+      margin: 0 auto 1rem;
+      display: block;
+      border-radius: 8px;
+      filter: drop-shadow(0 4px 18px rgba(45, 106, 30, 0.10));
+    }
+
+    .slide-illustration {
+      width: clamp(160px, 28vw, 220px);
+      height: auto;
+      margin: 0 auto 1.5rem;
+      display: block;
+      border-radius: 8px;
+      filter: drop-shadow(0 4px 14px rgba(45, 106, 30, 0.08));
+      position: relative;
+      z-index: 2;
+    }
+
+    .reason-dark .slide-illustration,
+    .slide-closing .slide-illustration {
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+      filter: none;
+    }
+
+    .slide-title h1 {
+      font-size: clamp(2.6rem, 7vw, 4.6rem);
+      margin-bottom: 0.4rem;
+    }
+
+    .slide-title .for {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.1rem, 2.4vw, 1.5rem);
+      color: var(--gold-deep);
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+
+    .slide-title .name {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: clamp(3.5rem, 11vw, 6.5rem);
+      color: var(--vine);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .slide-title .tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.1rem, 2.4vw, 1.5rem);
+      color: var(--text-dim);
+      max-width: 600px;
+      margin: 1.5rem auto 0;
+      line-height: 1.45;
+    }
+
+    .vine-divider {
+      width: 120px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 2rem auto;
+      position: relative;
+    }
+    .vine-divider::after {
+      content: '🌿';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--bg);
+      padding: 0 0.6rem;
+      font-size: 0.85rem;
+    }
+
+    .from {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    /* REASON / NUMBERED SLIDES */
+    .reason { background: var(--bg); }
+
+    .reason-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(7rem, 18vw, 12rem);
+      font-weight: 400;
+      line-height: 0.85;
+      color: var(--vine);
+      opacity: 0.10;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .reason h2 {
+      font-size: clamp(2.2rem, 5.5vw, 3.4rem);
+      margin-bottom: 1.5rem;
+    }
+
+    .reason .body {
+      max-width: 620px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--text-soft);
+    }
+
+    .reason .body strong {
+      color: var(--vine);
+      font-weight: 600;
+    }
+
+    /* slide variant tints, mirrored from sonia.html */
+    .reason-1 { background: linear-gradient(180deg, #f0f5e9 0%, var(--bg) 100%); }
+    .reason-2 { background: var(--bg-warm); }
+    .reason-2 .reason-num { color: var(--gold-deep); opacity: 0.10; }
+    .reason-2 h2 em { color: var(--gold-deep); }
+
+    .reason-dark {
+      background: linear-gradient(180deg, var(--vine-dark) 0%, #14331b 100%);
+      color: #e8f2e0;
+    }
+    .reason-dark h2 { color: #e8f2e0; }
+    .reason-dark h2 em { color: var(--node); }
+    .reason-dark .body { color: #c4d4ba; }
+    .reason-dark .body strong { color: var(--node); }
+    .reason-dark .reason-num { color: var(--node); opacity: 0.08; }
+    .reason-dark .chapter { color: rgba(232, 242, 224, 0.6); }
+    .reason-dark .chapter::before, .reason-dark .chapter::after { background: rgba(232, 242, 224, 0.25); }
+
+    .reason-cream { background: #eef3ea; }
+    .reason-rose { background: var(--bg-warm); }
+    .reason-rose h2 em { color: var(--rose); }
+    .reason-rose .reason-num { color: var(--rose); opacity: 0.10; }
+
+    .reason-gold {
+      background: linear-gradient(180deg, #f0ebd9 0%, #e8e2cb 100%);
+    }
+    .reason-gold h2 em { color: var(--gold-deep); }
+    .reason-gold .reason-num { color: var(--gold-deep); opacity: 0.12; }
+
+    .reason-sky { background: #e8f0f5; }
+    .reason-sky h2 em { color: var(--sky); }
+    .reason-sky .reason-num { color: var(--sky); opacity: 0.10; }
+
+    .reason-soft { background: linear-gradient(180deg, #f0f5e9 0%, #e8f2e0 100%); }
+
+    /* CARDS */
+    .card {
+      margin: 2rem auto 0;
+      max-width: 600px;
+      background: rgba(255,255,255,0.55);
+      border: 1px solid rgba(139,123,74,0.25);
+      border-radius: 14px;
+      padding: 1.5rem 1.5rem 1.25rem;
+      text-align: left;
+      box-shadow: 0 2px 12px rgba(139,123,74,0.06);
+    }
+    .card-title {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      margin-bottom: 0.9rem;
+      text-align: center;
+    }
+    .card-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.55rem 0;
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      border-bottom: 1px dashed var(--border-light);
+    }
+    .card-row:last-child { border-bottom: none; }
+    .card-row strong { color: var(--vine); font-weight: 600; }
+    .card-row .v {
+      text-align: right;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      color: var(--gold-deep);
+    }
+
+    .stat-grid {
+      display: grid;
+      gap: 0.5rem;
+      margin-top: 0.8rem;
+    }
+    .stat-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+    .stat-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .stat-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+    .stat {
+      text-align: center;
+      padding: 0.85rem 0.4rem;
+      background: rgba(45,106,30,0.06);
+      border: 1px solid rgba(45,106,30,0.15);
+      border-radius: 8px;
+    }
+    .stat.gold {
+      background: rgba(139,123,74,0.08);
+      border-color: rgba(139,123,74,0.22);
+    }
+    .stat.emphasis {
+      background: rgba(45,106,30,0.12);
+      border: 1.5px solid rgba(45,106,30,0.32);
+    }
+    .stat .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      color: var(--vine);
+      font-weight: 500;
+      line-height: 1;
+    }
+    .stat.gold .num { color: var(--gold-deep); }
+    .stat .label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      margin-top: 0.3rem;
+      line-height: 1.3;
+    }
+    .stat .label.tagged {
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.62rem;
+    }
+
+    .card-foot {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      margin-top: 0.7rem;
+      line-height: 1.55;
+      font-style: italic;
+    }
+    .card-foot strong { font-style: normal; color: var(--vine); }
+
+    /* COMP TABLE — two-column comparison (used in solution + competition) */
+    .comp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      text-align: left;
+      margin: 1.5rem auto 0;
+      max-width: 760px;
+    }
+    .comp-col {
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-radius: 14px;
+      padding: 1.5rem 1.5rem 1.25rem;
+      box-shadow: 0 2px 12px rgba(45,106,30,0.05);
+    }
+    .comp-col-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .comp-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      color: var(--vine);
+      font-weight: 500;
+    }
+    .comp-tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    .comp-list { list-style: none; padding: 0; margin: 0; }
+    .comp-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      padding: 0.5rem 0;
+      font-size: 0.95rem;
+      line-height: 1.45;
+      color: var(--text-soft);
+      border-bottom: 1px dashed var(--border-light);
+    }
+    .comp-list li:last-child { border-bottom: none; }
+    .comp-list .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--gold-deep);
+      flex-shrink: 0;
+      width: 1.2rem;
+      font-weight: 500;
+    }
+    .comp-list strong { color: var(--vine); font-weight: 600; }
+
+    /* LOOP CHIPS — six small badges describing product activities */
+    .loop-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.7rem;
+      margin: 1.75rem auto 0;
+      max-width: 600px;
+    }
+    .loop {
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      padding: 0.9rem 0.75rem;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(45,106,30,0.04);
+    }
+    .loop-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      color: var(--vine);
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+    .loop-desc {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+      line-height: 1.35;
+    }
+
+    /* PHASE TIMELINE */
+    .phase-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.85rem;
+      margin: 1.75rem auto 0;
+      max-width: 760px;
+      text-align: left;
+    }
+    .phase {
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      padding: 1.1rem 1rem;
+      box-shadow: 0 2px 10px rgba(45,106,30,0.04);
+      position: relative;
+    }
+    .phase-tag {
+      font-size: 0.62rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+    .phase-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      color: var(--vine);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+    .phase-body {
+      font-size: 0.85rem;
+      color: var(--text-soft);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 720px) {
+      .comp-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .phase-grid { grid-template-columns: 1fr; }
+      .loop-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* TEAM */
+    .team-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin: 1.75rem auto 0;
+      max-width: 760px;
+      text-align: left;
+    }
+    .team-col {
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-radius: 14px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 12px rgba(45,106,30,0.05);
+    }
+    .team-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      color: var(--vine);
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+    }
+    .team-role {
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .team-body {
+      font-size: 0.92rem;
+      color: var(--text-soft);
+      line-height: 1.55;
+    }
+    @media (max-width: 700px) {
+      .team-grid { grid-template-columns: 1fr; gap: 1rem; }
+    }
+
+    /* CLOSING */
+    .slide-closing {
+      background: linear-gradient(180deg, var(--vine-dark) 0%, #061508 100%);
+      color: #e8f2e0;
+    }
+    .slide-closing::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='52' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l30 15v22L30 52 0 37V15z' fill='none' stroke='%2334d399' stroke-width='0.4' opacity='0.15'/%3E%3C/svg%3E");
+      background-size: 60px 52px;
+      opacity: 0.4;
+    }
+    .slide-closing::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(52,211,153,0.12), transparent 70%);
+    }
+    .slide-closing h2 {
+      color: #fff;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      margin-bottom: 1.2rem;
+    }
+    .slide-closing h2 em { color: var(--node); }
+    .slide-closing .closing-body {
+      font-size: 1.15rem;
+      color: #c4d4ba;
+      max-width: 580px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+    .slide-closing .signature {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.3rem;
+      color: var(--node);
+      margin-top: 2rem;
+    }
+    .slide-closing .from-line {
+      font-size: 0.85rem;
+      color: rgba(232, 242, 224, 0.6);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 0.4rem;
+    }
+
+    .glow-node {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--node);
+      box-shadow: 0 0 10px var(--glow), 0 0 20px rgba(52,211,153,0.10);
+      animation: pulse 4s ease-in-out infinite;
+      z-index: 1;
+    }
+    .glow-node:nth-child(2) { animation-delay: 1.3s; }
+    .glow-node:nth-child(3) { animation-delay: 2.6s; }
+    .glow-node:nth-child(4) { animation-delay: 0.8s; }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.5); }
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      opacity: 0.7;
+      animation: bounce 2.5s ease-in-out infinite;
+      z-index: 5;
+    }
+    .scroll-hint .arrow {
+      display: block;
+      margin-top: 0.4rem;
+      font-size: 0.9rem;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.7; }
+      50% { transform: translateX(-50%) translateY(6px); opacity: 1; }
+    }
+
+    .reason-dark .scroll-hint, .slide-closing .scroll-hint { color: rgba(232, 242, 224, 0.5); }
+
+    .progress {
+      position: fixed;
+      right: 1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      z-index: 100;
+    }
+    .progress a {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--text-muted);
+      opacity: 0.35;
+      transition: all 0.3s ease;
+      display: block;
+    }
+    .progress a:hover { opacity: 1; transform: scale(1.4); }
+
+    @media (max-width: 600px) {
+      .slide { padding: 3rem 1.25rem; }
+      .progress { right: 0.75rem; gap: 0.45rem; }
+      p, .reason .body { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="progress" aria-label="Slide navigation">
+    <a href="#title" title="Title"></a>
+    <a href="#problem" title="Problem"></a>
+    <a href="#why-now" title="Why now"></a>
+    <a href="#solution" title="Solution"></a>
+    <a href="#product" title="Product"></a>
+    <a href="#brain" title="The AI"></a>
+    <a href="#market" title="Market"></a>
+    <a href="#model" title="Business model"></a>
+    <a href="#unit" title="Unit economics"></a>
+    <a href="#gtm" title="Go to market"></a>
+    <a href="#moat" title="Moat"></a>
+    <a href="#team" title="Team"></a>
+    <a href="#ask" title="The ask"></a>
+    <a href="#close" title="Vision"></a>
+  </nav>
+
+  <!-- ═══════ TITLE ═══════ -->
+  <section class="slide slide-title" id="title">
+    <div class="slide-inner">
+      <img class="title-illustration" src="img/ipitch/01-title.jpg" alt="" onerror="this.style.display='none'">
+      <span class="for">an investor pitch for</span>
+      <div class="name">Sponic Gardens</div>
+      <h1 style="font-size: clamp(1.4rem, 3.2vw, 2rem); color: var(--text-dim); font-style: italic; margin-bottom: 0;">AI-native spaces for how people will live, gather, and grow.</h1>
+      <p class="tagline">A new category at the intersection of social club, wellness, food, and cultivation — designed from the ground up around continuous, AI-driven optimization for human flourishing.</p>
+      <div class="vine-divider"></div>
+      <p class="from">scroll to read · 13 slides · 6 minutes</p>
+    </div>
+    <div class="scroll-hint">scroll <span class="arrow">↓</span></div>
+  </section>
+
+  <!-- ═══════ PROBLEM ═══════ -->
+  <section class="slide reason reason-1" id="problem">
+    <div class="reason-num">01</div>
+    <div class="slide-inner">
+      <img class="slide-illustration" src="img/ipitch/02-problem.jpg" alt="" onerror="this.style.display='none'">
+      <p class="chapter">The problem</p>
+      <h2>Modern social spaces are <em>fragmented, dumb, and lonely</em>.</h2>
+      <p class="body">
+        Wellness lives in one venue. Food in another. Movement in a third. Community in none. Every category competes on amenities and aesthetics — and treats software as marketing collateral, not as the operating system of the place itself.
+      </p>
+      <p class="body" style="margin-top: 1rem;">
+        <strong>The result is a generation that can afford the gym, the sauna, the dinner, and the workshop — and still goes home alone.</strong> Owners over-build, over-staff, and under-deliver on the one thing people actually want: a place that feels like it knows them.
+      </p>
+    </div>
+    <div class="scroll-hint">↓</div>
+  </section>
+
+  <!-- ═══════ WHY NOW ═══════ -->
+  <section class="slide reason reason-2" id="why-now">
+    <div class="reason-num">02</div>
+    <div class="slide-inner">
+      <img class="slide-illustration" src="img/ipitch/03-why-now.jpg" alt="" onerror="this.style.display='none'">
+      <p class="chapter">Why now</p>
+      <h2>For the first time, AI can run the <em>physical world</em>.</h2>
+      <p class="body">
+        On-device vision, real-time multimodal models, and cheap sensing have crossed a threshold. A camera, a soil probe, and a microphone now produce signal a foundation model can act on — closing the loop between what a space observes and what it does next.
+      </p>
+      <p class="body" style="margin-top: 1rem;">
+        Pair that with a post-pandemic hunger for in-person community and a wellness market the size of a continent, and you get <strong>a once-per-decade window to define a new venue category from the AI side first.</strong> The incumbents are software-illiterate. The software-natives don't own real estate. We do both.
+      </p>
+    </div>
+    <div class="scroll-hint">↓</div>
+  </section>
+
+  <!-- ═══════ SOLUTION ═══════ -->
+  <section class="slide reason reason-soft" id="solution">
+    <div class="reason-num">03</div>
+    <div class="slide-inner wide">
+      <img class="slide-illustration" src="img/ipitch/04-solution.jpg" alt="" onerror="this.style.display='none'">
+      <p class="chapter">The solution</p>
+      <h2>One place. One brain. <em>Six loops.</em></h2>
+      <p class="body" style="max-width: 640px;">
+        Sponic Gardens is a warehouse-greenhouse social club that fuses cultivation, thermal wellness, movement, food, music, and community — all coordinated by a single AI that observes, reasons, actuates, and learns. Six daily loops keep members coming back.
+      </p>
+      <div class="loop-grid">
+        <div class="loop"><div class="loop-name">Connect</div><div class="loop-desc">dinners, firepits, collaborations</div></div>
+        <div class="loop"><div class="loop-name">Learn</div><div class="loop-desc">workshops, AI-guided skill-shares</div></div>
+        <div class="loop"><div class="loop-name">Cultivate</div><div class="loop-desc">tend, harvest, the Garden Show</div></div>
+        <div class="loop"><div class="loop-name">Move</div><div class="loop-desc">hot yoga, dance, open movement</div></div>
+        <div class="loop"><div class="loop-name">Vibe</div><div class="loop-desc">audio tuned to who is in the room</div></div>
+        <div class="loop"><div class="loop-name">Restore</div><div class="loop-desc">sauna, plunge, AI-guided protocols</div></div>
+      </div>
+    </div>
+    <div class="scroll-hint">↓</div>
+  </section>
+
+  <!-- ═══════ PRODUCT ═══════ -->
+  <section class="slide reason reason-cream" id="product">
+    <div class="reason-num">04</div>
+    <div class="slide-inner wide">
+      <img class="slide-illustration" src="img/ipitch/05-product.jpg" alt="" onerror="this.style.display='none'">
+      <p class="chapter">The product</p>
+      <h2>Hardware, software, and <em>plants</em> — under one roof.</h2>
+      <p class="body" style="max-width: 640px;">
+        A single venue brings together amenities that today live in five separate businesses, plus a market layer that turns members into producers.
+      </p>
+
+      <div class="comp-grid" style="margin-top: 1.75rem;">
+        <div class="comp-col">
+          <div class="comp-col-header">
+            <span class="comp-name">The space</span>
+            <span class="comp-tag">physical</span>
+          </div>
+          <ul class="comp-list">
+            <li><span class="num">·</span><span><strong>Greenhouse &amp; vertical gardens</strong> — members tend, harvest, compete</span></li>
+            <li><span class="num">·</span><span><strong>Thermal circuit</strong> — 2 saunas, steam, 2 cold plunges, hot tub, cool pool</span></li>
+            <li><span class="num">·</span><span><strong>Movement wing</strong> — 30-person hot yoga, dance, open studios</span></li>
+            <li><span class="num">·</span><span><strong>Farmers-Builders Market</strong> — vendor-run food, art, fabricated goods</span></li>
+            <li><span class="num">·</span><span><strong>Apothecary &amp; maker space</strong> — botanical products, 3D print, CNC</span></li>
+          </ul>
+        </div>
+        <div class="comp-col">
+          <div class="comp-col-header">
+            <span class="comp-name">The platform</span>
+            <span class="comp-tag">software</span>
+          </div>
+          <ul class="comp-list">
+            <li><span class="num">·</span><span><strong>Sensor mesh</strong> — vision, audio, soil, temp, CO₂, light, water</span></li>
+            <li><span class="num">·</span><span><strong>Growing AI</strong> — irrigation, lighting spectra, harvest timing</span></li>
+            <li><span class="num">·</span><span><strong>Space AI</strong> — music, scheduling, vendor rotation, climate</span></li>
+            <li><span class="num">·</span><span><strong>Member app</strong> — onboarding, profile, programs, payments</span></li>
+            <li><span class="num">·</span><span><strong>Privacy-first data layer</strong> — patented behavioral feedback</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint">↓</div>
+  </section>
+
+  <!-- ═══════ THE AI BRAIN — dark slide ═══════ -->
+  <section class="slide reason reason-dark" id="brain">
+    <span class="glow-node" style="top: 18%; left: 12%;"></span>
+    <span class="glow-node" style="top: 72%; left: 85%;"></span>
+    <span class="glow-node" style="top: 28%; left: 88%;"></span>
+    <span class="glow-node" style="top: 80%; left: 18%;"></span>
+    <div class="reason-num">05</div>
+    <div class="slide-inner">
+      <img class="slide-illustration" src="img/ipitch/06-brain.jpg" alt="" onerror="this.style.display='none'">
+      <p class="chapter">The unfair advantage</p>
+      <h2>A space that <em>watches itself work</em> — and gets better every week.</h2>
+      <p class="body">
+        Most "smart" venues run static playlists, fixed schedules, and lighting on a timer. Ours runs a continuous Observe → Reason → Actuate → Learn loop: every selection the AI makes — a song, a class start time, a steam-room cycle — is graded by what people actually do next.
+      </p>
+      <p class="body" style="margin-top: 1rem;">
+        <strong>Heads nodding, doors closing, dwell time up — the system learns.</strong> This closed-loop behavioral feedback is the subject of a filed provisional patent (Sonic Vision) and is the moat: a copycat would need months of operational data in a venue we already own.
+      </p>
+    </div>
+    <div class="scroll-hint">↓</div>
+  </section>
+
+  <!-- ═══════ MARKET ═══════ -->
+  <section class="slide reason reason-sky" id="market">
+    <div class="reason-num">06</div>
+    <div class="slide-inner wide">
+      <img class="slide-illustration" src="img/ipitch/07-market.jpg" alt="" onerror="this.style.display='none'">
+      <p class="chapter">Market</p>
+      <h2>Big neighbours, <em>nobody in our seat.</em></h2>
+      <p class="body" style="max-width: 640px;">
+        Sponic sits at the intersection of four categories that already proved willingness to pay — and inherits demand from all of them.
+      </p>
+
+      <div class="card" style="max-width: 620px;">
+        <div class="card-title">comparable categories</div>
+        <div class="stat-grid cols-4">
+          <div class="stat"><div class="num">$1.5T</div><div class="label">global wellness</div></div>
+          <div class="stat gold"><div class="num">$15B</div><div class="label">SoHo House valuation</div></div>
+          <div class="stat"><div class="num">$500B</div><div class="label">experiential dining</div></div>
+          <div class="stat gold"><div class="num">$30B</div><div class="label">coworking pre-COVID</div></div>
+        </div>
+        <div class="card-foot">
+          SoHo House proved members will pay €200+/month for curated belonging. Equinox proved it for sweat. We deliver both — plus food, plus growing, plus a software layer none of them have — at a unit cost their staff models can't match. <strong>The category we are creating is the one a 2030 SoHo House gets compared against.</strong>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint">↓</div>
+  </section>
+
+  <!-- ═══════ BUSINESS MODEL ═══════ -->
+  <section class="slide reason reason-2" id="model">
+    <div class="reason-num">07</div>
+    <div class="slide-inner wide">
+      <img class="slide-illustration" src="img/ipitch/08-model.jpg" alt="" onerror="this.style.display='none'">
+      <p class="chapter">Business model</p>
+      <h2>Three revenue lines, <em>compounding</em>.</h2>
+      <p class="body" style="max-width: 620px;">
+        We start with day-passes to fill the room and learn what members want. Memberships convert the regulars to recurring revenue. The Market layer turns the venue itself into a marketplace — at near-zero marginal cost to us.
+      </p>
+
+      <div class="card" style="max-width: 620px;">
+        <div class="card-title">how the money comes in</div>
+        <div class="card-row">
+          <span><strong>Day pass</strong></span>
+          <span class="v">€24 · introductory (€40 list)</span>
+        </div>
+        <div class="card-row">
+          <span><strong>Unlimited membership</strong></span>
+          <span class="v">€195 / month · launches month 6</span>
+        </div>
+        <div class="card-row">
+          <span><strong>Farmers-Builders Market</strong></span>
+          <span class="v">commission on vendor sales</span>
+        </div>
+        <div class="card-row">
+          <span><strong>Private events</strong></span>
+          <span class="v">7th day reserved · premium pricing</span>
+        </div>
+        <div class="card-row">
+          <span><strong>Workshops &amp; apothecary</strong></span>
+          <span class="v">unmodeled upside</span>
+        </div>
+        <div class="card-foot">
+          Memberships target <strong>50% of visit volume long-term</strong>, converting churn into recurring ARR. The Market layer is asymmetric: we provide the space and the AI-curated audience, vendors do the producing.
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint">↓</div>
+  </section>
+
+  <!-- ═══════ UNIT ECONOMICS ═══════ -->
+  <section class="slide reason reason-gold" id="unit">
+    <div class="reason-num">08</div>
+    <div class="slide-inner wide">
+      <img class="slide-illustration" src="img/ipitch/09-unit.jpg" alt="" onerror="this.style.display='none'">
+      <p class="chapter">Unit economics</p>
+      <h2>Real margins. <em>Real path</em> to cash positive.</h2>
+      <p class="body" style="max-width: 600px;">
+        The model isn't speculative. Variable margin is healthy from day one; fixed costs are bounded by a single building.
+      </p>
+
+      <div class="card" style="max-width: 620px;">
+        <div class="card-title">month 12 — base case</div>
+        <div class="stat-grid cols-3">
+          <div class="stat"><div class="num">54%</div><div class="label tagged">contribution margin</div></div>
+          <div class="stat gold"><div class="num">€135k</div><div class="label tagged">monthly revenue</div></div>
+          <div class="stat"><div class="num">€19k</div><div class="label tagged">recurring MRR</div></div>
+        </div>
+        <div class="stat-grid cols-3" style="margin-top: 0.5rem;">
+          <div class="stat gold"><div class="num">~99</div><div class="label tagged">visits / day breakeven</div></div>
+          <div class="stat"><div class="num">216</div><div class="label tagged">visits / day modeled</div></div>
+          <div class="stat emphasis"><div class="num">M13</div><div class="label tagged">cash positive</div></div>
+        </div>
+        <div class="card-foot">
+          Peak cumulative loss <strong>~€172k around month 8</strong>, recovered in year two. A second venue at standardized cost compresses payback further; the AI stack and operating playbook are the leverage.
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint">↓</div>
+  </section>
+
+  <!-- ═══════ GO-TO-MARKET ═══════ -->
+  <section class="slide reason reason-cream" id="gtm">
+    <div class="reason-num">09</div>
+    <div class="slide-inner wide">
+      <img class="slide-illustration" src="img/ipitch/10-gtm.jpg" alt="" onerror="this.style.display='none'">
+      <p class="chapter">Go-to-market</p>
+      <h2>Warsaw flagship. <em>Sundays first.</em></h2>
+      <p class="body" style="max-width: 620px;">
+        We don't open seven days a week and pray. We open one day a week, prove the loop works, then add days as the waitlist grows.
+      </p>
+
+      <div class="phase-grid">
+        <div class="phase">
+          <div class="phase-tag">Phase 1 · Foundation</div>
+          <div class="phase-name">One Sunday, 64 founding members</div>
+          <div class="phase-body">Single weekly event, 1:30–5:30p. Volunteer build, full software stack live, sensors deployed. Iterate hard on the loop.</div>
+        </div>
+        <div class="phase">
+          <div class="phase-tag">Phase 2 · Scale Up</div>
+          <div class="phase-name">Add Saturdays, then weekday evenings</div>
+          <div class="phase-body">Once Sunday consistently sells out and satisfaction is high, double the days. Convert volunteers into the first hires.</div>
+        </div>
+        <div class="phase">
+          <div class="phase-tag">Phase 3 · Full Ops</div>
+          <div class="phase-name">6 days/week, professional team</div>
+          <div class="phase-body">Membership launches month 6. Market vendors active. Venue runs at design capacity. Playbook ready to clone.</div>
+        </div>
+      </div>
+
+      <p class="body" style="margin-top: 1.5rem; max-width: 580px; font-size: 0.95rem; color: var(--text-dim); font-style: italic;">
+        Warsaw is chosen deliberately: deep wellness culture, low operating cost, growing international community — the ideal flagship before expansion to Western Europe and the US.
+      </p>
+    </div>
+    <div class="scroll-hint">↓</div>
+  </section>
+
+  <!-- ═══════ MOAT ═══════ -->
+  <section class="slide reason reason-rose" id="moat">
+    <div class="reason-num">10</div>
+    <div class="slide-inner wide">
+      <img class="slide-illustration" src="img/ipitch/11-moat.jpg" alt="" onerror="this.style.display='none'">
+      <p class="chapter">Why we win</p>
+      <h2>Four layers of <em>defensibility</em>, on top of each other.</h2>
+
+      <div class="comp-grid" style="margin-top: 1.5rem;">
+        <div class="comp-col">
+          <div class="comp-col-header">
+            <span class="comp-name">Patent</span>
+            <span class="comp-tag">legal</span>
+          </div>
+          <ul class="comp-list">
+            <li><span class="num">·</span><span>Filed provisional on <strong>Sonic Vision</strong> — closed-loop behavioral feedback for ambient audio &amp; environment</span></li>
+            <li><span class="num">·</span><span>Covers gesture control, demographic estimation, edge/cloud hybrid inference</span></li>
+          </ul>
+        </div>
+        <div class="comp-col">
+          <div class="comp-col-header">
+            <span class="comp-name">Data</span>
+            <span class="comp-tag">structural</span>
+          </div>
+          <ul class="comp-list">
+            <li><span class="num">·</span><span>Months of behavioral data per venue create <strong>per-room optimization</strong> a copycat can't reproduce without time</span></li>
+            <li><span class="num">·</span><span>Cross-venue learnings compound across the network</span></li>
+          </ul>
+        </div>
+        <div class="comp-col">
+          <div class="comp-col-header">
+            <span class="comp-name">Integration</span>
+            <span class="comp-tag">execution</span>
+          </div>
+          <ul class="comp-list">
+            <li><span class="num">·</span><span>Software-only competitors don't own real estate or HVAC</span></li>
+            <li><span class="num">·</span><span>Real-estate competitors don't ship software</span></li>
+            <li><span class="num">·</span><span><strong>The integration is the product</strong></span></li>
+          </ul>
+        </div>
+        <div class="comp-col">
+          <div class="comp-col-header">
+            <span class="comp-name">Network</span>
+            <span class="comp-tag">community</span>
+          </div>
+          <ul class="comp-list">
+            <li><span class="num">·</span><span>Members invite members; harvests, shows, and rituals create <strong>shareable artifacts</strong></span></li>
+            <li><span class="num">·</span><span>The Market layer is a two-sided flywheel inside the venue</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint">↓</div>
+  </section>
+
+  <!-- ═══════ TEAM ═══════ -->
+  <section class="slide reason reason-soft" id="team">
+    <div class="reason-num">11</div>
+    <div class="slide-inner wide">
+      <img class="slide-illustration" src="img/ipitch/12-team.jpg" alt="" onerror="this.style.display='none'">
+      <p class="chapter">Team</p>
+      <h2>Two founders, <em>complementary lanes</em>, one shared lift.</h2>
+
+      <div class="team-grid">
+        <div class="team-col">
+          <div class="team-name">Rahul</div>
+          <div class="team-role">Back-end · Tech &amp; ops</div>
+          <p class="team-body">
+            Owns the platform, the building, the financial model, and the corporate stack. Deep background in AI, sensing, and shipping software products. Co-leads recruiting and fundraising.
+          </p>
+        </div>
+        <div class="team-col">
+          <div class="team-name">Sonia</div>
+          <div class="team-role">Front-end · People &amp; product</div>
+          <p class="team-body">
+            Owns the member experience, partnerships, and the cultural DNA of the venue. Years lived inside intentional communities — the rare operator who understands what makes them sing and what makes them sour.
+          </p>
+        </div>
+      </div>
+
+      <p class="body" style="margin-top: 1.5rem; max-width: 580px; font-size: 0.95rem; color: var(--text-dim); font-style: italic;">
+        Equal equity, equal voice, clean lanes. Recruiting and fundraising are shared; everything else is owned. Hires 1–4 (developer, event manager, builder, ops) staff out the flagship.
+      </p>
+    </div>
+    <div class="scroll-hint">↓</div>
+  </section>
+
+  <!-- ═══════ THE ASK ═══════ -->
+  <section class="slide reason reason-gold" id="ask">
+    <div class="reason-num">12</div>
+    <div class="slide-inner wide">
+      <img class="slide-illustration" src="img/ipitch/13-ask.jpg" alt="" onerror="this.style.display='none'">
+      <p class="chapter">The ask</p>
+      <h2>€300k seed. <em>One flagship.</em> Twelve months to cash positive.</h2>
+      <p class="body" style="max-width: 620px;">
+        A single, focused round to build the Warsaw venue, prove the loop, and ship the platform that runs it. Cash positive by month 13 on the base case.
+      </p>
+
+      <div class="card" style="max-width: 620px;">
+        <div class="card-title">use of funds</div>
+        <div class="stat-grid cols-3">
+          <div class="stat"><div class="num">€100k</div><div class="label tagged">tech &amp; sensors</div></div>
+          <div class="stat gold"><div class="num">€172k</div><div class="label tagged">runway through M8</div></div>
+          <div class="stat"><div class="num">€28k</div><div class="label tagged">working capital</div></div>
+        </div>
+        <div class="card-foot">
+          Seed buys a <strong>fully operational flagship</strong>, a working AI platform, a filed patent in force, and the operating playbook for venue #2. Series A unlocks expansion to Western Europe and the US.
+        </div>
+      </div>
+
+      <div class="card" style="max-width: 620px; margin-top: 1.25rem;">
+        <div class="card-title">milestones to series A</div>
+        <div class="card-row"><span><strong>Month 3</strong></span><span class="v">soft open · 64 founding members</span></div>
+        <div class="card-row"><span><strong>Month 6</strong></span><span class="v">membership launch · 6 days/week</span></div>
+        <div class="card-row"><span><strong>Month 12</strong></span><span class="v">€135k MRR run-rate · 100+ active members</span></div>
+        <div class="card-row"><span><strong>Month 13</strong></span><span class="v">cash positive · venue #2 site selected</span></div>
+      </div>
+    </div>
+    <div class="scroll-hint">↓</div>
+  </section>
+
+  <!-- ═══════ CLOSING ═══════ -->
+  <section class="slide slide-closing" id="close">
+    <span class="glow-node" style="top: 22%; left: 15%;"></span>
+    <span class="glow-node" style="top: 68%; left: 82%;"></span>
+    <span class="glow-node" style="top: 32%; left: 86%;"></span>
+    <span class="glow-node" style="top: 76%; left: 14%;"></span>
+    <div class="slide-inner">
+      <img class="slide-illustration" src="img/ipitch/14-close.jpg" alt="" onerror="this.style.display='none'">
+      <p class="chapter" style="color: rgba(232,242,224,0.6);">The vision</p>
+      <h2 style="line-height: 1.15;">
+        <span style="display: block;">A new <em>category</em>.</span>
+        <span style="display: block; margin-top: 0.5rem;">Built from the <em>AI side</em> first.</span>
+      </h2>
+      <p class="closing-body" style="font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--node); margin-top: 2rem;">
+        Make robots do the hard work.<br>Let humans &amp; plants flourish.
+      </p>
+      <p class="closing-body" style="font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; margin-top: 2rem;">
+        The next decade of how people gather is being decided in the next eighteen months. We would rather build that with the right partners than without them.
+      </p>
+      <p class="signature">— Rahul &amp; Sonia</p>
+      <p class="from-line">🌿 sponic gardens</p>
+    </div>
+  </section>
+
+</body>
+</html>
