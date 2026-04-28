@@ -1,12 +1,12 @@
 {
-  "version": "v260427.08 9:38p",
-  "release": 136,
-  "sha": "beef67e",
-  "fullSha": "beef67e9e98b8adfda02bbd406144f94d7987e24",
+  "version": "v260427.09 10:19p",
+  "release": 137,
+  "sha": "f4b72d3",
+  "fullSha": "f4b72d3f479710a9006168f1d9c6fa698fb6ae77",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervmeorf1",
-  "pushedAt": "2026-04-28 02:38:08+00",
-  "commits": [{"sha":"beef67e","message":"feat(pitch): investor pitch deck at docs/ipitch.html","author":"Rahul"}]
+  "pushedAt": "2026-04-28 03:19:42+00",
+  "commits": [{"sha":"f4b72d3","message":"feat(pitch): illustrations for every slide of investor pitch","author":"Rahul"}]
 }
