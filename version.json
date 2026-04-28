@@ -1,12 +1,12 @@
 {
-  "version": "v260428.01 1:15a",
-  "release": 141,
-  "sha": "7d3654c",
-  "fullSha": "7d3654cc3b627075c57dd93fc50a516ca96059f2",
+  "version": "v260428.02 1:18a",
+  "release": 142,
+  "sha": "f3ea931",
+  "fullSha": "f3ea931a972b155fe13b1c75494839035e8bedba",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervmeorf1",
-  "pushedAt": "2026-04-28 06:15:13+00",
-  "commits": [{"sha":"7d3654c","message":"feat(docs): add polishbiznotes to /docs/ index under new Operations & setup section","author":"Rahul"}]
+  "pushedAt": "2026-04-28 06:18:54+00",
+  "commits": [{"sha":"c45415b","message":"feat: tests, SEO files, migration hardening, image optimizer","author":"Paca"},{"sha":"f3ea931","message":"perf: add WebP siblings for all branding/ assets","author":"Paca"}]
 }
