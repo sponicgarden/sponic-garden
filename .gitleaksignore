@@ -5,3 +5,4 @@
 # RLS policies protect the data, not the key. Same value already lives in
 # admin/devcontrol.html and admin/translations.html on main.
 docs/recruiting/sonia.html:jwt:1021
+docs/auth-guard.js:jwt:4
