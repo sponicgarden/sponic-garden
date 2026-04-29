@@ -1,12 +1,12 @@
 {
-  "version": "v260428.02 1:18a",
-  "release": 142,
-  "sha": "f3ea931",
-  "fullSha": "f3ea931a972b155fe13b1c75494839035e8bedba",
+  "version": "v260429.01 1:16p",
+  "release": 143,
+  "sha": "8136e44",
+  "fullSha": "8136e444d29395a47efc6eac2efb62df2ceab718",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervmeorf1",
-  "pushedAt": "2026-04-28 06:18:54+00",
-  "commits": [{"sha":"c45415b","message":"feat: tests, SEO files, migration hardening, image optimizer","author":"Paca"},{"sha":"f3ea931","message":"perf: add WebP siblings for all branding/ assets","author":"Paca"}]
+  "pushedAt": "2026-04-29 18:16:21+00",
+  "commits": [{"sha":"8136e44","message":"feat(auth): authorize hrsonnad@gmail.com and auth-guard all docs pages","author":"Rahul"}]
 }
