@@ -2,7 +2,7 @@
 (function () {
   const SUPABASE_URL = 'https://aphrrfprbixmhissnjfn.supabase.co';
   const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFwaHJyZnByYml4bWhpc3NuamZuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk5MzA0MjUsImV4cCI6MjA4NTUwNjQyNX0.yYkdQIq97GQgxK7yT2OQEPi5Tt-a7gM45aF8xjSD6wk';
-  const ALLOWED_EMAILS = ['rahulioson@gmail.com', 'wingsiebird@gmail.com', 'hrsonnad@gmail.com'];
+  const ALLOWED_EMAILS = ['rahulioson@gmail.com', 'wingsiebird@gmail.com', 'hrsonnad@gmail.com', 'sonia245g@gmail.com'];
 
   const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
