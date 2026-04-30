@@ -1,3 +1,26 @@
+# Environment files (secrets — never commit)
+.env
+.env.*
+!.env.example
+
+# Credentials / private keys
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_ed25519
+credentials.json
+service-account*.json
+.aws/
+.npmrc
+
+# Local data
+*.sqlite
+*.sqlite3
+*.db
+
+# OS / tooling
 .DS_Store
 .claude/projects/
 .gstack/
