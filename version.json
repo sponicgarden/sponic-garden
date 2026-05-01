@@ -1,12 +1,12 @@
 {
-  "version": "v260430.03 9:39p",
-  "release": 146,
-  "sha": "e4fa05a",
-  "fullSha": "e4fa05ae93522063e89a38fd69476cd8ad97ac2a",
+  "version": "v260430.04 9:42p",
+  "release": 147,
+  "sha": "073a5da",
+  "fullSha": "073a5da299ad4a9bc0ee9d31e64373195d5f7070",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervmeorf1",
-  "pushedAt": "2026-05-01 02:39:02+00",
-  "commits": [{"sha":"e4fa05a","message":"feat(docs): make /docs/ipitch publicly accessible","author":"Paca"}]
+  "pushedAt": "2026-05-01 02:42:48+00",
+  "commits": [{"sha":"073a5da","message":"docs(ipitch): clarify six-loops measurement and optimization","author":"Paca"}]
 }
