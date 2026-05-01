@@ -1,12 +1,12 @@
 {
-  "version": "v260430.02 12:15p",
-  "release": 145,
-  "sha": "ee20ee4",
-  "fullSha": "ee20ee4c00a932fc88d9e3033508bc5e0d6196c7",
-  "actor": "wensonia",
+  "version": "v260430.03 9:39p",
+  "release": 146,
+  "sha": "e4fa05a",
+  "fullSha": "e4fa05ae93522063e89a38fd69476cd8ad97ac2a",
+  "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervmeorf1",
-  "pushedAt": "2026-04-30 17:15:41+00",
-  "commits": [{"sha":"ee20ee4","message":"chore: expand .gitignore to cover secrets and credentials","author":"Sonia Wendorff"}]
+  "pushedAt": "2026-05-01 02:39:02+00",
+  "commits": [{"sha":"e4fa05a","message":"feat(docs): make /docs/ipitch publicly accessible","author":"Paca"}]
 }
