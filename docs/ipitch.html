@@ -697,32 +697,6 @@
       p, .reason .body { font-size: 1rem; }
     }
   </style>
-  <style>
-    body.auth-locked > *:not(#auth-overlay) { visibility: hidden; }
-    #auth-overlay {
-      position: fixed; inset: 0; z-index: 9999;
-      display: flex; align-items: center; justify-content: center;
-      background: rgba(26, 36, 18, 0.65); backdrop-filter: blur(12px);
-      font-family: 'Inter', -apple-system, sans-serif;
-    }
-    .auth-card {
-      background: #fff; border-radius: 16px; padding: 2.5rem 2rem; text-align: center;
-      max-width: 380px; width: 90%; box-shadow: 0 8px 40px rgba(0,0,0,0.18);
-    }
-    .auth-logo { height: 90px; margin-bottom: 0.5rem; }
-    .auth-card h2 { font-family: 'Inter', sans-serif; color: #0284c7; font-size: 1.5rem; margin-bottom: 0.3rem; }
-    .auth-subtitle { color: #4a6040; font-size: 0.95rem; margin-bottom: 1.5rem; }
-    #auth-google-btn {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: #fff; border: 1px solid #dadce0; border-radius: 8px;
-      padding: 10px 24px; font-size: 0.95rem; font-weight: 500;
-      cursor: pointer; color: #3c4043; transition: box-shadow 0.2s;
-    }
-    #auth-google-btn:hover { box-shadow: 0 1px 6px rgba(0,0,0,0.12); }
-    #auth-google-btn:disabled { opacity: 0.6; cursor: wait; }
-    .auth-error { color: #be123c; font-size: 0.85rem; margin-top: 1rem; }
-    .auth-footer { color: #7a9168; font-size: 0.8rem; margin-top: 1.5rem; }
-  </style>
 </head>
 <body>
 
@@ -1157,7 +1131,5 @@
     </div>
   </section>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-  <script src="/docs/auth-guard.js"></script>
 </body>
 </html>
