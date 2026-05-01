@@ -1,12 +1,12 @@
 {
-  "version": "v260430.06 9:45p",
-  "release": 149,
-  "sha": "b93b59c",
-  "fullSha": "b93b59cf3b80458c40dd06ee1505fc40e3ebb105",
+  "version": "v260430.07 9:48p",
+  "release": 150,
+  "sha": "b20f14e",
+  "fullSha": "b20f14ec1d99754f942cb402cd7879d452792a88",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervmeorf1",
-  "pushedAt": "2026-05-01 02:45:29+00",
-  "commits": [{"sha":"b93b59c","message":"docs(ipitch): correct SoHo House valuation from $15B to $2B","author":"Paca"}]
+  "pushedAt": "2026-05-01 02:48:05+00",
+  "commits": [{"sha":"b20f14e","message":"docs: move sohocompare into /docs/, link from ipitch, refine valuation","author":"Paca"}]
 }
