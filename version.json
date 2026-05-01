@@ -1,12 +1,12 @@
 {
-  "version": "v260430.07 9:48p",
-  "release": 150,
-  "sha": "b20f14e",
-  "fullSha": "b20f14ec1d99754f942cb402cd7879d452792a88",
+  "version": "v260501.01 12:44p",
+  "release": 151,
+  "sha": "63fe385",
+  "fullSha": "63fe385cc0b6e5817bd24e9d18e9b095b9895ad0",
   "actor": "rsonnad",
   "source": "github-main-push",
   "model": "ci",
   "machine": "runnervmeorf1",
-  "pushedAt": "2026-05-01 02:48:05+00",
-  "commits": [{"sha":"b20f14e","message":"docs: move sohocompare into /docs/, link from ipitch, refine valuation","author":"Paca"}]
+  "pushedAt": "2026-05-01 17:44:00+00",
+  "commits": [{"sha":"63fe385","message":"feat(relations): unified CRM at /in/relations for fundraising, location partners, staff recruiting","author":"Rahul"}]
 }
